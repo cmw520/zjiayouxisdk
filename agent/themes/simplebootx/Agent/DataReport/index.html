@@ -1,0 +1,113 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <style >
+                #queryForm .row {
+                    margin: 10px 0;
+                    width: 960px;
+                }
+
+                #queryForm .row input {
+                    /*width:150px;*/
+                }
+            </style >
+
+            <div class="page-right my-game query-records" >
+                <form class="form-inline" role="form" id="queryForm" action="__SELF__" method="get" >
+                    <div class="input-content" style='height:120px;' >
+                        <div class="container " style="width:960px;" >
+                            <div class="row" >
+                                <div class="col-xs-6" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >渠道名称  </span >
+                                        <input type="text" class="form-control" name="agent_name"
+                                               value="{$formget.agent_name}" />
+                                    </div >
+                                </div >
+                                <div class="col-xs-6" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >充值游戏  </span >
+                                        <input type="text" class="form-control" name="game_name"
+                                               value="{$formget.game_name}" />
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="row" >
+                                <div class="col-xs-6" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" > 时间      </span >
+                                        <input class="form-control" id="stime" name="start_time" type="text"
+                                               value="{$formget.start_time}" style="width:120px;"
+                                               placeholder="开始时间"
+                                               onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd'})" >
+                                        <input class="form-control" id="etime" name="end_time" type="text"
+                                               value="{$formget.end_time}" style="width:120px;"
+                                               placeholder="结束时间"
+                                               onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd'})" >
+                                    </div >
+                                </div >
+                                <div class='col-xs-2' >
+                                    <button class="btn btn-success" id="search-btn" >搜索</button >
+                                </div >
+                                <div class='col-xs-2' >
+                                    <input type="submit" name="submit" value="导出数据" class="btn btn-success" />
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <!--<span class="game-num">共找到<i>{$n}</i>个记录</span>-->
+                    </div >
+                    <div class="table-content registration-details" >
+                        <table class="table table-hover" >
+                            <tbody >
+                            <tr >
+                                <th >时间</th >
+                                <th >渠道名称</th >
+                                <th >游戏</th >
+                                <th >新增用户</th >
+                                <th >活跃用户</th >
+                                <th >充值金额</th >
+                                <th >充值人数</th >
+                                <th >付费率</th >
+                            </tr >
+                            <volist name='items' id='vo' >
+                                <tr >
+                                    <td >{$vo.date}</td >
+                                    <td >{$vo.agent_name}</td >
+                                    <td >{$vo.game_name}</td >
+                                    <td >{$vo.new_user_cnt}</td >
+                                    <td >{$vo.active_user_cnt}</td >
+                                    <td >{$vo.charge_amount}</td >
+                                    <td >{$vo.pay_user_cnt}</td >
+                                    <td >{$vo.pay_rate}</td >
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$page}</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+
+<!--页脚-->
+<agenttpl file="footer" />
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+<script >
+
+</script >
+
+

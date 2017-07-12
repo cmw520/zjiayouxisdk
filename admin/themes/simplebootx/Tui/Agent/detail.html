@@ -1,0 +1,207 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap jj" >
+    <div class="common-form" >
+        <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Tui/Agent/man')}" target="_self" >渠道列表</a ></li >
+            <li class="active" ><a href="#" target="_self" >渠道详情</a ></li >
+        </ul >
+        <table class="table table-bordered table-hover" style="width:800px;" >
+            <tr >
+                <th >渠道账号</th >
+                <th >状态</th >
+                <th >渠道名称</th >
+                <th >创建时间</th >
+
+                <th >父渠道</th >
+            </tr >
+            <tr >
+                <td >{$data.user_login}</td >
+                <td >{$data.user_status_txt}</td >
+                <td >{$data.agent_name}</td >
+                <td >{$data.create_time}</td >
+
+                <td >
+
+                    {$data.parent_agent_name}
+                    <if condition="$data.ownerid neq '1'" >
+                        <button class='btn btn-success edit_parent_btn' >修改父渠道</button >
+                    </if >
+                </td >
+            </tr >
+        </table >
+
+        <style >
+            #edit_form input[disabled='disabled'] {
+                background-color: #FFFFFF;
+                border-bottom: 1px solid #CCCCCC;
+            }
+        </style >
+        <table class="table table-bordered table-hover" id="edit_form" style="width:800px;" >
+            <tr >
+                <td >联系人</td >
+                <td ><input type="text" name="link_man" value="{$data.link_man}" /></td >
+                <td >
+                    <button >修改</button >
+                </td >
+            </tr >
+            <tr >
+                <td >电话</td >
+                <td ><input type="text" name="mobile" value="{$data.mobile}" /></td >
+                <td >
+                    <button >修改</button >
+                </td >
+            </tr >
+            <tr >
+                <td >QQ</td >
+                <td >
+                    <input type="text" name="qq" value="{$data.qq}" />
+                </td >
+                <td >
+                    <button >修改</button >
+                </td >
+            </tr >
+            <tr >
+                <td >登陆密码</td >
+                <td >
+                    <input type="password" name="loginpwd" />
+                </td >
+                <td >
+                    <button >修改</button >
+                </td >
+            </tr >
+            <tr >
+                <td >支付密码</td >
+                <td >
+                    <input type="password" name="paypwd" />
+                </td >
+                <td >
+                    <button >修改</button >
+                </td >
+            </tr >
+        </table >
+
+        登陆记录
+        <table class="table table-bordered table-hover" style="width:800px;" >
+            <tr >
+                <th >后台登陆时间</th >
+                <th >登陆IP</th >
+            </tr >
+            <volist name='login_items' id='vo' >
+                <tr >
+                    <td >{$vo.login_time|date="Y-m-d H:i:s",###}</td >
+                    <td >{$vo.login_ip}</td >
+                </tr >
+            </volist >
+        </table >
+        <div class="pagination" >{$login_page}</div >
+    </div >
+</div >
+
+<style >
+    .funcs {
+        padding: 0 0 10px 0;
+    }
+
+    .pop_up_form_div {
+        width: 300px;
+        padding: 20px 20px 40px 20px;
+    }
+
+    .pop_up_form_div .row {
+        width: 300px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pop_up_form_div input[type='text'], .pop_up_form_div input[type='password'] {
+        width: 280px;
+    }
+
+    .pop_up_form_submit_btn {
+        width: 300px;
+    }
+
+    input[disabled='disabled'] {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #CCCCCC;
+    }
+
+</style >
+
+<div class="pop_up_form_div container" id='give_agent' style="display:none;" >
+    <form id='popup_form' method='post' onsubmit='return false;' >
+        <div class="row" >
+            <div class="col-md-4" >选择渠道</div >
+            <div class="col-md-8" >
+                {$agent_select}
+            </div >
+        </div >
+
+        <div class="row" >
+            <button class="btn btn-success pop_up_form_submit_btn" data-agentid="{$data.id}" id='agent_submit_btn'
+                    style="margin-top:20px;" >确认
+            </button >
+        </div >
+    </form >
+</div >
+
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    var agent_id = "{$data.id}";
+    $("#edit_form input").attr("disabled", "disabled");
+    $("#edit_form button").click(function () {
+        var se        = $(this).parent("td").prev("td").children("input");
+        var prev_attr = se.attr("disabled");
+        if (prev_attr === "disabled") {
+            se.removeAttr("disabled");
+        } else {
+            var value = se.val();
+            var name  = se.attr("name");
+
+            var url  = "{:U('Tui/Agent/editinfo_post')}";
+            var data = {"name": name, "value": value, "agent_id": agent_id};
+            $.post(url, data, function (res) {
+                if (res.error === '0') {
+                    yxalert("修改成功");
+                    reload_delay();
+                } else if (res.error === '1') {
+                    yxalert(res.msg);
+                }
+            });
+        }
+
+    });
+
+    $(".edit_parent_btn").click(function () {
+        layer.open({
+            type   : 1,
+            shift  : 2,
+            area   : '350px',
+            title  : "修改父渠道",
+            content: $('#give_agent'),
+            cancel : function (index) {
+                layer.close(index);
+            }
+        });
+    });
+
+    $("#agent_submit_btn").click(function () {
+        var agent_id = $(this).attr("data-agentid");
+        var owner_id = $(".pop_up_form_div select").val();
+//            alert(agent_id+" "+owner_id);
+        var data     = {"agent_id": agent_id, "ownerid": owner_id};
+        var url      = "{:U('Tui/Agent/change_parent_agent')}";
+        $.post(url, data, function (res) {
+            if (res.error === '0') {
+                yxalert("修改成功");
+                reload_delay();
+            } else if (res.error === '1') {
+                yxalert(res.msg);
+            }
+        });
+    });
+</script >
+</body >
+</html>

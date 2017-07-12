@@ -1,0 +1,147 @@
+<agenttpl file="user_center_header" />
+<style >
+    .modify-pay-pwd .modify-pwd-content .img-code .code-img {
+        border: none;
+    }
+</style >
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right fc—modify-pwd modify-pay-pwd  modifyBindPhone"
+                 style="height: 760px;*height: 770px;" >
+                <div class="breadcrumb-navigation" >
+                    <ul >
+                        <li >安全中心<span >&gt;</span ></li >
+                        <li class="on" >修改绑定手机号码</li >
+                    </ul >
+                </div >
+                <div class="modify-pwd-content content-1" >
+                    <input type="hidden" id="ctx" value="" >
+                    <div class="title" ></div >
+                    <div class="binding-mobile" >
+                        <span >已绑定手机：</span >
+                        <ul >
+                            <li id="bindPhone"
+                                style="height: 30px;line-height: 30px;color: #333333;font-weight: bold;" > {$user.mobile}
+                            </li >
+                        </ul >
+                    </div >
+                    <div class="fill-mobile-code" >
+                        <span >请填写手机验证码：</span >
+                        <input type="hidden" id="mobilecode" value="" >
+                        <ul >
+                            <li style="height: 32px;" ><input id="phonecode1" type="text" >
+                                <div id="showPhoneCode" class="get-mobile-code" >获取手机验证码</div >
+                            </li >
+                            <li class="error-note" >手机验验证码输入有误</li >
+                        </ul >
+                    </div >
+                    <div class="next-btn" >下一步</div >
+                </div >
+
+                <div class="modify-pwd-content content-2" style="display:none;" >
+                    <div class="title" ></div >
+                    <div id="friendship-remind" >
+                        <div class="friendship-remind" >
+                            <ul >
+                                <li class="li-1" >启用支付密码后，将在如下环节通过支付密码对您进行身份认证，确保您的资金安全，请您确认！</li >
+                                <li >·&nbsp;&nbsp;使用余额提现时</li >
+                                <li >·&nbsp;&nbsp;余额兑换{:C(CURRENCY_NAME)}时</li >
+                                <li >·&nbsp;&nbsp;游戏玩家充值时</li >
+                            </ul >
+                        </div >
+                        <div style="margin:20px 0 20px 20px;" >
+                            <span >新手机号：</span >
+                            <input type="text" name="newphone" id="newphone" value="" >
+                        </div >
+                        <div class="confirm-btn" >确认</div >
+                    </div >
+                    <span class="display" >
+                    <div class="binding-mobile" >
+                        <span >绑定手机：</span >
+                        <ul >
+                            <li ><input type="text" id="binding-mobile" onblur="getPhoneCount()" ></li >
+                            <li class="error-note" >手机号码输入有误</li >
+                        </ul >
+                    </div >
+                    <div class="fill-mobile-code" >
+                        <span >请填写手机验证码：</span >
+                        <input type="hidden" id="mobilecode1" value="" >
+                        <ul >
+                            <li style="height: 32px;" ><input id="phonecode2" type="text" >
+                                <div id="showPhoneCode1" class="get-mobile-code" onclick="huoqu()" >获取手机验证码</div >
+                            </li >
+                            <li class="error-note" >手机验验证码输入有误</li >
+                        </ul >
+                    </div >
+                    <div class="next-btn" >下一步</div >
+                    </span >
+                </div >
+
+                <div class="modify-pwd-content content-3" style="display:none;" >
+                    <div class="title" ></div >
+                    <p class="p-1" >新手机号码绑定成功！</p >
+                    <p class="p-2" >您的账户安全级还能提升哦，去 <a href="security.html" >安全中心</a > 完善其它安全设置吧。 </p >
+                    <p class="p-3" >您还可以马上 <a href="toEditUser.html" >完善结算信息</a ></p >
+                </div >
+            </div >
+        </div >
+
+    </div >
+</section >
+
+<script src="__PUBLIC__/agent/js/toEditPhone.js" ></script >
+<!--<script src="__PUBLIC__/agent/js/xhr_header_footer.js"></script>-->
+<script >
+    succAsideID("security");
+    $("#showPhoneCode").live("click", function Code() {
+        _getCode("#showPhoneCode", 30, Code, 1000, ".error-note");
+        sendData("{:U('Agent/ucenter/change_phone_post')}", {"phone": $("#bindPhone").html()}, function (data) {
+//        yxalert($("#bindPhone").html());
+//        yxalert(data.msg);
+            showMsg(".error-note", "已向" + $("#bindPhone").html() + "发送了一条验证码...", "red");
+        });
+    });
+    $(".content-1 .next-btn").live("click", function () {
+        var old_phone = $("#bindPhone").html();
+        var phoneCode = $("#phonecode1").val();
+        if (phoneCode.trim() !== "") {
+            sendData("{:U('Agent/ucenter/change_phone_check_code_post')}", {
+                "phone": old_phone,
+                "code" : phoneCode
+            }, function (data) {
+//            yxalert($("#bindPhone").html());
+//            yxalert(data.msg);                      
+            });
+            $(".modify-pwd-content").eq(1).css("display", "block").siblings().css("display", "none");
+        } else {
+            showMsg(".error-note", "验证码不能为空..")
+        }
+    });
+    $("#friendship-remind .confirm-btn").live("click", function () {
+        var old_phone = $("#bindPhone").html();
+        var newphone  = $("#newphone").val();
+        var phoneCode = $("#phonecode1").val();
+
+        if (phoneCode.trim() !== "") {
+            sendData("{:U('Agent/ucenter/change_phone_post')}", {"newphone": newphone}, function (data) {
+                if (data.error === '1') {
+                    yxalert(data.msg);
+                } else if (data.error === '0') {
+
+                }
+            })
+            $(".modify-pwd-content").eq(1).css("display", "block").siblings().css("display", "none");
+        } else {
+            showMsg(".error-note", "验证码不能为空..")
+        }
+        $(".modify-pwd-content").eq(2).css("display", "block").siblings().css("display", "none");
+    });
+</script >
+
+<agenttpl file="user_center_footer" />

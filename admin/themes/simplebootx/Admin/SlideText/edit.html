@@ -1,0 +1,243 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Admin/SlideText/index')}" >文字列表</a ></li >
+            <li ><a href="{:U('Admin/SlideText/add')}" >添加</a ></li >
+            <li class="active" ><a href="__SELF__" >编辑</a ></li >
+        </ul >
+    
+    <form action="{:U('Admin/SlideText/edit_post')}" method="post" class="form-horizontal js-ajax-forms"
+          enctype="multipart/form-data" >
+        <input type="hidden" name="id" value="{$id}" />
+        <div class="row-fluid" >
+            <div class="span9" >
+                <table class="table table-bordered" >
+                    <tr >
+                        <th width="80" >分类</th >
+                        <td >
+                            <select name="slide_cid" >
+                                <foreach name="categorys" item="vo" >
+                                    <php >$cid_selected=$slide_cid==$vo['cid']?"selected":"";</php >
+                                    <option value="{$vo.cid}" {$cid_selected} >{$vo.cat_name}</option >
+                                </foreach >
+                            </select >
+                        </td >
+                    </tr >
+                    <tr >
+                        <th width="80" >目标类型</th >
+                        <td >
+                            <input type="radio" name="type_id" value="1" checked="checked" />链接
+                            <input type="radio" name="type_id" value="2" />游戏
+                            <input type="radio" name="type_id" value="3" />礼包
+                            <input type="radio" name="type_id" value="4" />代金卷
+                        </td >
+                    </tr >
+                        
+                        
+                    
+                    <tr class="target_content_area" >
+                            <th >链接</th >
+                            <td ><input type="text" name="slide_url" value="{$slide_url}" style="width: 400px" ></td >
+                        </tr >
+                        <tr class="target_content_area" style="display:none;" >
+                            <th width="80" >游戏</th >
+                            <td >
+                                {$app_select_area}
+                                
+                            </td >
+                        </tr >
+                        <tr class="target_content_area" style="display:none;" >
+                            <th width="80" >礼包</th >
+                            <td >
+                                {$gift_select_area}
+                            </td >
+                        </tr >
+                         <tr class="target_content_area" style="display:none;" >
+                            <th width="80" >代金卷</th >
+                            <td >
+                                {$coupon_select_area}
+                            </td >
+                        </tr >
+                        
+                        
+                    <tr >
+                        <th width="80" >标题</th >
+                        <td >
+                            <input type="text" style="width: 400px;" name="slide_name" value="{$slide_name}"
+                                   placeholder="请输入标题" />
+                            <span class="form-required" >*</span >
+                            <input type="hidden" name="slide_id" value="{$slide_id}" />
+                        </td >
+                    </tr >
+                    <!--       <tr>
+                               <th width="80">描述</th>
+                               <td><input type="text" name="slide_des" value="{$slide_des}" style="width: 400px"></td>
+                           </tr>
+                           <tr>
+                               <th width="80">幻灯片内容</th>
+                               <td><textarea name="slide_content" id="description" style="width: 98%; height: 200px;">{$slide_content}</textarea></td>
+                           </tr>-->
+                </table >
+            </div >
+        </div >
+        <div class="form-actions" >
+            <button class="btn btn-primary js-ajax-submit" type="submit" >提交</button >
+            <a class="btn" href="{:U('Admin/SlideText/index')}" >返回</a >
+        </div >
+    </form >
+</div >
+<script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+<script type="text/javascript" >
+   
+    
+    $("input[name='type_id']").change(function () {
+        var index = $(this).index();
+        $(".target_content_area").hide();
+        $(".target_content_area").eq(index).show();
+
+        $(".target_content_area").eq(1).children("td").children("select").attr("name", "app_id");
+        $(".target_content_area").eq(2).children("td").children("select").attr("name", "gift_id");
+        $(".target_content_area").eq(3).children("td").children("select").attr("name", "coupon_id");
+
+        $(".target_content_area").eq(index).children("td").children("select").attr("name", "target_id");
+    });
+
+    var type_id = "{$type_id}";
+    console.log(type_id);
+    if (type_id >= 2) {
+        $("input[name='type_id']").eq(type_id - 1).click();
+    }
+
+    $(function () {
+        $(".js-ajax-close-btn").on('click', function (e) {
+            e.preventDefault();
+            Wind.use("artDialog", function () {
+                art.dialog({
+                    id        : "question",
+                    icon      : "question",
+                    fixed     : true,
+                    lock      : true,
+                    background: "#CCCCCC",
+                    opacity   : 0,
+                    content   : "您确定需要关闭当前页面嘛？",
+                    ok        : function () {
+                        setCookie("refersh_time", 1);
+                        window.close();
+                        return true;
+                    }
+                });
+            });
+        });
+        /////---------------------
+        Wind.use('validate', 'ajaxForm', 'artDialog', function () {
+            //javascript
+
+            var form = $('form.js-ajax-forms');
+            //ie处理placeholder提交问题
+            if ($.browser.msie) {
+                form.find('[placeholder]').each(function () {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                    }
+                });
+            }
+            //表单验证开始
+            form.validate({
+                //是否在获取焦点时验证
+                onfocusout   : false,
+                //是否在敲击键盘时验证
+                onkeyup      : false,
+                //当鼠标掉级时验证
+                onclick      : false,
+                //验证错误
+                showErrors   : function (errorMap, errorArr) {
+                    //errorMap {'name':'错误信息'}
+                    //errorArr [{'message':'错误信息',element:({})}]
+                    try {
+                        $(errorArr[0].element).focus();
+                        art.dialog({
+                            id        : 'error',
+                            icon      : 'error',
+                            lock      : true,
+                            fixed     : true,
+                            background: "#CCCCCC",
+                            opacity   : 0,
+                            content   : errorArr[0].message,
+                            cancelVal : '确定',
+                            cancel    : function () {
+                                $(errorArr[0].element).focus();
+                            }
+                        });
+                    } catch (err) {
+                    }
+                },
+                //验证规则
+                rules        : {
+                    'slide_name': {
+                        required: 1
+                    }
+                },
+                //验证未通过提示消息
+                messages     : {
+                    'slide_name': {
+                        required: '请输入标题'
+                    }
+                },
+                //给未通过验证的元素加效果,闪烁等
+                highlight    : false,
+                //是否在获取焦点时验证
+                onfocusout   : false,
+                //验证通过，提交表单
+                submitHandler: function (forms) {
+                    $(forms).ajaxSubmit({
+                        url         : form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                        dataType    : 'json',
+                        beforeSubmit: function (arr, $form, options) {
+
+                        },
+                        success     : function (data, statusText, xhr, $form) {
+                            if (data.status) {
+                                setCookie("refersh_time", 1);
+                                //添加成功
+                                Wind.use("artDialog", function () {
+                                    art.dialog({
+                                        id        : "succeed",
+                                        icon      : "succeed",
+                                        fixed     : true,
+                                        lock      : true,
+                                        background: "#CCCCCC",
+                                        opacity   : 0,
+                                        content   : data.info,
+                                        button    : [{
+                                            name    : '继续编辑？',
+                                            callback: function () {
+                                                reloadPage(window);
+                                                return true;
+                                            },
+                                            focus   : true
+                                        }, {
+                                            name    : '返回列表',
+                                            callback: function () {
+                                                location.href = "{:U('Admin/SlideText/index')}";
+                                                return true;
+                                            }
+                                        }]
+                                    });
+                                });
+                            } else {
+                                isalert(data.info);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        ////-------------------------
+    });
+</script >
+</body >
+</html>

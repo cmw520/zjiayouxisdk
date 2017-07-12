@@ -1,0 +1,82 @@
+﻿<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap jj" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Gmagent/chargeSub')}" >给下级代理充值平台币</a ></li >
+    </ul >
+    <div class="common-form" >
+        <form method="post" class="form-horizontal" action="{:U('Gmagent/chargeSub_post')}" >
+            <fieldset >
+                <input type="hidden" id="takeclass" class="radio" name="takeclass" value="1" />
+                <div class="control-group" >
+                    <label class="control-label" >您的当前余额:</label >
+                    <div class="controls" >
+
+                        {$balance}
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >请填写账号:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="username" id="username" value="" >
+                        <span id="usernamespan" style="color:#0000FF;display:none;" >账号不存在</span >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >下级代理帐号余额:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="balance" disabled="disabled" id="balance" value="" >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >请填写充值金额:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="amount" id="amount" value="" autocomplete="off" >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >支付密码:</label >
+                    <div class="controls" >
+                        <input type="password" class="input" name="paypwd" value="" autocomplete="off" >
+                    </div >
+                </div >
+                <div id="notice" style="width:400px;float:left;height:20px;color:red;margin-left:200px;" ></div >
+            </fieldset >
+            <div class="form-actions" >
+                <button type="submit" class="btn btn-primary btn_submit" >确认</button >
+            </div >
+        </form >
+    </div >
+</div >
+<style >
+    #balance {
+        background-color: #FFFFFF;
+        color: blue;
+        border-bottom: 1px solid #CCCCCC;
+    }
+</style >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    //            var balance_now={$balance};
+    //            var amount=$("#amount").val();
+    //            if(balance_now<amount){
+    //                yxalert("余额不足，请充值");
+    //                return;
+    //            }
+    $("#username").change(function () {
+        var name = $("#username").val();
+
+        $.post("{:U('Agentmoney/Gmagent/getBalance_post')}", {"name": name}, function (data) {
+            if (data.error === '0') {
+                $("#notice").text("");
+                $("#balance").val(data.msg);
+            } else {
+                $("#notice").text(data.msg);
+            }
+
+        });
+    });
+</script >
+</body >
+</html>

@@ -1,0 +1,34 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Content/PostCate/index')}" target="_self" >文章分类管理</a ></li >
+        <li class="active" ><a href="{:U('Content/PostCate/add')}" target="_self" >添加文章分类</a ></li >
+    </ul >
+    <form method="post" class="form-horizontal js-ajax-form" action="{:U('Content/PostCate/add_post')}"
+          enctype="multipart/form-data" >
+        <fieldset >
+            <div class="control-group" >
+                <label class="control-label" >名称:</label >
+                <div class="controls" >
+                    <input type="text" name="name" value="{$data['name']}" />
+                </div >
+            </div >
+
+            <div class="control-group" >
+                <label class="control-label" >图标:</label >
+                <div class="controls" >
+                    <input type="file" name="image" />
+                </div >
+            </div >
+        </fieldset >
+        <div class="form-actions" >
+            <button type="submit" class="btn btn-primary" >{:L('ADD')}</button >
+            <a class="btn" href="{:U('Content/PostCate/index')}" >{:L('BACK')}</a >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

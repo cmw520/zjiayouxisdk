@@ -1,0 +1,165 @@
+.bankarea ul li {float: left;padding: 5px 0;width: 200px;vertical-align: middle;}
+.bankarea ul,.bankarea div {overflow: hidden;_zoom: 1;display:none;}
+.paybtnarea {padding: 10px 0 10px 200px;}
+.payselect {width: 80px;height: 30px;line-height: 30px;font-size: 14px;}
+.bankarea ul li label {
+	position: relative;
+	vertical-align: middle;
+	display: inline-table;
+	* zoom: 1;
+	* display:inline;
+	text-indent: -9999px;
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	background: url(http://pic.ofcard.com/themes/images/payimg.png) right bottom no-repeat;
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+.bankarea ul li label.current {
+	border: 1px solid #f60;
+}
+.bankarea ul li input.current + label {
+	border: 1px solid #f27e31;
+}
+.bankarea ul li label:hover {
+	border: 1px solid #f4e5db;
+}
+.bankarea ul li input {vertical-align: middle;}
+.bankarea ul li label div {
+	display: none;
+}
+.bankarea ul li label.crediticbc,.bankarea ul li label.icbc {
+	background-position: -709px -208px;
+}
+.bankarea ul li label.creditcmbchina,.bankarea ul li label.cmbchina {
+	background-position: -709px 4px;
+}
+.bankarea ul li label.creditccb,.bankarea ul li label.ccb {
+	background-position: -709px -137px;
+}
+.bankarea ul li label.creditbankcomm,.bankarea ul li label.bankcomm {
+	background-position: -709px -66px;
+}
+.bankarea ul li label.creditabchina,.bankarea ul li label.abchina {
+	background-position: -567px -208px;
+}
+.bankarea ul li label.credithxb,.bankarea ul li label.hxb {
+	background-position: -284px -139px;
+}
+.bankarea ul li label.creditspdb,.bankarea ul li label.spdb {
+	background-position: -426px -139px;
+}
+.bankarea ul li label.creditcmbc,.bankarea ul li label.cmbc {
+	background-position: -567px -66px;
+}
+.bankarea ul li label.creditcib,.bankarea ul li label.cib {
+	background-position: -142px -210px;
+}
+.bankarea ul li label.creditcebbank,.bankarea ul li label.cebbank {
+	background-position: -142px 3px;
+}
+.bankarea ul li label.creditgdb,.bankarea ul li label.gdb {
+	background-position: -426px -210px;
+}
+.bankarea ul li label.creditpingan,.bankarea ul li label.pingan {
+	background-position: -142px -71px;
+}
+.bankarea ul li label.creditbankofshanghai,.bankarea ul li label.bankofshanghai {
+	background-position: -70px -284px;
+}
+.bankarea ul li label.creditecitic,.bankarea ul li label.ecitic {
+	background-position: -284px 1px;
+}
+.bankarea ul li label.credithkbea,.bankarea ul li label.hkbea {
+	background-position: 0px -68px;
+}
+.bankarea ul li label.sdb {
+	background-position: -426px -66px;
+}
+.bankarea ul li label.bankofchina {
+	background-position: -567px 3px;
+}
+.bankarea ul li label.gzcb {
+	background-position: -142px -137px;
+}
+.bankarea ul li label.chinabank {
+	background-position: -142px -280px;
+}
+.bankarea ul li label.drcnet {
+	background-position: -px -px;
+}
+.bankarea ul li label.bankofbeijing {
+	background-position: 0px 3px;
+}
+.bankarea ul li label.sdebank {
+	background-position: -426px 3px;
+}
+.bankarea ul li label.nbcb {
+	background-position: -426px -423px;
+}
+.bankarea ul li label.hsbank {
+	background-position: -709px -564px;
+}
+.bankarea ul li label.czbank {
+	background-position: -709px -423px;
+}
+.bankarea ul li label.cbhb {
+	background-position: -284px -279px;
+}
+.bankarea ul li label.bankofshanghai {
+	background-position: 3px -279px;
+}
+.bankarea ul li label.postbank {
+	background-position: -284px -213px;
+}
+.bankarea ul li label.bjrcb {
+	background-position: -426px -279px;
+}
+.bankarea ul li label.njcb {
+	background-position: -567px -281px;
+}
+.bankarea ul li label.hccb {
+	background-position: -709px -281px;
+}
+.bankarea ul li label.zfb {
+	background-position: -567px -350px;
+}
+.bankarea ul li label.zfbfree {
+	background-position: -567px -426px;
+}
+.bankarea ul li label.tenpay {
+	background-position: -426px -352px;
+}
+.bankarea ul li label.baifubao {
+	background-position: 0px -421px;
+}
+.bankarea ul li label.k99bill {
+	background-position: -709px -352px;
+}
+.bankarea ul li label.yeepay {
+	background-position: -142px -421px;
+}
+.bankarea ul li label.lakala {
+	background-position: 0px -350px;
+}
+.bankarea ul li label.soopay {
+	background-position: -284px -421px;
+}
+.bankarea ul li label.ips {
+	background-position: -284px -350px;
+}
+.bankarea ul li label.udpay {
+	background-position: -142px -352px;
+}
+.bankarea ul#pay3 li label,.bankarea ul li label.chinamobile {
+	background: none;
+	text-indent: 0;
+}
+#bankinfo {
+	border-color: #efcdb7;
+	background: #fdf3ec;
+}
+#bankinfo .orange {
+	color: #e1610c;
+}

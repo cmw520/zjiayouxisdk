@@ -1,0 +1,117 @@
+<admintpl file="header" />
+<link href="__PUBLIC__/simpleboot/themes/{:C('SP_ADMIN_STYLE')}/theme.min_3.css" rel="stylesheet" >
+<div class="container_3d">
+<form method="post" enctype="multipart/form-data" class=" "
+
+              action="{:U('Game3d/edit_post')}" >
+   <table class="table_3d" cellspacing="20" >
+            <tr style="margin-top:80px;" >
+
+                        <th >默认视差效果：</th >
+
+                        <td style="text-align: left;">
+                        
+                       		 <ul class="lanren">
+								<li><span id="title">0</span>
+									<div class="scale_panel">
+										<span class="r">100</span>0
+										<div class="scale" id="bar">
+											<div></div>
+											<span id="btn"></span>
+										</div>
+									</div>
+								</li>
+							</ul>
+							
+						</td >
+
+                        <input type="hidden" name="appid" value="{$game_id}" >
+                        <input type="hidden" name="default_parallax" id="default_parallax" value="">
+
+            </tr >
+             <tr >
+
+                        <th >上传配置文件：</th >
+
+                        <td style="text-align: left;"><input type="file" name="conf" id="conf"></td >
+
+                        
+
+            </tr >
+             <tr >
+
+                        <th > <input type="button" value="取消" class='btn' id="reset"></th >
+
+                        <td ><button class="btn btn-primary js-ajax-submit" >保存</button ></td >
+
+                        
+
+            </tr >
+   </table>
+   </form >
+</div>
+<div>
+<p></p>
+  <table class="table_3d_ef" border= “1”>
+      <thead>
+    <tr>
+      <th>场景ID</th>
+      <th>相机方式</th>
+      <th>双眼距</th>
+      <th>交平面距离</th>
+    </tr>
+  </thead>
+
+ 
+
+  <tbody>
+  <volist name="game" id="game">
+    <tr>
+      <td>{$game.scene_id}</td>
+      <td>{$game.camera_method}</td>
+      <td>{$game.eyes_distance}</td>
+      <td>{$game.plane_distance}</td>
+    </tr>
+  </volist>
+  </tbody>
+  </table>
+</div>
+
+<script>
+var scale = function (btn,bar,title){
+	this.btn=document.getElementById(btn);
+	this.bar=document.getElementById(bar);
+	this.title=document.getElementById(title);
+	this.step=this.bar.getElementsByTagName("div")[0];
+	this.init();
+};
+scale.prototype={
+	init:function (){
+		var f=this,g=document,b=window,m=Math;
+		f.btn.onmousedown=function (e){
+			var x=(e||b.event).clientX;
+			var l=this.offsetLeft;
+			var max=f.bar.offsetWidth-this.offsetWidth;
+			g.onmousemove=function (e){
+				var thisX=(e||b.event).clientX;
+				var to=m.min(max,m.max(-2,l+(thisX-x)));
+				f.btn.style.left=to+'px';
+				f.ondrag(m.round(m.max(0,to/max)*100),to);
+				b.getSelection ? b.getSelection().removeAllRanges() : g.selection.empty();
+			};
+			g.onmouseup=new Function('this.onmousemove=null');
+		};
+	},
+	ondrag:function (pos,x){
+		this.step.style.width=Math.max(0,x)+'px';
+		this.title.innerHTML=pos+'%';
+		$("#default_parallax").val(pos);
+	}
+}
+new scale('btn','bar','title');
+$("#reset").click(function(){
+$("#conf").val("");
+window.location.reload();
+
+})
+</script>

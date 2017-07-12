@@ -1,0 +1,29 @@
+<div class="container inner_container" >
+    <div class="row page_top_title_banner" >
+        <h2 >公司动态</h2 >
+    </div >
+    <div class="row" style="margin-top:20px;margin-bottom:20px;" >
+        <div class="col-md-3" style="min-height:200px;background-color:#00AAEE;" >
+            <p style="font-size:32px;color:#FFFFFF;padding-top:50px;" >新闻<br />//NEWS</p >
+        </div >
+        <div class="col-md-8 col-md-offset-1" >
+
+            <div class="row" style="border-bottom:1px dashed #CCCCCC;padding:10px 0;" ng-repeat="value in list" >
+                <div class="col-md-2"
+                     style="min-height:30px;padding:10px;background-color:#00AAEE;color:#FFFFFF;" >{{value.time}}
+                </div >
+                <div class="col-md-10" >
+                    <div class="row" >
+                        <div class="col-md-12" style="font-size:16px;" >
+                            <!--<a href="index.html#/view_news/{{value.id}}">-->
+                            {{value.title}}
+                            <!--</a>-->
+                        </div >
+                        <div class="col-md-12" style="padding-top:10px;font-size:12px;" >{{value.content}}</div >
+                    </div >
+                </div >
+            </div >
+
+        </div >
+    </div >
+</div >

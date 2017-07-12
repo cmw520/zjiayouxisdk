@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <title >玩家注册</title >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/css/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+    <style >
+        .form-signin {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+
+        .form-signin .checkbox {
+            font-weight: normal;
+        }
+
+        .form-signin .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+        .form-signin input[type="text"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[name="pwd"] {
+            margin-bottom: -1px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[name="confirm"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        #notice {
+            display: none;
+        }
+    </style >
+</head >
+<body style="background-color:#007FFF;" >
+<form id="login_form" class="form-signin" method="post" action="" onsubmit="return false;"
+      style="background-color:#FFFFFF;border-radius:5px;" >
+    <h2 class="form-signin-heading" >{:C('BRAND_NAME')}玩家注册</h2 >
+    <p >您将通过渠道 【{$agent_name}】注册</p >
+    <input type="hidden" name="agent_id" value="{$agent_id}" />
+    <input type='text' name='name' class="form-control" placeholder="用户名" required autofocus />
+    <input type='password' name='pwd' class="form-control" placeholder="密码" required autofocus />
+    <input type='password' name='confirm' class="form-control" placeholder="确认密码" required autofocus />
+    <div id="notice" class="alert alert-info" role="alert" ></div >
+    <button id="submit" class="btn btn-lg btn-primary btn-block" >注 册</button >
+</form >
+<script >
+    $("#submit").click(doit);
+    function doit() {
+        var name     = $("input[name='name']").val();
+        var pwd      = $("input[name='pwd']").val();
+        var confirm  = $("input[name='confirm']").val();
+        var agent_id = $("input[name='agent_id']").val();
+        if ($.trim(name) === '') {
+            notice("用户名不能为空", "red");
+            return;
+        }
+        if ($.trim(pwd) === '') {
+            notice("密码不能为空", "red");
+            return;
+        }
+        if ($.trim(confirm) === '') {
+            notice("确认不能为空", "red");
+            return;
+        }
+        if (pwd !== confirm) {
+            notice("两次密码输入不一致", "red");
+            return;
+        }
+        $.post("{:U('Front/mem/reg_post')}", {
+            "name"    : name,
+            "pwd"     : pwd,
+            "confirm" : confirm,
+            "agent_id": agent_id
+        }, function (data) {
+            if (data.error === '0') {
+                notice("恭喜您：" + name + ", 注册成功", "green");
+                $("#login_form")[0].reset();
+            } else if (data.error === '1') {
+                notice(data.msg, "red");
+            }
+        });
+    }
+
+    function notice(msg, color) {
+        $("#notice").show();
+        $("#notice").text(msg);
+        $("#notice").css("color", color);
+    }
+</script >
+</body >
+</html >

@@ -1,0 +1,110 @@
+<agenttpl file="user_center_header" />
+<!--主题内容区域-->
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game security-center" >
+                <!--<div class="search-results" style="min-height: 585px; margin-top:50px;">-->
+                <style >
+                    .main_content_area {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        font-size: 14px;
+                    }
+
+                    .main_content_area .row {
+                        margin: 20px 0;
+                        border-bottom: 1px solid #EEEEEE;
+                        padding: 10px 0;
+                    }
+
+                    .main_content_area .row a {
+                        width: 80px;
+                    }
+
+                    .main_content_area .row:last-of-type {
+                        border: none;
+                    }
+
+                    .main_content_area h4 {
+                        color: #007FFF;
+                    }
+
+                    .main_content_area i {
+                        margin-right: 10px;
+                        font-size: 24px;
+                        width: 40px;
+                    }
+                </style >
+
+                <div class="container" style="width:960px;margin-top:30px;" >
+                    <ul class="breadcrumb" >
+                        <li ><a href="{$urls.index}" >首页</a ></li >
+                        <li class="active" >安全中心</li >
+                    </ul >
+                </div >
+                <div class="container main_content_area" style="width:960px;" >
+
+                    <div class="row" >
+                        <div class="col-md-2" >
+                            <h4 ><i class="fa fa-money" ></i >结算信息</h4 >
+                        </div >
+                        <div class="col-md-8" >
+                            提前完善个人资料，我们将提供给您更便捷的使用体验
+                        </div >
+                        <div class="col-md-2" >
+                            <a class="btn btn-success" href="{:U('Agent/UserProfile/index')}" >修改资料</a >
+                        </div >
+                    </div >
+                    <div class="row" >
+                        <div class="col-md-2" >
+                            <h4 ><i class="fa fa-laptop" ></i >登录密码</h4 >
+                        </div >
+                        <div class="col-md-8" >
+                            互联网账号存在被盗风险，建议您定期更改密码以保护账户安全
+                        </div >
+                        <div class="col-md-2" >
+                            <a class="btn btn-success" href="{:U('Agent/ucenter/toEditPass')}" >修改</a >
+                        </div >
+                    </div >
+                    <div class="row" >
+                        <div class="col-md-2" >
+                            <h4 ><i class="fa fa-mobile-phone" ></i >手机验证</h4 >
+                        </div >
+                        <div class="col-md-8" >
+                            您验证的手机：<i style="color:red;" >{$user.mobile}</i > 若已丢失或停用，请立即换绑，避免账户被盗。
+                        </div >
+                        <div class="col-md-2" >
+                            <a class="btn btn-success" href="{:U('Agent/BindPhone/index')}" >换绑</a >
+                        </div >
+                    </div >
+                    <div class="row" >
+                        <div class="col-md-2" >
+                            <h4 ><i class="fa fa-credit-card" ></i >支付密码</h4 >
+                        </div >
+                        <div class="col-md-8" >
+                            账户充值后使用余额时需要使用支付密码，确保账户资金安全。
+                        </div >
+                        <div class="col-md-2" >
+                            <a class="btn btn-success" href="{:U('Agent/ucenter/toCipherCode')}" >设置</a >
+                        </div >
+                    </div >
+                    <div class="row" >
+                        <p style='margin-top:30px;color:red;' >温馨提示：您的结算信息涉及到你的提现安全，请务必保证您的账号安全，定时查看绑定手机是否有异常变动；</p >
+                    </div >
+                </div >
+            </div >
+
+        </div >
+    </div >
+</section >
+<!--页脚-->
+
+</div>
+<agenttpl file="user_center_footer" />
+<script src="__PUBLIC__/agent/js/security.js" ></script >
+

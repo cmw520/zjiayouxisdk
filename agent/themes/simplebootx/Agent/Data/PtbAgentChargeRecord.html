@@ -1,0 +1,79 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .search-results .table-content table tr th {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+
+    .search-results .table-content table tr td {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+                <form id="queryForm" action="{:U('Agent/Data/PtbAgentChargeRecord')}" method="get" >
+                    <div class="input-content" style="height:80px;" >
+                        <div class="pack-time" >
+                            <span >充值时间:</span >
+                            <div id="time-one" ><input id="stime" name="s_time" type="text" value="{$formget.s_time}"
+                                                       onclick="WdatePicker()" ></div >
+                            <span class="to" >至</span >
+                            <div id="time-two" ><input id="etime" name="e_time" type="text" value="{$formget.e_time}"
+                                                       onclick="WdatePicker()" ></div >
+                        </div >
+                        <div class="search-btn" style="margin-top:20px;" >搜 &nbsp;索</div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$num_of_records}</i >个记录</span >
+
+                    </div >
+                    <div class="table-content" >
+                        <table border="0" cellspacing="0" cellpadding="0" >
+                            <tbody >
+                            <tr >
+                                {$table_header}
+                            </tr >
+                            {$table_sum}
+                            {$table_content}
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$Page}</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <script src="__PUBLIC__/agent/js/autoPage.js" ></script >
+            <script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+            <script src="__PUBLIC__/agent/js/mygames.js" ></script >
+            <script >
+                $(".search-btn").live("click", function () {
+                    $("#queryForm").submit();
+                });
+            </script >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />

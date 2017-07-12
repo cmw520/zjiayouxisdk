@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >{:C("AGENT_SITE_NAME")}_手机游戏推广_{:C("AGENT_SITE_NAME")}</title >
+    <meta name="description" content="汇聚最热门手机游戏，是最靠谱的手游广告分成平台，我们有稳定的技术保障，精准的数据统计，高分成、高回报等优势！欢迎使用！" >
+    <meta name="keywords" content="手机游戏推广" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+
+    <script src="__PUBLIC__/agent/index2/jquery-1.11.1.min.js" charset="utf-8" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/lumen/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/index2/index.css" charset="utf-8" >
+</head >
+<body >
+<agenttpl file="header_front" />
+<!--        <style>
+            .header_tabs a{
+                text-decoration: none;
+                color:#333;
+                font-size:14px;
+            }
+            .header_tabs a:hover{
+                
+            }
+            .login_links a{
+                text-decoration: none;
+                color:green;
+            }
+        </style>
+        <header id="header">
+            <div class="main">
+                <span class="line item"></span>
+                <img src="__PUBLIC__/index2/logo.png" class="logo item">
+                <div class="item">
+                    <p class="platName">{:C("AGENT_SITE_NAME")}</p>
+                    <p class="platUrl">{:AGENTSITE}</p>
+                </div>               
+                <div class='header_tabs' style='float:right;margin-top:30px;'>
+                    <a href="{:U('Front/About/notice')}">公告中心</a>
+                </div>
+            </div>
+        </header>-->
+
+<!-- 登录container -->
+<div id="loginContainer" >
+    <!-- 背景图层 -->
+    <div id="background" >
+        <!-- 所有需要切换的内容，放在change里 -->
+        <div class="change" >
+            <volist name="banners" id="vo" >
+                <!--<div class="images activeImage" style="display: block; background: rgb(48, 153, 234);">-->
+                <div class="images activeImage" >
+                    <img class="img" src="{$vo.icon}" >
+                </div >
+            </volist >
+        </div >
+        <!-- 指示器 -->
+        <div class="dots" ><span class="dot active" ></span ><span class="dot" ></span ><span class="dot" ></span ><span
+                class="dot" ></span ></div >
+    </div >
+    <!-- 背景图层 -->
+    <style >
+        .login_container {
+            width: 300px;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            margin-left: 150px;
+            background-color: #FFFFFF;
+            padding-top: 10px;
+        }
+
+        .login_container .row {
+            padding: 5px 20px;
+        }
+    </style >
+
+    <notempty name="user.user_login" >
+
+        <div class="container login_container" >
+
+            <div class="row" style="padding:20px;" >
+                <div style='text-align:center;' >
+                    <img src='__PUBLIC__/agent/img/user_head.png' height='100' style='margin-bottom:20px;' />
+                    <br />
+                    已登录
+                    <a href="{:U('Agent/money/recharge_member')}" style='text-decoration: none;' >个人中心</a >
+                </div >
+            </div >
+    </notempty >
+
+    <empty name="user.user_login" >
+        <div class="container login_container" >
+
+            <div class="row" >
+                <input type="text" name="username" class="form-control" placeholder="用户名" >
+            </div >
+            <div class="row" >
+                <input type="password" name="password" class="form-control" placeholder="密码" >
+            </div >
+            <div class="row" >
+                <input type="text" name="checkcode" class="form-control" placeholder="验证码" >
+            </div >
+            <div class="row" >
+                {:sp_verifycode_img('length=4&font_size=20&width=250&height=40&use_noise=1&use_curve=0','style="cursor: pointer;" title="点击获取"')}
+            </div >
+            <div class="row" >
+                <a href="javascript:;" class="btn btn-success" id="index_login_btn" style="width:100%;" >登录</a >
+            </div >
+            <div class="row" >
+                <div class='login_links' style='margin-top:20px;font-size:12px;' >
+                    <a class="btn btn-link" href="{:U('Front/Account/register')}" style='float:left;' >帐号注册</a >
+                    <a class="btn btn-link" href="{:U('Front/Account/forgetPWD')}" style='float:right;' >找回密码</a >
+                </div >
+            </div >
+
+        </div >
+    </empty >
+</div >
+
+<!-- 第一行 -->
+<div class="main" >
+    <!-- 游戏列表 -->
+    <div id="games" class="wrap" >
+        <div class="header" >
+            <!-- data-href是对应“更多”的链接 -->
+            <a href="javascript:;" data-href="http://www.guopan.cn/xinyou/" class="item active" >最热游戏</a >
+            <!--<a href="javascript:;" data-href="http://www.guopan.cn/xinyou/" class="item">最新</a>-->
+
+            <!--<a href="http://www.guopan.cn/xinyou/" class="more" target="_blank">更多&gt;</a>-->
+
+            <span class="line" style="left: 0px;" ></span >
+        </div >
+        <div class="listWrap" >
+            <div class="lists" style="margin-left: 0%;" >
+                <!-- 第一个列 -->
+                <div class="list" >
+                    <volist name="hot_game" id='vo' >
+                        <a href="http://www.guopan.cn/kdygzz/" target="_blank" class="item" >
+                            <img class="icon" src="{$vo.icon}" >
+                            <span class="name" >{$vo.name}</span >
+                            <span class="text" >上线时间</span >
+                            <span class="time" >{$vo.create_time|date="Y-m-d",###}</span >
+                        </a >
+                    </volist >
+
+                </div >
+                <!-- END 第一个列 -->
+
+                <!-- 第二个列 -->
+                <div class="list" >
+                    <volist name="new_game" id='vo' >
+                        <a href="http://www.guopan.cn/gwydxc/" target="_blank" class="item" >
+                            <img class="icon" src="__PUBLIC__/index2/256_7.png" >
+                            <span class="name" >国王与地下城</span >
+                            <span class="text" >上线时间</span >
+                            <span class="time" >2016-09-14</span >
+                        </a >
+                    </volist >
+
+                </div >
+                <!-- END 第二个列 -->
+            </div >
+        </div >
+    </div >
+    <!-- 开服列表 -->
+    <div id="opens" class="wrap" >
+        <div class="header" >
+            <span class="item active" >开服列表</span >
+            <span class="line" ></span >
+        </div >
+        <ul class="olist content" >
+            <volist name="server_list" id='vo' >
+                <li >
+                    <a href="http://www.guopan.cn/sggl/" target="_blank" title="三国归来" >
+                        <img class="icon" src="{$vo.icon}" />
+                        <span class="name" >{$vo.sername}</span >
+                    </a >
+                    <span class="type" title="角色" >角色</span >
+                    <span class="time" >10/14</span >
+                </li >
+            </volist >
+
+        </ul >
+    </div >
+</div >
+<!-- END 第一行 -->
+
+<!-- 第二行 -->
+<!--         <div id="co-operation" class="main wrap">
+            <div class="header2">
+                <div class="line"></div>
+                <span class="text">公司信息</span>
+            </div>
+            <div class="list">
+                <span class="text">
+                    公司信息简介<br />
+                    公司信息简介<br />
+                    公司信息简介<br />
+                    公司信息简介<br />
+                    公司信息简介<br />
+                </span>
+            </div>
+        </div>-->
+<!-- END 第二行 -->
+
+<!-- 第三行 -->
+<div id="co-operation" class="main wrap" >
+    <div class="header2" >
+        <div class="line" ></div >
+        <span class="text" >合作联系</span >
+    </div >
+    <div class="list" >
+                <span class="text" >
+                    {$contact_txt}
+                </span >
+    </div >
+</div >
+
+<div id="footer" >
+    <p class="links" >
+        <!--                <a href="http://www.guopan.cn/abouts/" target="_blank">关于我们</a>∣
+                        <a href="http://www.guopan.cn/" target="_blank">{:C("AGENT_SITE_NAME")}</a>∣
+                        <a href="http://www.guopan.cn/abouts/#siteMap" target="_blank">网站地图</a>-->
+    </p >
+    <p >{:$company_info['COPYRIGHT']}</p >
+    <p >{:$company_info['WEB_ICP']}</p >
+</div >
+
+<!--        <script src="__PUBLIC__/index2/LANG.js"></script>
+        <script src="__PUBLIC__/index2/universal.js"></script>
+        <script src="__PUBLIC__/index2/md5.js"></script>
+        <script src="__PUBLIC__/index2/API.js"></script>
+
+        <script src="__PUBLIC__/index2/mHelper.js"></script>-->
+
+<script src="__PUBLIC__/index2/index.js" charset="utf-8" ></script >
+
+<script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/agent/js/checkCode.js" ></script >
+<script src="__PUBLIC__/agent/js/demo1.js" ></script >
+
+<script src="__PUBLIC__/3rd/layer/layer.js" ></script >
+<script src="__PUBLIC__/huoshu/share.js" ></script >
+
+<script >
+    function changeVerify() {
+        document.getElementById('verify_img').src = "{:U('Front/checkcode/index')}" +
+                "?length=4&font_size=16&width=250&height=40&use_noise=1&use_curve=0&time=" +
+                Math.random();
+    }
+
+    $("#index_login_btn").click(function () {
+        var userName  = $("input[name='username']").val();
+        var userPass  = $("input[name='password']").val();
+        var checkCode = $("input[name='checkcode']").val();
+        if (((userName) === "") || ((userPass) === "")) {
+            yxnotice("用户名或密码不能为空");
+            return;
+        }
+
+        if ($.trim(checkCode) === "") {
+            yxnotice("验证码不能为空");
+            return;
+        }
+
+        $.post("{:U('Front/account/do_login')}", {"userName": userName, "userPass": userPass, "checkCode": checkCode},
+                function (data) {
+                    if (data.error === '1') {
+                        yxnotice(data.msg);
+                        changeVerify();
+                        return;
+                    } else if (data.error === '0') {
+                        window.location.href = "{:U('Front/Account/index')}";
+                    }
+                });
+    });
+
+</script >
+</body >
+</html >

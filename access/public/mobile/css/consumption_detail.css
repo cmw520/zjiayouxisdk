@@ -1,0 +1,153 @@
+@import "public.css";
+@import "bottom.css";
+
+body {
+    padding-top: 0px;
+    padding-bottom: 80px;
+}
+
+nav {
+    height: 50px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 9999;
+}
+
+nav > ul {
+    height: 50px;
+    line-height: 50px;
+}
+
+nav > ul > li {
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    text-align: center;
+    letter-spacing: 1px;
+    background-color: #FFFFFF;
+}
+
+nav > ul > li > a {
+    display: block;
+    width: 100%;
+    height: calc(100% - 2px);
+    color: #000000;
+    font-size: 16px;
+}
+
+nav > ul > li.active > a {
+    color: #4CBF19;
+    border-bottom: 2px solid #4CBF19;
+}
+
+nav > ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+section > #ajax_idx_more {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    color: #AAAAAA;
+    left: 0px;
+    text-align: center;
+    font-size: 15px;
+}
+
+section > .list_text {
+    position: relative;
+    top: 2px;
+}
+
+section > .list_text > .item {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    padding: 0px 20px;
+    color: #5B5B5B;
+    margin-top: 13px;
+}
+
+section > .list_text > .item > .tenGrayBox {
+    width: 100%;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+
+section > .list_text > .item > li {
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+section > .list_text > .item > li > b {
+    font-size: 16px;
+}
+
+section > .list_text > .item > li > span {
+    font-size: 16px;
+}
+
+section > .list_text > .item > li > span > i {
+    color: red;
+    letter-spacing: 1px;
+}
+
+section > .list_text > .item > li:last-child {
+    border-bottom: 0px;
+}
+
+section > .list_text > .loading_more {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+section > .list_text > .loading_more > .loadBtn {
+    width: 60%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+section > .list_text > .loading_more > .loadBtn > li {
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    color: #AAAAAA;
+}
+
+section > .list_text > .loading_more > .loadBtn > .line {
+    position: relative;
+}
+
+section > .list_text > .loading_more > .loadBtn > .line > b {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #DBDBDB;
+    position: absolute;
+    top: 50%;
+}
+
+section > .list_text > .loading_more > .btn_top {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    display: none;
+}
+
+section > .list_text > .loading_more > .btn_top > img {
+    width: 100%;
+}

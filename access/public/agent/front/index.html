@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>z+游戏</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./static/3rd/artTemplate/template.js"></script>        
+        <script src="./static/3rd/jquery/jquery.js"></script>
+
+        <script src="./static/3rd/bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./static/3rd/bootstrap/css/bootstrap.min.css"/>
+
+        <script src="./static/3rd/swiper/swiper.min.js"></script>
+        <link rel="stylesheet" href="./static/3rd/swiper/swiper.min.css"/>
+
+        <script src="./static/3rd/angular/angular.min.js"></script>
+        <script src="./static/3rd/angular/angular-route.min.js"></script>
+        <script src="./static/3rd/angular/angular-sanitize.js"></script>
+        <!--<script src="./static/yx/main.js"></script>-->
+        
+        <link rel="stylesheet" href="./static/yx/main.css"/>
+        
+        <script src="./static/3rd/layer/layer.js"></script> 
+        <script src="/public/huoshu/share.js"></script> 
+
+    </head>
+    <body >
+        <div ng-app='app'>
+            <div ng-controller="moduleNaviController">
+                <modulenavi></modulenavi>
+            </div>
+            
+            
+
+            <div ng-view style="min-height:500px;">
+            </div>
+      
+            
+            <div ng-controller="moduleFooterController">
+                <modulefooter></modulefooter>
+            </div>
+            
+            <div style="display:none;">
+            </div>
+        </div>
+        <script src="./static/yx/app.js"></script>
+        <script type="text/javascript">
+            
+        </script>
+    </body>
+
+
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html >
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >公告详情</title >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="__ROOT__/favicon.ico" >
+    <link type="image/x-icon" rel="shortcut icon" href="__ROOT__/favicon.ico" >
+
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/css_reset.css" />
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/lumen/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+</head >
+
+<style >
+    .title {
+        text-align: center;
+        color: #00A0E9;
+        font-size: 18px;
+        padding: 5px 0;
+        width: 100%;
+    }
+
+    .time {
+        text-align: center;
+        color: #CCCCCC;
+        font-size: 12px;
+        padding: 5px 0;
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 14px;
+    }
+</style >
+
+<body >
+<div class="main" >
+    <agenttpl file="header_front" />
+    <div class="page-content" >
+        <div class="container" style="width:1000px;background-color:#FFFFFF;padding:50px;min-height:500px;" >
+            <div class="row" >
+                <ul class="breadcrumb" >
+                    <li ><a href="{$urls.front_index}" >首页</a ></li >
+                    <li ><a href="{:U('Front/About/notice')}" >公告中心</a ></li >
+                    <li class="active" >公告内容</li >
+                </ul >
+            </div >
+
+            <div class="row title" >{$data.post_title}</div >
+            <div class="row time" >
+                <?php echo date("Y-m-d H:i:s",$data['post_date']); ?>
+
+            </div >
+            <div class="row content" >{$data.post_content}</div >
+        </div >
+    </div >
+</div >
+</div>
+<agenttpl file="footer" />
+</body >
+</html >

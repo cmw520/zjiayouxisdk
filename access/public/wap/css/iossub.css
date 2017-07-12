@@ -1,0 +1,260 @@
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", "宋体";
+    margin: 0
+}
+
+p, h1, h2 {
+    padding: 0
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+a {
+    text-decoration: none
+}
+
+.banner {
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.cont {
+    width: 320px;
+    margin: 5px auto
+}
+
+.app_info {
+    width: 300px;
+    height: 80px;
+    padding: 0px 10px
+}
+
+.app_icon {
+    width: 50px;
+    height: 50px;
+    float: left
+}
+
+.app_icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.a_info {
+    width: 140px;
+    height: 60px;
+    float: left;
+    margin-left: 10px;
+}
+
+.a_download {
+    float: right;
+}
+
+.a_download a {
+    display: block;
+    width: 60px;
+    background-color: #2EB1AA;
+    color: #FFFFFF;
+    font-size: 11px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 16px;
+    margin-top: 10px;
+    padding: 1px 1px 0px 0px
+}
+
+.warning {
+    float: left;
+    font-size: 11px;
+    color: red
+}
+
+.intro {
+    float: left;
+}
+
+.intro p {
+    font-size: 11px;
+    color: #666666
+}
+
+.app_title {
+    width: 200px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    color: #000000;
+    overflow: hidden
+}
+
+.app_size {
+    width: 220px;
+    height: 25px;
+    line-height: 25px;
+    color: #666666
+}
+
+.app_size b {
+    color: #FFFFFF;
+    background-color: #0CC5B4;
+    font-weight: normal;
+    font-size: 11px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.app_size span {
+    color: #666666;
+    font-size: 11px;
+}
+
+.jietu {
+    width: 302px;
+    padding: 9px 9px 74px 9px;
+    border-top: #CCCCCC solid 0.8px
+}
+
+.jietu_box {
+    width: 302px;
+}
+
+.jietu_box ul {
+    width: 100%;
+}
+
+.jietu_box ul li {
+    width: 240px;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 5px;
+    float: left;
+    display: block;
+    overflow: hidden;
+}
+
+.jietu_box ul li:first-child {
+    margin-left: 0px
+}
+
+.jietu_box ul li div {
+    width: 240px;
+    vertical-align: middle;
+}
+
+.jietu_box img {
+    vertical-align: middle;
+    width: 240px;
+}
+
+.foot {
+    width: 320px;
+    height: 44px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    bottom: 0
+}
+
+.le8 {
+    float: left;
+    width: 50px;
+    padding: 7px 10px
+}
+
+.foot a {
+    float: right;
+    margin-right: 10px;
+    padding: 0px 10px;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 3px;
+    background-color: #0CC5B4;
+    color: #FFFFFF;
+    font-size: 12px
+}
+
+.foot li {
+    float: left;
+    font-size: 12px;
+    color: #FFFFFF;
+    line-height: 17px;
+    width: 170px;
+    padding-top: 4px;
+    margin-left: 0px;
+}
+
+.anniu {
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    background: #FA903E;
+    border-radius: 4px;
+}
+
+.anniu1 {
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 4px;
+    background: #F8F8F8;
+    border: #FD862A dashed 1px
+}
+
+.anniu a, .anniu1 a {
+    display: block;
+    line-height: 38px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px
+}
+
+.complete {
+    width: 100px;
+    height: 36px;
+    background: url("/public/wap/images/arrow.png") no-repeat;
+    background-size: 22%;
+    margin: 0 auto;
+    padding-left: 40px
+}
+
+.complete h2 {
+    line-height: 35px;
+    color: #333333;
+    font-weight: normal
+}
+
+.bottom {
+    width: 320px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    bottom: 44px;
+    padding: 10px 0px
+}
+
+.download {
+    position: fixed;
+    bottom: 0;
+    width: 320px;
+    padding: 8px 0px;
+    background: rgba(255, 255, 255, 0.8)
+}
+
+.download a {
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    height: 39px;
+    background: url(/public/wap/images/button.png) no-repeat;
+    background-size: 100%;
+}

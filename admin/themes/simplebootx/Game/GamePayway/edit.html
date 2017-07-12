@@ -1,0 +1,49 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Sdk/Game/index')}" >游戏列表</a ></li >
+        <li class="active" ><a href="{:U('Game/GamePayway/edit')}" >支付编辑</a ></li >
+    </ul >
+    <form method="post" class="form-horizontal js-ajax-form" action="{:U('Game/GamePayway/edit_post')}" >
+        <fieldset >
+            <div class="control-group" >
+                <label class="control-label" >游戏:</label >
+                <div class="controls" >{$gamename}</div >
+            </div >
+
+            <div class="control-group" >
+                <label class="control-label" >支付:</label >
+                <div class="controls" >
+                    <notempty name="selectdata" >
+                        <foreach name="payways" key="k" item="vo" >
+                            <label class="checkbox inline" >
+                                <php >$role_id_checked=in_array($k,$selectdata)?"checked":"";</php >
+                                <input value="{$k}" type="checkbox" name="paytypeid[]" {$role_id_checked} >{$vo}
+                            </label >
+                        </foreach >
+                    </notempty >
+                    <empty name="selectdata" >
+                        <foreach name="payways" key="k" item="vo" >
+                            <label class="checkbox inline" >
+                                <php >$role_id_checked="checked";</php >
+                                <input value="{$k}" type="checkbox" name="paytypeid[]" {$role_id_checked} >{$vo}
+                            </label >
+                        </foreach >
+                        <br /><br />
+                        <span style="color:red;" >此游戏当前默认开启所有支付方式</span >
+                    </empty >
+                </div >
+            </div >
+        </fieldset >
+        <div class="form-actions" >
+            <input type="hidden" name="appid" value="{$appid}" />
+            <button type="submit" class="btn btn-primary js-ajax-submit" >{:L('SAVE')}</button >
+            <a class="btn" href="{:U('Sdk/Game/index')}" >{:L('BACK')}</a >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

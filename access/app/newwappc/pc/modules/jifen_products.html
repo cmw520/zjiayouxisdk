@@ -1,0 +1,21 @@
+<div class="container inner_container module_jifen_products" >
+    <div class="row" >
+        <div class="col-md-3 module_jifen_products_item" ng-repeat="x in list" >
+            <div class="row" ng-click="viewItem(x.id);" >
+
+                <img src="{{x.icon}}" class='img-responsive' style="width:100%;height:auto;max-height:218px;"
+                     alt="积分商品图片" />
+                <div style="padding:10px;width:100%;float:left;text-align:center;" >
+                    <span style="font-size:16px;" >{{x.name}}</span >
+                    <!--<span style="color:green;float:right;">花费积分:{{x.price}}</span>-->
+                </div >
+                <div style="padding:2px 10px 10px 10px;width:100%;float:left;text-align:center;" >
+                    <span style="color:green;font-size:12px;" >花费积分:{{x.price}}</span >
+                </div >
+            </div >
+        </div >
+    </div >
+    <div class="row" style="margin:20px 0 50px 0;" >
+        <a href="#/products" class="btn btn-sm btn-info" style="width:100%;" >查看所有商品</a >
+    </div >
+</div >

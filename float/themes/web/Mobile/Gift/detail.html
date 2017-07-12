@@ -1,0 +1,104 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/libao.css" >
+<body style="padding-bottom: 50px;" >
+<div class="public new_public clearfix" >
+    <div class="detail_list_one" >
+        <dl >
+            <dt >
+            <p class="p1" ><img src="{$icon}" onerror="javascript:this.src='__PUBLIC__/mobile/images/lb.png'"
+                                alt="游戏图标" ></p >
+            <p class="p2" >
+                <i >{$giftname}</i >
+                <empty name="isget" >
+                    <span >剩余：<font color="#FF0000" ><b id="change_surplus" >{$remain}/{$total}</b ></font ></span >
+                    <else />
+                    <span >{$giftcode}</span >
+                </empty >
+            </p >
+            <p class="p3" style="top:25px" >
+                <empty name="isget" >
+                    <input type="hidden" class="app_id" value="{$gameid}" />
+                    <input type="hidden" class="giftid" value="{$giftid}" />
+                    <input type="hidden" class="getGiftUrl" value={:U('Mobile/Gift/ajaxGift')} />
+                    <span class="getGift canDel" >领取</span >
+                    <else />
+                    <span class="copyGift" data-clipboard-text="{$giftcode}" >复制</span >
+                </empty >
+            </p >
+            </dt>
+        </dl >
+    </div >
+</div >
+<div class="public clearfix" >
+    <div class="tit" ><p class="tit_ico fahao" >礼包内容</p ></div >
+    <div class="libao_con" >
+        <p >{$content}</p >
+    </div >
+</div >
+<div class="public clearfix" >
+    <div class="tit" ><p class="tit_ico fahao" >有效期</p ></div >
+    <ul class="lq_style" >
+        <li >
+            <p >
+                <!--           <span>有效期：{$starttime} ~ {$enttime}</span> -->
+                {$starttime} ~ {$enttime}
+                <!--                 本礼包将在领取结束后全部公开，请领到号码的玩家尽快使用，以免号码被其他玩家淘走。 -->
+            </p >
+        </li >
+    </ul >
+</div >
+<!-- <div class="public clearfix">
+    <div class="tit"><p class="tit_ico fahao">注意事项</p></div>
+    <ul class="lq_style">
+        <li>
+            <p style="color:red">
+                本礼包将在领取结束后全部公开，请领到号码的玩家尽快使用，以免号码被其他玩家淘走。
+            </p>
+        </li>
+    </ul>
+</div> -->
+<!-- <div class="public clearfix">
+    <div class="tit"><p class="tit_ico fahao">相关礼包</p></div>
+    <div class="list_one">
+        <dl>
+            <dt>
+                <a href="#">
+                    <p class="p1">
+                        <img src="http://img.7724.com/pipaw/logo/2016/07/01/81634be49f76ad8acdea479899f8aea3.png">
+                    </p>
+                    <p class="p2">
+                        <i>群战王：愚人节礼包</i>
+                        <span style="margin-top:10px;">剩余：<font color="#FF0000"><b>200/300</b></font></span>
+                    </p>
+                    <p class="p3">
+                        <span style="background-color: #75787A">结束</span>
+                    </p>
+                </a>
+            </dt>
+        </dl>
+    </div>
+</div>
+<div class="new_morelist">暂无相关礼包</div> -->
+<div class="getBox" >
+    <div class="msg_box" >
+        <div class="top" >
+            <h3 class="getstatus" >领取失败</h3 >
+            <p class="tips" ></p >
+            <p class="giftcode" >
+            <p >
+        </div >
+        <p ><i id="activeCode" ></i ></p >
+        <button class="close_btn" >关闭</button >
+    </div >
+    <div class="copy_box" >
+        <h3 >复制成功</h3 >
+    </div >
+</div >
+<div class="gonghui_welfare_box" ></div >
+<mobiletpl file="bottom" />
+</body >
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+<script src="__PUBLIC__/mobile/js/libao.js" ></script >
+</html>

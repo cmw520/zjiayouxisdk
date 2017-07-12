@@ -1,0 +1,77 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Tui/Settle/check')}" target="_self" >提现审核</a ></li >
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        渠道账号：
+                        {$agent_select}
+                        &nbsp;&nbsp; 
+                        <input type="submit" class="btn btn-primary" value="搜索" />
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="20" >ID</th >
+                <th width="50" >渠道名</th >
+                <th width="50" >金额</th >
+                <!--<th width="50">提现方式</th>-->
+                <th width="50" >提现帐号</th >
+
+                <th width="50" >申请时间</th >
+                <!--<th width="50">财务审核时间</th>-->
+                <!--<th width="50">结算时间</th>-->
+
+                <th width="50" >状态</th >
+                <th width="60" >审核操作</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.id}</td >
+                    <td >{$vo.user_login}</td >
+                    <td >{$vo.money}</td >
+                    <!--                        <td>
+                                                <switch name="vo.payway">
+                                                    <case value="zfb">支付宝</case>
+                                                    <case value="bank">银行卡</case>
+                                                </switch>
+                                            </td>-->
+                    <td >{$vo.banknum}</td >
+                    <td >{$vo.create_time_txt}</td >
+                    <!--<td>{$vo.check_time_txt}</td>-->
+                    <!--<td>{$vo.settle_time_txt}</td>-->
+                    <td >{$vo.settle_status_txt}</td >
+                    <td >
+                        <switch name="vo.status" >
+                            <case value="2" >
+                                <a href="{:U('Tui/Settle/pass',array('id'=>$vo['id']))}"
+                                   class="js-ajax-dialog-btn" data-msg="确定要设为审核通过吗？" >通过</a > |
+                                <a href="{:U('Tui/Settle/notpass',array('id'=>$vo['id']))}"
+                                   class="js-ajax-dialog-btn" data-msg="确定要设为审核不通过吗？" >不通过</a >
+                            </case >
+                            <!--                                <case value="2">
+                                                                <a href="{:U('Tui/Settle/giveMoney',array('id'=>$vo['id']))}"
+                                                                   class="js-ajax-dialog-btn"  data-msg="确定要标记为已打款吗？" >打款</a>
+                                                            </case>-->
+                        </switch >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

@@ -1,0 +1,36 @@
+<div class="container inner_container module_my_orders" style="margin-top:20px;" >
+    <!--    <div class="row" ng-repeat="x in orders" style="padding:20px;background-color:#ccc;margin-bottom:20px;">
+            <div class="col-md-4">商品名称：{{x.name}}</div>
+            <div class="col-md-4">购买数量：{{x.num}}</div>
+            <div class="col-md-4">消耗积分：{{x.price}}</div>
+            <div class="col-md-4">订单状态：{{x.status}}</div>
+            <div class="col-md-4">交易时间：{{x.create_time}}</div>
+            <div class="col-md-4">订单编号：sd78adsfasdfadf98asdf</div>
+        </div>-->
+    <div class="row table-responsive" style="padding:0;margin:0;" >
+        <table class="table table-hover table-bordered" >
+            <tr >
+                <th >订单编号</th >
+                <th >订单类型</th >
+                <th >商品名称</th >
+                <th >购买数量</th >
+                <th >消耗积分</th >
+                <th >订单状态</th >
+                <th >交易时间</th >
+
+                <th >说明</th >
+            </tr >
+            <tr ng-repeat="x in orders" >
+                <td >{{x.order_id}}</td >
+                <td >{{x.type}}</td >
+                <td >{{x.name}}</td >
+                <td >{{x.product_num}}</td >
+                <td >{{x.cost}}</td >
+                <td >{{x.status}}</td >
+                <td >{{x.create_time}}</td >
+
+                <td >{{x.remark}}</td >
+            </tr >
+        </table >
+    </div >
+</div >

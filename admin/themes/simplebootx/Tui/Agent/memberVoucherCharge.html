@@ -1,0 +1,136 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >玩家充值平台币记录</a ></li >
+    </ul >
+
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        订单号： 
+                        <input type="text" name="orderid" style="width: 150px;" value="{$formget.orderid}"
+                               placeholder="请输入订单号..." >
+                        &nbsp;&nbsp; 
+                        玩家账号： 
+                        <input type="text" name="memname" style="width: 150px;" value="{$formget.username}"
+                               placeholder="请输入账号..." >
+                        &nbsp;&nbsp;
+                        <!--                        充值方式：
+                                                <select class="select_2" name="payway" style="width: 150px;"  id="selected_id">
+                                                    <foreach name="payways"  key="k" item="vo">
+                                                        <php>$pw_select=$k===$formget['payway'] ?"selected":"";</php>
+                                                        <option value="{$k}"{$pw_select}>{$vo}</option>
+                                                    </foreach>
+                                                </select>-->
+                        <!--                        &nbsp;&nbsp;-->
+                        渠道 ：
+                        <select class="select_2" name="agent" id="selected_id" >
+                            <empty name="formget['agent']" >
+                                <option value="" selected="selected" >全部</option >
+                            </empty >
+                            <notempty name="formget['agent']" >
+                                <option value="" >全部</option >
+                            </notempty >
+                            <volist name="agents" id="vo" >
+                                <if condition="$vo.id eq $formget['agent']" >
+                                    <option value="{$vo.id}" selected="selected" >{$vo.user_login}</option >
+                                <else /> 
+                                    <option value="{$vo.id}" >{$vo.user_login}</option >
+                                </if >
+                            </volist >
+                        </select >
+                        <br /><br />
+                        &nbsp;&nbsp;
+                        时间：
+                        <input type="text" name="start_time"
+                               class="js-date" value="{$formget.start_time|default=''}" placeholder="开始时间..."
+                               style="width: 100px;" autocomplete="off" >
+                        - 
+                        <input type="text" class="js-date" name="end_time" placeholder="时间..."
+                               value="{$formget.end_time}" style="width: 100px;"
+                               autocomplete="off" > &nbsp; &nbsp;
+                    </span >
+                <input type="submit" name='submit' class="btn btn-primary" value="搜索" />
+                <?php echo \Huosdk\UI\Pieces::export_excel(); ?>
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+
+                <th width="50" > 时间</th >
+                <th width="50" > 玩家帐号</th >
+                <th width="50" > 订单号</th >
+                <th width="50" > 充值方式</th >
+                <th width="50" > 充值金额</th >
+                <th width="50" > 订单状态</th >
+
+                <th width="50" > 游戏</th >
+                <!--<th width="50"> 充值来源</th>-->
+                <th width="50" > 渠道</th >
+                <!--<th width="50"> 父渠道  </th>-->
+                <th width="50" > 平台折扣</th >
+                <!--<th width="50"> 渠道折扣    </th>-->
+                <th width="50" > 渠道收益</th >
+
+            </tr >
+            </thead >
+            <tr >
+                <th style='color:#FF0000' >汇总</th >
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >{$sumitems[0]['sum_money']}</th >
+                <th style='color:#0000FF' >--</th >
+
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >--</th >
+                <!--<th style='color:#00f'>--</th>-->
+                <th style='color:#FF0000' >{$sumitems[0]['sum_profit']}</th >
+            </tr >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.create_time|date="Y-m-d H:i:s",###}</td >
+                    <td >{$vo.memname}</td >
+                    <td >{$vo.order_id}</td >
+                    <td >
+                        <switch name='vo.payway' >
+                            <case value='balance' >账户余额</case >
+                            <case value='zfb' >支付宝</case >
+                            <case value='unionpay' >银联</case >
+                            <case value="alipay" >支付宝</case >
+                            <case value="ptb" >{:C('CURRENCY_NAME')}</case >
+                        </switch >
+                    </td >
+                    <td >{$vo.money}</td >
+                    <td >
+                        <switch name='vo.status' >
+                            <case value='1' >待支付</case >
+                            <case value='2' >支付完成</case >
+                            <case value='3' >支付失败</case >
+                        </switch >
+                    </td >
+
+                    <td >{$vo.gamename}</td >
+                    <!--<td>{$vo.user_login}</td>-->
+                    <td >({$vo.discount}) {$vo.user_login}</td >
+                    <!--<td>({$vo.parent_agent_rate}) {$vo.parent_agent_name}</td>-->
+                    <td >{$vo.platrate}</td >
+                    <!--<td>{$vo.discount}</td>-->
+                    <td >{$vo.profit}</td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

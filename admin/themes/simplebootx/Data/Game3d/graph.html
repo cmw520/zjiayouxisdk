@@ -1,0 +1,118 @@
+<admintpl file="header" />
+<link href="__PUBLIC__/simpleboot/themes/{:C('SP_ADMIN_STYLE')}/theme.min_3.css" rel="stylesheet" >
+<script type="text/javascript" src="__PUBLIC__/simpleboot/themes/{:C('SP_ADMIN_STYLE')}/js/highcharts/jquery.js"></script>
+<script src="__PUBLIC__/simpleboot/themes/{:C('SP_ADMIN_STYLE')}/js/highcharts/highcharts.js"></script>
+ <script src="__PUBLIC__/simpleboot/themes/{:C('SP_ADMIN_STYLE')}/js/te.js"></script> 
+<script type="text/javascript">
+(function($){ // encapsulate jQuery
+var chart;
+$(document).ready(function() {
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container',
+			type: 'line',
+			marginRight: 220,
+			marginBottom: 25
+		},
+		title: {
+			text: '曲线图',
+			x: -20 //center
+		},
+		subtitle: {
+			text: '',
+			x: -20
+		},
+		xAxis: {
+			categories: ['0.0-0.2', '0.2-0.4', '0.4-0.6', '0.6-0.8', '0.8-1']
+		},
+		yAxis: {
+			title: {
+				text: '人数'
+			},
+			plotLines: [{
+				value: 0,
+				width: 2,
+				color: '#808080'
+			}]
+		},
+		tooltip: {
+			formatter: function() {
+					return '<b>'+ this.series.name +'</b><br/><br/>'+
+					this.x +': '+ this.y +'人';
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			align: 'right',
+			verticalAlign: 'top',
+			x: -20,
+			y: 200,
+			borderWidth: 0
+		},
+		series: [{
+			name: '{$name}',
+			data: {$data}
+		}]
+	});
+});
+})(jQuery);
+</script>
+<body>
+	<div style="margin: 0 2em">
+		<div id="container" style="min-width: 400px; max-width:1000px;height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
+</body>
+ <script>  
+        window.onload = function() {  
+        	var data={$data};
+        	//var strs= new Array(); //定义一数组
+           //var strs= new Array();
+           //strs="{$data}".split(",");
+           
+           var str=JSON.stringify(data); 
+
+           var arr2 = JSON.parse(str);
+
+           //alert(typeof(arr2));
+
+            
+            var canvas = document.getElementById("pie_canvas");  
+            var seriesData = [{name:"0.0-0.2", value:arr2[0], color:"RGBA(255,0,0,1)"},  
+                          {name:"0.2-0.4", value:arr2[1], color:"RGBA(255,255,0,1)"},  
+                          {name:"0.4-0.6", value:arr2[2], color:"RGBA(255,0,255,1)"},  
+                          {name:"0.6-0.8", value:arr2[3], color:"RGBA(0,255,255,1)"},  
+                          {name:"0.8-1", value:arr2[4], color:"RGBA(0,127,255,1)"}]  
+            var config = {  
+                    width : 600,   
+                    height: 400,  
+                    series: seriesData,  
+                    canvas: canvas,  
+                    unit: "人",  
+                    title:"",  
+                    tooltips : {  
+                        enable : true  
+                    },  
+                    animation :{  
+                        enable: false  
+                    },  
+                    legend : {  
+                        enable : true  
+                    },  
+                    text : {  
+                        enable: true  
+                    },  
+            };  
+            pieChart.initSettings(config);  
+            pieChart.render();  
+        }  
+        </script>  
+    </head>  
+    <body>  
+     
+    <div id="my_container" style="width:600px; height:500px;margin-left:18em;margin-top:8em">  
+        <canvas id="pie_canvas"></canvas>  
+    </div>  
+    
+    </body>  
+

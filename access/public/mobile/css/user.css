@@ -1,0 +1,246 @@
+@import "public.css";
+@import "bottom.css";
+
+html {
+    background-color: #EEEDED
+}
+
+body {
+    padding-bottom: 50px;
+}
+
+section > .tenGrayBox {
+    width: 100%;
+    height: 10px;
+    background-color: transparent;
+}
+
+section > .user_header {
+    height: 50px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    background-color: #FFFFFF;
+}
+
+section > .user_header > .img {
+    height: 50px;
+    line-height: 50px;
+    width: calc(100% - 64px);
+    float: left;
+}
+
+section > .user_header > .change {
+    border-radius: 4px;
+    border: 1px solid #DDDDDD;
+    height: 24px;
+    width: 62px;
+    float: right;
+    display: block;
+    text-align: center;
+    line-height: 26px;
+    margin-top: 13px;
+}
+
+section > .user_header > .img > p {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+section > .user_header > .img > p > b {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-right: 10px;
+    background: url("../images/11.png");
+    background-size: 100% 100%;
+    float: left;
+}
+
+section > .user_header > .img > img {
+    height: 60px;
+    margin-top: 10px;
+    transform: translateX(-5px);
+    float: left;
+}
+
+section > .user_header > .img > span {
+    float: left;
+    line-height: 20px;
+    margin-top: 20px;
+}
+
+section > .user_header > .img > span > i {
+    font-size: 15px;
+}
+
+section > .user_header > .img > span > b {
+    font-size: 13px;
+}
+
+section > .user_header > b {
+    float: right;
+    width: 16px;
+    height: 16px;
+    margin-top: 32px;
+    background-size: 100% 100%;
+}
+
+section .funcList {
+    box-sizing: border-box;
+    padding: 0px 20px;
+    background-color: #FFFFFF;
+}
+
+section .funcList > .list {
+    font-size: 16px;
+}
+
+section .funcList > .list > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 36px;
+}
+
+section .funcList > .list > a > div {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+section .funcList > .list > a > .left > b {
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+    float: left;
+}
+
+section .funcList > .qb > a > .left > b {
+    background: url(../images/icon_qb.png);
+    background-size: cover;
+}
+
+section .funcList > .pwd > a > .left > b {
+    background: url(../images/icon_pwd.png);
+    background-size: cover;
+}
+
+section .funcList > .lb > a > .left > b {
+    background: url(../images/icon_myLb.png);
+    background-size: cover;
+}
+
+section .funcList > .list > a > .left > span {
+    color: #353535;
+    line-height: 50px;
+    font-family: "微软雅黑", "microsoft YaHei";
+}
+
+section .funcList > .list > a > .right {
+    text-align: right;
+}
+
+section .funcList > .list > a > .right > i {
+    color: #909090;
+    letter-spacing: 1px;
+    line-height: 50px;
+    font-family: "微软雅黑", "microsoft YaHei";
+}
+
+section .funcList > .list > a > .right > i > b {
+    color: #FF0000;
+}
+
+section .funcList > .list > a > .right > s {
+    float: right;
+    width: 16px;
+    height: 16px;
+    margin-top: 17px;
+    margin-left: 5px;
+    background: url("../images/arrow_r.png");
+    background-size: 100% 100%;
+}
+
+section .funcList > .list > a:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+section .funcList > .safe > a > .left > b {
+    background: url("../images/safe.png");
+    background-size: cover;
+}
+
+section .funcList > .lxkf > a > .left > b {
+    background: url("../images/btn_kefu.png");
+    background-size: cover;
+}
+
+section .funcList > li:last-child {
+    border-bottom: none;
+}
+
+.funcList .list {
+    height: 50px;
+}
+
+section .bindWay {
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 370px) {
+    section > .user_header > .img > span {
+        font-size: 16px;
+    }
+
+    section .funcList > .list {
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid #D9D9D9;
+    }
+
+    section .funcList > .list > a {
+        line-height: 50px;
+    }
+
+    section .funcList > .list > a > div {
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+
+    section .funcList > .list > a > .left > b {
+        width: 20px;
+        height: 20px;
+        margin-top: 15px;
+        margin-right: 10px;
+        float: left;
+    }
+
+    section .funcList > .list > a > .left > span {
+        font-size: 16px;
+    }
+
+    section .funcList > .list > a > .right > i {
+        font-size: 16px;
+    }
+
+    section .funcList > .list > a > .right > s {
+        margin-top: 17px;
+    }
+}
+
+@media screen and (max-height: 375px) {
+    body {
+        padding-bottom: 50px;
+    }
+}

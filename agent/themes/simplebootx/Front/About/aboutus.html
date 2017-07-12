@@ -1,0 +1,100 @@
+<!DOCTYPE html >
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >关于我们</title >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="__ROOT__/favicon.ico" >
+    <link type="image/x-icon" rel="shortcut icon" href="__ROOT__/favicon.ico" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+</head >
+<body >
+<div class="main" >
+    <script >
+        function xhr() {
+            if (window.XMLHttpRequest) {
+                //针对FireFox，Mozillar，Opera，Safari，IE7，IE8
+                xmlHttpRequest = new XMLHttpRequest();
+                //针对某些特定版本的mozillar浏览器的BUG进行修正
+                if (xmlHttpRequest.overrideMimeType) {
+                    xmlHttpRequest.overrideMimeType("text/xml");
+                }
+            } else if (window.ActiveXObject) {
+                //针对IE6，IE5.5，IE5
+                //两个可以用于创建XMLHTTPRequest对象的控件名称，保存在一个js的数组中
+                //排在前面的版本较新
+                var activexName = ["MSXML2.XMLHTTP", "Microsoft.XMLHTTP"];
+                for (var i = 0; i < activexName.length; i ++) {
+                    try {
+                        //取出一个控件名进行创建，如果创建成功就终止循环
+                        //如果创建失败，回抛出异常，然后可以继续循环，继续尝试创建
+                        xmlHttpRequest = new ActiveXObject(activexName[i]);
+                        if (xmlHttpRequest) {
+                            break;
+                        }
+                    } catch (e) {
+                    }
+                }
+            }
+            return xmlHttpRequest;
+        }
+        function succ(headerText) {
+            var main       = document.getElementsByClassName("main")[0];
+            main.innerHTML = headerText + main.innerHTML;
+
+        }
+        function get(xhrName, url, succ) {
+            var xhrName = new xhr();
+            if (xhrName) {
+                xhrName.open("GET", url, true);
+                xhrName.onreadystatechange = function (data) {
+                    if (xhrName.readyState == 4) {
+                        if (xhrName.status == 200) {
+                            var headerText = xhrName.responseText;
+                            succ(headerText)
+                        } else {
+
+                        }
+                    }
+                }
+                xhrName.send(null);
+            }
+        }
+        get("xhr1", "header.html", succ);
+    </script >
+    <!--页眉-->
+    <agenttpl file="header" />
+    <!--通用栏广告位-->
+    <!--通用栏广告位-->
+    <!--主题内容区域-->
+    <div class="page-content" >
+        <!--左侧导航栏-->
+        <div class="page-left" >
+            <agenttpl file="aboutSide" />
+        </div >
+
+        <div class="page-right usage-rule" style="min-height:760px;" >
+            <div class="breadcrumb-navigation" >
+                <ul >
+                    <li class="on" >{$data.title}</li >
+                </ul >
+            </div >
+            <div class="rules-content" >
+                <div class="one" >
+                    <div class="title" ></div >
+                    {$data.content}
+                </div >
+            </div >
+        </div >
+    </div >
+    <!--页脚-->
+
+    <div class="page-footer" >
+        <agenttpl file="footer" />
+    </div >
+</div >
+
+</body >
+</html >

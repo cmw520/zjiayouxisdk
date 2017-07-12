@@ -1,0 +1,119 @@
+<agenttpl file="user_center_header" />
+<style >
+    .modify-pay-pwd .modify-pwd-content .img-code .code-img {
+        border: none;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right fc—modify-pwd modify-pay-pwd" >
+                <div class="container" style="width:960px;margin-top:30px;" >
+                    <ul class="breadcrumb" >
+                        <li ><a href="{$urls.index}" >首页</a ></li >
+                        <li ><a href="{:U('Agent/Ucenter/security')}" >安全中心</a ></li >
+                        <li class="active" >修改登录密码</li >
+                    </ul >
+                </div >
+                <div class="modify-pwd-content content-2 fc—modify-pwd" >
+                    <div class="binding-mobile original-password" >
+                        <span >输入原始密码:</span >
+                        <ul >
+                            <li ><input type="password" ></li >
+                        </ul >
+                    </div >
+                    <div class="binding-mobile pay-pwd" >
+                        <span >输入新密码：</span >
+                        <ul >
+                            <li ><input type="password" maxlength="20" ><i >数字和字母组合，长度6-20位</i ></li >
+                        </ul >
+                    </div >
+                    <div class="binding-mobile pay-pwd-again" >
+                        <span >确认新密码：</span >
+                        <ul >
+                            <li ><input type="password" maxlength="20" ></li >
+                        </ul >
+                    </div >
+                    <div class="img-code" >
+                        <span >输入验证码：</span >
+                        <ul >
+                            <li style="height: 32px;" >
+                                <input type="text" id="identCodeText" >
+                                <div class="code-img" >
+                                    {:sp_verifycode_img('length=4&font_size=16&width=120&height=30&use_noise=0&use_curve=1','style="cursor: pointer;" title="点击获取"')}
+                                    <!--<img id="identCode" src style="width:100%;height:30px;">-->
+
+                                </div >
+                                <!--<i id="anotherImg" style="color:blue">看不清楚，换一张</i>-->
+                            </li >
+                            <li class="error-note" >验证码输入有误</li >
+                        </ul >
+                    </div >
+                    <div class="next-btn" >确认</div >
+                </div >
+                <div class="modify-pwd-content content-3 modify-success" style="display:none;height: 417px;" >
+                    <p id="title" >密码修改成功！</p >
+                    <p id="countdown-jump" ><i >3</i >秒后自动返回 安全中心</p >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+
+<script src="__PUBLIC__/agent/js/checkCode.js" ></script >
+<script src="__PUBLIC__/agent/js/toEditPass.js" ></script >
+<script >
+    succAsideID("security");
+
+    window.addEventListener("load", function () {
+        $(".next-btn").live("click", function () {
+            var oldpwd = $(".original-password>ul>li>input").val();
+            var pass   = $(".pay-pwd>ul>li>input").val();
+            var code   = $("#identCodeText").val();
+            if (oldpwd.trim() !== "") {
+                if ((pass === $(".pay-pwd-again>ul>li>input").val()) && (pass.trim() !== "")) {
+                    if (code.trim() !== "") {
+                        sendData("{:U('Agent/ucenter/change_password_post')}", {
+                            "oldpwd": oldpwd,
+                            "pass"  : pass
+                        }, function (data) {
+
+                            if (data.error === '1') {
+                                yxalert(data.msg);
+                            } else if (data.error === '0') {
+
+                                $(".content-2").css("display", "none");
+                                $(".content-3").css("display", "block");
+                                var count = 3;
+                                var timer = setInterval(function () {
+                                    count --;
+                                    $("#countdown-jump>i").html(count)
+                                    if (count < 1) {
+                                        clearInterval("timer");
+                                        timer = null;
+                                        window.location.href = "security.html"
+                                    }
+                                }, 1000);
+                            }
+                        })
+                    } else {
+                        showMsg(".error-note", "验证码有误...", "red");
+                    }
+                } else {
+                    showMsg(".error-note", "两次密码输入不一致...", "red")
+                }
+            } else {
+                showMsg(".error-note", "原密码不正确..", "red")
+            }
+        });
+        CodeImg($("#identCode"), $("#anotherImg"))
+    }, false);
+
+</script >

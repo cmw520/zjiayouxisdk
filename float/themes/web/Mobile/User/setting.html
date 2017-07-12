@@ -1,0 +1,59 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/user_setting.css" />
+
+<div class="headerImage" >
+    <div class="headImage" >
+        <if condition="substr($user['head_img'],0,4) eq 'http'" >
+            <img id="showimg" src="{$user.head_img}" >
+            <elseif condition="$user['head_img'] neq ''" />
+            <img id="showimg" src="{:H5SDKSITE}/upload/logo/{$user.head_img}" >
+            <else />
+            <img id="showimg" src="__PUBLIC__/mobile/images/user_green.png" alt="" />
+        </if >
+    </div >
+    <div class='msg' >点击头像修改</div >
+    <p >用户名：<span >{$user.username}</span ></p >
+
+</div >
+<section >
+    <form class="form" action="{:U('Mobile/User/setting_post')}" method="post" enctype="multipart/form-data" >
+        <ul >
+            <li id="name" ><b >昵称：</b ><input type="text" name="nickname" value="{$user.nickname}" ></li >
+            <li class="noCan" id="gender" >
+                <b >性别：</b >
+                <div class="gender" >
+                    <div ><input type="radio" name="sex" value="1"
+                        <if condition="$user['sex'] eq 1" > checked</if >
+                        />男
+                    </div >
+                    <div ><input type="radio" name="sex" value="2"
+                        <if condition="$user['sex'] eq 2" > checked</if >
+                        />女
+                    </div >
+                    <div ><input type="radio" name="sex" value="0"
+                        <if condition="$user['sex'] eq 0" > checked</if >
+                        />保密
+                    </div >
+            </li >
+            <li class="noCan iphone" ><b >手机：</b ><input type="text" value="{$user.mobile}" name="mobile"
+                                                         disabled="disabled" /></li >
+            <li id="email" ><b >邮箱：</b ><input type="text" name="email" value="{$user.email}" ></li >
+            <li class="noCan lasted_login" ><b >最后登陆：</b ><span >{$user.last_login_time|date="Y-m-d H:i:s",###}</span >
+            </li >
+            <li class="noCan register_time" ><b >注册时间：</b ><span >{$user.reg_time|date="Y-m-d H:i:s",###}</span ></li >
+        </ul >
+        <div class="confim_change" >
+            <input type="file" id='head_img' name="head_img" id="fileInput" style="display:none" />
+            <input type="submit" value="确认修改" />
+        </div >
+    </form >
+</section >
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+<div class="main_model_box" ></div >
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/user_setting.js" ></script >
+</body>
+</html>

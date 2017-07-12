@@ -1,0 +1,141 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .search-results .table-content table tr th {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+
+    .search-results .table-content table tr td {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+            <img src="__PUBLIC__img/1200-200+.jpg" alt="" />
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+                <form id="queryForm" action="{:U('Agent/data/memChargeRecord')}" method="get" >
+                    <div class="input-content" style="height:180px;" >
+                        <div class="search-game" >
+                            <span >游戏:</span >
+                            <input type="text" name="game_name" id="gamename" value="{$formget.game_name}"
+                                   maxlength="25" placeholder="请输入游戏ID或游戏名称" >
+                        </div >
+                        <div class="choose-channel" >
+                            <span >玩家：</span >
+                            <input type="text" name="mem_name" id="memname" value="{$formget.mem_name}" maxlength="20"
+                                   placeholder="请输入玩家帐号" >
+                        </div >
+                        <div class="search-game" >
+                            <span >订单号</span >
+                            <input type="text" name="orderid" value="{$formget.orderid}" placeholder="请输入订单号" >
+                        </div >
+                        <div class="search-btn" style="margin-top:30px;" >搜 &nbsp;索</div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$num_of_records}</i >个记录</span >
+                    </div >
+                    <div class="table-content" >
+                        <table border="0" cellspacing="0" cellpadding="0" >
+                            <tbody >
+                            <tr >
+                                <th width='100' >时间</th >
+                                <th >订单号</th >
+                                <th >玩家账号</th >
+                                <th >游戏</th >
+                                <th >金额</th >
+
+                                <th >充值方式</th >
+                                <th >实付</th >
+                                <th >返利</th >
+                                <th >优惠类型</th >
+                                <th >支付状态</th >
+
+                                <if condition="$user_type eq 'agent'" >
+                                    <th >一级渠道</th >
+                                    <th >一级渠道收益</th >
+                                </if >
+
+                                <th width='50' >二级渠道</th >
+                                <th >二级渠道收益</th >
+                            </tr >
+
+                            <volist name="items" id="vo" >
+                                <tr >
+                                    <td ><?php echo date("Y-m-d H:i:s",$vo['create_time']); ?></td >
+                                    <td >{$vo.order_id}</td >
+                                    <td >{$vo.mem_name}</td >
+                                    <td >{$vo.game_name}</td >
+                                    <td class="total-revenue" >{$vo.amount}</td >
+                                    <td >{$vo.payway_txt}</td >
+                                    <td >{$vo.profits.real_amount}</td >
+                                    <td >{$vo.profits.rebate_cnt}</td >
+                                    <td >{$vo.profits.benefit_type}</td >
+                                    <td >
+                                        <switch name='vo.status' >
+                                            <case value='1' >待支付</case >
+                                            <case value='2' ><span style="color:red;" >支付成功</span ></case >
+                                            <case value='3' >支付失败</case >
+                                        </switch >
+                                        <if condition="$user_type eq 'agent'" >
+                                    <td >{$vo.profits.agent_name}</td >
+                                    <td >{$vo.profits.agent_profit}</td >
+                                    </if>
+                                    <td >{$vo.profits.subagent_name}</td >
+                                    <td >{$vo.profits.subagent_profit}</td >
+                                </tr >
+                            </volist >
+
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$page}</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <!--    <section>
+                    <div class="user_center main">
+                        <div class="user_center_main page-content">
+
+                        </div>
+                    </div>
+                </section>-->
+
+            <script src="__PUBLIC__js/autoPage.js" ></script >
+            <script src="__PUBLIC__My97DatePicker/WdatePicker.js" ></script >
+            <script src="__PUBLIC__js/mygames.js" ></script >
+            <script >
+                $(".search-btn").live("click", function () {
+//    console.log(111);
+//    var arr={"name":$("#gamequeryForm").val(),"channel":$("#agenttagForm").val(),"time1":$("#stime").val(),timer2:$("#etime").val()};
+//    sendData("{:U('Agent/money/getuserpayment_post')}",arr,function(data){
+////        yxalert("已发送搜索数据...");
+//yxalert(data.msg);
+//    });
+                    $("#queryForm").submit();
+                });
+            </script >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />

@@ -1,0 +1,83 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >游戏分类管理</a ></li >
+        <li ><a href="{:U('Content/GameCate/add')}" target="_self" >添加游戏分类</a ></li >
+    </ul >
+    <style >
+        input {
+            padding: 0 !important;
+            width: 40px;
+        }
+
+        tr, td {
+            padding: 2px 10px !important;
+        }
+
+        #sort_btn {
+            margin: 2px 0 5px 0;
+        }
+
+        .common_btn {
+            font-size: 18px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .common_btn:hover {
+            text-decoration: none;
+        }
+
+        .edit_btn:hover {
+            color: blue;
+        }
+
+        .delete_btn:hover {
+            color: red;
+        }
+    </style >
+    <button id="sort_btn" >排序</button >
+    <form id="theform" class="js-ajax-form" action="{:U('Content/GameCate/sort_post')}" method="post" >
+
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="10" >排序</th >
+                <th width="50" >分类名</th >
+                <th width="50" >图标</th >
+                <th width="50" >操作</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td ><input type="text" name="order[{$vo.id}]" value="{$vo.order}" /></td >
+                    <td >{$vo.name}</td >
+                    <td >
+                        <notempty name="vo.image" >
+                            <img src="/access/upload/category/{$vo['image']}" width="80" />
+                        </notempty >
+                    </td >
+                    <td >
+                        <a href="{:U('Content/GameCate/edit',array('id'=>$vo['id']))}"
+                           class="fa fa-normal fa-edit edit_btn common_btn" ></a >
+
+                        <a href="{:U('Content/GameCate/del',array('id'=>$vo['id']))}"
+                           class="fa fa-normal fa-trash delete_btn common_btn" ></a >
+                    </td >
+                </tr >
+            </foreach >
+
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    $("#sort_btn").click(function () {
+        $("#theform").submit();
+    });
+</script >
+</body >
+</html>

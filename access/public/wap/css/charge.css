@@ -1,0 +1,225 @@
+@import "public.css";
+@import "bottom.css";
+
+html {
+    max-width: 414px;
+    margin: 0 auto;
+    background-color: #EEEEEE;
+}
+
+body {
+    padding-bottom: 50px;
+    -webkit-user-select: none;
+    /*禁用手机浏览器的用户选择功能 */
+    -moz-user-select: none;
+}
+
+.gray_title {
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    background-color: #EEEEEE;
+    padding-left: 14px;
+    font-size: 14px;
+}
+
+.footer_nav {
+    max-width: 414px;
+}
+
+.titleStyle {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ECECEC;
+    text-indent: 10px;
+    font-size: 14px;
+    font-family: "微软雅黑", "microsoft YaHei";
+}
+
+header > div {
+    width: 16px;
+    height: 16px;
+}
+
+header > div > img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+header > .close_btn {
+    float: right;
+    margin-right: 10px;
+}
+
+header > h3 {
+    position: absolute;
+    left: 50%;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+}
+
+header > .return_btn {
+    float: left;
+    margin-left: 10px;
+}
+
+.show_infoimg {
+    margin: 70px 0px;
+}
+
+.show_infoimg > .top > img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.show_infoimg > .top > p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/************帐号信息****************/
+.account_information {
+    padding: 3px 0px;
+    padding-left: 14px;
+    background-color: #FFFFFF;
+}
+
+.account_information > P {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-family: "微软雅黑", "microsoft YaHei";
+}
+
+.account_information > P > span {
+    color: #FE3636;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+/***********充值帐号******************/
+.recharge_amount {
+    background-color: #FFFFFF;
+}
+
+.recharge_amount > .btn_group {
+    width: 95%;
+    margin: 0 auto;
+    padding: 15px 0px;
+}
+
+.recharge_amount > .btn_group > li {
+    width: calc(33.3% - 10px);
+    float: left;
+    border: 1px solid #00AAEF;
+    background-color: #FFFFFF;
+    text-align: center;
+    height: 35px;
+    color: #00AAEF;
+    line-height: 35px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 9px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.recharge_amount > .btn_group > li.active {
+    background-color: #00AAEF;
+    color: #FFFFFF;
+}
+
+.recharge_amount > .btn_group > li:nth-child(3n) {
+    margin-right: 0px;
+}
+
+.recharge_amount > .btn_group > input {
+    width: calc(97%);
+    height: 35px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0px;
+    border: 1px solid #00AAEF;
+    font-size: 14px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.recharge_amount > .canGet,
+.recharge_amount .fact {
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    font-size: 14px;
+}
+
+.recharge_amount > .canGet > span,
+.recharge_amount .fact > span {
+    margin: 0px 3px;
+    font-weight: 600;
+}
+
+.change_way {
+    background-color: #FFFFFF;
+}
+
+.change_way > ul > li {
+    height: 50px;
+    margin: 0px 15px;
+    border-bottom: 1px solid #ECECEC;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+}
+
+.change_way > ul > li:last-child {
+    border-bottom: none;
+}
+
+.change_way > ul > li .way_icon {
+    float: left;
+    width: 35px;
+    margin-top: 7px;
+}
+
+.change_way > ul > li .way_icon > img {
+    width: 100%;
+}
+
+.change_way > ul > li span {
+    line-height: 50px;
+    margin-left: 5px;
+    color: #000000;
+}
+
+.change_way > ul > li .right_icon {
+    float: right;
+    width: 25px;
+    margin-top: 12px;
+}
+
+.change_way > ul > li > a {
+    display: block;
+}
+
+.change_way > ul > li .right_icon > img {
+    width: 100%;
+}
+
+.instant_recharge > button {
+    width: calc(70%);
+    display: block;
+    margin: 15px auto;
+    height: 40px;
+    line-height: 40px;
+    background-color: #00AAEF;
+    border: none;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.4rem;
+}

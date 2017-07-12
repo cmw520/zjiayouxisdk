@@ -1,0 +1,46 @@
+<html >
+<head >
+    <title >title</title >
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="/public/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/public/3rd/bootstrap/css/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/share/paging.css" />
+
+</head >
+<body >
+<div class="container" style="margin-top:20px;" >
+    <table class="table table-hover table-bordered" >
+        <tr >
+            <th >订单号</th >
+            <th >充值时间</th >
+            <th >玩家账号</th >
+            <th >充值游戏</th >
+            <th >充值金额</th >
+            <!--<th>充值方式        </th>-->
+
+        </tr >
+        <volist name='items' id='vo' >
+            <tr >
+                <td >{$vo.order_id}</td >
+                <td >{$vo.create_time|date="Y-m-d H:i:s",###}</td >
+                <td >{$vo.mem_name}</td >
+                <td >{$vo.game_name}</td >
+                <td >{$vo.amount}</td >
+                <!--<td>{$vo.payway}</td>-->
+            </tr >
+        </volist >
+    </table >
+</div >
+<div class="container paging" >
+    {$page}
+</div >
+
+</body >
+</html >
+
+
+
+
+

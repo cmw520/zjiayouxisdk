@@ -1,0 +1,144 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .search-results .table-content table tr th {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+
+    .search-results .table-content table tr td {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+                <form id="queryForm" action="{:U('Agent/Data/getBalanceChargeRecord')}" method="get" >
+                    <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                    <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                    <div class="input-content" style="height:80px;" >
+                        <!--                            <div class="search-game">
+                                                        <span>游戏:</span>
+                                                        <input type="text" name="gamename" id="gamequeryForm" value="" maxlength="25" placeholder="请输入游戏名称">
+                                                    </div>
+                                                    <div class="choose-channel">
+                                                        <span>类型：</span>
+                                                        <input type="text" name="agenttag" id="agenttagForm" value="" maxlength="20" placeholder="">
+                                                    </div>-->
+                        <div class="pack-time" >
+                            <span >充值时间:</span >
+                            <div id="time-one" ><input id="stime" name="s_time" type="text" value="{$formget.s_time}"
+                                                       onclick="WdatePicker()" ></div >
+                            <span class="to" >至</span >
+                            <div id="time-two" ><input id="etime" name="e_time" type="text" value="{$formget.e_time}"
+                                                       onclick="WdatePicker()" ></div >
+                            <!--                                <script>
+                                                                function show(){
+                                                                $dp.show("#etime");
+                                                                }
+                            
+                                                            </script>-->
+                        </div >
+                        <!--                            <div class="status">
+                                                        <span style="margin-left:10px;">状态：</span>
+                                                        <i class="i-one">
+                                                            <input id="state" name="state" type="hidden" value="">
+                                                            <div class="input input-one">全部</div>
+                                                            <ul class="ul-one">
+                                                                <li data-val="">全部</li>
+                                                                <li data-val="1">上架</li>
+                                                                <li data-val="0">下架</li>
+                                                            </ul>
+                                                        </i>
+                        
+                                                        <i class="i-two">
+                                                            <span class="operate">操作:</span>
+                                                            <input id="flag" name="flag" type="hidden" value="">
+                                                            <div class="input input-two">全部</div>
+                                                            <ul class="ul-two">
+                                                                <li data-val="">全部</li>
+                                                                <li data-val="1">申请中</li>
+                                                                <li data-val="2">申请成功</li>
+                                                                <li data-val="0">申请失败</li>
+                                                            </ul>
+                                                        </i>
+                                                    </div>-->
+                        <div class="search-btn" style="margin-top:20px;" >搜 &nbsp;索</div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$num_of_records}</i >个记录</span >
+
+                    </div >
+                    <div class="table-content" >
+                        <table border="0" cellspacing="0" cellpadding="0" >
+                            <tbody >
+                            <tr >
+                                <th width="200" >订单编号</th >
+                                <th width="200" >来自</th >
+                                <th width="180" >充值金额</th >
+                                <th width="180" >充值时间</th >
+                                <th width="100" >状态</th >
+                            </tr >
+                            <!--                                <tr style="color:#0ae;">
+                                                                <td>汇总</td>
+                                                                <td>{$sumitems[0]['sum_money']}</td>
+                                                                <td>--</td>
+                                                                <td>--</td>
+                                                            </tr> -->
+                            <volist name="records" id="vo" >
+                                <tr class="even" >
+                                    <td >{$vo.order_id}</td >
+                                    <td >{$vo.user_login}</td >
+                                    <td >{$vo.money} 元</td >
+                                    <td ><?php echo date("Y-m-d H:i:s",$vo['create_time']); ?></td >
+                                    <td >
+                                        <switch name="vo.status" >
+                                            <case value="1" >待支付</case >
+                                            <case value="2" >支付成功</case >
+                                            <case value="3" >支付失败</case >
+                                            <default />
+                                            待支付
+                                        </switch >
+                                    </td >
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$Page}</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <script src="__PUBLIC__/agent/js/autoPage.js" ></script >
+            <script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+            <script src="__PUBLIC__/agent/js/mygames.js" ></script >
+            <script >
+                $(".search-btn").live("click", function () {
+                    $("#queryForm").submit();
+                });
+            </script >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />

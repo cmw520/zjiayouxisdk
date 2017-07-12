@@ -1,0 +1,333 @@
+﻿<admintpl file="header" />
+
+<!-- 公用样式 -->
+
+
+
+<link href="__PUBLIC__/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput.js" type="text/javascript" ></script>
+
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput_locale_zh.js" type="text/javascript" ></script>
+
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput_locale_es.js" type="text/javascript" ></script>
+
+
+
+</head>
+
+<body >
+
+<div class="wrap js-check-wrap" >
+
+    <ul class="nav nav-tabs" >
+
+        <li ><a href="{:U('Device/Device/index')}" >设备列表</a ></li >
+
+        <li class="active" ><a href="{:U('Device/Device/add')}" >添加设备</a ></li >
+
+    </ul >
+
+
+
+    <div class="wrap jj" >
+
+        <div class="common-form" >
+
+            <div id="kv-avatar-errors" class="center-block" style="width:800px;display:none" ></div >
+
+            <form enctype="multipart/form-data" class="form-horizontal js-ajax-form" action="{:U('Device/Device/add_post')}"
+
+                  method="post" >
+
+                <fieldset >
+
+                    <div class="control-group" >
+
+                        <label class="control-label" >设备品牌:</label >
+
+                        <div class="controls" >
+
+                            <input type="text" class="input" name="brand" >
+
+                        </div >
+
+                    </div >
+
+                      <div class="control-group" >
+
+                        <label class="control-label" >设备型号:</label >
+
+                        <div class="controls" >
+
+                            <input type="text" class="input" name="series"  >
+
+                        </div >
+
+                    </div >
+
+                    <div class="control-group" >
+
+                        <label class="control-label" >设备尺寸:</label >
+
+                        <div class="controls" >
+
+                            <input type="text" class="input" name="size"  >
+                             * 英寸
+                        </div >
+
+                    </div >
+                    <div class="control-group" >
+
+                        <label class="control-label" >设备分辨率:宽</label >
+
+                        <div class="controls" >
+
+                            <input type="text" class="input" name="rp_width"  >
+                            * 像素
+                        </div >
+
+                    </div >
+
+                    <div class="control-group" >
+
+                        <label class="control-label" >设备分辨率:高</label >
+
+                        <div class="controls" >
+
+                            <input type="text" class="input" name="rp_height"  >
+                           * 像素
+                        </div >
+
+                    </div >
+
+
+                    <div class="control-group">
+
+                        <label class="control-label">排图方式</label>
+
+                        <div class="controls">
+
+                            <label class="radio inline" for="active_true">
+
+                                <input type="radio" name="grap_method" value="1" checked id="straight" />直排
+
+                            </label>
+
+                            <label class="radio inline" for="active_true">
+
+                                <input type="radio" name="grap_method" value="2" id="oblique" />斜排
+
+                            </label>
+
+                          
+
+                        </div>
+
+                    </div> 
+
+                    <div class="control-group" id="straight_model">
+
+                        <label class="control-label">直排方式</label>
+
+                        <div class="controls">
+
+                            <label class="radio inline" for="active_true">
+
+                                <input type="radio" name="straight_method" value="1" checked id="gclass" />左右排
+
+                            </label>
+
+                            <label class="radio inline" for="active_true">
+
+                                <input type="radio" name="straight_method" value="2" id="gclass" />右左排
+
+                            </label>
+
+                          
+
+                        </div>
+
+                    </div> 
+
+                    <div id="oblique_model" style="display:none">
+
+                      <div class="control-group" >
+
+                        <label class="control-label" >销售方式</label >
+
+                        <div class="controls" >
+
+                            <input type="text" class="input" name="sale_method" value="" >
+
+                         
+
+                        </div >
+
+                    </div >
+
+
+
+
+                    <div class="control-group" >
+
+                        <label class="control-label" >斜排参数:</label >
+
+                        <div class="controls" >
+
+                            <label class="control-label" style="text-align:left" >*txt</label >
+
+                        </div >
+
+                    </div >
+
+
+
+                    <div class="control-group" >
+
+                        <label class="control-label" ></label >
+
+                        <div class="controls" >
+
+                            <div style="width:200px" >
+
+                                <input id="avatar" name="conf_file" type="file" class="file-loading" >
+
+                            </div >
+
+                        </div >
+
+                    </div >
+                  </div> 
+
+                    <div class="control-group">
+
+                        <label class="control-label">当前状态</label>
+
+                        <div class="controls">
+
+                            <label class="radio inline" for="active_true">
+
+                                <input type="radio" name="status" value="1" checked  />已上线
+
+                            </label>
+
+                           
+                          
+
+                        </div>
+
+                    </div> 
+
+
+
+
+
+                   
+
+                </fieldset >
+
+                <div class="form-actions" >
+
+                    <button type="submit"
+
+                            class="btn btn-primary btn_submit js-ajax-submit" >添加
+
+                    </button >
+
+                    <a class="btn" href="{:U('Device/Device/index')}" >返回</a >
+
+                </div >
+
+            </form >
+
+        </div >
+
+    </div >
+
+    <script src="__PUBLIC__/js/common.js" ></script>
+
+
+
+    <script>
+
+
+        var btnCust = '';
+
+        $("#avatar").fileinput({
+            language             : "zh",
+
+            showPreview          : false,
+
+            overwriteInitial     : true,
+
+            maxFileSize          : 1500,
+
+            showClose            : false,
+
+            showCaption          : true,
+
+            showUpload           : false,
+
+            browseLabel          : '',
+
+            removeLabel          : '',
+
+            browseIcon           : '<i class="fa fa-folder-open-o"></i>添加',
+
+            removeIcon           : '<i class="fa fa-trash-o"></i>清除',
+
+            removeTitle          : 'Cancel or reset changes',
+
+            elErrorContainer     : '#kv-avatar-errors',
+
+            msgErrorClass        : 'alert alert-block alert-danger',
+
+            defaultPreviewContent: '<img src="__PUBLIC__/bootstrap-fileinput/img/add_img.png" alt="Your Avatar" style="width:160px">',
+
+            layoutTemplates      : {main2: '{preview} ' + btnCust + ' {remove} {browse}'},
+
+            allowedFileTypes: ['text'],
+
+            allowedFileExtensions: ["txt"]
+
+        });
+
+
+
+       
+          $("#straight").click(function(){
+            $("#straight_model").show();
+            $("#oblique_model").hide();
+
+        });
+        $("#oblique").click(function(){
+            $("#oblique_model").show();
+            $("#straight_model").hide();
+
+        });
+
+        $(document).ready(function(){
+
+           if(document.getElementById('straight').checked){
+                $("#straight_model").show();
+                $("#oblique_model").hide();
+
+
+            }else{
+              
+               $("#straight_model").hide();
+                $("#oblique_model").show();
+
+            }
+         });
+
+    </script>
+
+
+
+</body >
+
+
+
+</html>

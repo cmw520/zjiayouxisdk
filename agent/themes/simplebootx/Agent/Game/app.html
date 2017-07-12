@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html >
+<head >
+    <title >app</title >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head >
+<body >
+<div class="wrapper" >
+    <volist name="games" id="vo" >
+        <div class="game_item" >
+            <div class="game_item_icon" >
+                <a href="javascript:void(0);" >
+                    <img src="{$vo.icon}" style="width:75px;height:75px" onclick="showGameInfo('', '{$vo.id}')" >
+                </a >
+            </div >
+            <div class="game_item_name" >
+                <span class="cuttitle" onclick="" >{$vo.name}</span >
+            </div >
+            <div class="game_item_download" >
+                <a href="#" class="download_btn" >下载</a >
+            </div >
+        </div >
+    </volist >
+</div >
+<style >
+    body {
+        width: 100%;
+        float: left;
+        text-align: center;
+        background-color: #EEEEEE;
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrapper {
+        width: 100%;
+        float: left;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .game_item {
+        width: 96%;
+        float: left;
+        padding: 2%;
+        border-top: 1px solid #CCCCCC;
+        border-bottom: 1px solid #CCCCCC;
+        margin: 1% 0;
+        background-color: #FFFFFF;
+    }
+
+    .game_item_icon {
+        width: 75px;
+        float: left;
+    }
+
+    .game_item_name {
+        float: left;
+        margin: 0 0 0 5px;
+        font-size: 14px;
+    }
+
+    .game_item_download {
+        float: right;
+        margin: 0 0 0 5px;
+    }
+
+    .download_btn {
+        font-size: 14px;
+        border: 1px solid orange;
+        padding: 5px;
+        margin: 15px 5px 0 0;
+        text-decoration: none;
+        color: orange;
+        border-radius: 5px;
+        float: right;
+    }
+</style >
+<script ></script >
+</body >
+</html >

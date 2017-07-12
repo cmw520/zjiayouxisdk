@@ -1,0 +1,121 @@
+﻿<admintpl file="header" />
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('IosApp/Recgame/index')}" >推荐游戏列表</a ></li >
+        <li ><a href="{:U('IosApp/Recgame/add')}" >添加推荐</a ></li >
+    </ul >
+    <form class="well form-search" method="post" id="cid-form" >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+					<span class="mr20" > 游戏： <select class="select_2"
+                                                     name="appid" id="selected_id" >
+                        <foreach name="games" key="k" item="vo" >
+                            <php >$g_select=$k==$appid
+                                  ?"selected":"";
+                            </php >
+                            <option value="{$k}" {$g_select} >{$vo}</option >
+                        </foreach >
+                    </select > &nbsp;&nbsp; <input type="submit" class="btn btn-primary"
+                                                   value="搜索" />
+					</span >
+            </div >
+        </div >
+    </form >
+    <form class="js-ajax-form" method="post" >
+        <div class="table-actions" >
+            <button class="btn btn-primary btn-small js-ajax-submit"
+                    type="submit" data-action="{:U('IosApp/Recgame/listorders')}" >{:L('SORT')}
+            </button >
+            <button class="btn btn-primary btn-small js-ajax-submit"
+                    type="submit"
+                    data-action="{:U('IosApp/Recgame/toggle',array('display'=>1))}"
+                    data-subcheck="true" >{:L('DISPLAY')}
+            </button >
+            <button class="btn btn-primary btn-small js-ajax-submit"
+                    type="submit"
+                    data-action="{:U('IosApp/Recgame/toggle',array('hide'=>1))}"
+                    data-subcheck="true" >{:L('HIDDEN')}
+            </button >
+            <button class="btn btn-primary btn-small js-ajax-submit"
+                    type="submit" data-action="{:U('IosApp/Recgame/delete')}"
+                    data-subcheck="true" >{:L('DELETE')}
+            </button >
+        </div >
+        <php > $status=array("2"=>L('DISPLAY'),"1"=>L('HIDDEN'));</php >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="15" ><label ><input type="checkbox"
+                                               class="js-check-all" data-direction="x"
+                                               data-checklist="js-check-x" ></label ></th >
+                <th width="50" >{:L('SORT')}</th >
+                <th width="50" >ID</th >
+                <th width="50" >游戏名称</th >
+                <th width="50" >推荐大图</th >
+                <th width="50" >{:L('STATUS')}</th >
+                <th width="100" >{:L('ACTIONS')}</th >
+            </tr >
+            </thead >
+            <foreach name="recgames" item="vo" >
+                <tr >
+                    <td ><input type="checkbox" class="js-check"
+                                data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
+                                value="{$vo.id}" ></td >
+                    <td ><input name='listorders[{$vo.id}]'
+                                class="input input-order mr5" type='text' size='3'
+                                value='{$vo.listorder}' ></td >
+                    <td >{$vo.id}</td >
+                    <td >{$games[$vo['app_id']]}</td >
+                    <td >
+                        <if condition="!empty($vo['image'])" ><a
+                                class="img_a"
+                                href="javascript:onClick=image_priview('{:sp_get_asset_upload_path($vo['image'])}')" >
+                            <img class="img_prew"
+                                 src="{:sp_get_asset_upload_path($vo['image'])}"
+                                 style="height: 50px;" ></img >
+                        </a ></if >
+                    </td >
+
+                    <td >{$status[$vo['status']]}</td >
+                    <td ><a
+                            href="{:U('IosApp/Recgame/edit',array('id'=>$vo['id']))}" >{:L('EDIT')}</a >
+                        <a href="{:U('IosApp/Recgame/delete',array('id'=>$vo['id']))}"
+                           class="js-ajax-delete" >{:L('DELETE')}</a >
+                        <if
+                                condition="$vo['status'] eq 1" ><a
+                                href="{:U('IosApp/Recgame/cancelban',array('id'=>$vo['id']))}"
+                                class="js-ajax-dialog-btn" data-msg="确定显示此推荐游戏吗？" >{:L('DISPLAY')}</a >
+                            <else />
+                            <a
+                                    href="{:U('IosApp/Recgame/ban',array('id'=>$vo['id']))}"
+                                    class="js-ajax-dialog-btn" data-msg="确定隐藏此推荐游戏吗？" >{:L('HIDE')}</a >
+                        </if >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js?t={:time()}" ></script >
+<script >
+    setCookie('refersh_time', 0);
+    function refersh_window() {
+        var refersh_time = getCookie('refersh_time');
+        if (refersh_time == 1) {
+            window.location.reload();
+        }
+    }
+    setInterval(function () {
+        refersh_window()
+    }, 3000);
+    $(function () {
+        $("#selected-cid").change(function () {
+            $("#cid-form").submit();
+        });
+    });
+</script >
+</body >
+</html>

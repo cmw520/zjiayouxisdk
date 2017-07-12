@@ -1,0 +1,14 @@
+<div class="container fixed_footer module_bottomtabs" >
+    <div class="row" >
+        <div class="col-xs-3 tab_item" ng-repeat="x in data" ng-click="change($index);" on-finish-render-filters >
+            <div class="tab_item_icon" >
+                <img ng-src="{{x.icon}}" alt="" />
+            </div >
+            <div class="tab_item_text" >
+                <span ng-show="current !== $index" style="color:#AAAAAA;" > {{x.name}} </span >
+                <span ng-show="current === $index" style="color:#00AAEE;" > {{x.name}} </span >
+            </div >
+        </div >
+    </div >
+
+</div >

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html >
+<head lang="en" >
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta charset="UTF-8" >
+    <title >{$title}</title >
+    <link rel="stylesheet" href="__PUBLIC__/mobile/css/payment.css" />
+</head >
+<body >
+<!-- <header>
+    <div class="return_btn" onclick="window.history.back()">
+        <img src="__PUBLIC__/mobile/images/btn_return_l.png" alt=""/>
+    </div>
+    <h3></h3>
+    <div class="close_btn">
+        <img src="__PUBLIC__/mobile/images/btn_cancle.png" alt=""/>
+    </div>
+</header> -->
+<!--帐号信息-->
+<div class="account_information" >
+    <p class="account" >帐号：<i >{$Think.session.user.username}</i ></p >
+    <p class="balance" >{:C('CURRENCY_NAME')}余额：<span >{$gmremain}</span >元</p >
+</div >
+<!--购买信息-->
+<div class="buy_information" >
+    <h3 class="info gray_title" >购买信息：</h3 >
+    <p class="prop" >购买道具：<span >{$productname}</span ></p >
+    <p class="prop_price" >道具价格：<span >{$paydata['amount']}</span >元</p >
+    <p class="payed" >{:C('CURRENCY_NAME')}支付：<span >{$paydata['gm_cnt']}</span >元</p >
+    <p class="canPay" >还需支付：<span >{$paydata['real_amount']}</span >元
+        <if condition="1 eq $ratedata['benefit_type']" >
+            （<i >{$ratedata['mem_rate']*10}</i >折）
+        </if >
+    </p >
+    <if condition="2 eq $ratedata['benefit_type']" >
+        <p class="rebate" >返利：<span >{$paydata['rebate_cnt']}</span >元</p >
+    </if >
+</div >
+
+<!--选择支付方式-->
+<div class="change_way" >
+    <h3 class="gray_title" >选择支付方式：</h3 >
+    <ul class="way" >
+        <li data-way="alipay" >
+            <div class="way_icon" ><img src="__PUBLIC__/mobile/images/alipay.png" alt="" /></div >
+            <span >支付宝(推荐)</span >
+            <div class="right_icon" ></div >
+        </li >
+        <li data-way="spay" >
+            <div class="way_icon" ><img src="__PUBLIC__/mobile/images/wxpay.png" alt="" /></div >
+            <span >微信支付</span >
+            <div class="right_icon" ></div >
+        </li >
+        <li data-way="payeco" >
+            <div class="way_icon" ><img src="__PUBLIC__/mobile/images/unionpay.png" alt="" /></div >
+            <span >银联在线支付</span >
+            <div class="right_icon" ></div >
+        </li >
+    </ul >
+</div >
+<!--客服QQ-->
+<footer class="footer" >
+    <a href="#" class="pay" >立即支付</a >
+    <p >
+        <notempty name="contactdata['qq']" >
+            <span >客服QQ：<a onclick="huosdk_openqq('{$contactdata['qq']}');" >{$contactdata['qq']}</a ></span >
+        </notempty >
+        <notempty name="contactdata['qqgroup']" >
+            <span >Q Q 群：<a href="#"
+                            onclick="huosdk_openqqgroup('{$contactdata['qqgroup']}','{$contactdata['qqgroupkey']}');" >{$contactdata['qqgroup']}</a ></span >
+        </notempty >
+    </p >
+</footer >
+<!--支付操作-->
+<form action="{:U('Pay/sdkpay/preorder')}" method="post" id="payform" style="display:none" >
+    <input type="hidden" value="{$paydata['order_id']}" id="orderid" name="orderid" />
+    <input type="hidden" id="paytype" name="paytype" />
+    <input type="hidden" id="paytoken" name="paytoken" value="{$paytoken}" />
+</form >
+</body >
+<script src="__PUBLIC__/mobile/js/payment.js" ></script >
+<script src="__PUBLIC__/mobile/js/fastclick.js" ></script >
+<script >
+    window.addEventListener("load", function () {
+        FastClick.attach(document.body);
+    }, false);
+</script >
+</html >

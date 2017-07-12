@@ -1,0 +1,29 @@
+<html >
+<head >
+    <title >充值失败</title >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/css/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+</head >
+<body >
+
+<div class="container" style="width:100%;" >
+    <div class="row" style="text-align:center;width:100%;margin-top:50px;" >
+        <img src="__PUBLIC__/agent/img/{:C('COMPANY_LOGO')}" class="logo" >
+    </div >
+    <div class="row" style="text-align:center;width:100%;" >
+        <span >做最具价值的手游分销平台！</span >
+    </div >
+</div >
+<div class="container" style="width:100%;" >
+    <div class="row" style="text-align:center;width:100%;margin-top:30px;" >
+        <h3 >充值失败</h3 >
+        <p style="color:red;margin:20px 0;" >{$reason}</p >
+        <a href="{:U('Agent/money/recharge_member')}" class="btn btn-success" >返回充值中心</a >
+    </div >
+</div >
+</body >
+</html >

@@ -1,0 +1,54 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap jj" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" >游戏币发放</a ></li >
+    </ul >
+
+    <div class="common-form" >
+        <form method="post" class="form-horizontal" action="{:U('Ptb/chargePtb_post')}" >
+            <fieldset >
+
+                <div class="control-group" >
+                    <label class="control-label" >玩家账号:</label >
+                    <div class="controls" >
+                        <select name="mem_id" >
+                            {$member_select_txt}
+                        </select >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >游戏:</label >
+                    <div class="controls" >
+                        <select name="app_id" >
+                            {$game_select_txt}
+                        </select >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >发放数量:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="amount" value="" autocomplete="off" >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >备注:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="remark" value="" autocomplete="off" >
+                    </div >
+                </div >
+            </fieldset >
+            <div class="form-actions" >
+                <button type="submit" class="btn btn-primary btn_submit" >确认</button >
+            </div >
+        </form >
+    </div >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+
+</script >
+
+</body >
+</html>

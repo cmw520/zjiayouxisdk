@@ -1,0 +1,90 @@
+﻿<admintpl file="header" />
+</head>
+<body >
+    <!--
+     @time 2017-01-23 10:07:11
+     @author 严旭
+    -->
+    <style >
+        .mr20 select {
+            width: 100px;
+        }
+    </style >
+    <div class="wrap js-check-wrap" >
+        <ul class="nav nav-tabs" >
+            <li class="active" ><a href="{:U('Newapp/SignReword/index')}" >{$admin_module_name}</a ></li >
+        </ul >
+        <form class="well form-search" method="get" id="cid-form" action="__SELF__" >
+            <div class="search_type cc mb10" >
+                <div class="mb10" >
+                    <span class="mr20" >
+                        日期：
+                        {$year_select} {$month_select}
+                        <button class='btn btn-primary' >搜索</button >
+                    </span >
+
+                </div >
+            </div >
+        </form >
+        <form class="js-ajax-form" method="post" >
+            <div class="table-actions" >
+
+            </div >
+
+            <table class="table table-hover table-bordered table-list" >
+                <thead >
+                    <tr >
+                        <th >月份</th >
+                        <th >天数</th >
+                        <th >奖励积分</th >
+
+                        <th >操作</th >
+                    </tr >
+                </thead >
+                <volist name="items" id="vo" >
+                    <tr >
+                        <td >{$vo.date}</td >
+                        <td >{$vo.sign_days}</td >
+                        <td >{$vo.give_integral_txt}</td >
+
+                        <td >
+                            <a href="javascript:;" data-date="{$vo['date']}" data-sign_days="{$vo['sign_days']}"
+                               class='edit_btn' >编辑</a >
+
+                        </td >
+                    </tr >
+                </volist >
+            </table >
+            <div class="pagination" >{$page}</div >
+        </form >
+    </div >
+    <script src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+    <script >
+        $(".edit_btn").click(function () {
+//            var v = prompt("请输入奖励积分数量");
+            var date = $(this).attr("data-date");
+            var days = $(this).attr("data-sign_days");
+            layer.prompt({title: '请输入奖励积分数量', shift: 7}, function (v, index) {
+                layer.close(index);
+
+                var url  = "{:U('Newapp/SignReword/edit')}";
+                var data = {"date": date, "sign_days": days, "give_integral": v};
+                console.log(data);
+//                return;
+                $.post(url, data, function (res) {
+                    if (res.error === '0') {
+                        location.reload();
+                    } else {
+                        layer.alert(res.msg, {shift: 7});
+                    }
+                });
+
+            });
+
+        });
+
+    </script >
+</body >
+</html>
+

@@ -1,0 +1,49 @@
+    <html>  
+    <head>  
+    <meta http-equiv="X-UA-Compatible" content="chrome=IE8">  
+    <script src="te.js"></script>  
+    <title>My Demo 1</title>  
+        <script>  
+        window.onload = function() {  
+            var canvas = document.getElementById("pie_canvas");  
+            var seriesData = [{name:"apples", value:150, color:"RGBA(255,0,0,1)"},  
+                          {name:"orange", value:100, color:"RGBA(255,255,0,1)"},  
+                          {name:"banana", value:80, color:"RGBA(255,0,255,1)"},  
+                          {name:"peaches", value:60, color:"RGBA(0,255,255,1)"},  
+                          {name:"strawberries", value:40, color:"RGBA(0,127,255,1)"}]  
+            var config = {  
+                    width : 600,   
+                    height: 400,  
+                    series: seriesData,  
+                    canvas: canvas,  
+                    unit: "kg",  
+                    title:"Fruit Sales",  
+                    tooltips : {  
+                        enable : true  
+                    },  
+                    animation :{  
+                        enable: false  
+                    },  
+                    legend : {  
+                        enable : true  
+                    },  
+                    text : {  
+                        enable: true  
+                    },  
+            };  
+            pieChart.initSettings(config);  
+            pieChart.render();  
+        }  
+        </script>  
+    </head>  
+    <body>  
+    <h1>Pie Chart Demo</h1>  
+    <div id="my_container" style="width:600px; height:500px;">  
+        <canvas id="pie_canvas"></canvas>  
+    </div>  
+    <div id="btn-group">  
+        <button type="button" id="clear-button">Clear Plot</button>  
+        <button type="button" id="refresh-button">Draw Plot</button>  
+    </div>  
+    </body>  
+    </html>  

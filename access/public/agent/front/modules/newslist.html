@@ -1,0 +1,25 @@
+<div class="container inner_container">
+    <div class="row front_custome_header">
+        <h2>游戏公告</h2>
+    </div>
+    <div class="row" style="margin-top:20px;margin-bottom:20px;">   
+
+        <div class="col-md-12">
+
+            <div class="row" style="border-bottom:1px dashed #ccc;padding:10px 0;" ng-repeat="value in list">   
+                <div class="col-md-2" style="min-height:30px;padding:10px;background-color:#0ae;color:#fff;">{{value.time}}</div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12" style="font-size:16px;">
+                            <!--<a href="index.html#/view_news/{{value.id}}">-->
+                                {{value.title}}
+                            <!--</a>-->
+                        </div>
+                        <div class="col-md-12" style="padding-top:10px;font-size:12px;">{{value.content}}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

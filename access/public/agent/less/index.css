@@ -1,0 +1,495 @@
+header {
+  width: 100%;
+  height: 40px;
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #E1E1E1;
+}
+header > .header {
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 40px;
+}
+header > .header > .welcome {
+  float: left;
+  width: 40%;
+  height: 100%;
+  max-width: 342px;
+  line-height: 40px;
+}
+header > .header > .welcome span {
+  font-size: 1.2rem;
+}
+header > .header > .welcome span b {
+  font-weight: normal;
+  font-size: 20px;
+}
+header > .header > .welcome_right {
+  font-size: 1rem;
+  width: 60%;
+  height: 40px;
+  line-height: 40px;
+  float: right;
+}
+header > .header > .welcome_right > span {
+  float: right;
+}
+header > .header > .welcome_right > .main {
+  float: right;
+}
+header > .header > .welcome_right > .main > ul li {
+  float: left;
+}
+header > .header > .welcome_right > .main > ul li a {
+  color: #818181;
+}
+header > .header > .welcome_right > .main > ul li a:hover {
+  color: #e4393c;
+}
+header > .header > .welcome_right > .main > ul li.center b {
+  display: inline-block;
+  width: 1px;
+  height: 15px;
+  background-color: #E1E1E1;
+  transform: translateY(4px);
+  margin: 0px 8px;
+}
+header > .header > .welcome_right > .main > ul li.center em {
+  display: inline-block;
+  width: 10px;
+  height: 8px;
+  background: url("../img/icon_list1.png") no-repeat 0px -150px;
+  margin-right: 7px;
+}
+header > .header > .welcome_right > .main > ul li.center > span {
+  color: #FD9651;
+  text-align: center;
+}
+header > .header > .welcome_right > .main > ul:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+/************����***********/
+nav {
+  padding: 20px 0px 0px 0px;
+  box-shadow: 0px 0px 2px 2px #DFDFDF;
+}
+nav .nav {
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /*********logo**********/
+  /*********������**********/
+}
+nav .nav > .nav_logo {
+  max-width: 300px;
+  width: 35%;
+  display: inline-block;
+  cursor: pointer;
+  float: left;
+}
+nav .nav > .nav_logo > a > img {
+  width: 45%;
+}
+nav .nav > .nav_logo > a > span {
+  display: inline-block;
+  width: 50%;
+  vertical-align: bottom;
+  font-size: 13px;
+}
+nav .nav > .nav_logo > a:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+nav .nav > .main_nav {
+  width: 40%;
+  float: right;
+}
+nav .nav > .main_nav > li {
+  float: left;
+  height: 63px;
+  line-height: 63px;
+  width: calc(100% / 2 );
+  border-bottom: 3px solid transparent;
+  text-align: center;
+  padding-bottom: 15px;
+  cursor: pointer;
+  transition: all .25s linear;
+}
+nav .nav > .main_nav > li a {
+  color: #000;
+  font-size: 1.5rem;
+  transition: color .15s linear;
+}
+nav .nav > .main_nav > li.active {
+  border-bottom: 3px solid #0c9de0;
+}
+nav .nav > .main_nav > li.active a {
+  color: #0c9de0;
+}
+nav .nav > .main_nav > li:hover {
+  border-bottom: 3px solid #0c9de0;
+}
+nav .nav > .main_nav > li:hover a {
+  color: #0c9de0;
+}
+nav > .nav:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+/************section***********/
+section {
+  background-color: #F5F5F5;
+  padding-bottom: 35px;
+}
+section .user_center {
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+section .user_center > .banner_1 {
+  padding: 5px 0px;
+  width: 100%;
+  max-width: 1200px;
+}
+section .user_center > .banner_1 img {
+  width: 100%;
+  max-width: 1200px;
+}
+section .user_center > .user_center_main > div {
+  float: left;
+}
+section .user_center > .user_center_main > .center_left {
+  width: 30%;
+  max-width: 180px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+section .user_center > .user_center_main > .center_left > .Withdrawals {
+  text-align: center;
+  border-bottom: 1px solid #E8E8E8;
+}
+section .user_center > .user_center_main > .center_left > .Withdrawals button {
+  width: 95%;
+  max-width: 124px;
+  /*padding: 6px 0px;*/
+  /*color: #fff;*/
+  /*font-size: 1.4rem;*/
+/*  border: none;
+  outline: none;
+  cursor: pointer;*/
+margin-top:10px;
+margin-bottom:10px;
+}
+section .user_center > .user_center_main > .center_left > .Withdrawals button:first-child {
+  /*margin: 20px 0px;*/
+  /*background-color: #fc8a8a;*/
+}
+section .user_center > .user_center_main > .center_left > .Withdrawals button:nth-child(2) {
+  margin-bottom: 20px;
+  background-color: #008be3;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav {
+  margin-left: 10%;
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav > ul > h3 {
+  margin: 10px 0px 15px 0px;
+}
+/*section .user_center > .user_center_main > .center_left > .aside_nav > ul > h3 > em {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background: url("../img/icon_list1.png") no-repeat 0px -216px;
+  vertical-align: bottom;
+  margin-right: 8px;
+}*/
+section .user_center > .user_center_main > .center_left > .aside_nav > ul > h3 > span {
+  font-size: 18px;
+  font-weight:400;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav > ul > li {
+  line-height: 30px;
+  padding-left: 29px;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav > ul > li a {
+  color: #888888;
+  font-size:16px;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav > ul > li.active a {
+  color: #008be3;
+}
+
+section .user_center > .user_center_main > .center_left > .aside_nav em {
+  margin:0 10px 0 0 ;
+  font-size:18px;
+  color:#4a87ee;
+  width: 20px;
+}
+/*section .user_center > .user_center_main > .center_left > .aside_nav > ul.user_management > h3 em {
+  background-position: 0px -249px;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav > ul.user_agent > h3 em {
+  background-position: 2px -49px;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav > ul.Date_center > h3 em {
+  background-position: 0px -98px;
+}
+section .user_center > .user_center_main > .center_left > .aside_nav > ul.App_customization > h3 em {
+  background-position: 2px -11px;
+  transform: translateY(2px);
+}*/
+section .user_center > .user_center_main > .center_main {
+  background-color: #fff;
+  border: 1px solid #E5E5E5;
+}
+section .user_center > .user_center_main > .center_main > .search_box {
+  text-align: center;
+  padding: 30px 0px;
+  border-bottom: 1px solid #E4E4E4;
+}
+section .user_center > .user_center_main > .center_main > .search_box > input {
+  width: 23%;
+  min-width: 158px;
+  height: 22px;
+  font-size: 1rem;
+}
+section .user_center > .user_center_main > .center_main > .search_box > button {
+  width: 10%;
+  height: 28px;
+  margin-left: 7px;
+  background-color: #008be3;
+  border: none;
+  color: #fff;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list {
+  width: 95%;
+  margin: 0 auto;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > p.top {
+  height: 40px;
+  line-height: 40px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > p.top > span {
+  color: #C2C6BC;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > p.top > select {
+  float: right;
+  height: 25px;
+  margin-top: 7px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 {
+  width: 100%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr {
+  background-color: #a0e4ff;
+  border-top: 1px solid #FFD8BF;
+  border-bottom: 2px solid #FFD6BA;
+  color: #141212;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th {
+  padding-top: 6px;
+  padding-bottom: 9px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th.sub_box1 {
+  width: 6%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th.game_ID {
+  width: 12%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th.game_icon {
+  width: 10%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th.game_name {
+  width: 25%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th.game_size {
+  width: 10%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th.game_version {
+  width: 14%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > thead > tr > th.lasted_time {
+  width: 18%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > tbody > tr.list_1 {
+  height: 80px;
+  border-bottom: 1px solid #F8F8F8;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > tbody > tr.list_1 > td {
+  text-align: center;
+  vertical-align: middle;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > tbody > tr.list_1 > td.game_icon {
+  width: 60px;
+  height: 60px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > tbody > tr.list_1 > td.game_icon img {
+  width: 60px;
+  height: 60px;
+  border-radius: 11px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .table1 > tbody > tr.list_1 > td.game_name {
+  color: #00A0E9;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application {
+  margin-top: 30px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .choose_btn1 {
+  float: left;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .choose_btn1 label {
+  width: 8%;
+  vertical-align: middle;
+  margin-right: 18px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .choose_btn1 label input {
+  transform: translateY(1px);
+  margin-right: 5px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .choose_btn1 > button {
+  background-color: #008be3;
+  border: none;
+  padding: 8px 15px;
+  color: #fff;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .choose_count {
+  float: left;
+  line-height: 31px;
+  color: #DEE0E3;
+  margin-left: 10%;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num {
+  clear: both;
+  display: block;
+  text-align: right;
+  float: right;
+  margin-top: 20px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > div > button {
+  float: left;
+  background-color: #fff;
+  border: 1px solid #EBEBEB;
+  padding: 6px 10px;
+  margin: 0px 5px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > div > button:hover {
+  background-color: #008be3;
+  color: #fff;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .left {
+  float: left;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .center {
+  float: left;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .center > button.active {
+  background-color: #008be3;
+  color: #fff;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .center > button.sl {
+  border: none;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .right {
+  float: left;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .right > span {
+  float: left;
+  height: 29px;
+  vertical-align: middle;
+  margin: 0 3px;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .right > span > input {
+  width: 30px;
+  padding: 0;
+  height: 25px;
+  border: 1px solid #E7E7E7;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num > .right > button.Determine {
+  background-color: #008be3;
+  color: #fff;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application > .page_num:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+section .user_center > .user_center_main > .center_main > .search_game_list > .choose_application:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+section .user_center > .user_center_main:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+footer.footer {
+  background-color: #1E1B29;
+  color: #fff;
+  padding-top: 25px;
+  padding-bottom: 35px;
+}
+footer.footer > ul {
+  width: 60%;
+  max-width: 700px;
+  margin: 20px auto 30px auto;
+}
+footer.footer > ul li {
+  width: calc((100% - 4px) / 5);
+  float: left;
+  text-align: center;
+  border-right: 1px solid #696969;
+}
+footer.footer > ul li a {
+  color: #fff;
+  font-size: 1.6rem;
+}
+footer.footer > ul li:last-child {
+  border-right: 0;
+}
+footer.footer > ul:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+footer.footer > p {
+  text-align: center;
+  color: #807C84;
+}
+
+
+
+
+/*subagent 自定义样式*/
+.top_hint,.main_content{
+    width:96%;
+    float:left;
+    padding:2%;
+}
+.top_hint{
+    border-bottom: 1px solid #ccc;
+    color:#008be3;
+
+}
+
+.main_content{
+    min-height: 500px;
+}
+
+.main_content input{
+    padding:5px;
+    margin:10px;
+}
+.main_content button{
+    padding:5px;
+}
+
+
+#pop-content{
+   max-height:500px;overflow-y:scroll;
+}

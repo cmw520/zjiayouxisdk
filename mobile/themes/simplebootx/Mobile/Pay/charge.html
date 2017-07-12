@@ -1,0 +1,152 @@
+<mobiletpl file="header" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<link rel="stylesheet" href="__PUBLIC__/wap/css/charge.css" />
+<header class="header" >
+    <ul class="main_layout" >
+        <li class="back_btn" ><img src="__PUBLIC__/wap/images/icon/arrow_l.png" alt="" /></li >
+        <li class="text" >充值</li >
+        <li class="close_btn" ><img src="__PUBLIC__/wap/images/icon/closebtn.png" alt="" /></li >
+    </ul >
+</header >
+<!--帐号信息-->
+<div class="account_information" >
+    <p class="account" >帐号：<i >{$nickname}</i ></p >
+    <p class="gameName" >游戏：<span >{$gamename}</span ></p >
+    <p class="balance" >{:C('CURRENCY_NAME')}：<span >{$remain|default=0}</span >
+</div >
+<!--充值金额-->
+<div class="recharge_amount" >
+    <h3 class="gray_title" >充值金额（单位:元）</h3 >
+    <ul class="btn_group" >
+        <li >50</li >
+        <li class="active" >100</li >
+        <li >500</li >
+        <li >1000</li >
+        <li >2000</li >
+        <li >5000</li >
+        <input type="text" placeholder="自定义金额:1-50000" style="font-family:'Microsoft YaHei'" />
+    </ul >
+    <input type="hidden" value="{$ratedata.benefit_type}" id="bnftype" name="bnftype" />
+
+    <p class="canGet" >可获得<span ></span >{:C('CURRENCY_NAME')}</p >
+    </p>
+    <p class="fact" >实际所需金额 <span class="paymoney" ></span ><span class="discount" >元【首充3.9折优惠】</span ></p >
+</div >
+
+<div class="main_model_box" ></div >
+<!--选择支付方式-->
+<div class="change_way" >
+    <h3 class="gray_title" >选择支付方式</h3 >
+    <ul class="way" >
+        <!-- <li data-way="alipay"><div class="way_icon"><img src="__PUBLIC__/wap//mobile/images/alipay.png" alt=""/></div><span>支付宝(推荐)</span><div class="right_icon"><img src="__PUBLIC__/wap//mobile/images/btn_return.png" alt=""/></div></li>
+        <li data-way="spay"><div class="way_icon"><img src="__PUBLIC__/wap//mobile/images/wxpay.png" alt=""/></div><span>微信支付</span><div class="right_icon"><img src="__PUBLIC__/wap//mobile/images/btn_return.png" alt=""/></div></li>
+        <li data-way="payeco"><div class="way_icon"><img src="__PUBLIC__/wap//mobile/images/unionpay.png" alt=""/></div><span>银联在线支付</span><div class="right_icon"><img src="__PUBLIC__/wap//mobile/images/btn_return.png" alt=""/></div></li>
+  		 -->
+        <li data-way="alipay" ><a href="javascript:;" >
+            <div class="way_icon" ><img src="__PUBLIC__/wap/images/icon/alipay.png" alt="" /></div >
+            <span >支付宝(推荐)</span >
+            <div class="right_icon" ><img src="__PUBLIC__/wap/images/icon/btn_return.png" alt="" /></div >
+        </a ></li >
+        <li data-way="spay" ><a href="javascript:;" >
+            <div class="way_icon" ><img src="__PUBLIC__/wap/images/icon/wxIcon.png" alt="" /></div >
+            <span >微信支付</span >
+            <div class="right_icon" ><img src="__PUBLIC__/wap/images/icon/btn_return.png" alt="" /></div >
+        </a ></li >
+        <!--<li data-way="payeco"><a href="###">-->
+        <!--<div class="way_icon"><img src="images/icon/unionpay.png" alt=""/></div>-->
+        <!--<span>银联在线支付</span>-->
+        <!--<div class="right_icon"><img src="images/icon/btn_return.png" alt=""/></div>-->
+        <!--</a></li>-->
+
+    </ul >
+    <form action="{:U('Pay/preorder')}" method="post" id="payform" style="display:none" >
+        <input type="hidden" value="{$app_id}" id="appid" name="appid" />
+        <input type="hidden" value="{$agent_id}" id="agent" name="agent" />
+        <input type="hidden" id="paytype" name="paytype" />
+        <input type="hidden" id="randnum" name="randnum" />
+        <input type="hidden" id="paytoken" name="paytoken" value="{$paytoken}" />
+        <input type="hidden" id="money" name="money" />
+        <input type="hidden" value="{$ratedata.mem_rate}" id="rate" name="rate" />
+        <input type="hidden" value="{$ratedata.mem_rebate}" id="rebate" name="rebate" />
+    </form >
+</div >
+
+<!--立即充值-->
+<!--<div class="instant_recharge">-->
+<!--<button>立 即 充 值</button>-->
+<!--</div>-->
+
+<!-- <footer class="footer">
+    <p>	
+    <notempty name = "contactdata['qq']">
+        <p class="QQ" onclick="huosdk_openqq('{$contactdata['qq']}');"> <span>客服QQ：</span>{$contactdata['qq']}</p>
+    </notempty>
+    <notempty name = "contactdata['qqgroup']">
+        <p class="QQgroup" onclick="huosdk_openqqgroup('{$contactdata['qqgroup']}','{$contactdata['qqgroupkey']}');"><span>QQ 群：</span>{$contactdata['qqgroup']}</p>
+    </notempty>	
+    </p>
+   
+      <p>
+	<notempty name = "contactdata['qq']">
+		<span>客服QQ：<a  href="#" onclick="huosdk_openqq('{$contactdata['qq']}');">{$contactdata['qq']}</a></span>
+	</notempty>
+    <notempty name = "contactdata['qqgroup']">
+		<span>Q Q 群：<a href="#" onclick="huosdk_openqqgroup('{$contactdata['qqgroup']}','{$contactdata['qqgroupkey']}');">{$contactdata['qqgroup']}</a></span>
+	</notempty>
+    </p>
+    
+</footer>
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+</body>
+<script src="__PUBLIC__/wap/js/jquery.js" ></script >
+<script src="__PUBLIC__/wap/js/public.js" ></script >
+<script src="__PUBLIC__/wap/js/huosdk_base.js" ></script >
+<script src="__PUBLIC__/wap/js/fastclick.js" ></script >
+<script src="__PUBLIC__/wap/js/recharge.js" ></script >
+<script >
+    $(function () {
+        var bnftype = $("#bnftype").val();
+        var str     = '';
+        var yxb     = $('.active').html();
+        var money   = $('.active').html();
+        if (bnftype == 1) {
+            str          = "元【充值{$ratedata['mem_rate']|round=2}折优惠】";
+            var mem_rate = "{$ratedata['mem_rate']}"
+            money        = money * mem_rate;
+        } else if (bnftype == 2) {
+            str          = "元【充值返利{$ratedata['mem_rebate']}折】";
+            var mem_rate = "{$ratedata['mem_rate']}"
+            yxb          = yxb * mem_rebate;
+        }
+        $('.discount').html(str);
+        $('.canGet>span').html(yxb);
+        $('.paymoney').html(money);
+
+    })
+</script >
+<script >
+    //    window.addEventListener( "load", function(){
+    //        FastClick.attach( document.body );
+    //    }, false );
+
+    /*****充值金额*****/
+    //    $(".recharge_amount>.btn_group>li").each(function(i){
+    //        this.index=i+1;
+    //        if(this.index%3===0){
+    //            $(this).css("margin-right","0px");
+    //        }
+    //        $(this).click(function(){
+    //            var money=$(this).html();
+    //            $(".btn_group>input").val("");
+    //            $(this).addClass("active").siblings().removeClass("active");
+    //            $(".canGet>span").html(money/rate+money*rebate);
+    //        });
+    //    });
+    //    $(".btn_group>input").focus(function(){
+    //        $(".canGet>span").html(0);
+    //        $(".btn_group>.active").removeClass("active");
+    //    });
+</script >
+
+</html>

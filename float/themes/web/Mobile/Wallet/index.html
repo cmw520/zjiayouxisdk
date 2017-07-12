@@ -1,0 +1,43 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/wallet.css" />
+
+<div class="user" >
+    <div class="img" >
+        <if condition="substr($user['head_img'],0,4) eq 'http'" >
+            <img src="{$user.head_img}" >
+            <elseif condition="$user['head_img'] neq ''" />
+            <img id="showimg" src="{:H5SDKSITE}/upload/logo/{$user.head_img}" >
+            <else />
+            <img src="__PUBLIC__/mobile/images/default_head.png" alt="" />
+        </if >
+    </div >
+    <div class="info" >
+        <p >帐户：<span >{$user.username}</span ></p >
+        <p >{:C('CURRENCY_NAME')}：<span ><i >{$memptb.amount|default=0}</i ></span ></p >
+    </div >
+</div >
+<section >
+    <ul class="funcList" >
+        <li class="list cz" ><a href="{:U('Mobile/Wallet/charge')}" >
+            <div class="left" ><b ></b ><span >充值</span ></div >
+            <div class="right" ><s ></s ></div >
+        </a ></li >
+        <li class="list czmx" ><a href="{:U('Mobile/Wallet/charge_detail')}" >
+            <div class="left" ><b ></b ><span >充值明细</span ></div >
+            <div class="right" ><s ></s ></div >
+        </a ></li >
+        <li class="list xfmx" ><a href="{:U('Mobile/Wallet/pay_detail')}" >
+            <div class="left" ><b ></b ><span >消费明细</span ></div >
+            <div class="right" ><s ></s ></div >
+        </a ></li >
+        <!--   <li class="list zfmm"><a href="#"><div class="left"><b></b><span>支付密码</span></div><div class="right"><s></s></div></a></li>-->
+    </ul >
+</section >
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+<div class="main_model_box" ></div >
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/wallet.js" ></script >
+</html>

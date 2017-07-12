@@ -1,0 +1,75 @@
+﻿<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <form class="well form-search" method="get" action="{:U('Pay/Ptb/AgentForSub')}" >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+					<span class="mr20" >
+					订单号： 
+					<input type="text" name="orderid" style="width: 150px;" value="{$formget.orderid}"
+                           placeholder="请输入订单号..." >
+					&nbsp;&nbsp; &nbsp;&nbsp;
+                    <!--					出币账号：
+                                        <input type="text" name="agentname"
+                                            style="width: 150px;" value="{$formget.agentname}"
+                                            placeholder="请输入账号...">
+                                        &nbsp;&nbsp; &nbsp;&nbsp; -->
+                                        收币账号： 
+					<input type="text" name="subname"
+                           style="width: 150px;" value="{$formget.subname}"
+                           placeholder="请输入账号..." >
+					&nbsp;&nbsp; &nbsp;&nbsp;
+                    <!--<br><br>-->
+                                        时间：
+					<input type="text" name="start_time"
+                           class="js-date" value="{$formget.start_time|default=''}" placeholder="开始时间..."
+                           style="width: 100px;" autocomplete="off" >
+					- 
+					<input type="text" class="js-date" name="end_time" placeholder="时间..."
+                           value="{$formget.end_time}" style="width: 100px;"
+                           autocomplete="off" > &nbsp; &nbsp;
+					</span >
+                <input type="submit" name='submit' class="btn btn-primary" value="搜索" />
+            </div >
+        </div >
+    </form >
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="120" >时间</th >
+                <th >订单号</th >
+                <th >出币账号</th >
+                <th >收币账号</th >
+                <th >金额</th >
+            </tr >
+            </thead >
+
+            <tr >
+                <th style='color:#FF0000' >汇总</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >{$sums}</th >
+            </tr >
+
+            <foreach name="orders" item="vo" >
+                <tr >
+                    <td >{$vo.create_time|date='Y-m-d H:i:s',###}</td >
+                    <td >{$vo.order_id}</td >
+
+                    <td >{$vo.agentname}</td >
+                    <td >{$vo.subname}</td >
+                    <td >{$vo.money}</td >
+                </tr >
+            </foreach >
+
+        </table >
+        <div class="pagination" >{$Page}</div >
+
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

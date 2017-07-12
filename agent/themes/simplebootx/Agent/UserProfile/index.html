@@ -1,0 +1,243 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <style >
+                .user_info_editdiv .row {
+                    padding: 10px 20px;
+                }
+
+                .user_info_editdiv .row input, .user_info_editdiv .row select {
+                    width: 200px;
+                }
+
+                .user_info_editdiv {
+                    width: 600px;
+                    float: left;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                }
+
+                .phone_verify_block .row {
+                    padding: 15px 30px;
+                }
+            </style >
+            <div class="page-right personal-information-management" >
+                <div class="container" style="width:960px;margin-top:30px;" >
+                    <ul class="breadcrumb" >
+                        <li ><a href="{$urls.index}" >首页</a ></li >
+                        <li ><a href="{:U('Agent/Ucenter/security')}" >安全中心</a ></li >
+                        <li class="active" >结算信息</li >
+                    </ul >
+                </div >
+                <form class="form-horizontal" method='post' action='{:U("Agent/UserProfile/edit_post")}' role="form" >
+                    <input type="hidden" name="agent_id" value="{$user.id}" />
+                    <div class='container user_info_editdiv' >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >用户名</label >
+                            <div class='col-md-10' >{$user.user_login}</div >
+                        </div >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >开户银行</label >
+                            <div class='col-md-10' >
+                                <select name='bankname' class='form-control' >
+                                    {$bank_select}
+                                </select >
+                            </div >
+                        </div >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >开户支行</label >
+                            <div class='col-md-10' >
+                                <input class='form-control' type='text' name='branchname' value="{$data.branchname}" />
+                            </div >
+                        </div >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >银行帐号</label >
+                            <div class='col-md-10' >
+                                <input class='form-control' type='text' name='banknum' value="{$data.banknum}" />
+                            </div >
+                        </div >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >户名</label >
+                            <div class='col-md-10' >
+                                <input class='form-control' type='text' name='link_man' value="{$data.link_man}" />
+                            </div >
+                        </div >
+
+                        <div class='row' >
+                            <label class='col-md-2 control-label' ></label >
+                            <div class='col-md-10' >
+                                <button class='btn btn-success modify_btn' >修改</button >
+                            </div >
+                        </div >
+                </form >
+            </div >
+
+            <!--                <div class='container user_info_editdiv'>
+                                <div class='row'><h4>支付密码</h4></div>
+                                <div class='row'>
+                                    <label class='col-md-2 control-label'>原密码</label>
+                                    <div class='col-md-10'>
+                                        <input class='form-control' type='password' name='prev' />
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <label class='col-md-2 control-label'>新密码</label>
+                                    <div class='col-md-10'>
+                                        <input class='form-control' type='password' name='prev' />
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <label class='col-md-2 control-label'>确认</label>
+                                    <div class='col-md-10'>
+                                        <input class='form-control' type='password' name='prev' />
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <label class='col-md-2 control-label'></label>
+                                    <div class='col-md-10'>
+                                        <button class='btn btn-success'>修改</button>
+                                    </div>
+                                </div>
+                            </div>-->
+
+            <div class='container phone_verify_block' style='width:400px;display:none;' >
+                <div class='row' >
+                    <h4 >为了您的信息安全，需要验证您的手机</h4 >
+                </div >
+                <div class='row' >
+                    <div class='col-sm-8' >
+                        <input type='text' class='form-control' name='phone' value='{$user.mobile}' disabled='disabled'
+                               placeholder='请输入手机号' />
+                    </div >
+                    <div class='col-sm-4' >
+                        <button class='btn btn-success send_phonecode_btn' >发送验证码</button >
+                    </div >
+                </div >
+                <div class='row' >
+                    <div class='col-sm-8' >
+                        <input type='text' class='form-control' name='code' placeholder='请输入验证码' />
+                    </div >
+                    <div class='col-sm-4' >
+                        <button class='btn btn-success verify_phonecode_btn' >验证</button >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+    </div>
+    <script >
+        var passed_phone_check = false;
+        $("form").submit(function () {
+            if (! passed_phone_check) {
+                open_phone_verify_pop();
+                return false;
+            } else {
+                ajaxSubmit(this, function (data) {
+                    console.log(data);
+                    if (data.error === '0') {
+                        yxalert("保存成功");
+                        reload_delay();
+                    } else {
+                        yxalert(data.msg);
+                    }
+                });
+                return false;
+            }
+        });
+
+        function do_modify() {
+            send_request();
+        }
+
+        function open_phone_verify_pop() {
+            layer.open({
+                type   : 1,
+                shift  : 5,
+                area   : ['400px', '300px'],
+                title  : "验证手机号码",
+                content: $('.phone_verify_block'),
+                cancel : function (index) {
+                    layer.close(index);
+                }
+            });
+        }
+        $(".verify_phonecode_btn").click(function () {
+            passed_phone_check = true;
+            var code           = $("input[name='code']").val();
+            $.post("{:U('Front/Api/VerifyPhoneCode')}", {"PhoneVerifyCode": code}, function (data) {
+                if (data.error === '0') {
+                    yxalert("验证通过");
+                    setTimeout(function () {
+                        layer.closeAll();
+                        $(".modify_btn").click();
+                    }, 1000);
+                } else {
+                    yxalert(data.msg);
+                }
+            });
+        });
+        $(".send_phonecode_btn").click(function () {
+            var phone = $("input[name='phone']").val();
+            $.post("{:U('Front/Api/sendPhoneCode')}", {"phone": phone}, function (data) {
+                if (data.error === '0') {
+                    yxalert("验证码已发送，请尽快输入");
+                } else {
+                    yxalert(data.msg);
+                }
+            });
+        });
+
+        //         function send_request(){
+        //             var data=$("form").serialize();
+        //             console.log(data);
+        //         }
+
+        function send_request(e) {
+            ajaxSubmit(e, function (data) {
+                alert(data);
+            });
+            return false;
+        }
+
+        function ajaxSubmit(frm, fn) {
+            var dataPara = getFormJson(frm);
+            $.ajax({
+                url    : frm.action,
+                type   : frm.method,
+                data   : dataPara,
+                success: fn
+            });
+        }
+
+        //将form中的值转换为键值对。
+        function getFormJson(frm) {
+            var o = {};
+            var a = $(frm).serializeArray();
+            $.each(a, function () {
+                if (o[this.name] !== undefined) {
+                    if (! o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+
+            return o;
+        }
+    </script >
+</section >
+
+<agenttpl file="user_center_footer" />
+
+
+
+

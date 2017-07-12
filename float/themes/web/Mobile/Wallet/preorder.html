@@ -1,0 +1,90 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/charge.css" />
+
+<!--帐号信息-->
+<div class="account_information" >
+    <p class="account" >帐号：<i >{$Think.session.user.nickname}</i ></p >
+    <p class="balance" >{:C('CURRENCY_NAME')}：<span >{$wallet.remain|default=0}</span >
+        <if condition="$ratedata['benefit_type'] eq 2" >
+            折扣
+            <php >echo $ratedata['mem_rate']*100;</php >
+            %
+            <elseif condition="$ratedata['benefit_type'] eq 3" />
+            返利
+            <php >echo $ratedata['mem_rebate']*100;</php >
+            %
+        </if >
+    </p >
+</div >
+<!--充值金额-->
+<div class="recharge_amount" >
+    <h3 class="gray_title" >充值金额（单位:元）</h3 >
+    <ul class="btn_group" >
+        <li >50</li >
+        <li class="active" >100</li >
+        <li >500</li >
+        <li >1000</li >
+        <li >2000</li >
+        <li >5000</li >
+        <input type="text" placeholder="自定义金额:1-50000" style="font-family:'Microsoft YaHei'" />
+    </ul >
+    <input type="hidden" value="{$ratedata.benefit_type}" id="bnftype" name="bnftype" />
+
+    <p class="canGet" >可获得<span ><php >echo 100/$ratedata['mem_rate']+100*$ratedata['mem_rebate'];</php ></span >{:C('CURRENCY_NAME')}
+    </p >
+</div >
+<!--选择支付方式-->
+<div class="change_way" >
+    <h3 class="gray_title" >选择支付方式</h3 >
+    <ul class="way" >
+        <li data-way="alipay" >
+            <div class="way_icon" ><img src="__PUBLIC__/mobile/images/alipay.png" alt="" /></div >
+            <span >支付宝(推荐)</span >
+            <div class="right_icon" ><img src="__PUBLIC__/mobile/images/btn_return.png" alt="" /></div >
+        </li >
+        <li data-way="spay" >
+            <div class="way_icon" ><img src="__PUBLIC__/mobile/images/wxpay.png" alt="" /></div >
+            <span >微信支付</span >
+            <div class="right_icon" ><img src="__PUBLIC__/mobile/images/btn_return.png" alt="" /></div >
+        </li >
+        <li data-way="payeco" >
+            <div class="way_icon" ><img src="__PUBLIC__/mobile/images/unionpay.png" alt="" /></div >
+            <span >银联在线支付</span >
+            <div class="right_icon" ><img src="__PUBLIC__/mobile/images/btn_return.png" alt="" /></div >
+        </li >
+    </ul >
+    <form action="{:U('Wallet/preorder')}" method="post" id="payform" style="display:none" >
+        <input type="hidden" value="{$appid}" id="appid" name="appid" />
+        <input type="hidden" value="{$agent}" id="agent" name="agent" />
+        <input type="hidden" id="paytype" name="paytype" />
+        <input type="hidden" id="paytoken" name="paytoken" value="{$paytoken}" />
+        <input type="hidden" id="money" name="money" />
+        <input type="hidden" value="{$ratedata.mem_rate}" id="rate" name="rate" />
+        <input type="hidden" value="{$ratedata.mem_rebate}" id="rebate" name="rebate" />
+    </form >
+</div >
+
+<!--立即充值-->
+<!--<div class="instant_recharge">-->
+<!--<button>立 即 充 值</button>-->
+<!--</div>-->
+
+<footer class="footer" >
+    <p >
+        <notempty name="contactdata['qq']" >
+            <a class="QQ" onclick="huosdk_openqq('{$contactdata['qq']}');" >
+                <span >客服QQ：</span >{$contactdata['qq']}</a >
+        </notempty >
+        <notempty name="contactdata['qqgroup']" >
+            <a onclick="huosdk_openqqgroup('{$contactdata['qqgroup']}','{$contactdata['qqgroupkey']}');" ><span >QQ 群：</span >{$contactdata['qqgroup']}</a >
+        </notempty >
+    </p >
+</footer >
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+<script src="__PUBLIC__/mobile/js/recharge.js" ></script >
+</html>

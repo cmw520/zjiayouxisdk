@@ -1,0 +1,117 @@
+<html >
+    <head >
+        <title >title</title >
+        <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+        <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/lumen/bootstrap.min.css" />
+        <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+        
+        <link rel="stylesheet" href="__PUBLIC__/share/paging.css" />
+		
+		<script src="/public/3rd/swiper/swiper.min.js" ></script >
+		<link rel="stylesheet" href="/public/3rd/swiper/swiper.min.css" />
+		
+        <style >
+		.app_info_block .row .col-xs-4 .app_info_name {
+            font-size: 14px;
+            color: #00AAEE;
+            margin-right: 5px;
+        }
+
+        .app_info_block .row .col-xs-4 .app_info_value {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .app_info_block_sub1 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .app_info_block .app_info_header {
+            color: #00AAEE;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            margin: 20px auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #FFFFFF;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+		</style >
+    </head >
+    <body >
+		<div class="container app_info_block" >
+			<div class="row app_info_block_sub1" >
+				<div class="col-xs-4" >
+					<span class="app_info_name" >游戏名称</span > <span class="app_info_value" >{$data.name}</span >
+				</div >
+				<div class="col-xs-4" >
+					<span class="app_info_name" >游戏版本</span > <span class="app_info_value" >{$data.version}</span >
+				</div >
+				<div class="col-xs-4" >
+					<span class="app_info_name" >游戏大小</span > <span class="app_info_value" >{$data.size}</span >
+				</div >
+			</div >
+			<div class="row" >
+				<div class="col-md-12" >
+					<h3 class="app_info_header" >游戏简介</h3 >
+				</div >
+				<div class="col-md-12" >
+					{$data.description}
+				</div >
+			</div >
+			<div class="row" >
+				<div class="col-md-12" >
+					<h3 class="app_info_header" >游戏截图</h3 >
+				</div >
+				<div class="col-md-12" style="height:320px;" >
+					<div class="swiper-container" >
+						<div class="swiper-wrapper" >
+							<volist name="data['shots']" id="vo" >
+								<div class="swiper-slide" >
+									<img src="{$vo.url}" style="height:300px;" />
+								</div >
+							</volist >
+						</div >
+						<div class="swiper-pagination" ></div >
+						<div class="swiper-button-next" ></div >
+						<div class="swiper-button-prev" ></div >
+					</div >
+				</div >
+			</div >
+		</div >
+
+        <!-- Swiper JS -->
+
+        <!-- Initialize Swiper -->
+    <script >
+    var swiper = new Swiper('.swiper-container', {
+        pagination         : '.swiper-pagination',
+        paginationClickable: '.swiper-pagination',
+        nextButton         : '.swiper-button-next',
+        prevButton         : '.swiper-button-prev',
+        spaceBetween       : 30
+    });
+    </script >
+	</body >
+</html >

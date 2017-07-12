@@ -1,0 +1,91 @@
+<!--
+ @time 2017-01-20 15:56:52
+ @author 严旭
+-->
+<admintpl file="header" />
+</head>
+<body >
+    <div class="wrap" >
+        <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Newapp/Message/index')}" >消息列表</a ></li >
+            <li ><a href="{:U('Newapp/Message/add')}" >添加</a ></li >
+            <li class="active" ><a href="__SELF__" >编辑</a ></li >
+        </ul >
+        <form action="{:U('Newapp/Message/editPost')}" method="post" class="form-horizontal js-ajax-form" >
+            <div class="row-fluid" >
+                <div class="span9" >
+                    <table class="table table-bordered add_message_div" >
+                        <input type="hidden" name="id" value="{$data.id}" />
+
+                        <tr >
+                                <th width="80" >收件人</th >
+                                <td >
+                                    {$data.receiver}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >标题</th >
+                            <td >
+                                <input type="text" name="title" value="{$data.title}" />
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >内容</th >
+                            <td >
+                                <!--<textarea name="message" style="width:500px;height:200px;">{$data.message}</textarea>-->
+                                <script type="text/plain" id="content" name="message" >{$data.message}</script >
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >相关游戏</th >
+                            <td >
+                                {$app_select}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >内容类别</th >
+                            <td >
+                                <!--<input type="radio" name="category" value="1" checked="checked" />活动消息-->
+                                <if condition="2 == $data['type']" >
+                                        <input type="radio" name="type" value="2" checked />系统消息
+                                        <input type="radio" name="type" value="3" />卡卷消息
+                                        <input type="radio" name="type" value="4" />优惠活动
+                                    <elseif condition="3 == $data['type']" />
+                                        <input type="radio" name="type" value="2" />系统消息
+                                        <input type="radio" name="type" value="3" checked />卡卷消息
+                                        <input type="radio" name="type" value="4" />优惠活动
+                                    <else />
+                                        <input type="radio" name="type" value="2" />系统消息
+                                        <input type="radio" name="type" value="3" />卡卷消息
+                                        <input type="radio" name="type" value="4" checked />优惠活动
+                                </if >
+
+                            </td >
+                        </tr >
+                    </table >
+                </div >
+            </div >
+            <div class="form-actions" >
+                <button class="btn btn-primary js-ajax-submit" type="submit" >{:L("SAVE")}</button >
+                <a class="btn" href="{:U('Newapp/Message/index')}" >{:L('BACK')}</a >
+            </div >
+        </form >
+    </div >
+    <script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+    <script type="text/javascript" >
+    //编辑器路径定义
+    var editorURL = GV.DIMAUB;
+    </script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js" ></script >
+    <script >
+        var editorcontent = new baidu.editor.ui.Editor();
+        editorcontent.render('content');
+    </script >
+    <script >
+        var type = "{$data.mem_id}";
+        $("input[name='category']").removeAttr("checked");
+    </script >
+</body >
+</html>

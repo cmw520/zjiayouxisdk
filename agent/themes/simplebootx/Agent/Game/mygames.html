@@ -1,0 +1,426 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .search-results .table-content table tr th {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+
+    .search-results .table-content table tr td {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+</style >
+<script src="__PUBLIC__/js/clipboard.min.js" ></script >
+<script src="__PUBLIC__/agent/js/demo1.js" ></script >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+
+                <form id="queryForm" action="__SELF__" method="get" >
+
+                    <div class="container" style="width:960px;margin-top:20px;margin-bottom:20px;" >
+                        <div class="row" >
+                            <div class="col-md-4 col-md-offset-4" >
+                                <div class="input-group" >
+                                    <span class="input-group-addon" >搜索游戏</span >
+                                    <input class="form-control" type="text" name="gamename" placeholder="请输入游戏名称"
+                                           value="{$formget['gamename']}" />
+                                </div >
+                            </div >
+                            <div class="col-md-4" >
+                                <button class="btn btn-success" >搜索</button >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$total_count}</i >个游戏</span >
+                    </div >
+                    <div class="table-content" >
+                        <table class="table" >
+                            <tbody >
+                            <tr >
+                                <!--<th width="82">游戏ID</th>-->
+                                <th width="150" >游戏名称</th >
+                                <if condition="1 == C('G_VIP')" >
+                                <th width="86" >vip等级表</th >
+                                </if >
+                                <!--<th width="86">游戏大小</th>-->
+                                <th width="154" >添加时间</th >
+                                <th width="102" style="display: none;" >下载地址</th >
+                                <th width="120" >我的折扣</th >
+                                <th width="88" >状态</th >
+                                <th width="250" >操作</th >
+                            </tr >
+                            <volist name="games" id="vo" >
+                                <tr class="even" >
+                                    <!--<td>{$vo.app_id}</td>-->
+                                    <td style="text-align:left" >
+                                        <notempty name="vo.icon" >
+                                            <img src="{:sp_get_asset_upload_path($vo[icon])}"
+                                                 onerror="imgnofind('__PUBLIC__/{$vo[icon]}')" width="50" />
+                                        </notempty >
+                                        {$vo.gamename}
+                                    </td >
+                                    <if condition="1 == C('G_VIP')" >
+
+									 <td class="game-size watchsize" >
+                                         <a data-id="{$vo['app_id']}"
+                                            href="{:U('vip/index',array('app_id'=>$vo['app_id']))}" >查看等级
+                                         </a >
+                                     </td >
+                                    </if >
+                                    <td ><?php echo date("Y-m-d H:i:s",$vo['update_time']); ?></td >
+                                    <td ><span
+                                            class="agent_rate" ><?php echo round($vo['agent_rate'],2); ?></span > &nbsp;&nbsp;
+                                                                                                                  <!--<a href="javascript:;" agent_game_id="{$vo.id}" onclick="setrate(this);">编辑</a>-->
+                                    </td >
+                                    <td class="" >
+                                        {$vo.package_status_txt}
+                                    </td >
+                                    <td >
+                                        <empty name="vo.url" >
+                                            <a href="javascript:;" class="btn subpack_btn btn-sm btn-default"
+                                               data-agentgameid="{$vo.id}" >生成</a >
+                                        </empty >
+                                        <notempty name="vo.url" >
+                                            <a href="javascript:;" class="btn subpack_btn btn-sm btn-default"
+                                               data-agentgameid="{$vo.id}" >更新</a >
+                                            &nbsp;&nbsp;
+                                            <a href="javascript:;" class="btn btn-default btn-sm link_copy_btn"
+                                               data-clipboard-text="{$vo.app_fp}"
+                                               data-link="{$vo.app_fp}" >复制链接</a >
+                                        </notempty >
+                                    </td >
+                                </tr >
+                            </volist >
+
+                            <div style="display:none;width:300px;text-align:center;font-size:20px;padding:20px;"
+                                 id="domessage" >分包中，请稍等...
+                            </div >
+                            <script src="__PUBLIC__/js/jquery.blockUI.min.js" ></script >
+
+                            <script src="__PUBLIC__/js/clipboard.min.js" ></script >
+                            <script src="__PUBLIC__/huoshu/clipboard.js" ></script >
+                            <script >
+                                $(document).ajaxStop($.unblockUI);
+
+                                function setrate2(e) {
+                                    var r = $(e).siblings(".agent_rate").text();
+                                    $(e).siblings(".agent_rate").html("<input class='agent_rate_input' name='agent_rate' type='text' value='" + r + "' />");
+                                    $(".agent_rate_input").focus();
+                                    $(e).text("提交");
+                                    $(e).parent("td").append(" <a href='javascript:;' class='agent_rate_cancel_edit'>取消</a>");
+                                    $(e).siblings(".agent_rate_cancel_edit").click(function () {
+                                        $(e).siblings(".agent_rate").text(r);
+                                        $(e).text("编辑");
+                                        $(e).siblings(".agent_rate_cancel_edit").remove();
+                                    });
+                                }
+
+                                function setrate(e) {
+                                    var r             = $(e).siblings(".agent_rate").text();
+                                    var agent_game_id = $(e).attr("agent_game_id");
+//                                        alert(agent_game_id);
+//                                        return;
+                                    var r_new = prompt("请输入新的折扣", r);
+                                    if (r_new !== null && r_new !== "" && ! isNaN(r_new)) {
+                                        $.post("{:U('Agent/game/set_mem_rate')}", {
+                                            "rate"         : r_new,
+                                            "agent_game_id": agent_game_id
+                                        }, function (data) {
+                                            if (data.error === '1') {
+                                                yxalert(data.msg);
+                                            } else {
+                                                location.reload();
+                                            }
+                                        });
+                                    }
+                                }
+                                function download_app(url, ag_id) {
+                                    $.post("{:U('Agent/Game/setDownVer')}", {"ag_id": ag_id});
+                                    window.open(url);
+                                    location.reload();
+                                }
+
+                                $(".subpack_btn").click(do_pack);
+                                function do_pack() {
+                                    $.blockUI({message: $('#domessage')});
+                                    var id = $(this).attr("data-agentgameid");
+                                    $.post("{:U('Agent/Game/pack')}", {"id": id}, function (data) {
+                                        if (data.error === '0') {
+                                            yxalert(data.msg);
+                                            reload_delay();
+                                        } else if (data.error === '1') {
+                                            yxalert(data.msg);
+                                        }
+                                    });
+                                }
+                            </script >
+                            <style >
+                                .agent_rate_input {
+                                    width: 40px;
+                                }
+                            </style >
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$Page}</div >
+                        </div >
+
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+
+<script src="__PUBLIC__/agent/js/autoPage.js" ></script >
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+<script src="__PUBLIC__/agent/js/mygames.js" ></script >
+<div class="alertBox" >
+	<div id="sizeBox" >
+		<b class="closeBtn" ><img src="__PUBLIC__/agent/img/delete-img.png" /></b >
+	</div >
+</div >
+<!-- 弹窗信息开始 -->
+<!--<if condition="$flag eq 1" >-->
+<div class="agreement-mask" ></div >
+<div class="agreement" id="notes" >
+<b class="closeBtn" ><img src="__PUBLIC__/agent/img/delete-img.png" /></b >
+    <form onsubmit="return false;" >
+        <div >{$content}</div >
+        <div class="c" >
+            <input value="关闭" type="button" class="bnt" >
+        </div >
+    </form >
+</div >
+<!--</if >-->
+</body>
+<style >
+#notes {
+    padding: 30px 0px 0px 0px;
+}
+
+#notes form {
+    padding: 0px 20px;
+    overflow-y: scroll;
+
+}
+
+.alertBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, .3);
+    display: none;
+}
+
+#sizeBox {
+    width: 800px;
+    height: auto;
+    min-height: 300px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    margin-left: -400px;
+    z-index: 999;
+    display: none;
+    padding: 20px;
+}
+
+#sizeBox.noteData {
+    text-align: center;
+    line-height: 300px;
+}
+
+.closeBtn {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    cursor: pointer;
+    z-index: 9999999999;
+}
+
+#notes .closeBtn {
+    left: 10px;
+}
+
+.alertBox .closeBtn {
+    right: 10px;
+}
+
+.closeBtn > img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+h1, p.time {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0px;
+}
+
+.agreement-mask {
+    position: fixed !important;
+}
+
+.agreement-mask {
+    position: absolute;
+    background: #000000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    display: none;
+}
+
+.agreement {
+    position: fixed;
+    width: 600px;
+    height: auto;
+    top: 150px;
+    left: 50%;
+    margin-left: -300px;
+    background: #FFFFFF;
+    z-index: 9999;
+    text-align: left;
+    font-family: '\5b8b\4f53';
+    display: none;
+}
+
+.agreement h3 {
+    background: #F7F7F7;
+    font-size: 14px;
+    height: 47px;
+    line-height: 47px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.agreement h3 .close {
+    font-size: 24px;
+    float: right;
+    padding-right: 15px;
+    color: #CCCCCC;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.agreement p.tips {
+    font-size: 12px;
+    height: 18px;
+    padding: 10px 0 10px 15px;
+    color: #999999;
+}
+
+.agreement form {
+    padding: 0 20px;
+}
+
+.agreement form div {
+    margin-bottom: 15px;
+}
+
+.agreement form .a p {
+    line-height: 30px;
+}
+
+.agreement form .bnt {
+    display: block;
+    border: none;
+    background: #E4393C;
+    height: 40px;
+    line-height: 40px;
+    width: 120px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: '\5b8b\4f53';
+    font-weight: bold;
+    margin: 0px auto;
+}
+
+.agreement form .b {
+    text-align: center;
+}
+
+.agreement form .c {
+}
+</style >
+
+<script >
+    $(function () {
+        showBox()
+    })
+    $("#notes .close").click(function () {
+        closeBox()
+    });
+    $("#notes .closeBtn").click(function () {
+        closeBox()
+    });
+    $("#notes .bnt").click(function () {
+        closeBox()
+    });
+    function closeBox() {
+        $(".agreement-mask").fadeOut();
+        $("#notes").fadeOut();
+    }
+    function showBox() {
+        $(".agreement-mask").fadeIn();
+        $("#notes").fadeIn();
+    }
+    $(".search-results").delegate(".watchsize>a", "click", function (e) {
+        e.preventDefault();
+
+        sendData("{:U('vip/index')}", {"app_id": $(this).attr("data-id")}, function (result) {
+            if (result.status == 1) {
+                $("#sizeBox").removeClass("noteData").html($("#sizeBox").html() + result.content);
+            } else {
+                $("#sizeBox").addClass("noteData").html($("#sizeBox").html() + "暂无数据。。。。");
+            }
+            $(".alertBox").css("height", $("html").css("height")).fadeIn();
+            $("#sizeBox").fadeIn();
+        });
+    })
+    $("#sizeBox").delegate(".closeBtn", "click", function () {
+        $("#sizeBox").fadeOut();
+        $(".alertBox").fadeOut();
+        $("#sizeBox").html('<b class="closeBtn"><img src="__PUBLIC__/agent/img/delete-img.png" /></b>');
+    });
+</script >
+<!-- 弹窗信息结束 -->
+<agenttpl file="user_center_footer" />

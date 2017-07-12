@@ -1,0 +1,157 @@
+<!DOCTYPE html >
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >公告详情</title >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="__ROOT__/favicon.ico" >
+    <link type="image/x-icon" rel="shortcut icon" href="__ROOT__/favicon.ico" >
+
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/css_reset.css" />
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/lumen/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+
+</head >
+<body >
+<div class="main" >
+    <!--页眉-->
+    <agenttpl file="header_front" />
+
+    <!--通用栏广告位-->
+    <!--主题内容区域-->
+    <div class="page-content" >
+        <!--左侧导航栏-->
+
+        <style >
+            .front_page_right {
+                min-height: 760px;
+                width: 1000px;
+                margin: 0 auto !important;
+                width: 998px;
+                border: 1px solid #E4E4E4;
+                display: table;
+                background: #FFFFFF;
+            }
+
+            .front_page_right .breadcrumb-navigation {
+                width: 940px;
+                height: 60px;
+                margin: 0 auto;
+                border-bottom: 1px solid #E4E4E4;
+                line-height: 60px;
+            }
+        </style >
+
+        <div class="front_page_right" >
+            <div class="breadcrumb-navigation" >
+                <ul >
+                    <li class="on" ><a href="{:U('front/about/notice')}" >公告信息列表</a ></li >
+                </ul >
+            </div >
+            <div class="rules-content" >
+
+                <div class="one" >
+                    <div class="table-content" >
+                        <table class="table" width="100%" >
+                            <volist name="items" id="vo" >
+                                <tr >
+                                    <td style="width:260px;text-align:left;padding-left:80px;" ><?php echo date("Y-m-d",$vo['post_date']); ?></td >
+                                    <td style="width:260px;text-align:left;" >
+                                        <span class="spantext" style="width:150px;" >{$vo.category}</span >
+                                    </td >
+                                    <td style="width:400px;text-align:left;" >
+                                                <span class="spantext" style="width:300px;" >
+                                                    <a href="{:U('front/about/notice')}/{$vo.id}" >{$vo.post_title}</a >
+                                                </span >
+                                    </td >
+                                </tr >
+                            </volist >
+                        </table >
+                        <style type="text/css" >
+                            .spantext {
+                                overflow: hidden;
+                                display: block;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+
+                            .spantext a:link, a:visited {
+                                color: #00A0E9;
+                            }
+
+                            .spantext a:hover {
+                                color: #CC0000;
+                            }
+
+                            .table-content table {
+                                color: #333333;
+                            }
+
+                            .table-content table tr {
+                                border-bottom: 1px solid #F7F7F7;
+                            }
+
+                            .table-content table tr.even {
+                                background: #FEFEFE;
+                            }
+
+                            .table-content table tr:hover {
+                                background-color: #F7F7F7;
+                            }
+
+                            .table-content table tr th {
+                                height: 46px;
+                                border-bottom: 2px solid #008BE3;
+                                border-top: 1px solid #008BE3;
+                                background: #A0E4FF;
+                                text-align: center;
+                            }
+
+                            .table-content table tr th.game-name-th {
+                                padding-left: 20px;
+                            }
+
+                            .table-content table tr td {
+                                height: 50px;
+                                text-align: center;
+                            }
+
+                            .table-content table tr td.game-size {
+                                text-align: right;
+                                padding-right: 24px;
+                            }
+
+                            .table-content table {
+                                width: 938px;
+                                margin: 0 auto;
+                            }
+                        </style >
+                    </div >
+                </div >
+
+            </div >
+        </div >
+    </div >
+    <!--页脚-->
+    <div class="page-footer" >
+        <agenttpl file="footer" />
+    </div >
+</div >
+</div>
+</body >
+<script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/agent/js/xhr.js" ></script >
+<script >
+    function succHeader() {
+        $(".tab>ul>li").eq(1).addClass("on").siblings().removeClass("on");
+    }
+    succHeader();
+</script >
+</html >

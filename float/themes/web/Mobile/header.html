@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+<style >
+    html {
+        display: none;
+    }
+</style >
+<script >
+    if (self == top) {
+        document.documentElement.style.display = 'block';
+    } else {
+        top.location = self.location;
+    }
+</script >
+<head >
+    <meta name="viewport"
+          content="width=device-width,maximum-scale=1.0,initial-scale=1,user-scalable=no" />
+    <meta charset="UTF-8" >
+    <meta name="format-detection" content="telephone=no" />
+    <title >{$title}</title >
+</head >
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/public.css" />
+<body >
+
+<!-- <header class="header">
+<ul class="main_layout">
+    <li class="back_btn" ><img src="__PUBLIC__/mobile/images/arrow_l.png" alt=""/></li>
+    <li class="text">{$title}</li>
+    <li class="close_btn" ><img src="__PUBLIC__/mobile/images/closebtn.png" alt=""/></li>
+</ul>
+</header> -->

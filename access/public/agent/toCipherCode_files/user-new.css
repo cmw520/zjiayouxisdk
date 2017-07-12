@@ -1,0 +1,1310 @@
+﻿@charset "utf-8";
+.hd ul li{text-indent: -9999px;}
+/*************我的游戏***************/
+.my-game .input-content{width: 100%;height: 144px;border-bottom: 1px solid #e4e4e4;background-color: #fefefe;}
+.my-game .input-content div{float:left;color: #666666;}
+.my-game .input-content div.search-game span{margin-left: 34px;}
+.query-records .input-content div.search-game span{margin-left: 0px;}
+.my-game .input-content div.search-game span,.my-game .input-content div.choose-channel span,.my-game .input-content div.search-game input,.my-game .input-content div.pack-time span,.my-game .input-content div.status span,.my-game .input-content div.status input{float:left;margin-right: 10px;}
+.my-game .input-content div.search-game span,.my-game .input-content div.choose-channel span,.my-game .input-content div.pack-time span,.my-game .input-content div.status span{width: 64px;height: 32px;text-align: center;line-height:32px;font-size: 14px;text-align:right;}
+.my-game .input-content div.search-game input,.my-game .input-content div.choose-channel input{width: 286px;height: 30px;border: 1px solid #e4e4e4;padding-left: 6px;line-height: 30px;} 
+.my-game .input-content div.search-game,.my-game .input-content div.choose-channel{margin-top: 30px;}
+.my-game .input-content div.search-game{margin-left: 28px;margin-right: 18px;}
+.my-game .input-content div.pack-time div{width: 130px;height: 30px;line-height: 30px;border: 1px solid #e4e4e4;cursor:pointer;background-color: #FFFFFF;}
+.my-game .input-content div.pack-time div input{border: none!important;padding-left:6px!important;width: 124px!important;height: 100%!important;}
+.my-game .input-content div.pack-time{margin-left: 62px;margin-top: 20px;margin-right: 18px;}
+.my-game .input-content div.pack-time .to{width: 20px;}
+.my-game .input-content div.status{position: relative;}
+.my-game .input-content div.status div{height: 30px;padding-left: 6px;line-height: 30px;color:#333333;width: 112px;border: 1px solid #e4e4e4;background:url(http://pic.7881.com/51508-2015/images/input-arrow-down.png);background-repeat: no-repeat;background-position:100px center;cursor:pointer;background-color: #FFFFFF;}
+.my-game .input-content div.status div.up{height: 30px;padding-left: 6px;line-height: 30px;color:#333333;width: 73px;border: 1px solid #e4e4e4;background:url(http://pic.7881.com/51508-2015/images/input-arrow-up.png);background-repeat: no-repeat;background-position:62px center;cursor:pointer;background-color: #FFFFFF;}
+.my-game .input-content div.status .operate{width: 40px;margin: 0 7px;}
+.my-game .input-content div.status ul.ul-one{background: #FFFFFF;border: 1px solid #e4e4e4;position: absolute;top:30px;left:84px;display: none;}
+.my-game .input-content div.status ul.ul-two{background: #FFFFFF;border: 1px solid #e4e4e4;position: absolute;top:30px;left:258px;display: none;}
+.my-game .input-content div.status ul li{text-align: center;height: 30px;line-height: 30px;cursor: pointer;width: 118px;}
+.my-game .input-content div.status ul li:hover{background: #e6e6e6;}
+.my-game .input-content div.status{margin-top: 20px;}
+.search-btn{margin-top: -6px;width: 80px;height: 32px;text-align:center;line-height: 30px;*line-height: 32px;color:#FFFFFF!important;background: #008be3;cursor: pointer;font-weight: bold;margin-left: 38px;}
+.search-btn:hover,.pay-btn:hover,.voucher-details .table-content table tr td.btn div:hover,.apply-for-game .page .select-package:hover,.fc—modify-pwd .confirm-btn:hover{background: #f44b00;}
+.pack-successful{color:#009944}
+.failure{color: #ff6600;}
+.search-results .table-content table tr td .forced-updating{;cursor: pointer;padding: 4px;background: url(http://pic.7881.com/51508-2015/css/images/forced-updating.jpg);background-repeat: no-repeat;padding: 4px 6px;color: #008be3;margin-left: 10px;}
+.search-results .table-content table tr td.game-name{text-align: left;padding-left: 30px;}
+.search-results .table-content table tr td.down-line{color: #aaaaaa;}
+.search-results .table-content table tr td.game-name .name{cursor:pointer;float: left;max-width: 168px;*max-width: 150px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.search-results .table-content table tr td.click-copy{color:#00a0e9;cursor: pointer;}
+#game-pop{width: 1000px;height: 640px;background-color: #FFFFFF;}
+#game-pop-header{width: 1000px;height: 47px;border-bottom:1px solid #e4e4e4 ;}
+#game-pop-header span{float:left;margin-left: 20px;color: #666666;margin-top: 14px;font-weight: bold;}
+#game-pop-header img{float:right;margin: 17px 20px;cursor: pointer;}
+.container2 {width: 950px;height: auto;background-color: #FFFFFF;padding: 0px;margin-left: 50px;float: left;height: 594px;}
+.container2 .div_scroll {width: 100%;height: 594px;overflow: auto;float: left;}	
+.container2 .scroll_container {overflow: hidden;position: relative;background-color: #FFFFFF;}
+.container2 .scroll_absolute {position: absolute;top:0;}
+.container2 .scroll_vertical_bar {position: absolute;top: 0;right: 4px;width: 8px;height: 100%;margin: 0; padding: 0;}
+.container2 .scroll_track {position: relative;background-color: #FFFFFF;}
+.container2 .scroll_drag {position: relative;top: 0;left: 0;cursor: pointer;width: 8px;background-color: #cacaca;}
+.container2 .scroll_arrow {text-indent: -20000px;display: block;cursor: pointer;background-color: #369DB4;}
+.container2 .scroll_vertical_bar .scroll_arrow { height: 16px;}
+#game-pop #game-pop-header{width: 100%;height: 47px;border-bottom: 1px solid #e4e4e4;}
+#game-pop #game-pop-header span{float:left;margin-left:20px;font-weight: bold;color: #666666;}
+#game-pop #game-pop-header img{float:right;margin-top: 16px;margin-right: 20px;}
+.container2 .div_scroll .title{height: 24px;margin-top: 16px;}
+.container2 .div_scroll .title ul li{float:left;height: 24px;line-height: 24px;border-right: 1px solid #e4e4e4;padding-right: 30px;padding-left: 30px;color:#333333;}
+.container2 .div_scroll .title ul li span{color:#008be3;margin-left: 20px;font-weight: bold;}
+.container2 .game-introduction{width: 100%;margin-top: 20px;}
+.container2 .game-introduction .game-introduction-title{color:#333333}
+.container2 .game-introduction .game-introduction-content{width: 880px;line-height: 24px;color: #666666;position: relative;}
+.game-screenshots{margin-top: 40px;}
+.screenshots{width: 908px;height: 400px;margin: 0 auto;position: relative;margin-bottom: 20px;margin-top: 20px;margin-left: 0px;}
+.screenshots .bd{margin-left: 82px;margin-bottom: 20px;}
+.screenshots .hd{display: none;}
+.screenshots .bd a.prev{width: 60px;height: 400px;position: absolute;top:0px;left:0px;background: url(http://pic.7881.com/51508-2015/css/images/pop-left.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+.screenshots .bd a.next{width: 60px;height: 400px;position: absolute;top:0px;right:0px;background: url(http://pic.7881.com/51508-2015/css/images/pop-right.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+.screenshots .bd a.nextStop{background: url(http://pic.7881.com/51508-2015/css/images/pop-gray-right.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+.screenshots .bd a.prevStop{background: url(http://pic.7881.com/51508-2015/css/images/pop-gray-left.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+.screenshots .bd ul li{height: 400px;width:242px;margin-right: 10px;}
+.screenshots .bd ul li img{width: 100%;height: 100%;}
+.game-introduction-content p{height:auto;overflow:hidden;width: 850px;}
+.game-introduction-content .up{color:#00a0e9;cursor:pointer;position: absolute;bottom: 0;right: 0px;}
+/*************平台币充值兑换明细***************/
+.vouchers-top-up .input-content{height: 122px;}
+.search-way{margin-left: 62px;}
+.search-way input,.query-records input{height: 30px;padding-left: 6px;line-height: 30px;width: 200px;border: 1px solid #e4e4e4;border-left: none;}
+.search-way ul{left:100px!important;}
+.vouchers-top-up .input-content span,.query-records .input-content span{width: 80px!important;text-align: right;}
+.vouchers-top-up .arrive-time,.query-records .time{margin-left: 14px!important;}
+.vouchers-top-up .arrive-time .to,.query-records .time .to{width: 10px!important;margin: 0 10px;}
+.vouchers-top-up .input-content div.search-btn{ color: #666666;margin-top: 20px;margin-left: 162px;float:left}
+.vouchers-top-up .input-content div.export-excel{float:left;margin-left: 20px;    background: #f8f8f8;border: 1px solid #cccccc;color: #666666 !important;height: 30px;margin-left: 14px;width: 88px;}
+
+/*************充值记录查询***************/
+.query-records .input-content{height: 160px;}
+.query-records .input-content div.search-game{ margin-right: 0;}
+.query-records .input-content .search-game input{width: 150px!important;margin-left: -6px;}
+.query-records .input-content div.status,.query-records .input-content div.time{margin-top: 30px;}
+.query-records .input-content div.status div{width: 73px;background-position: 62px center;}
+.query-records .input-content div.status ul li{width: 79px;}
+.query-records .input-content div.status span,.query-records .input-content div.time span{width:46px!important;}
+.query-records .input-content div.status div{margin-left: -6px;}
+.query-records .input-content div.time span.to{width: 10px!important;;}
+.query-records .input-content div.time{margin-left: 0px!important;}
+.query-records .input-content div.status{position: relative;}
+.query-records .input-content div.status ul{position: absolute;top:30px;left:50px;border:1px solid #e4e4e4;background: #FFFFFF;display: none;}
+.query-records .input-content div.search-btn{margin-top: 30px;margin-left: 0;}
+.input-content div.export-excel:hover{background: #e8e8e8!important;}
+.query-records .input-content div.export-excel{width: 88px;background:#f8f8f8;border: 1px solid #cccccc;color:#666666!important;height: 30px;margin-left: 14px;}
+.query-records  .input-content .input-tab{width: 100%;height: 64px;border-bottom: 1px solid #e4e4e4;}
+.query-records  .input-content .input-tab ul{margin-left: 44px;}
+.query-records  .input-content .input-tab ul li{float:left;height: 64px;line-height: 64px;text-align: center;color: #333333;width: 136px;font-size: 13px;margin-right: 40px;cursor: pointer;}
+.query-records  .input-content .input-tab ul li.on{border-bottom: 1px solid #008be3;color:#008be3}
+.query-records  .input-content .input-tab ul li:hover{color:#008be3}
+.query-records .table-1 .operation,.query-records .table-2 .operation,.query-records .table-3 .operation{color: #009944;cursor: pointer;}
+.query-records .table-3 .re-up{color: #00a0e9;cursor: pointer;}
+.query-records .table-1 .cuccess{color:#009944;}
+
+/**************收入明细**************/
+.income-details table td.game-name .name{max-width: 106px!important;}
+
+/**************注册明细**************/
+.registration-details table td.game-name .name{max-width: 158px!important;}
+
+/**************下级渠道管理**************/
+.lower-channel-management .input-content{height: 92px;}
+.lower-channel-management .input-content .search-channel{margin-left: 60px!important;}
+.lower-channel-management .input-content .search-channel input{width: 292px!important;}
+.lower-channel-management .input-content .add-btn{width: 78px!important;}
+.lower-channel-management div.search-channel span{margin-left: 124px!important;}
+/**************安全中心**************/
+.security-center .input-content{height: 144px;}
+.security-center .input-content .security-level{height: 64px;width: 726px;margin: 46px auto 0 106px;text-align: center;}
+.security-center .input-content .security-level ul{width: 100%;height: 28px;}
+.security-center .input-content .security-level ul li{float:left;height: 28px;line-height: 28px;color: #000000;}
+.security-center .input-content .security-level ul li.progress-bar{width: 600px;background: #DBDBDB;margin:0 14px;position: relative;}
+.security-center .input-content .security-level ul li.level-instructions{font-weight: bold;}
+.security-center .input-content .security-level ul li.progress-bar .progress{position: absolute;left:0;top:0;height:28px;}
+.security-center .input-content .security-level span{margin-top: 18px;color: #666666;line-height: 50px;font-size: 13px;}
+.security-center .search-results .login-pwd{width: 800px;height: 86px;margin: 0 auto;border-bottom: 1px dashed #e3e3e3;}
+.security-center .search-results .phone-verification,.security-center .search-results .pay-pwd{margin-top:0}
+.security-center .search-results .login-pwd span{float:left;margin-top: 26px;}
+.security-center .search-results .login-pwd span.icon{width:110px;height: 32px;background: url(http://pic.7881.com/51508-2015/css/images/security-center.png);background-repeat: no-repeat;background-position: left center;padding-left:40px;line-height: 32px;font-size: 15px;font-weight: bold;}
+.security-center .search-results .login-pwd span.remind{height: 32px;line-height: 32px;color: #666666;}
+.security-center .search-results .login-pwd span.line{width: 1px;background: #d4d4d4;height:12px;margin: 36px 22px;}
+.security-center .search-results .btn{width: 98px;height: 28px;background: #f8f8f8;line-height: 26px;*line-height: 28px;text-align: center;border:1px solid #cecece;color:#333333;float:right!important;cursor: pointer;}
+.security-center .search-results .btn:hover{background-color: #008be3;border: 1px solid #008be3;color:#ffffff;}
+.security-center .search-results .login-pwd span.forget-pwd{float:right;height: 32px;line-height: 32px;color: #666666;margin-right: 14px;cursor: pointer;}
+.security-center .search-results .login-pwd span.forget-pwd:hover{color:#008be3}
+.security-center .search-results .login-pwd span.immediately{background: url(http://pic.7881.com/51508-2015/css/images/immediately.png);background-repeat: no-repeat;background-position: center;width: 32px;height: 32px;float: right;margin-right: 12px;}
+.security-center .search-results .safety-tips{width: 666px;height: 130px;border:1px solid #fff3eb;background: #fffdfc;margin: 50px auto 0 auto;}
+.security-center .search-results .safety-tips p{margin-left: 72px;line-height: 30px;color: #666666;}
+.security-center .search-results .safety-tips p.p-1{margin-top: 19px;}
+
+/***************个人账户***************/
+.individual-account .table-content table tr td.top-up-amount,.individual-account .table-content table tr td.total-revenue{color:#008be3}
+.individual-account .input-content .input-tab{height: 60px;}
+.individual-account .input-content {height: 360px;display: table;padding-bottom: 30px!important;}
+.individual-account .input-content .input-tab ul li{height:57px;line-height: 57px;width: 70px;font-size: 14px;}
+.individual-account .input-content .input-tab ul li.on{border-bottom-width: 3px;}
+.individual-account .input-content .balance-withdrawal,.individual-account .input-content .cash-voucher{width: 940px;height: 98px;margin: 0 auto 0 30px;border: 1px solid #008be3;background: #fffdfc;}
+.individual-account .input-content .balance-withdrawal{margin: 30px auto 10px 30px;}
+.individual-account .input-content .cash-voucher{border: 1px solid #a9dfef;background: #eefbff;}
+.individual-account .input-content .balance-withdrawal ul li,.individual-account .input-content .cash-voucher ul li{float:left;height: 98px;line-height: 98px;text-align: center;}
+.individual-account .input-content .balance-withdrawal ul li.first-li,.individual-account .input-content .cash-voucher ul li.first-li{height:100px;margin-top: -1px;width: 250px;color: #FFFFFF;font-size: 30px;line-height: 76px;font-weight: bold;}
+.individual-account .input-content .balance-withdrawal ul li.first-li{background: url(http://pic.7881.com/51508-2015/css/images/balance-withdrawal.png);background-repeat: no-repeat;background-position:center;background-color: #008be3;}
+.individual-account .input-content .balance-withdrawal ul li.day-spending{border-right:none;}
+.individual-account .input-content .cash-voucher ul li.first-li{background: url(http://pic.7881.com/51508-2015/css/images/cash-voucher.png);background-repeat: no-repeat;background-position:center;background-color: #00a5d7;}
+.individual-account .input-content .amount-frozen,.individual-account .input-content .day-income,.individual-account .input-content .day-spending,.voucher-balance{height: 52px!important;border-right: 1px solid #008be3;width: 210px;line-height: 28px!important;margin-top: 23px;color:#008be3;text-align: center;}
+.individual-account .input-content .amount-frozen span,.individual-account .input-content .day-income span,.individual-account .input-content .day-spending span,.individual-account .input-content .voucher-balance span{float:left;width: 210px!important;text-align: center;color: #333333;font-size: 20px;}
+.individual-account .input-content .day-income{width: 160px;}
+.individual-account .input-content .day-spending{width: 166px;}
+.individual-account .input-content .day-income span{width:160px!important;}
+.individual-account .input-content .day-spending span{width:166px!important;}
+.individual-account .input-content .cash-voucher ul li{color:#00a5d7}
+.individual-account .input-content .voucher-balance,.individual-account .input-content .cash-voucher .day-income,.individual-account .input-content .cash-voucher .day-spending{border-right: 1px solid #a9dfef;}
+.individual-account .input-content .balance-withdrawal ul li.btn,.individual-account .input-content .cash-voucher ul li.btn{width: 100px;height: 30px;color: #FFFFFF;background: #008be3;line-height: 30px;text-align: center;cursor: pointer;margin:34px 0 34px 26px;}
+.individual-account .input-content .balance-withdrawal ul li.btn:hover{background: #f44b00;}
+.individual-account .input-content .cash-voucher ul li #detail{width: 32px!important;height: 16px;font-size: 11px;float:right;border: 1px solid #a9dfef;line-height: 15px;color:#00a5d7;background: #FFFFFF;cursor: pointer;margin-left: -34px;margin-top: 5px;*margin-top:-22px;margin-right: 10px;*margin-right: 5px;}
+.individual-account .input-content .cash-voucher ul li.btn{height: 50px;background:#eefbff;position: relative;}
+.individual-account .input-content .cash-voucher ul li.day-spending{border-right: none;}
+.individual-account .input-content .cash-voucher ul li.btn p{position: absolute;width: 120px;left: -9px;top:30px}
+.individual-account .input-content .cash-voucher ul li.btn span{position: absolute;height: 30px;width: 100px!important;background: #00A0E9;left: 0;text-align: center;line-height: 30px;}
+.individual-account .input-content .cash-voucher ul li.btn span:hover{background:#0089d0;}
+.individual-account .input-content .cash-voucher ul li.btn p a{text-decoration: underline;color:#00A5D7}
+.individual-account .input-content .cash-voucher ul li.btn p a:hover{color:#0089d0}
+/*个人账户弹窗*/
+#balance-withdrawal-pop{width: 460px;height: 288px;background: #FFFFFF;position: absolute;display: none;z-index: 99999;}
+#balance-withdrawal-pop-header{width: 100%;height: 47px;border-bottom: 1px solid #e4e4e4;}
+#balance-withdrawal-pop-header span{float:left;margin-top: 16px;margin-left: 20px;color:#666666;font-weight: bold;}
+#balance-withdrawal-pop-header img{float:right;margin-top: 18px;margin-right: 20px;}
+#balance-withdrawal-pop-content{width: 100%;height: 240px;}
+#balance-withdrawal-pop-content div{width: 360px;height: 60px;margin: 30px auto 0 auto;cursor: pointer;}
+#balance-withdrawal-pop .to-aliPay{margin-top: 40px;background: url(http://pic.7881.com/51508-2015/css/images/to-aliPay.png);background-repeat:no-repeat;background-color: #00A0E9;}
+#balance-withdrawal-pop .to-aliPay:hover{background-color: #0089d0;}
+#balance-withdrawal-pop .to-bank-card{background: url(http://pic.7881.com/51508-2015/css/images/to-bank-card.png);background-repeat:no-repeat;background-color: #008be3;}
+#balance-withdrawal-pop .to-bank-card:hover{background-color: #f44b00;}
+/***************个人账户充值***************/
+.individual-top-up .left,.individual-top-up .right{float:left}
+.individual-top-up .left{color:#666666;font-size: 15px;margin-right: 10px;}
+.individual-top-up .right{line-height: 24px;color: #333333;font-weight: bold;font-size: 14px;}
+.individual-top-up .top-up-account,.individual-top-up .top-up-amount{margin:74px 0 30px 148px;display: table;*width: 400px;}
+.individual-top-up .top-up-amount{margin-left:148px;margin-top: 30px;*width: 726px;}
+.individual-top-up .top-up-amount .left{height: 40px;line-height: 40px;}
+.individual-top-up .top-up-amount .right ul li{float:left;height: 40px;width: 78px;border: 1px solid #e4e4e4;text-align: center;line-height: 40px;color: #666666;font-weight: 400;margin-right: 10px;cursor: pointer;}
+.individual-top-up .top-up-amount .right ul li.amount-entered {width: 104px;background: #FAFAFA;}
+.individual-top-up .top-up-amount .right ul li.amount-entered input{width: 48px;height: 28px;line-height: 28px;;font-size:13px;border:1px solid #e4e4e4;background: #FFFFFF;margin-right: 10px;padding-left: 10px;}
+.individual-top-up .top-up-amount .right ul li.error-msg{border: none;width: 160px!important;color: #008be3;font-size: 12px;margin-left: -6px;text-align: left;}
+.individual-top-up .top-up-amount .right ul li.on{line-height: 38px;height: 38px;border:2px solid #77be4c;margin-right:8px;background: url(http://pic.7881.com/51508-2015/css/images/checked.png);background-repeat: no-repeat;background-position: right bottom;}
+.individual-top-up .top-up-amount .right ul li.error{height: 38px;border:2px solid #008be3;background: none;line-height: 38px;}
+.individual-top-up .pay-way{margin-top: 30px;margin-bottom: 30px;}
+.individual-top-up  .top-up-way .right ul li{width: 118px;}
+.individual-top-up  .top-up-way .right ul li.alipay span{float:left;width: 75px;height: 24px;background: url(http://pic.7881.com/51508-2015/css/images/alipay.png);background-repeat: no-repeat;background-position: center;margin: 7px 23px;}
+.individual-top-up  .top-up-way .right ul li.wx-pay span{float:left;width:88px;height: 24px;background: url(http://pic.7881.com/51508-2015/css/images/wx-pay.png);background-repeat: no-repeat;background-position: center;margin: 7px 15px;}
+.individual-top-up  .top-up-way .right ul li.bank-pay span{float:left;width: 83px;height: 23px;background: url(http://pic.7881.com/51508-2015/css/images/bank-pay.png);background-repeat: no-repeat;background-position: center;margin: 9px 19px;}
+.individual-top-up  .back-content .right{margin-left: 86px;padding:14px 0 4px 0;border-top:1px dashed #EEEEEE;border-bottom:1px dashed #EEEEEE;width: 642px;*padding-bottom: 18px;}
+.individual-top-up  .back-content .right ul li{width: 118px;margin-bottom: 10px;}
+.individual-top-up  .back-content .right ul li.li-on{height: 38px;border:2px solid #77be4c;margin-right:8px;}
+.individual-top-up  .back-content .right ul li.li-on img{ margin: -1px 0 0 -1px;}
+.choose-results{margin-left:234px;margin-top: -4px;display: table;}
+.choose-results div{float:left}
+.choose-results div.way{margin-left: 40px;}
+.choose-results div span{margin-left: 4px;color: #00a0e9;}
+.pay-amount{margin-top: 48px!important;*margin-top: 84px!important;}
+.pay-amount .right{color:#008be3}
+.pay-btn{text-align: center;color: #FFFFFF;background: #008be3;width: 100px;height: 30px;line-height: 30px;cursor: pointer;margin-left: 232px;margin-top: 44px;}
+.success-note{height: 112px;width: 278px;margin: 0 auto;display: none;text-align: center;padding-top:336px;}
+.success-note .p-1{color:#009933;font-size: 20px;}
+.success-note .p-2{color:#999999;font-size: 12px;margin-top: 14px;}
+.success-note .btn{height: 30px;width: 100%;margin-top: 30px;}
+.success-note .btn div{float:left;height: 30px;width: 93px;line-height: 28px;*line-height: 30px;text-align: center;color:#FFFFFF;background: #009933;cursor: pointer;margin-left: 36px;}
+.success-note .btn .view-personal-account{height: 28px;border:1px solid #CCCCCC;color:#666666;background: #F8F8F8;margin-left: 20px;}
+.success-note .btn .view-personal-account:hover{background: #E8E8E8;}
+/**********平台币和平台币使用规则******/
+.usage-rule .rules-content{width: 822px;margin-left: 60px;font:12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;margin-bottom: 70px;}
+.usage-rule .rules-content div.one .title{margin-top:42px;}
+.usage-rule .rules-content div.title{color:#00a0e9;font-weight: bold;margin-top: 40px;margin-bottom: 10px;}
+.usage-rule .rules-content p.answers{color:#666666;margin-left:0px;}
+.usage-rule .rules-content i,.usage-rule .rules-content p a{color:#008be3}
+.usage-rule .rules-content p{line-height: 30px;color:#666666;}
+.usage-rule .rules-content p.mar-left{margin-left: 24px;}
+.usage-rule .rules-content p b{float:left;margin-right: 6px;}
+/***********用户提现(银行卡)*********************/
+.withdrawal-application .application-information{font:12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;width: 100%;}
+.withdrawal-application .application-information div{width: 420px;*width: 428px;display: table;margin-bottom: 20px;margin-left: 148px;}
+.withdrawal-application .application-information div.cash-balances{margin-top: 70px;}
+.withdrawal-application .application-information div span{margin-right: 18px;float:left;height: 32px;line-height: 32px;text-align: right;color: #666666;font-size: 14px;width: 112px;}
+.withdrawal-application .application-information div i{float:left;height: 32px;line-height: 32px;font-size: 20px;color:#666666}
+.withdrawal-application .application-information div i b{color:#ff2424}
+.withdrawal-application .application-information div.cash-bank-name i,.withdrawal-application .application-information div.open-bank-name i,.withdrawal-application .application-information div.open-city i,.withdrawal-application .application-information div.open-sub-branch i{color: #333333;font-size: 13px;font-weight: bold;}
+.withdrawal-application .application-information div.cash-bank-name i.modification-btn{width: 98px;height: 30px;line-height: 30px;border: 1px solid #e4e4e4;background: #f5f5f5;margin-left: 20px;color:#333333;text-align: center;font-weight: 400;font-size: 14px;cursor: pointer;}
+.withdrawal-application .application-information div.cash-bank-name i.modification-btn:hover,#withdrawal-pop #withdrawal-pop-content div.btn-content div.cancel-btn:hover{background: #E8E8E8;}
+.withdrawal-application .application-information div.open-bank-name i,.withdrawal-application .application-information div.open-city i,.withdrawal-application .application-information div.open-sub-branch i{font-size: 14px;}
+.withdrawal-application .application-information div.withdrawal-amount input,.withdrawal-application .application-information div.withdrawal-pwd input{height: 30px;border: 1px solid #E4E4E4;width: 158px;padding-left: 10px;float:left;line-height: 30px;*margin-left: -18px;}
+.withdrawal-application .application-information div.withdrawal-amount i,.withdrawal-application .application-information div.withdrawal-fee i{color:#666666;margin-left: 10px;font-size: 14px;font-weight: bold;}
+.withdrawal-application .application-information div.withdrawal-amount  div,.withdrawal-application .application-information div.withdrawal-pwd div{display: none;color:#008be3;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-repeat: no-repeat;background-position: left center;padding-left: 16px;height:10px;line-height: 10px;*height:12px;*line-height: 12px;margin-left: 130px;margin-top: 40px;}
+.withdrawal-application .application-information div.withdrawal-fee i{color:#333333}
+.withdrawal-application .application-information div.withdrawal-pwd i{color:#008be3;font-size: 12px;}
+.withdrawal-application .application-information div.withdrawal-fee b{margin-right: 10px;color:#333333;font-weight: bold;}
+.withdrawal-application .application-information div.submit-btn{width: 100px;height: 30px;text-align:center;line-height: 30px;cursor: pointer;background: #008be3;color:#FFFFFF;font-weight: bold;margin-left: 278px;margin-bottom: 50px;margin-top: 30px;}
+.withdrawal-application .application-information div.submit-btn:hover,#withdrawal-pop #withdrawal-pop-content div.btn-content div.confirm-btn:hover{background: #f44b00;}
+.withdrawal-application .application-information div.withdrawal-state{margin: 0 auto 50px auto;width: 714px;height: 366px;background: #fffdfc;border: 1px solid #FFF3EB;}
+.withdrawal-application .application-information div.withdrawal-state p{width: 630px;margin: 0 auto;color:#666666;line-height: 26px;}
+.withdrawal-application .application-information div.withdrawal-state p.p-1,.withdrawal-application .application-information div.withdrawal-state p.p-4,.withdrawal-application .application-information div.withdrawal-state p.p-7{margin-top: 30px;}
+.withdrawal-application .application-information div.withdrawal-state p.blue{color:#00A0E9}
+.withdrawal-application .application-information div.withdrawal-state p.p-8,.withdrawal-application .application-information div.withdrawal-state p.p-9{text-align: right;}{}
+.withdrawal-application .application-information div.withdrawal-state i{font-size: 12px;color:#666666;float:none;margin-right: 101px;}
+.withdrawal-application .application-information p.ok{color:#333333;font-size: 20px;padding-top: 288px;padding-left: 470px;}
+/***********用户提现(支付宝)*********************/
+#withdrawal-pop{width: 480px;height: 468px;background: #FFFFFF;position: absolute;z-index: 99999;display: none;}
+#withdrawal-pop #withdrawal-pop-header span{float:left;margin-top: 18px;margin-left: 20px;}
+#withdrawal-pop #withdrawal-pop-header{height: 47px;width: 100%;border-bottom: 1px solid #E4E4E4;color: #666666;font-weight:bold;}
+#withdrawal-pop #withdrawal-pop-header img{float:right;margin-top: 18px;margin-right: 20px;cursor: pointer;}
+#withdrawal-pop #withdrawal-pop-content{width: 100%;}
+#withdrawal-pop #withdrawal-pop-content div{font:12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;width: 290px;height: 22px;display: table;line-height: 22px;margin: 0 auto;font-size: 14px;margin-bottom: 30px;}
+#withdrawal-pop #withdrawal-pop-content div span{float: left;height: 22px;line-height: 22px;text-align: right;width: 110px;color:#666666;font-size: 14px;}
+#withdrawal-pop #withdrawal-pop-content div i{float:left;color:#333333;font-weight: bold;font-size: 13px;}
+#withdrawal-pop #withdrawal-pop-content div i b{font-weight: bold;color:#333333;margin-right: 6px;}
+#withdrawal-pop #withdrawal-pop-content div i.red{color:#ff2424;font-size:18px;color:#666666}
+#withdrawal-pop #withdrawal-pop-content div i.red b{margin-right: 6px;color:#ff2424;font-size:20px;font-weight: 400;}
+#withdrawal-pop #withdrawal-pop-content div.btn-content{height: 30px;}
+#withdrawal-pop #withdrawal-pop-content div.btn-content div{height: 30px;width: 100px;line-height: 28px;*line-height: 30px;text-align: center;cursor: pointer;background: #008be3;color:#FFFFFF;float: left;margin-right: 20px;}
+#withdrawal-pop #withdrawal-pop-content div.btn-content div.confirm-btn{margin-left: 34px;}
+#withdrawal-pop #withdrawal-pop-content div.btn-content div.cancel-btn{border: 1px solid #e4e4e4;width: 98px;height: 28px;background: #F8F8F8;color:#333333;line-height: 26px;}
+/***************活动平台币详情页***************/
+.voucher-details .table-content table tr td.voucher-amount{color: #008be3;}
+.voucher-details .table-content table tr td.view-game{color: #3366cc;cursor: pointer;}
+.voucher-details .table-content table tr td.btn div{width: 68px;height: 23px;line-height: 22px;*line-height: 24px;text-align: center;background: #008be3;color: #FFFFFF;cursor: pointer;margin: 0 auto;font-size: 12px;}
+.voucher-details .table-content table tr.overdue td{color: #AAAAAA;}
+.voucher-details .account-overview{width: 936px;height: 98px;border: 1px solid #A9DFEF;margin: 30px auto 10px auto;}
+.voucher-details .account-overview ul li{float:left;height: 98px;}
+.voucher-details .account-overview ul li.vouchers-account{height: 100px;margin-top:-1px;width: 250px;background:url(http://pic.7881.com/51508-2015/css/images/vouchers-account.png);background-repeat: no-repeat;background-position:center;background-color: #00a5d7;}
+.voucher-details .account-overview ul li.vouchers-account span{text-align: center;width:160px;font-size: 20px;color: #FFFFFF;margin-left: 90px;font-size: 30px;margin-top: 16px;float:left;font-weight: bold;}
+.voucher-details .account-overview ul li.total-revenue,.voucher-details .account-overview ul li.total-spending{height: 50px;line-height: 36px!important;margin-top: 23px;border-right: 1px solid #a9dfef;width: 337px;text-align: center;color: #00A5D7;}
+.voucher-details .account-overview ul li.total-spending{border-right: none;width: 348px;}
+.voucher-details .account-overview ul li.total-revenue span,.voucher-details .account-overview ul li.total-spending span{float:left;text-align: center;line-height: 20px;font-size: 26px;}
+.voucher-details .account-overview ul li.total-revenue span{width: 337px;color: #009944;margin-top:6px}
+.voucher-details .account-overview ul li.total-spending span{width: 348px;color: #008be3;margin-top:6px}
+/***************申请游戏***********************/
+.apply-for-game .table-content table tr th.game-name-th{text-align: left;}
+.apply-for-game .table-content table tr td{height: 100px;line-height: 16px;}
+.apply-for-game .page .all-select{color:#666666}
+.apply-for-game .page .all-select input{margin-right: 10px;}
+.apply-for-game .table-content table tr input,.apply-for-game .page .all-select input{width: 14px;height: 14px;vertical-align: middle;}
+.apply-for-game .table-content table tr img{margin-top:4px}
+.apply-for-game .table-content table tr td.game-name .name{float: left;max-width: 144px;*max-width: 126px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.apply-for-game .page .all-select,.apply-for-game .page .select-package{float:left}
+.apply-for-game .page .all-select{margin-top: 40px;margin-left: 58px;}
+.apply-for-game .page .select-package{width: 100px;height: 32px;text-align: center;line-height: 32px;color: #ffffff;background-color: #008be3;margin-top: 34px;margin-left: 24px;cursor:pointer;}
+.apply-for-game .page .game-num{margin-left: 108px;}
+.apply-for-game .search-results .table-content table tr td.game-name{padding-left: 24px;}
+/********************个人资料管理**************************/
+.personal-information-management .input-content{height: 64px;border-bottom: 1px solid #e4e4e4;}
+.personal-information-management .input-content ul{margin-left: 44px;}
+.personal-information-management .input-content ul li{float:left;height: 64px;line-height: 64px;text-align: center;width: 78px;cursor:pointer;margin-right: 30px;}
+.personal-information-management .input-content ul li.on{color: #008be3;border-bottom: 1px solid #008be3;}
+.personal-information-management .input-content ul li:hover{color: #008be3;}
+.personal-information-management .basic-information{width: 100%;height: 696px;background-color:#FFFFFF;}
+.personal-information-management .basic-information ul li{width: 326px;height: 30px;margin: 0 auto;margin-bottom: 30px;font-size: 13px;}
+.personal-information-management .basic-information ul li input{border:1px solid #e4e4e4;height: 30px;width: 232px;padding-left: 6px;line-height: 30px;}
+.personal-information-management .basic-information ul li span{float:left;text-align: right;height: 30px;;line-height: 30px;color: #666666;width: 66px;margin-right: 10px;}
+.personal-information-management .basic-information ul li i{float:left;height: 30px;line-height: 30px;font-weight: bold;}
+.personal-information-management .basic-information ul li i.type{color:#008be3}
+.personal-information-management .basic-information ul li i.user-name{color:#333333}
+.personal-information-management .basic-information ul li.first{margin-top: 74px;}
+.personal-information-management .basic-information ul li.save-btn{width: 100px;height: 30px;color: #FFFFFF;background: #008be3;text-align: center;line-height: 30px;cursor: pointer;font-weight: bold;margin-left: 412px;}
+.personal-information-management .basic-information ul li.save-btn:hover{background-color: #f44b00;}
+.personal-information-management .settlement-information{width: 100%;height: 696px;background-color:#FFFFFF;}
+.personal-information-management .settlement-information .menu{height: 38px;width: 600px;margin: 36px auto 40px auto;border: 1px solid #008be3;border-radius:17px;}
+.personal-information-management .settlement-information .menu ul li{float:left;height: 38px;*line-height: 38px;line-height: 36px;text-align: center;width: 300px;color: #AAAAAA;font-size: 14px;cursor: pointer;}
+.personal-information-management .settlement-information .menu ul li.on{background: #008be3;color: #FFFFFF;font-weight: bold;}
+.personal-information-management .settlement-information .menu ul li.unionpay-account{border-radius:16px 0 0 16px;}
+.personal-information-management .settlement-information .menu ul li.alipay-account{border-radius:0 16px 16px 0;}
+.personal-information-management .settlement-information  .menu-content{width: 600px;margin: 0 auto;}
+.personal-information-management .settlement-information  .menu-content div{margin-left: 46px;margin-bottom: 30px;height: 32px;}
+.personal-information-management .settlement-information  .menu-content div span{float:left;height: 30px;line-height: 30px;text-align: right;width: 126px;font-size: 14px;color: #666666;margin-left: 10px;}
+.personal-information-management .settlement-information  .menu-content div input{height: 30px;border: 1px solid #e4e4e4;padding-left: 6px;}
+.personal-information-management .settlement-information  .menu-content div.account-opening-city input{width: 111px;line-height: 30px;}
+.personal-information-management .settlement-information  .menu-content div.account-opening-bank input{width: 248px;line-height: 30px;}
+.personal-information-management .settlement-information  .menu-content div.account-opening-web input{width: 248px;line-height: 30px;}
+.personal-information-management .settlement-information  .menu-content div.bank-account-name input{width: 248px;line-height: 30px;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code {display: table;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code ul li.li-1{height: 32px;clear: both;margin-bottom: -10px;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code ul li.li-2{height: 20px;line-height: 20px;clear: both;margin-left: 136px;margin-top: -10px;float:left;margin-top:-24px;color:#008be3;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code ul li.li-2 a{color:#00a0e9}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code,.personal-information-management .settlement-information  .menu-content div.verified-phone{margin-top: 0px;}
+.personal-information-management .settlement-information  .menu-content div.verified-phone i{float:left;height: 30px;line-height: 30px;font-weight: bold;color:#333333}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code input{width: 134px;*width: 126px;float:left;margin-right: 10px;line-height: 30px;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code .get-code{float:left;height: 30px;border: 1px solid #e4e4e4;text-align: center;line-height: 30px;background: #f8f8f8;float:left;margin-left:0;width: 103px;cursor: pointer;margin-right: 10px;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code .get-code:hover{background: #e8e8e8;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code i{float:left;height: 30px;line-height: 30px;color: #AAAAAA;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code i a{color:#008be3}
+.personal-information-management .settlement-information  .menu-content div.code .code-img{height: 30px;width: 80px;border:1px solid #e4e4e4;float:left;margin-left: 0;}
+.personal-information-management .settlement-information  .menu-content div.code input{float:left;margin-right: 10px;line-height: 30px;}
+.personal-information-management .settlement-information  .menu-content div.code .code-img img{width: 100%;height: 100%;}
+.personal-information-management .settlement-information  .menu-content div.code i{float:left;height: 30px;line-height: 30px;margin-left: 12px;}
+.personal-information-management .settlement-information  .menu-content div.code i a{color:#00a0e9}
+.personal-information-management .settlement-information  .menu-content .confirm-btn{width: 100px;height: 30px;line-height: 30px;text-align: center;color: #FFFFFF;background: #008be3;cursor: pointer;margin-left: 182px;}
+.personal-information-management .settlement-information  .menu-content .confirm-btn:hover{background: #f44b00;}
+.personal-information-management .settlement-information  .menu-content-2 div.code {margin-top: -20px;}
+.account-opening-city,.opening-bank,.opening-web{position: relative;}
+.account-opening-city input{background: url(http://pic.7881.com/51508-2015/images/input-arrow-down.png);background-repeat: no-repeat;background-position:96px center;}
+.account-opening-city ul {position: absolute;border: 1px solid #e4e4e4;background: #FFFFFF;left:136px;border-top:none;display: none;top:32px;*top:33px;}
+.account-opening-city .ul-two {left:275px;}
+.account-opening-city ul li{width: 117px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;}
+.account-opening-city ul li:hover,.opening-bank ul li:hover,.opening-web ul li:hover{background: #e6e6e6;}
+.opening-bank input,.opening-web input{background: url(http://pic.7881.com/51508-2015/images/input-arrow-down.png);background-repeat: no-repeat;background-position:234px center;line-height: 30px;}
+.opening-bank ul,.opening-web ul{position: absolute;border: 1px solid #e4e4e4;background: #FFFFFF;left:136px;border-top:none;display: none;top:32px;*top:33px;}
+.opening-bank ul li,.opening-web ul li{width: 254px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;}
+.two-btn{background: #00a0e9!important;}
+.no-information{height: 694px!important;background: url(http://pic.7881.com/51508-2015/css/images/no-phone.png);background-position:center 208px;background-repeat: no-repeat;}
+#no-information{width: 490px;margin: 0 auto;height: 60px;text-align: center;color:#6b6b6b;padding-top: 276px;font-size: 16px;}
+#no-information p{line-height: 30px;}
+#no-information p a{color:#008be3}
+
+/*安全中心修改登录密码*/
+.fc—modify-pwd{height:624px;*height:770px;}
+.fc—modify-pwd .original-password{height: 32px;margin-top: 76px;}
+.fc—modify-pwd .breadcrumb-navigation,.usage-rule .breadcrumb-navigation,.withdrawal-application .breadcrumb-navigation{width:940px;height: 60px;margin: 0 auto;border-bottom: 1px solid #e4e4e4;line-height: 60px;}
+.fc—modify-pwd .breadcrumb-navigation ul,.fc—modify-pwd .breadcrumb-navigation ul li,.usage-rule .breadcrumb-navigation ul li,.withdrawal-application .breadcrumb-navigation ul li{height: 60px;}
+.fc—modify-pwd .breadcrumb-navigation ul li,.usage-rule .breadcrumb-navigation ul li,.withdrawal-application .breadcrumb-navigation ul li{font:12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;line-height: 60px;color: #999999;float: left;font-size: 13px;}
+.fc—modify-pwd .breadcrumb-navigation ul li.on,.usage-rule .breadcrumb-navigation ul li.on,.withdrawal-application .breadcrumb-navigation ul li.on{color: #008be3;}
+.fc—modify-pwd .breadcrumb-navigation ul li span,.usage-rule .breadcrumb-navigation span,.withdrawal-application .breadcrumb-navigation span{margin: 0 4px;}
+.modify-success{width: 100%;text-align: center;padding-top: 282px;}
+.modify-success #title{color:#333333;font-size: 20px;}
+.modify-success #countdown-jump{font-size: 13px;color:#999999;margin-left: -10px;margin-top: 10px;}
+.fc—modify-pwd  .content-3 {background: url(http://pic.7881.com/51508-2015/css/images/modify-success.png);background-position:center 224px!important;background-repeat: no-repeat;height: 600px;}
+/******************新增下级渠道*************************/
+.add-lower-channel .add-content div{width: 360px;height: 32px;margin: 0 auto 30px 250px;font-size: 14px;}
+.add-lower-channel .add-content div.lower-channel-name{margin-top: 74px;}
+.add-lower-channel .add-content div span{float:left;height: 30px;width: 98px;line-height: 30px;text-align: right;}
+.add-lower-channel .add-content div .input{height: 30px;width: 232px;*line-height: 30px;line-height: 28px;padding-left: 6px;border:1px solid #E4E4E4;margin-left:20px;font-size: 13px;}
+.add-lower-channel .add-content div.channel-status {font-size: 14px;}
+.add-lower-channel .add-content div.channel-status input{margin-top: 10px;margin-right: 14px;}
+.add-lower-channel .add-content div.channel-status input.disable{margin-left: 20px;}
+.add-lower-channel .add-content div.channel-status span{margin-right: 18px;}
+.add-lower-channel .add-content div span.confirm-save,.add-lower-channel .add-content div span.back{width: 100px;height: 30px;background: #008be3;color:#FFFFFF;*line-height: 30px;line-height: 28px;text-align: center;cursor: pointer;margin-left: 119px;}
+.add-lower-channel .add-content div span.confirm-save:hover{background: #f44b00;}
+.add-lower-channel .add-content div span.back{width: 98px;border:1px solid #e4e4e4;background: #f8f8f8;color:#333333;margin-left: 10px;height: 28px;}
+.add-lower-channel .add-content div span.back:hover{background: #e8e8e8;}
+/******************平台币余额兑换*******************/
+.vouchers-exchange-balance .personal-account{margin-top: 90px;}
+.vouchers-exchange-balance .account-balance,.vouchers-exchange-balance .pay-pwd{margin-top: 40px;}
+.vouchers-exchange-balance .pay-pwd input{width: 166px;height: 30px;line-height: 30px;padding-left: 6px;border:1px solid #e4e4e4;}
+.vouchers-exchange-balance .pay-pwd .left{height: 30px;line-height: 30px;}
+.vouchers-exchange-balance .account-balance .right{color:#ff0000}
+.vouchers-exchange-balance .account-balance .right i{color:#666666;margin-left: 10px;}
+.vouchers-exchange-balance .account-balance .top-up-now{width: 98px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;border:1px solid #cecece;background: #fafafa;color:#333333;float:right;margin-left:20px;}
+.vouchers-exchange-balance .account-balance .top-up-now:hover{background: #E8E8E8;}
+.vouchers-exchange-balance .top-up-amount .error-msg{width: 90px!important;}
+.vouchers-exchange-balance span.note{color: #333333;font-size: 20px;display: none;width: 80px;padding-top: 328px;margin-left:510px;}
+/*****************支付密码设置*****************/
+.modify-pay-pwd .modify-pwd-content{width: 680px;margin: 0 auto;}
+.modify-pay-pwd .modify-pwd-content .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/css/images/modify-pwd-title01.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyPayPwd .modify-pwd-content .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title001.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyBindPhone .modify-pwd-content .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title0001.jpg);background-position:center;background-repeat: no-repeat;}
+.modify-pay-pwd .modify-pwd-content .binding-mobile span{float:left;height: 30px;line-height: 30px;width: 126px;text-align: right;margin-right: 6px;font-size: 14px;color:#666666}
+.modify-pay-pwd .modify-pwd-content .binding-mobile input{height: 30px;line-height: 30px;padding-left: 6px;border:1px solid #e4e4e4;width: 207px;}
+.modify-pay-pwd .modify-pwd-content .binding-mobile .error-note{color:#008be3;margin-left: 132px;margin-top: 6px;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-position: left center;background-repeat: no-repeat;padding-left: 16px;display: none;margin-bottom: -10px;}
+
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code{margin-top: 20px;}
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code span{float:left;height: 30px;line-height: 30px;width: 126px;text-align: right;margin-right: 6px;font-size: 14px;color:#666666}
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code input{height: 30px;line-height: 30px;padding-left: 6px;border:1px solid #e4e4e4;width: 92px;float:left}
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code .error-note{color:#008be3;margin-left: 132px;margin-top: 10px;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-position: left center;background-repeat: no-repeat;padding-left: 16px;display: none;}
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code i{height:30px;line-height: 30px;margin-left: 10px;color:#AAAAAA;}
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code i a{color:#008be3;margin-left: 8px;}
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code .get-mobile-code{width: 103px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;border: 1px solid #e4e4e4;color:#666666;background: #f8f8f8;margin-left: 10px;float:left}
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code .get-mobile-code:hover{background: #E8E8E8;}
+
+.modify-pay-pwd .modify-pwd-content .img-code{margin-top: 20px;}
+.modify-pay-pwd .modify-pwd-content .img-code span{float:left;height: 30px;line-height: 30px;width: 126px;text-align: right;margin-right: 6px;font-size: 14px;color:#666666}
+.modify-pay-pwd .modify-pwd-content .img-code input{height: 30px;line-height: 30px;padding-left: 6px;border:1px solid #e4e4e4;width: 92px;;float:left}
+.modify-pay-pwd .modify-pwd-content .img-code .error-note{color:#008be3;margin-left: 132px;margin-top: 10px;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-position: left center;background-repeat: no-repeat;padding-left: 16px;display: none;}
+.modify-pay-pwd .modify-pwd-content .img-code .code-img{height: 30px;border:1px solid #e4e4e4;width: 76px;float:left;margin-left: 10px;}
+.modify-pay-pwd .modify-pwd-content .img-code i{height:30px;line-height: 30px;margin-left: 10px;color:#AAAAAA;}
+.modify-pay-pwd .modify-pwd-content .img-code i a{color:#00a0e9}
+
+.modify-pay-pwd .next-btn{color:#FFFFFF;background: #008be3;width: 100px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;margin-top: 20px;}
+.content-2 .next-btn{margin-left: 146PX;}
+.modify-pay-pwd .next-btn:hover{background: #f44b00;}
+.modify-pay-pwd .content-2 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/css/images/modify-pwd-title02.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyPayPwd .content-2 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title002.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyBindPhone .content-2 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title0002.jpg);background-position:center;background-repeat: no-repeat;}
+.modify-pay-pwd .content-2 .friendship-remind{width: 666px;height: 174px;border: 1px solid #fff3eb;margin: 0 auto;background: #fffdfc;text-align: center;}
+.modify-pay-pwd .content-2 .friendship-remind ul li{width: 114px;margin: 0 auto;text-align: left;margin-bottom: 10px;}
+.modify-pay-pwd .content-2 .friendship-remind ul li.li-1{color: #008be3;margin-top: 30px;margin-bottom:20px;width: 100%;text-align: center;}
+#friendship-remind .confirm-btn{width: 100px;height: 30px;line-height: 30px;cursor: pointer;text-align: center;color:#FFFFFF;background: #008be3;margin: 0 auto;margin-top: 30px;}
+#friendship-remind .confirm-btn:hover{background: #f44b00;}
+.modify-pay-pwd .content-2 .binding-mobile span,.modify-pay-pwd .content-2  .img-code span{width:140px;}
+.modifyPayPw02 .content-2 .binding-mobile span,.modify-pay-pwd02 .content-2  .img-code span{width:160px;}
+.modify-pay-pwd .content-2 .binding-mobile{margin-bottom: 30px;}
+.modify-pay-pwd .content-2 .pay-pwd i{color:#AAAAAA;margin-left: 10px;}
+.modify-pay-pwd .content-2 .binding-mobile .error-1{background: none;}
+.modify-pay-pwd .content-2 .binding-mobile .error-note ul{margin-right: 10px;}
+.modify-pay-pwd .content-2 .binding-mobile .error-note ul li{float:left;height: 4px;width: 12px;margin-right: 2px;background: #CCCCCC;margin-top: 7px;}
+.modify-pay-pwd .content-2 .binding-mobile .error-note{margin-left: 147px;}
+.modifyPayPw02 .content-2 .binding-mobile .error-note,.modifyPayPw02 .content-2 .next-btn{margin-left: 167px;}
+.modify-pay-pwd .content-2 .img-code .error-note{margin-left: 147px;}
+.modifyPayPw02 .content-2 .img-code .error-note{margin-left: 167px;}
+.modify-pay-pwd .content-2 .display{display: none;}
+.modify-pay-pwd .content-3 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/css/images/modify-pwd-title03.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyPayPwd  .content-3 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title003.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyBindPhone .content-3 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title003.jpg);background-position:center;background-repeat: no-repeat;}
+.modify-pay-pwd .content-3 {background: url(http://pic.7881.com/51508-2015/images/modify-success.png);background-position:center 126px;background-repeat: no-repeat;height: 660px;}
+.modify-pay-pwd .content-3 p{text-align: center;}
+.modify-pay-pwd .content-3 p.p-1{padding-top: 190px;color:#333333;font-size: 20px;}
+.modify-pay-pwd .content-3 p.p-3{line-height: 20px;color: #999999;font-size: 14px;}
+.modify-pay-pwd .content-3 p.p-2{line-height: 30px;color: #999999;font-size: 15px;}
+.modify-pay-pwd .content-3 p.p-2 a{color:#00a0e9}
+.modify-pay-pwd .content-3 p.p-3 a{color:#008be3}
+
+/********************给游戏用户充值**************************/
+.game-user-up{height:760px!important;background-color:#FFFFFF;background: url(http://pic.7881.com/51508-2015/css/images/modify-success.png);background-position: 424px 250px;background-repeat: no-repeat;background-color:#FFFFFF}
+.game-user-up .save-success,.channel-top-up .save-success{font-size: 20px;color:#333333;padding-top: 260px;margin-left:476px;display: none;}
+.game-user-up div{margin-left: 148px;height: 32px;}
+.game-user-up div.use-type{margin-top: 94px;margin-bottom: 26px;}
+.game-user-up div span,.channel-top-up div span{float:left;height: 30px;line-height: 30px;width: 70px;text-align: right;font-size: 14px;color: #666666;margin-right: 18px;}
+.game-user-up div.use-type ul li{float:left;height: 30px;line-height: 30px;text-align: center;border: 1px solid #e4e4e4;width: 120px;margin-right: 10px;color: #666666;cursor:pointer;}
+.game-user-up div.use-type ul li.on{height: 28px;border: 2px solid #77BE4C;line-height: 28px;background: url(http://pic.7881.com/51508-2015/css/images/checked.png);background-position: right 8px;background-repeat: no-repeat;}
+.game-user-up div.use-type a{float:left;height: 30px;line-height: 30px;color:#008be3;margin-left: 4px;}
+.game-user-up div.game-name,.game-user-up div.game-account,.top-up-amount{margin-bottom: 26px;}
+.game-user-up div.game-name .choose-btn,.channel-top-up div.channel-numbers .choose-btn{cursor: pointer;height: 30px;width: 98px;border: 1px solid #e4e4e4;color:#333333;background: #f1f1f1;margin: 0;float:left;line-height: 30px;text-align: center;margin-right: 10px;}
+.game-user-up div.game-name .choose-btn:hover,.channel-top-up div.channel-numbers .choose-btn:hover{background: #e8e8e8;}
+.game-user-up div.game-name .choose-results{margin: 0;line-height: 32px;color:#aaaaaa;font-size: 13px;}
+.game-user-up div.game-name .choose-results i{color:#333333}
+.game-user-up div.game-account input,.game-user-up div.top-up-amount input,.game-user-up div.pay-pwd input{height: 30px;border: 1px solid #e4e4e4;line-height: 30px;padding-left: 6px;width: 208px;float:left}
+.game-user-up div.game-account i,.game-user-up div.top-up-amount i{float: left;height: 30px;line-height: 30px;float:left;color:#008be3;margin-left: 8px;}
+.game-user-up div.top-up-amount input,.game-user-up div.pay-pwd input{width: 162px;}
+.game-user-up div.pay-pwd{margin-bottom:30px;}
+.game-user-up div.top-up-btn{width: 100px;height: 30px;line-height: 30px;text-align: center;color:#FFFFFF;background: #008be3;margin-left: 236px;cursor: pointer;}
+.game-user-up div.top-up-btn:hover{background: #f44b00;}
+#pop{width: 1000px;height: 694px;background: #FFFFFF;position: absolute;display: none;z-index: 99999;}
+#pop-header{width: 100%;height: 47px;border-bottom: 1px solid #e4e4e4;line-height: 47px;}
+#pop-header span{margin-left: 20px;font-weight: bold;color:#666666}
+#pop-header img{float:right;margin-top: 16px;margin-right: 20px;cursor: pointer;}
+#pop-content{margin: 0 auto;width: 940px;}
+#pop-content #content-header{height: 46px;width: 100%;}
+#pop-content #content-header div span{font-size: 14px;color: #666666;}
+#pop-content #content-header div span,#pop-content #content-header div input{float:left;height: 30px;line-height: 30px;margin-top: 7px;}
+#pop-content #content-header div input{border:1px solid #e4e4e4;padding-left: 6px;width: 228px;margin-top: 7px;}
+#pop-content #content-header div .search-btn{float:left;margin: 0;margin-top: 7px;margin-left: 10px;}
+#pop-content table tr{height: 47px;}
+#pop-content table tr th{border-top:1px solid #008be3;border-bottom:2px solid #008be3;background: #a0e4ff;}
+#pop-content table tr td{text-align: center;height: 40px;padding: 0;}
+#pop-content table .game-size{text-align: right;}
+#pop-content table .game-name{text-align: left;}
+#pop-content table tr th.game-name span{margin-left: 106px;}
+#pop-content table tr td.game-name span{margin-left: 60px;max-width:260px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+#pop-content table tr{border-bottom: 1px solid #f7f7f7;}
+#pop-content table tr.even{background: #fefefe;}
+#pop-content table tr.tr:hover{background-color: #f7f7f7;}
+#pop-content .page{height: 80px;}
+#pop-content .page .game-num {margin-top: 30px;}
+#pop-content .page .paging {margin-top: 26px;}
+
+/********************给下级用户充值**************************/
+.channel-top-up{height: 760px;background: #FFFFFF;*height: 770px;}
+.channel-top-up div span{width: 84px;}
+.channel-top-up div{height: 32px;}
+.channel-top-up div.channel-numbers{margin-top: 94px;margin-left: 134px;margin-bottom: 26px;}
+.channel-top-up div input{height: 30px;padding-left: 6px;line-height: 30px;border:1px solid #e4e4e4;float: left;width: 214px;}
+.channel-top-up div.channel-numbers .choose-btn{margin-left: 10px;}
+.channel-top-up div.top-up-balance,.channel-top-up div.pay-pwd{margin-left: 134px;margin-bottom: 26px;}
+.channel-top-up div.top-up-balance input,.channel-top-up div.pay-pwd input{width:167px;margin-right: 10px;}
+.channel-top-up div.top-up-balance i,.channel-top-up div.pay-pwd i{float:left;line-height: 30px;height: 30px;font-size: 14px;}
+.channel-top-up div.top-up-balance i.note,.channel-top-up div.pay-pwd i{color:#008be3;font-size: 12px;margin-left: 6px;}
+.channel-top-up div.pay-pwd i{margin-left: 2px;}
+.channel-top-up div.confirm-prepaid{width: 100px;height: 30px;text-align: center;line-height: 30px;background: #008be3;color:#FFFFFF;cursor: pointer;margin-left: 236px;*margin-left: 269px;}
+.channel-top-up div.confirm-prepaid:hover{background:#f44b00}
+#choose-channel{width: 700px;height: 680px;background: #FFFFFF;display: none;position: absolute;z-index: 99999;}
+#choose-channel #content-header{width:540px;}
+#choose-channel #pop-content{width: 640px;margin: 0 auto;}
+#choose-channel #pop-content table .game-name{text-align: center;}
+#choose-channel #pop-content table .game-name span{margin: 0;}
+#choose-channel .page{height: 68px;}
+.psBtnFixed{position: fixed;bottom: 0px;width: 998px;height: 98px;background: #fbfcfe;border-top: 1px solid #e4e4e4;}
+div.cf{height:98px;width: 100%;}
+div.psBtn{float:left;width: 200px;height: 98px;margin-left: 30px;}
+.fixed div.all-select{float: left;height: 14px;margin-top: 42px;}
+.fixed div.all-select input{width: 14px;height: 14px;vertical-align: middle;margin-right: 10px;margin-left: 28px;}
+.fixed div.select-package{float: right;height: 32px;width: 100px;color:#FFFFFF;background: #008be3;text-align: center;line-height: 32px;cursor: pointer;margin-top: 33px;}
+.page2{width: 768px;float: right;}
+.page2 .game-num{margin-left: 154px!important}
+
+/*确认订单*/
+.confirmOrders{width: 1200px;margin:20px auto 0 auto;background: #ffffff;padding-bottom: 50px;}
+.confirmOrders .coHeader{width: 100%;height: 74px;border-bottom: 1px solid #f5f5f5;line-height: 73px;text-align: center;color:#333333;font-size: 22px;background: #fefefe;}
+.coContent{width: 500px;margin: 0 auto;}
+.coContent ul li{height: 68px;border-bottom: 1px solid #f5f5f5;width: 500px;line-height: 68px;color:#333333;font-size:16px;}
+.coContent ul li .left{float: left;height: 68px;width: 92px;text-align: right;margin-left: 62px;margin-right: 40px;}
+.coContent ul li.payW .value,.coContent ul li.goodsNames .value,.coContent ul li.orderPrice i,.coContent ul li.factorage i,.coContent ul li.needPay i{color:#008be3}
+.coContent ul li.needPay{text-align: center;border-bottom: none;margin-top: 12px;}
+.coContent ul li.payW{margin-top: 28px;}
+.coContent #mysubmit{font-family: "微软雅黑";height: 60px;width: 360px;background: #00a0e9;color:#FFFFFF;margin: 0 auto;border: none;font-size: 18px;cursor:pointer;margin-left: 70px;margin-bottom: 30px;}
+.warmNotes{color:#666666;font-family:"宋体";width: 418px;height: 230px;padding-left: 80px;border: 1px solid #fff3eb;background: #fffdfc;margin: 0 auto;font-size: 12px;}
+.warmNotes p{line-height:26px;}
+.warmNotes p.p1{margin-top: 20px;}
+.coContent #mysubmit:hover{background: #0088c6;}
+
+/*订单支付成功页*/
+.orderSuccessContent{width: 1200px;margin: 20px auto;height:817px;background: #FFFFFF;}
+.orderSuccessContent .osc{width: 500px;margin: 0 auto;}
+.orderSuccessContent .osc-1{border-bottom: 1px solid #f5f5f5;width: 100%;height: 400px;background: url(http://pic.7881.com/51508-2015/css/images/modify-success.png);background-repeat: no-repeat;background-position: center 234px;}
+.orderSuccessContent .osc p{text-align: center;}
+.orderSuccessContent .osc p.p1{color:#009933;font-size: 30px;padding-top:296px;}
+.orderSuccessContent .osc p.p2,.orderSuccessContent .osc .p3,.orderSuccessContent .osc .p4{padding-top: 8px;color:#999999;font-size: 16px;}
+.orderSuccessContent .osc .p3{padding-top: 20px;}
+.orderSuccessContent .osc .p4{color:#666666;}
+.orderSuccessContent .osc .p4 i{color:#009933}
+.orderSuccessContent .osc .p4 i.i-1{margin-right: 30px;}
+/*51508推广*/
+.width1920{width: 100%;min-width: 1200px;}
+.width1200{width: 1200px;margin: 0 auto;}
+.banner{height: 652px;background: url(http://pic.7881.com/51508-2015/images/tgbanner.jpg);background-repeat: no-repeat;min-width: 1200px;background-size: 100% 100%;}
+.banner .bannerC{height: 652px;}
+.banner .bannerC div{width: 400px;height: 80px;background: #008be3;float: left;margin-top:512px;cursor: pointer;text-align: center;line-height: 72px;color:#ffffff;font-size: 38px;}
+.fixedMenu{background-color: #ffb400;}
+.fixedMenu.fixedM{position: fixed;left: 0;top:0px}
+.fixedMenu .fixedMenuC{height: 120px;}
+.fixedMenu .fixedMenuC ul,.fixedMenu .fixedMenuC ul li{height: 120px;}
+.fixedMenu .fixedMenuC ul li{width:200px;text-align: center;color:#FFFFFF;float: left;background: url(http://pic.7881.com/51508-2015/images/fixedMenu.png);cursor: pointer;}
+.fixedMenu .fixedMenuC ul li.hysj{background-position: 0px 0;}
+.fixedMenu .fixedMenuC ul li.ptys{background-position: -200px 0;}
+.fixedMenu .fixedMenuC ul li.zylypt{background-position: -400px 0;}
+.fixedMenu .fixedMenuC ul li.ylxms{background-position: -600px 0;}
+.fixedMenu .fixedMenuC ul li.lxwm{background-position: -800px 0;}
+.fixedMenu .fixedMenuC ul li.fhdb{background-position: -1000px 0;}
+.fixedMenu .fixedMenuC ul li.on{background-color: #ff9600;}
+.fixedMenu .fixedMenuC ul li p{width: 100%;text-align: center;font-size: 18px;padding-top:81px}
+.hysjC{height: 745px;background-color: #f2d7bc;}
+.hysjContent{height: 745px;}
+.hysjContent div.gamelist{1200px;height: 470px;}
+.hysjContent div.gamelist ul{width: 1220px;height:460px;}
+.hysjContent div.gamelist ul li{cursor: pointer;width: 285px;height: 460px;float:left;margin-right: 20px;background-color: #f14f4a;margin-top:10px}
+.hysjContentHeader{height: 185px;}
+.hysjContentHeader img{width: 692px;height: 116px;float: left;margin-left: 254px;margin-top: 34.5px;}
+.hysjContent div.gamelist ul li img{width: 285px;height: 285px;}
+.hysjContent div.gamelist ul li p{color:#FFFFFF}
+.hysjContent div.gamelist ul li p.p1{font-size: 20px;font-weight: bold;padding-top:16px;width: 100%;text-align: center;}
+.hysjContent div.gamelist ul li p.p2{text-align: left;padding-top:10px;font-size: 16px;width: 254px;margin-left: 26px;line-height: 26px;}
+.zylyptC{height: 1213px;background-color: #e5483f;}
+.zylyptContentHeader{width: 100%;height: 216px;}
+.zylyptContentHeader p,.lyptCHeader p,.ylxmsHeader_1 p,.ylxmsHeader_2 p,.ylxmsC_2 p{text-align: center;color:#FFFFFF;font-size:20px;}
+.zylyptContentHeader p.p1,.lyptCHeader p.p1,.ylxmsHeader_1 p.p1,.ylxmsHeader_2 p.p1,.ylxmsC_2 p.p1{font-size: 50px;padding-top:66px}
+.ylxmsC_2 p.p2{padding-top:20px}
+.zylyptContent{width: 100%;}
+.zylyptContent div.div{height: 155px;margin-bottom: 40px;}
+.zylyptContent div.div div{width: 716px;height: 136px;border: 1px solid #FFFFFF;margin-top: 8.5px;}
+.zylyptContent div.div div p{width: 592px;margin: 0 auto;color:#FFFFFF;text-align: left;}
+.zylyptContent div.div div p.p1{color:#faf24f;font-size: 22px;font-weight: bold;padding-top:16px}
+.zylyptContent div.div div p.p2{font-size: 16px;padding-top:6px}
+.zylyptContent div.div.ldiv img,.zylyptContent div.div.ldiv div{float: left;margin-right: 30px;}
+.zylyptContent div.div.rdiv img,.zylyptContent div.div.rdiv div{float: right;margin-left: 30px;}
+.lypt{height: 628px;background: #b029ff;}
+.lyptCHeader{width: 100%;height: 224px;}
+.width1200 .stepIcon{width: 895px;height: 35px;margin: 0 auto;background: url(http://pic.7881.com/51508-2015/images/stepIcon.png);}
+.stepNote{width: 1066px;margin: 0 auto;height: 369px;}
+.stepNote ul{height: 369px;width: 1120px;}
+.stepNote ul li{width: 226px;margin-right: 54px;height: 369px;float:left;text-align: center;}
+.stepNote ul li img{float: left;margin-left: 23px;margin-top: 20px;}
+.stepNote ul li p{color:#FFFFFF;font-size: 16px;width: 226px;float: left;padding-top:32px}
+.ylxms_1{height: 850px;background: #2db1d7;}
+.ylxms_2{height: 1658px;background: #2db1d7;}
+.ylxmsHeader_2{height: 200px;background: url(http://pic.7881.com/51508-2015/images/ylxmsHeader_2.jpg);}
+.ylxms_1 img{margin-top: 86px;float: left;margin-left: 108.5px;}
+.ylxms_2 img.img_2{margin-left: 160px;}
+.ylxms_2 img.img_3{margin-left: 178px;}
+.zyhh .img_1{height: 173px;background: url(http://pic.7881.com/51508-2015/images/zy_1.jpg);background-repeat: no-repeat;min-width: 1200px;background-size: 100% 100%;}
+.zyhh .img_2{height: 297px;background: url(http://pic.7881.com/51508-2015/images/zy_2.jpg);background-repeat: no-repeat;min-width: 1200px;background-size: 100% 100%;}
+.zyhh .img_3{height: 228px;background: url(http://pic.7881.com/51508-2015/images/zy_3.jpg);background-repeat: no-repeat;min-width: 1200px;background-size: 100% 100%;}
+.zyhh .img_3 div.width1200 div{height: 80px;width: 370px;background: #008be3;float: left;margin-left: 415px;margin-top: 74px;cursor: pointer;text-align: center;line-height: 78px;color: #FFFFFF;font-size: 38px;}
+/*礼包详情*/
+ 
+.giftbagContent .page-header .header-content .tab ul li{width: auto;margin-right: 22px;padding: 0 8px;}
+.giftbagContent .page-header .header-content .tab ul li.joinUs{margin-right: 0;}
+.giftbagC{width: 1198px;margin: 0 auto;margin-top: 20px;border: 1px solid #ededed;border-top: 1px solid #008be3;display:table;background: #fefefe;}
+.giftbagC .giftbagleft,.giftbagC .giftbagright{float: left;width: 799px;border-right: 1px solid #ededed;}
+.giftbagC .giftbagright{width: 398px;border-right: none;}
+.giftbagC .giftbagleft{display: table;}
+.giftbagC .giftbagleft .leftHeader{width: 100%;height: 218px;border-bottom: 1px solid #ededed;}
+.leftHeaderC{width: 721PX;margin: 0 auto;}
+.leftHeaderC .headerN{width: 100%;height: 67px;border-bottom: 1px dashed #ededed;text-align: center;color:#333333;line-height: 66px;font-size: 26px;}
+.leftHeaderC .gameInformation{width: 100%;height: 150px;}
+.leftHeaderC .gameInformation .gameInformationC{width: 100%;height: 110px;margin-top:20px;}
+.leftHeaderC .gameInformation .gameInformationC .gimg,.leftHeaderC .gameInformation .gameInformationC p,.leftHeaderC .gameInformation .gameInformationC .giftGet{float: left;}
+.leftHeaderC .gameInformation .gameInformationC .gimg{width: 110px;height: 110px;margin-right: 34px;}
+.leftHeaderC .gameInformation .gameInformationC .gimg img{width: 100%;height: 100%;}
+.leftHeaderC .gameInformation .gameInformationC p{height: 20px;width: 424px;line-height: 19px;color:#666666;font-size: 14px;}
+.leftHeaderC .gameInformation .gameInformationC p i{float: left;}
+.leftHeaderC .gameInformation .gameInformationC p i.iicon{background: url(http://pic.7881.com/51508-2015/images/iconc.png);background-repeat: no-repeat;height: 20px;width: 20px;margin-right: 10px;margin-top: 1px;}
+.leftHeaderC .gameInformation .gameInformationC p.banben{margin:15px 0 14px 0;}
+.leftHeaderC .gameInformation .gameInformationC p.banben i{background-position:-56px -353px}
+.leftHeaderC .gameInformation .gameInformationC p.gameTime{margin-bottom: 14px;}
+.leftHeaderC .gameInformation .gameInformationC p.gameTime i{background-position:-77px -353px}
+.leftHeaderC .gameInformation .gameInformationC p.gLast i{background-position:-85px -211px;}
+.leftHeaderC .gameInformation .gameInformationC p.gameTime span{color:#008be3}
+.leftHeaderC .gameInformation .gameInformationC .giftGet{z-index: 999999999;float:right;width: 98px;height: 46px;border: 1px solid #ededed;padding-left: 50px;line-height: 45px;color:#008be3;font-size: 18px;border-radius: 4px;cursor: pointer;margin-top: -51px;background: url(http://pic.7881.com/51508-2015/images/giftGet.png);background-position:0 2px;background-color: #fbfbfb;}
+.leftHeaderC .gameInformation .gameInformationC p.gLast b{position: relative;float: left;height: 20px;width: 240px;background: #666666;border-radius: 10px;color:#FFFFFF;overflow: hidden;}
+.leftHeaderC .gameInformation .gameInformationC p.gLast b i{width: 50%;height: 20px;background: #58b7f5;border-radius:10px 0px 0px 10px;}
+.leftHeaderC .gameInformation .gameInformationC p.gLast b span{line-height: 20px;font-family: '宋体';position: absolute;height: 20px;width: 100%;text-align: center;left: 0px;top:0px;font-size: 13px;}
+.leftHeaderC .gameInformation .gameInformationC p.gLast b i.on{border-radius:10px;}
+.leftHeaderC .gameInformation .gameInformationC .giftGet.on{color:#FFFFFF;background: url(http://pic.7881.com/51508-2015/images/giftGet02.png);background-color: #008be3;background-position:0 2px;border: 1px solid #008be3;}
+.giftbagC .giftXC{width: 735px;height: 263PX;border-bottom: 1px solid #EDEDED;padding-left: 64px;}
+.giftbagC .giftTJ{width: 735px;min-height: 178PX;border-bottom: 1px solid #EDEDED;padding-left: 64px;}
+.giftbagC .giftStep{width: 735px;min-height: 124PX;padding-left: 64px;}
+.giftbagC .divHeader{padding-top:26px;font-size: 20px;color:#008be3;padding-bottom:16PX;}
+.giftbagC .divC{color:#58b7f5;font-size: 15px;width: 678px;line-height: 26px;}
+.giftbagC .giftTJ .divC{color:#666666}
+.giftbagright .rightHeader{width: 100%;height: 218px;border-bottom: 1px solid #ededed;}
+.youxiList ul{width: 338px;margin: 0 auto;}
+.youxiList ul li{width: 100%;height: 58px;border-bottom: 1px dashed #EDEDED;}
+.youxiList ul li.top3{height: 90px;}
+.youxiList ul li.lastli{border: none;}
+.youxiList ul li span.gname{color: #333333;font-size: 15px;overflow: hidden;text-align: left;text-overflow: ellipsis;white-space: nowrap; width: 158px;}
+.youxiList ul li span{ color: #aaaaaa;display: block;float: left;height: 58px;line-height: 58px;}
+.youxiList ul li span.gtime {font-family: "宋体";text-align: center;width: 76px;}
+.youxiList ul li .nowdl{background: #ffffff;border: 1px solid #ededed;border-radius: 2px;color: #fe7e28;float: right;font-family: "宋体";height: 30px;line-height: 29px;margin-top: 14px;text-align: center;width: 90px;cursor: pointer;border-radius: 20px;}
+.youxiList ul li .nowdl:hover{background: #008be3;color:#FFFFFF;border-color: #008be3;}
+.youxiList ul li .gname .index{background: #5cc3ff;border: 1px solid #299bdd;color: #ffffff; float: left;font-family: "宋体";height: 16px;line-height: 16px;margin-right: 10px;margin-top: 21px;text-align: center;width: 16px;}
+.youxiList ul li.top3 .gameIcon{float: left;height: 60px;margin-top: 15px;position: relative;width: 60px;}
+.youxiList ul li.top3 .gameIcon img{width: 100%;height: 100%;}
+.youxiList ul li.top3 .gameIcon span{ background:url(http://pic.7881.com/51508-2015/images/iconc.png);height: 24px;left: 0;position: absolute;top: 0; width: 24px;background-repeat: no-repeat;background-position: -2px -238px;}
+.youxiList ul li.top3 .rdiv{ float: left;height: 60px;margin-left: 18px;margin-top: 6px; position: relative;width: 258px;}
+.youxiList ul li.top3 .rdiv p{position: absolute;}
+.youxiList ul li.top3 .rdiv p.gName{color: #333333;font-size: 16px;left: 0;overflow: hidden;text-overflow: ellipsis;top: 8px;white-space: nowrap;width: 170px;}
+.youxiList ul li.top3 .rdiv p.gTime{background: #58b7f5;color: #ffffff;font-family: "宋体"; height: 22px;left: 0;line-height: 22px;padding-right: 6px;text-align: right;top: 40px;width: 104px;}
+.youxiList ul li.top3 .rdiv p.getBtn{ background-color: #fbfbfb;border: 1px solid #ededed;border-radius: 20px;color: #fc873d;cursor: pointer;font-family: "宋体";font-size: 13px;height: 30px;line-height: 29px;right: 0;text-align: center;top: 25px;width: 90px;}
+.youxiList ul li.top3 .rdiv p.getBtn:hover{background: #008be3;color:#FFFFFF;border: 1px solid #008be3;}
+.youxiList ul li.top3 .rdiv p.gTime i{ background:url(http://pic.7881.com/51508-2015/images/iconc.png);float: left;height: 16px;margin-left: 4px;margin-top: 3px;width: 16px;background-position: -69px -217px;background-repeat: no-repeat;}
+.youxiList ul li.top3 .gameIcon span.two{background-position: -27px -238px;}
+.youxiList ul li.top3 .gameIcon span.three{background-position: -53px -238px;}
+.giftbagright .gameCode{width: 120px;height: 152px;float: left;margin-top: 33px;margin-left: 30px;margin-right: 30px;}
+.giftbagright .gameCode .gameCodeImg{width: 118px;height: 118px;border: 1px solid #EDEDED;background: #FFFFFF;}
+.giftbagright .gameCode .gameCodeImg img{width: 96px;height: 96px;margin: 11px;}
+.giftbagright .gameCode p{width: 120px;height: 32px;text-align: center;line-height: 30px;color:#aaaaaa;font-size: 16px;}
+.giftbagright .rightHeader .rp{float:left;width: 218px;padding-bottom: 6px;}
+.giftbagright .rightHeader .rp.gameName{overflow: hidden;color:#333333;font-size: 20px;padding-top:33px;text-overflow: ellipsis;white-space: nowrap;width: 200px;}
+.giftbagright .rightHeader .rp.youyitype,.giftbagright .rightHeader .rp.dlnums{color:#bdbdbd;font-size: 14px;}
+.giftbagright .rightHeader .rp.dlbtn{margin-top: 14px;width: 118px;height: 33px;line-height: 36px;padding-left:70px;font-size: 16px;border:1px solid #EDEDED;background: url(http://pic.7881.com/51508-2015/images/dlbtn.png);background-position: 0 3px;background-color: #fbfbfb;cursor: pointer;color:#008be3;border-radius: 4px;}
+.giftbagright .rightHeader .rp.dlbtn:hover{background-color: #008be3;color:#FFFFFF;border-color: #008be3;}
+#pop{width:80px;height: 30px;background: #000000;display: none;position: absolute;z-index: 9999;background:url(http://pic.7881.com/51508-bss/images/spinner.png);display: none;}
+#pop p{position: relative;height: 30px;width: 80px;text-align: center;line-height: 30px;color:#FFFFFF}
+
+.gift-dole-box { width: 300px;}
+.gift-dole { width: 360px; height: 210px; text-align: center; overflow: hidden;}
+.gift-dole-top { margin-top: 36px;}
+.gift-dole-num { display: inline-block; *display: inline; *zoom:1; margin-bottom: 10px;}
+.gift-dole-num span { display: inline-block; *display: inline; *zoom:1; vertical-align: middle; cursor: pointer; font-family: \5b8b\4f53; width: 38px; height: 38px; border: #ccc 1px solid; font-size: 38px; line-height: 38px; color: #848484; moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+.gift-dole-num span.disab { color: #d7d7d7;}
+.gift-dole-num .gift-num-input { height: 38px; line-height: 38px\9; margin:0 5px; text-align: center; padding: 0 6px; font-size: 18px; width: 110px; border: #ccc 1px solid; vertical-align: middle;}
+.gift-dole-top p { color: #aaa; font-family: \5b8b\4f53;}
+.gift-dole-top p span { color: #008be3; margin: 0 6px;}
+.gift-suc,.gift-fail { width: 400px;}
+.gift-state { width: 400px; height: 270px; text-align: center;}
+.gift-state .gift-state-img { margin: 30px 0 10px 0;}
+.gift-state h2 { font-size: 20px; color: #666; font-weight: normal; margin-bottom: 10px;}
+.gift-state p { color: #aaa; font-family:\5b8b\4f53; line-height: 26px;}
+.gift-state p a { color: #3498db; margin: 0 4px;}
+/*我的游戏中心*/
+.mygameCenter .page-right{border: 1px solid #e5e5e5;height: 762px;}
+.mygameCenter .mygameHP .hpleft,.mygameCenter .mygameHP .phoneimg{float:left;height: 574px;margin-top: 75px;}
+.mygameCenter .mygameHP .hpleft,.mygameCenter .mygameHP .hpleft ul li{width: 650px;}
+.mygameCenter .mygameHP .hpleft ul li{font-size: 15px;text-align:left;width: 218px;padding-left: 20px;height: 48px;background: #f5f5f5;margin-bottom: 14px;line-height: 46px;color:#666666}
+.mygameCenter .mygameHP .hpleft ul{width: 238px;margin: 0 auto;}
+.mygameCenter .mygameHP .hpleft ul li.lititle{text-align:center;width: 238px;padding: 0;height: 136px;line-height: 136px;color:#008be3;font-size: 30px;background: none;margin-bottom:0px;}
+.mygameCenter .mygameHP .hpleft ul li.liBtn{font-size: 18px;text-align:center;width: 238px;padding: 0;margin-top: 68px;background: #008be3;cursor: pointer;color:#FFFFFF;line-height: 44px;}
+.mygameCenter .mygameHP .phoneimg{width: 285px;}
+.mygameCenter .mygameHP .phoneimg img{width: 100%;height: 100%;}
+#mygameCenter{width: 420px;height: 228px;display: none;position: absolute;z-index: 999999;background: #FFFFFF;}
+#mygameCenter .mygameCenterHeader{width: 100%;height: 46px;}
+#mygameCenter .mygameCenterHeader .closeBtn{float: right;width: 16px;height: 16px;margin-top: 16px;margin-right: 18px;background:url(http://pic.7881.com/51508-2015/images/iconc.png);background-position: -53px -335px;background-repeat: no-repeat;cursor: pointer;}
+#mygameCenter .mygameCenterPopC{height: 182px;width: 100%;font-family: '宋体'}
+#mygameCenter .mygameCenterPopC p{width: 205px;margin: 0 auto;text-align: center;font-size: 14px;color:#008be3}
+#mygameCenter .mygameCenterPopC .inputDiv{height: 59px;width: 205px;margin: 0 auto;margin-top: 24px;}
+#mygameCenter .mygameCenterPopC .inputDiv input{width: 193px;height: 30px;line-height: 30px;border: 1px solid #e4e4e4;padding-left: 10px;}
+#mygameCenter .mygameCenterPopC .inputDiv .inputNote,#mygameCenter .mygameCenterPopC .error.inputDiv .inputerrorNote{width: 100%;height: 15px;margin-top: 6px;}
+#mygameCenter .mygameCenterPopC .error.inputDiv .inputerrorNote i{margin-right: 6px;float: left;width: 15px;height: 15px;background:url(http://pic.7881.com/51508-2015/images/iconc.png);background-position: -33px -336px;background-repeat: no-repeat;}
+#mygameCenter .mygameCenterPopC .error.inputDiv .inputerrorNote{color:#ff6600}
+#mygameCenter .mygameCenterPopC .inputDiv .inputerrorNote,#mygameCenter .mygameCenterPopC .error.inputDiv .inputNote{display: none;}
+#mygameCenter .mygameCenterPopC .error.inputDiv .inputerrorNote,#mygameCenter .mygameCenterPopC .inputDiv .inputNote{display: block;line-height: 15px;}
+#mygameCenter .mygameCenterPopC .error input{border: 1px solid #008be3;}
+#mygameCenter .mygameCenterPopC .inputDiv .inputNote{color:#999999}
+#mygameCenter .mygameCenterPopC.PopC_2 div.loading{width: 84px;height: 84px;margin: 0 auto;margin-bottom: 18px;}
+#mygameCenter .mygameCenterPopC.PopC_2 div.loading img{width: 100%;height: 100%;}
+#mygameCenter .mygameCenterPopC.PopC_2 p{width: 260px;text-align: center;color:#999999;font-size: 14px;line-height: 28px;}
+#mygameCenter .mygameCenterPopC.PopC_2 p i{color:#008be3}
+#mygameCenter .mygameCenterPopC.PopC_2 p.p2{font-size: 13px;}
+#mygameCenter .mygameCenterPopC.PopC_2 p a{color:#0096ff;margin: 0 2px;}
+#mygameCenter .mygameCenterPopC.PopC_2 p a:hover{text-decoration: underline;}
+#mygameCenter div.popSubmit{width: 100px;height: 30px;background: #008be3;color:#FFFFFF;text-align: center;line-height: 30px;cursor: pointer;margin: 0 auto;margin-top:18px;font-weight: bold;}
+.mygameCenter .page-right-header{width: 100%;height: 64px;border-bottom: 1px solid #E4E4E4;}
+.mygameCenter .page-right-header div{height:100%;line-height: 64px;text-align: center;color:#008be3;float: left;padding: 0 6px;font-size: 15px;margin-left: 46px;border-bottom: 1px solid #008be3;}
+.mygameCenter .mygameHP_2 .phoneimg{margin-top: 40px;}
+.mygameCenter .mygameHP_2 .hpleft{height: 626px;margin-top: 0;}
+.mygameCenter .mygameHP_2 .editname,.mygameCenter .mygameHP_2 .gcAPP{width: 530px;height: 205px;margin: 36px 0 36px 45px;position: relative;}
+.mygameCenter .mygameHP_2 .editnamecontent,.mygameCenter .mygameHP_2 .gcappcontent{border: 1px solid #E4E4E4;height: 171px;width: 528px;margin-top: 32px;float: left;}
+.mygameCenter .mygameHP_2 .editnamecontentheader,.mygameCenter .mygameHP_2 .gcappcontentheader{position: absolute;height: 64px;width: 64px;top:0px;left: 232px;}
+.mygameCenter .mygameHP_2 .editnamecontentheader img,.mygameCenter .mygameHP_2 .gcappcontentheader img{width: 64px;height: 64px;}
+.mygameCenter .mygameHP_2 .editnamecontent:hover{border: 1px solid #ff8a3b;}
+.mygameCenter .mygameHP_2 .gcappcontent:hover{border: 1px solid #35acff;}
+.mygameCenter .mygameHP_2 .gcAPP{height: 350PX;width: 530px;margin-left: 45px;}
+.mygameCenter .mygameHP_2 .gcappcontent{height: 384px;border: 1px solid #E4E4E4;}
+.mygameCenter .editContent{width: 488px;margin: 0 auto;height: 100%;}
+.mygameCenter .editContentHeader{width: 100%;height: 80px;border-bottom: 1px solid #E4E4E4;text-align: center;font-weight: bold;font-size: 16px;line-height: 96px;color:#008be3;font-family: '宋体';}
+.mygameCenter .gcAPP .editContentHeader{color:#0096ff}
+.mygameCenter .editContent .editcontentC{width: 100%;height: 90px;}
+.mygameCenter .editname .editContent .editcontentC input{float:left;width: 172px;padding-left: 10px;height: 30px;line-height: 28px;border: 1px solid #E4E4E4;background: #FFFFFF;margin-top: 27px;font-size: 14px;background: #FFFFFF;}
+.mygameCenter .editname .editContent .editcontentC input.disable{border: 1px solid #faf9f7;background: #faf9f7;}
+.mygameCenter .editname .editContent .editcontentC .xiugaiBtn,
+.mygameCenter .editname .editContent .editcontentC .querenBtn{float: right;width: 98px;height: 28px;border: 1px solid #E4E4E4;margin-top: 27px;cursor: pointer;background: #f8f8f8;text-align: center;line-height: 28px;font-family: '宋体';color:#333333}
+.mygameCenter .gcAPP .editContent .editcontentC{height: 235px;}
+.mygameCenter .editname .editContent .editcontentC .querenBtn{display: none;}
+.mygameCenter .editname .editContent .editcontentC .xiugaiBtn:hover,
+.mygameCenter .editname .editContent .editcontentC .querenBtn:hover{background: #008be3;color: #FFFFFF;border: 1px solid #008be3;}
+.mygameCenter .gcAPP .editContent .editcontentC .div{width: 100%;text-align: left;font-family: '宋体';color:#666666;height: 30px;line-height: 30px;margin-bottom:10px;font-size: 13px;}
+.mygameCenter .gcAPP .editContent .editcontentC .div a{color:#0096ff;font-size: 13px;font-family: '宋体';}
+.mygameCenter .gcAPP .editContent .editcontentC .div a:hover{text-decoration: underline;}
+.mygameCenter .gcAPP .editContent .editcontentC .div.bbNum{margin-top: 26px;}
+.mygameCenter .gcAPP .editContent .editcontentC .div div{float: right;width: 98px;height: 28px;border: 1px solid #E4E4E4;cursor: pointer;background: #f8f8f8;text-align: center;line-height: 28px;font-family: '宋体';color:#333333}
+.mygameCenter .gcAPP .editContent .editcontentC .div a,.mygameCenter .gcAPP .editContent .editcontentC .div span{float: left;}
+.mygameCenter .gcAPP .editContent .editcontentC .div a{white-space: nowrap;text-overflow:ellipsis; overflow:hidden;width: 234px;}
+.mygameCenter .gcAPP .editContent .editcontentC .div.daddress a{width: 272px;}
+.mygameCenter .gcAPP .editContent .editcontentC .div.dl a{width: 100%;height: 100%;color:#333333}
+.mygameCenter .gcAPP .editContent .editcontentC .div.dl a:hover{text-decoration: none;color:#FFFFFF;background: #35acff;color: #FFFFFF;border: 1px solid #35acff;}
+.mygameCenter .gcAPP .editContent .editcontentC .div .fuzhi.on{background: #35acff;color: #FFFFFF;border: 1px solid #35acff;}
+/*20160318 新增*/
+.mygameCenter .page-right.gc-new { height: 924px;}
+.mygameCenter .mygameHP_2 .gcappcontent.addewm { height:506px;}
+.mygameCenter .gcAPP .editContent .editcontentC .div.ewm-box { height: auto; overflow: hidden;} 
+.mygameCenter .gcAPP .editContent .editcontentC .div div.ewm {float: left; cursor: default; border: none; width: auto; height: auto; background: none;}
+.mygameCenter .gcAPP .editContent .editcontentC .div div.ewm img { padding: 4px; border: #e4e4e4 1px solid;}
+.mygameCenter .gcAPP .editContent .editcontentC .div div.ewm p { font-size: 12px; line-height: 18px; cursor: text;}
+.mygameCenter .gcAPP .editContent .editcontentC .div div.ewm em{ color: #008be3;}
+.ewm-tips { width: 938px; text-align: center; border: #5bacff 1px solid; margin: 20px auto; background: #f7faff; padding: 20px 0; color: #333333;}
+.ewm-tips p { line-height: 22px;}
+.ewm-tips p em { color: #008be3;}
+.ewm-tips p i { color: #278aef;}
+/* 漂浮二维码 */
+.customer-service { z-index: 1001; width: 170px; height: 210px; border: #e4e4e4 1px solid; position: fixed; left: 50%; margin-left: 620px; bottom: 200px; background: #fff;}
+.customer-service.smlwrap { left: auto; right: -85px; margin-left: 0;}
+.customer-service .cus-img { margin:  17px auto 10px 17px; width: 135px; height: 135px;}
+.customer-service .cus-pho { width: 160px; margin: 0 auto; text-align: center;}
+.customer-service .cus-pho p { color: #333;}
+.customer-service .cus-pho p span { color: #008be3;}
+
+/*申请异常*/
+.mygameCenter .sqabnormal .editcontentC{background: url(http://pic.7881.com/51508-2015/css/images/no-phone.png);background-position:center 54px;background-repeat: no-repeat;}
+.mygameCenter .sqabnormal .editcontentC p{width: 100%;text-align: center;color:#999999;font-family: '宋体';font-size: 14px;padding-top:120px}
+.mygameCenter .sqabnormal .editcontentC p a{color:#0096ff}
+.mygameCenter .sqabnormal .editcontentC p a:hover{text-decoration: underline;}
+.page-left .left-content ul li ul li.mygameli i{position: absolute;width: 22px;height: 14px;background:url(http://pic.7881.com/51508-2015/images/iconc.png);background-position: -74px -336px;background-repeat: no-repeat;top:-6px;left: 72px;}
+.page-left .left-content ul li ul li.mygameli{position: relative;}
+
+/*代理商*/
+.table-content.dlsczjl table tr td.czje{color:#008be3;font-weight:bold;} 
+.table-content.dlsczjl table tr td.cuccess{color:#666666}
+.table-content.dlsczjl table tr td.failure,.table-content.dlsczjl table tr td.clz{color:#AAAAAA}
+.table-content.dlsczjl table tr td.operation div{height: 24px;width: 68px;background: #008be3;margin: 0 auto;color:#FFFFFF;font-family: '宋体';line-height: 23px;}
+.table-content.dlsczjl table tr td.operation div:hover{background: #f44b00;}
+.table-content.dlsczjl table tr td.textright,.table-content.dlsczjl table tr th.textright{text-align: right;}
+.table-content.dlsczjl table tr th.zffl,.table-content.dlsczjl table tr td.zffl{padding-left:30px;}
+.table-content.dlsczjl table tr td.zffl{padding-left: 50px;}
+.table-content.yxnwjcz table tr td.czje{color:#008be3;font-weight:bold;}
+.table-content.yxnwjcz table tr td.gn p{max-width: 168px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin: 0 auto;}
+.table-content.yxnwjcz table tr td.lsh p{max-width: 130px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin: 0 auto;}
+.table-content.yxnwjcz table tr td.yxzh p{max-width: 160px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin: 0 auto;}
+.table-content.yxxz table tr th.game-name-th{text-align: left;padding-left: 32px;}
+.table-content.yxxz table tr td.copy span{color:#00a0e9;cursor: pointer;}
+.table-content.yxxz table tr td.dbcg{color:#009944}
+.table-content.yxxz table tr td.dbsb{color:#ff6600;}
+.table-content.yxxz table tr td.dbz{color:#333333;}
+.table-content.yxxz table tr td.copy i{display: none;}
+.table-content.zcmx table tr td.gametd,.table-content.zcmx table tr th.gameth{text-align: left;padding-left: 30px;}
+.zfwcpage .osc-1{border-bottom:none;}
+.zfwcpage .osc-1 p.p1{font-size: 22px;}
+.zfwcpage .osc-1 p.p2{font-size: 14px;font-family: '宋体';}
+.zfwcpage .osc-1 div.p3{height: 28px;padding: 0;margin-top: 30px;}
+.zfwcpage .osc-1 div.p3 div{font-family:'宋体';font-size: 12px;float: left;height: 26px;border: 1px solid #E4E4E4;width: 92px;cursor: pointer;text-align: center;line-height: 26px;background: #F8F8F8;margin-left: 20px;}
+.zfwcpage .osc-1 div.p3 div.jxcz{color:#FFFFFF;background: #009933;border: 1px solid #009933;margin-left: 144px;}
+.zfwcpage .osc-1 div.p3 div:hover{background: #E8E8E8;}
+.zfwcpage .osc-1 div.p3 div.jxcz:hover{background: #05873f;}
+.zfwcpage{margin-top: 0!important;height: 836px;}
+
+.page-right{width:998px;/*height:1378px;*/border:#e4e4e4 1px solid;border-shadow:0px 0px 4px #ccc;}
+/*.page-right p{margin-top:22px;margin-left:30px;margin-bottom:14px;font-size:18px;color:#333;}*/
+.titlebar-p{margin-top:22px;margin-left:30px;margin-bottom:14px;font-size:18px;color:#333;}
+.rightarea{width:936px;height:237px;overflow:hidden;background:#fffdfc;border:#008be3 1px solid;margin:auto;}
+.rightarea-left{width:324px;height:237px;float:left;}
+.rightarea-left img{margin-top:50px;margin-left:101px;}
+.rightarea-middle p{margin-top:38px;font-size:28px;color:#333333;margin-left:0px;}
+.rightarea-middle span{display:block;color:#00a0e9;font-size:20px;margin-left:-4px;margin-bottom:24px;}
+.rightarea-middle a{display:block;color:white;width:186px;height:40px;font-size:18px;background:#008be3;line-height:40px;text-align:center;}
+.rightarea-middle a:hover{color:white;}
+.rightarea-middle{width:401px;height:237px;float:left;}
+.rightarea-right{width:210px;height:237px;border-left:#008be3 1px solid;float:left;}
+.rightarea1{display:block;text-align:center;width:210px;height:54px;line-height:54px;font-size:18px;color:#333;}
+.rightarea div{width:170px;background:#ffeee3;height:1px;margin:auto;}
+.rightarea-right p{display:block;width:165px;height:60px;line-height:60px;font-size:14px;margin:0;margin-left:20px;}
+.rightarea-right p span{color:#008be3;}
+.page-rightvip{width:932px;height:444px;border-top:#ccc 1px solid;border-left:#ccc 1px solid;;overflow:hidden;margin:auto;}
+.page-rightvip li{width:232px;height:221px;float:left;border-right:#ccc 1px solid;border-bottom:#ccc 1px solid;}
+.page-rightvip p{margin:0;color:#333;font-size:20px;}
+.page-rightvip img{padding:30px 75px;}
+.page-rightvip span{padding-top:6px;padding-bottom:26px;color:#999;font-size:12px;letter-spacing:0.5px;}
+.page-rightvip *{text-align:center;display:block;}
+.page-rightvip li:hover{background:#fcfcfc;}
+.page-rightvip a:hover{cursor:pointer;background:#fcfcfc;}
+
+.page-rightserve{width:932px;height:444px;overflow:hidden;margin:auto;border-top:#ccc 1px solid;border-left:#ccc 1px solid;}
+.page-rightserve li{width:232px;height:221px;float:left;}
+.page-rightserve p{margin:0;color:#333;font-size:20px;}
+.page-rightserve img{padding:30px 75px;}
+.page-rightserve span{padding-top:6px;padding-bottom:26px;color:#999;font-size:12px;letter-spacing:0.5px;}
+.page-rightserve *{text-align:center;display:block;}
+.page-rightserve li:hover{background:#fcfcfc;}
+.page-rightserve a:hover{cursor:pointer;background:#fcfcfc;}
+.page-rightserve li{border-right:#ccc 1px solid;border-bottom:#ccc 1px solid;}
+
+/*2016.03.31*/
+.title-1{margin-top:38px;}
+.title-info1{overflow:hidden;width:282px;height:34px;padding-top:58px;margin:auto;margin-bottom:28px;}
+.title-info1 p{font-size:14px;height:34px;line-height:34px;color:#666;margin:0;display:block;float:left;}
+.title-info1 span{color:#008be3;font-weight:bold;margin-left:5px;}
+.title-info1 span.finish{color:#009933;}
+.title-info1 a{height:32px;line-height:32px;border:#ccc 1px solid;text-align:center;width:103px;color:#666;font-size:12px;background:#f8f8f8;float:right;}
+
+.title-info2{overflow:hidden;width:282px;height:34px;margin:auto;margin-bottom:28px;}
+.title-info2 p{font-size:14px;height:34px;line-height:34px;color:#666;margin:0;display:block;float:left;}
+.title-info2 span{color:#008be3;font-weight:bold;margin-left:5px;}
+.title-info2 span.finish{color:#009933;}
+.title-info2 a{height:32px;line-height:32px;border:#ccc 1px solid;text-align:center;width:103px;color:#666;font-size:12px;background:#f8f8f8;float:right;}
+
+.title-info3{overflow:hidden;width:282px;height:30px;margin:auto;margin-bottom:18px;}
+.title-info3 p{font-size:12px;width:282px;height:30px;line-height:30px;color:#aaa;margin:0;display:block;float:left;text-align:center;}
+
+.title-2{margin-top:38px;}
+.title2-info1{overflow:hidden;width:668px;height:200px;margin:auto;margin-bottom:28px;margin-top:40px;margin-left:0;border:#fff3eb 1px solid;background:#fffdfc;}
+.title2-info1 p{font-size:12px;color:#008be3;margin-bottom:11px;display:block;text-align:center;font-weight:bold;margin-top:26px;}
+.title2-info1 span{font-size:12px;color:#999;margin:0;display:block;text-align:center;margin-bottom:28px;}
+.title2-info1 ul{text-align:center;color:#333;}
+.title2-info1 ul li{margin-bottom:10px;}
+
+.title3-info1{margin:auto;width:446px;height:64px;margin:auto;overflow:hidden;margin-top:60px;}
+.title3-info1span{font-size:14px;color:#666;margin:0;float:left;margin-top:6px;}
+.idcard-num{float:left;font-size:12px;width:247px;height:64px;}
+.idcard-num input{width:237px;height:30px;line-height:34px;line-height:34px\9;padding-left:10px;} 
+.idcard-num-error input{border:#008be3 1px solid;}
+.idcard-num-error span{font-size:12px;color:#008be3;display:none;}
+.title3-info1 p{float:left;color:#aaa;font-size:12px;margin-left:10px;margin-top:8px;}
+
+.title3-info2{width:442px;height:110px;overflow:hidden;margin-left:61px;margin-top:5px;}
+.title3-info2 p{font-size:14px;color:#666;margin:0;float:left;margin-top:16px;padding:0;}
+.title3-info2 ul{width:330px;height:114px;overflow:hidden;float:left;}
+.uploading1{width:98px;height:98px;border:#ccc 1px solid;float:left;margin-right:10px;margin-top:10px;}
+.uploading1 img{padding:16px 27px;}
+.uploading1 span{display:block;width:98px;padding:0 25px;padding-bottom:10px;color:#999;}
+
+.uploading2{width:98px;height:98px;border:#ccc 1px solid;float:left;margin-right:10px;position:relative;margin-top:10px;}
+.id-img1{margin:26px 12px;}
+.delete-img{position:absolute;top:-6px;right:-6px;z-index:1;opacity:0.8;}
+.delete-img:hover{opacity:1;}
+
+.uploading2-error{width:98px;height:98px;border:#008be3 1px solid;float:left;margin-right:10px;position:relative;margin-top:10px;}
+
+.title3-info2 a:hover{cursor:pointer;color:#999;}
+
+.title3-info3 p{font-size:12px;color:#ccc;margin-left:172px;padding:0;margin-top:6px;margin-bottom:0px;}
+.title3-info3-error p{font-size:12px;color:#008be3;margin-left:172px;padding:0;margin-bottom:-10px;display:none;}
+
+.title-4{margin-top:38px;}
+.title4-info1{overflow:hidden;width:400px;padding-top:58px;margin:auto;}
+.title4-info1 img{margin-left:177px;padding-top:20px;}
+.title4-info1 p{font-size:14px;height:42px;line-height:42px;color:#999;margin:0;display:block;text-align:center;}
+
+.wait-style{font-size:20px;color:#333;line-height:47px;}
+.welfare-link{font-size:18px;color:#333;}
+.welfare-link a{color:#008be3;}
+.welfare-link a:hover{color:#008be3;}
+
+.next-btn{margin:auto;}
+.next-btn3{margin-left:172px;}
+.mywel-icon {display: inline-block; *display: inline; *zoom:1; width: 22px; height: 22px; overflow: hidden; margin-left: 4px; margin-top: -4px; vertical-align: middle; background: url(http://pic.7881.com/51508-2015/images/mywel-09.png) no-repeat;}
+.mywel-icon.icon-02 { background-position:0 -35px;}
+.mywel-icon.icon-03 { background-position:0 -70px;}
+.mywel-icon.icon-04 { background-position:0 -107px;}
+
+
+
+/*20160412-chb*/
+.page-right h2.com-tit { height: 78px; border-bottom: #e4e4e4 1px solid; font-weight: normal; padding-left: 44px;}
+.page-right h2.com-tit span { color: #008be3; font-size: 14px; line-height: 86px; height: 78px; padding: 0 10px; border-bottom: #008be3 1px solid; display: inline-block;*display: inline;*zoom:1;}
+.page-right h2.com-tit span.tips { cursor: pointer;}
+.com-tips { display: inline-block;*display: inline;*zoom:1; vertical-align: middle; margin-top: -3px; padding-left: 8px; width: 13px; height: 13px; background: url(http://pic.7881.com/51508-2015/css/images/tips-icon.png) 8px 0 no-repeat;}
+.com-tips-box.layui-layer-tips .layui-layer-content { border: #ff9b58 1px solid; box-shadow:none; border-radius:0; padding:15px; padding-bottom: 13px;}
+.com-tips-box.layui-layer-tips i.layui-layer-TipsB,.com-tips-box.layui-layer-tips i.layui-layer-TipsT { border: none; width:13px; height: 7px;top: -7px;left:7px;background: url(http://pic.7881.com/51508-2015/css/images/tips-jt.png) no-repeat;}
+.com-tips-box.layui-layer-tips .layui-layer-content p { color: #666; font-family: \5b8b\4f53;}
+.com-tips-box.layui-layer-tips .layui-layer-content p span { color: #008be3;}
+
+.app-tab { margin-top: 32px;}
+.app-tab-top { overflow: hidden; height: 107px;}
+.app-tab-top .app-tab-top-l { margin-left: 32px; margin-right: 1px; float: left; width: 46px; height: 85px; padding-top: 15px; background: #666; color: #fff; font-size: 24px; text-align: center;}
+.app-tab-top ul { float: left;}
+.app-tab-top ul li { width: 222px; height: 100px; position: relative; cursor: pointer; background: #e9f7fd; float: left; margin-right: 1px; text-align: center;}
+.app-tab-top ul li h2 { font-size: 26px; color: #333; font-weight: normal; margin-top: 20px;}
+.app-tab-top ul li p { color: #00a5d7;}
+.app-tab-top ul li em { display: none; width: 15px; height: 7px; position: absolute; left: 103px; bottom: -7px;; background: url(http://pic.7881.com/51508-2015/css/images/app-tab-jt.png) no-repeat;;}
+.app-tab-top ul li.on { background: #00a0e9;}
+.app-tab-top ul li.on h2 {font-size: 32px; margin-top: 15px; font-weight: bold; color: #fff;}
+.app-tab-top ul li.on p { color: #fff;}
+.app-tab-top ul li.on em { display: block;}
+.app-area-01 { background: #fffdfc; border: #fff3eb 1px solid; width: 940px; margin: 16px auto 0 auto;}
+.app-area-01 .app-area-01-top { height: 94px; line-height: 94px; text-align: center; border-bottom: #fff3eb 1px solid;}
+.app-area-01 .app-area-01-top.on span.nochogame {display: none;}
+.app-area-01 .app-area-01-top.on .yichogame {display: inline-block; *display: inline; *zoom:1;}
+.app-area-01 .app-area-01-top span.nochogame  { cursor: pointer;}
+.app-area-01 .app-area-01-top span.nochogame img { vertical-align: middle;}
+.app-area-01 .app-area-01-top span.nochogame em { color: #008be3; font-size: 18px; margin-left: 8px;}
+.app-area-01 .app-area-01-top .yichogame { display: none;}
+.app-area-01 .app-area-01-top .yichogame img { vertical-align: middle;}
+.app-area-01 .app-area-01-top .yichogame a { display: inline-block; *display: inline; *zoom:1; width: 97px; height: 29px; margin: 0 6px; color: #333; line-height: 29px; border: #ff9b58 1px solid;}
+.app-area-01 .app-area-01-top .yichogame a:hover { background: #008be3; border: #008be3 1px solid; color: #fff;}
+.app-area-01 .app-area-01-top .yichogame span { color: #aaa;}
+.app-area-01 .app-area-01-top .yichogame span em { color: #333;}
+.app-area-01-bot { text-align: center;}
+.app-area-01-bot .lj-downs { display: inline-block;*display: inline; *zoom:1; width: 236px; margin: 30px 0; height: 40px; border-radius: 40px; line-height: 40px; background: #ffeee3; font-size: 16px;}
+.app-area-01-bot .lj-downs em { color: #ff5a00;}
+.time-sec { padding-bottom: 40px;}
+.time-sec span { vertical-align: middle; font-size: 14px; color: #666;}
+.time-sec span.to { padding: 0 10px;}
+.time-sec input { width: 124px; padding-left: 6px; border: 1px solid #e4e4e4; height: 30px; line-height: 30px\9;}
+.time-sec a { display: inline-block;*display: inline; *zoom:1; width: 80px; height: 30px; margin-top: -3px; margin-left: 20px; line-height: 30px; border: 1px solid #e4e4e4; background: #f8f8f8; vertical-align: middle; color: #666;}
+
+.app-area-02 .qs-downs { display: block; width: 236px; text-align: center; margin: 50px auto 30px auto; height: 40px; border-radius: 40px; line-height: 40px; background: #e9f7fd; font-size: 16px;}
+.down-zj { width: 222px; height: 32px; line-height: 32px; margin: 0 auto; margin-top: 40px; border: #efefef 1px solid; border-radius: 2px; text-align: center;}
+.tb-box { width: 960px; margin: 0 auto;}
+
+/*---2016.05.03添加---*/
+#select-game-pop{width: 1000px;height: 694px;background: #FFFFFF;}
+#select-game-pop #pop-header {border-bottom: 1px solid #e4e4e4;height: 47px;line-height: 47px;width: 100%;}
+#select-game-pop #pop-header span {color: #666666;font-weight: bold; margin-left: 20px;float:left}
+#select-game-pop #pop-header img {cursor: pointer;float: right;margin-right: 20px;margin-top: 16px;}
+#select-game-pop #pop-content {margin: 0 auto;width: 940px;}
+#select-game-pop #pop-content #content-header {height: 46px;width: 100%;}
+#select-game-pop #pop-content #content-header div.select-all-game{height: 32px;float: right;line-height: 32px;text-align: center;color:#FFFFFF;background: url(http://pic.7881.com/51508-2015/css/images/select-all-game.png);background-color: #1ec2ff;margin-top: 7px;font-weight: bold;padding-left: 30px;padding-right: 10px;font-size: 13px;cursor: pointer;}
+#select-game-pop #pop-content #content-header div.select-all-game:hover{background-color: #00A0E9;}
+#select-game-pop #pop-content #content-header div span {color: #666666;font-size: 14px;}
+#select-game-pop #pop-content #content-header div span, #pop-content #content-header div input {float: left;height: 30px;line-height: 30px;margin-top: 7px;}
+#select-game-pop #pop-content #content-header div input {border: 1px solid #e4e4e4;margin-top: 7px;padding-left: 6px;width: 228px;}
+#select-game-pop #pop-content #content-header div .search-btn {background: #008be3;color: #ffffff !important;cursor: pointer;float: left;font-weight: bold;height: 32px;line-height: 30px;margin: 7px 0 0 10px;text-align: center; width: 80px;}
+#select-game-pop #pop-content table tr {height: 47px;}
+#select-game-pop #pop-content table tr th {background: #a0e4ff;border-bottom: 2px solid #008be3;border-top: 1px solid #008be3;}
+#select-game-pop #pop-content table tr td {height: 40px;padding: 0;text-align: center;}
+#select-game-pop #pop-content table .game-size {text-align: right;}
+#select-game-pop #pop-content table .game-name {text-align: left;}
+#select-game-pop #pop-content table tr th.game-name span {margin-left: 106px;}
+#select-game-pop #pop-content table tr td.game-name span {display: block;margin-left: 60px;max-width: 260px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#select-game-pop #pop-content table tr { border-bottom: 1px solid #f7f7f7;}
+#select-game-pop #pop-content table tr.even {background: #fefefe;}
+#select-game-pop #pop-content table tr.tr:hover {background-color: #f7f7f7}
+#select-game-pop #pop-content .page {height: 80px;}
+#select-game-pop #pop-content .page .game-num {margin-top: 30px;margin-left: 0;}
+#select-game-pop #pop-content .page .paging {margin-top: 26px;margin-right: 0;}
+
+/*---20160525---*/
+.zh-yue{ height: 240px !important;}
+.rech-btn{ border-bottom: 1px solid #e4e4e4; text-align: center; padding-bottom: 20px;}
+.rech-btn p{ margin-top: 20px;}
+.rech-btn a{ color: #fff; font-size: 16px; display: inline-block; *display: inline-block;*zoom: 1; padding: 5px 28px;}
+.rech-btn a.tcase-btn{ background: #008be3;}
+.rech-btn a.ccase-btn{ background: #22ac38;}
+.rech-btn a:hover.tcase-btn{ background: #008be3;}
+.rech-btn a:hover.ccase-btn{ background: #188e2b;}
+.cztx-ziti li{ font-family: simsun;}
+.cztx-ziti span{ font-size:26px !important; font-family: arial;}
+.cztx-ziti span#detail{ font-size: 11px !important;}
+
+.search-results .chose-tiaojian{ height: 70px;}
+.search-results .input-tab{width: 100%;height: 64px;border-bottom: 1px solid #e4e4e4;}
+.search-results .input-tab ul{margin-left: 44px; overflow: hidden;}
+.search-results .input-tab ul li{float:left;height: 61px;line-height: 61px;text-align: center;color: #333333;padding:0 15px;font-size: 14px;margin-right: 30px;cursor: pointer;}
+.search-results .input-tab ul li.on{border-bottom: 1px solid #008be3;color:#008be3; border-bottom-width: 3px;}
+.search-results .input-tab ul li:hover{color:#008be3}
+.search-results .input-tab ul li a{color: #333333; display: block; width: 100%; height: 61px;}
+.search-results .input-tab ul li.on a{color:#008be3;}
+.search-results .input-tab ul li:hover a{color:#008be3}
+.search-results .search-game{float: left; color: #666666; margin: 30px 0 0 20px;}
+.search-results .search-game span{float: left; margin-right: 10px; height: 32px; line-height: 32px; font-size: 14px; text-align: right;}
+.search-results .search-game input{height: 30px; border: 1px solid #e4e4e4; padding-left: 6px;line-height: 30px;float: left;margin-right: 10px;width: 150px!important;margin-left: -6px;}
+.search-results .status{position: relative;margin-top: 30px;float: left;color: #666666;}
+.search-results .status span{height: 32px;float: left;margin-right: 10px; line-height: 32px;font-size: 14px; text-align: right;}
+.search-results .status div{margin-left: -6px;width: 73px;height: 30px;padding-left: 6px;line-height: 30px;color: #333333;    border: 1px solid #e4e4e4; background: url(http://pic.7881.com/51508-2015/images/input-arrow-down.png); background-repeat: no-repeat; cursor: pointer;   background-color: #FFFFFF; float: left;background-position: 62px center;}
+.search-results .status ul{position: absolute;top: 30px;left:74px;border: 1px solid #e4e4e4; background: #FFFFFF; display: none;}
+.search-results .status ul li{width: 79px;text-align: center;height: 30px;line-height: 30px;cursor: pointer;}
+.search-results .pay-type{ margin-left: 28px;}
+.search-results .pack-time{margin-left: 0px!important; margin-right: 18px;margin-top: 30px;float: left; color: #666666;}
+.search-results .pack-time span{width: 46px!important; height: 32px; margin-right: 5px; line-height: 32px;font-size: 14px;text-align: right; float: left;}
+.search-results .pack-time div{width: 130px; height: 30px; line-height: 30px; border: 1px solid #e4e4e4; cursor: pointer;background-color: #FFFFFF; color: #666; float: left;}
+.search-results .pack-time span.to{width: 10px!important;}
+.search-results .pack-time div input{border: none!important;padding-left: 6px!important; width: 124px!important;height: 100%!important;}
+.search-results .search-btn{margin-top: 30px;float: left;margin-left: 0; width: 80px;  height: 32px;  text-align: center; line-height: 30px;  color: FFFFFF!important; background: #008be3; cursor: pointer; font-weight: bold;}
+.search-results .export-excel {width: 88px; background: #f8f8f8; border: 1px solid #cccccc; color: #666666!important; height: 30px; margin-left: 14px;}
+.search-results .table-content table tr td .zh-name{max-width:140px; margin: 0 0px 0 15px; display: block; white-space: nowrap; overflow: hidden;text-overflow: ellipsis; text-align: left;}
+.search-results .table-content table tr td.status-amount{ color: #008be3; font-weight: bold;}
+.search-results .table-content table tr td.status-revenue{ color: #009944;}
+.search-results .table-content table tr.oushu{ background: #fffdfc;}
+.search-results .table-content table tr .status-over{ color: #ff6600;}
+.search-results .table-content table tr .status-gogo{ color: #666;}
+.font-nor li span{ font-weight: normal !important; color: #333;}
+.font-nor li ul li.on{ font-weight: normal !important;}
+.search-results .ser-mx{ margin-left: 80px;}
+.search-results .zhz-mx{ margin-left: 160px !important;}
+.newname-rz{ text-align: center; padding: 100px 0 380px 0;}
+.newname-rz h3{ height: 64px; background:url("http://pic.7881.com/51508-2015/css/images/rz-fact.png") no-repeat center;}
+.newname-rz h4{ font-size: 20px; color: #333; font-weight: normal; padding: 20px 0 10px 0;}
+.newname-rz p{ color: #aaaaaa; font-family: simsun; padding-bottom: 30px;}
+.newname-rz p span{ padding: 0 5px;}
+.newname-rz p span a{ color:#00a5d7;}
+.newname-rz p em{ padding: 0 5px;}
+.newname-rz p em a{ color:#008be3;}
+.want-chzh li.first-li{ width: 250px !important;}
+.want-chzh li{ font-family: simsun; width: 225px !important; text-align: center;}
+.want-chzh span{ font-size:26px !important; font-family: arial; display: block;}
+.want-chzh span#detail{ font-size: 11px !important;}
+.pay-psd-txt{border: 1px solid #e4e4e4 !important;}
+
+.success-note-two{height: 112px;width: 278px;margin: 0 auto;display: none;text-align: center;padding-top:336px;}
+.success-note-two .p-1{color:#009933;font-size: 20px;}
+.success-note-two .p-2{color:#999999;font-size: 12px;margin-top: 14px;}
+.success-note-two .btn{height: 30px;width: 100%;margin-top: 30px;}
+.success-note-two .btn div{float:left;height: 30px;width: 93px;line-height: 28px;*line-height: 30px;text-align: center;color:#FFFFFF;background: #009933;cursor: pointer;margin-left: 36px;}
+.success-note-two .btn .view-personal-account{height: 28px;border:1px solid #CCCCCC;color:#666666;background: #F8F8F8;margin-left: 20px;}
+.success-note-two .btn .view-personal-account:hover{background: #E8E8E8;}
+
+.success-note-three{height: 112px;width: 278px;margin: 0 auto;display: none;text-align: center;padding-top:180px;}
+.success-note-three .p-1{color:#009933;font-size: 20px;}
+.success-note-three .p-2{color:#999999;font-size: 12px;margin-top: 14px;}
+.success-note-three .btn{height: 30px;width: 100%;margin-top: 30px;}
+.success-note-three .btn div{float:left;height: 30px;width: 93px;line-height: 28px;*line-height: 30px;text-align: center;color:#FFFFFF;background: #009933;cursor: pointer;margin-left: 36px;}
+.success-note-three .btn .view-personal-account{height: 28px;border:1px solid #CCCCCC;color:#666666;background: #F8F8F8;margin-left: 20px;}
+.success-note-three .btn .view-personal-account:hover{background: #E8E8E8;}
+.pay-btn-ptb{text-align: center; color: #FFFFFF;background: #008be3; width: 100px; height: 30px; line-height: 30px; cursor: pointer; margin-left: 232px; margin-top: 44px;}
+
+.success-note-four{height: 112px;width: 278px;margin: 0 auto;display: none;text-align: center;padding-top:180px;}
+.success-note-four .p-1{color:#009933;font-size: 20px;}
+.success-note-four .p-2{color:#999999;font-size: 12px;margin-top: 14px;}
+.success-note-four .btn{height: 30px;width: 100%;margin-top: 30px;}
+.success-note-four .btn div{float:left;height: 30px;width: 93px;line-height: 28px;*line-height: 30px;text-align: center;color:#FFFFFF;background: #009933;cursor: pointer;margin-left: 36px;}
+.success-note-four .btn .view-personal-account{height: 28px;border:1px solid #CCCCCC;color:#666666;background: #F8F8F8;margin-left: 20px;}
+.success-note-four .btn .view-personal-account:hover{background: #E8E8E8;}
+.pay-btn-ptb{text-align: center; color: #FFFFFF;background: #008be3; width: 100px; height: 30px; line-height: 30px; cursor: pointer; margin-left: 232px; margin-top: 44px;}
+
+.item-tab-con.game-user-up{ height: 690px !important;}
+.item-tab-con.game-user-up .use-type{ margin-top: 30px;}
+.item-tab-con.channel-top-up{height: 690px !important;}
+.item-tab-con.channel-top-up .channel-numbers{ margin-top: 30px;}
+.item-tab-con.individual-top-up{height: 690px !important;}
+.item-tab-con.individual-top-up .top-up-account{ margin-top: 30px;}
+
+/*--20160607--*/
+.search-results .chose-condition{ height: 140px; border-bottom: 1px solid #e4e4e4; padding-bottom: 15px;}
+.search-results .condition-le{ width: 830px; float: left;}
+.search-results .youxi-name span{ display: inline-block; width: 100px; text-align: right;}
+.search-results .youxi-name input{ width: 267px !important;}
+.search-results .youxi-daili span{ display: inline-block; width: 100px; text-align: right;}
+.search-results .youxi-daili input{ width: 267px !important;}
+.search-results .youxi-time span{display: inline-block; width: 100px !important; text-align: right;}
+.search-results .operation{ margin-left: 71px;}
+.search-results .operation ul{ left: 46px;}
+.search-results .operation ul li{ width: 96px;}
+.search-results .operation div{ width: 90px; background-position: 80px center;}
+.search-results .operation-md{position: relative;margin-top: 30px;float: left;color: #666666; margin-left: 25px;}
+.search-results .operation-md span{height: 32px;float: left;margin-right: 10px; line-height: 32px;font-size: 14px; text-align: right;}
+.search-results .operation-md div{margin-left: -6px;width: 95px;height: 30px;padding-left: 6px;line-height: 30px;color: #333333;    border: 1px solid #e4e4e4; background: url(http://pic.7881.com/51508-2015/images/input-arrow-down.png); background-repeat: no-repeat; cursor: pointer;   background-color: #FFFFFF; float: left;background-position:85px center;}
+.search-results .operation-md ul{position: absolute;top: 30px;left:46px;border: 1px solid #e4e4e4; background: #FFFFFF; display: none;}
+.search-results .operation-md ul li{width: 101px;text-align: center;height: 30px;line-height: 30px;cursor: pointer;}
+.search-results .sousuo-p{ margin:60px 0 0 20px;}
+.search-results .fuli-home{ width: 940px; margin: 20px auto; border: 1px solid #5bacff; background: #f7faff; padding: 20px 0;}
+.search-results .fuli-home p{ text-align: center; line-height: 24px;}
+.search-results .fuli-home p span{ color:#5bacff;}
+.search-results .fuli-home p em{ color: #008be3;}
+
+.search-results .results-header .each-page-num-stat div{background:url(http://pic.7881.com/51508-2015/css/images/input-arrow-down.png);background-repeat: no-repeat;background-position:66px center;cursor:pointer; }
+.search-results .results-header .each-page-num-stat div.up{background:url(http://pic.7881.com/51508-2015/css/images/input-arrow-up.png);background-repeat: no-repeat;background-position:66px center;cursor:pointer;}
+.search-results .results-header .each-page-num-stat{width: 80px;padding-left: 6px;height: 30px;border: 1px solid #e4e4e4;line-height: 28px;*line-height: 28px;float: right;margin-top: 5px;}
+.search-results .results-header .each-page-num-stat{position:relative;*margin-top: -37px; margin-right: 30px;}
+.search-results .results-header .each-page-num-stat ul{display: none;position: absolute;left: -1px;top:30px;border:1px solid #e4e4e4;width: 86px;background: #FFFFFF;}
+.search-results .results-header .each-page-num-stat ul li{height: 30px;text-align: center;cursor: pointer;}
+.search-results .results-header .each-page-num-stat ul li:hover{background: #a0e4ff;}
+.search-results .table-content table tr td .yx-name{max-width: 115px; margin: 0 0px 0 15px; display: block;white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;}
+.search-results .table-content table tr td.status-ing{ color: #aaa;}
+.search-results .table-content table tr td.iwnt-caoz{ background:url("http://pic.7881.com/51508-2015/css/images/cz-icon.png") no-repeat; background-position:23px 15px; cursor: pointer;}
+.search-results .table-content table tr td:hover.iwnt-caoz{ background:url("http://pic.7881.com/51508-2015/css/images/icon-cz-hov.png") no-repeat; background-position:22px 14px;}
+
+/*--20160614--*/
+.search-results .results-header .each-page-num ul{ z-index: 22;}
+.search-results .sear-youxi{ margin-left:260px;*margin-left:110px;}
+.search-results .sear-youxi input{ width: 270px !important;}
+.chose-condition.minhei{ height: 80px;}
+.search-results .pos-nav{ height: 60px; border-bottom: 1px solid #e4e4e4;}
+.search-results .pos-nav ul{ border-bottom: 1px solid #008be3; overflow: hidden; width: 165px; font-family: simsun; margin-left: 25px;}
+.search-results .pos-nav ul li{float: left; line-height: 60px; color: #999; margin: 0 5px; font-size: 14px;}
+.search-results .pos-nav ul li.on{ color: #008be3;}
+
+
+.table-content .gm-list{overflow: hidden; width: 954px; margin: 0 auto;}
+.table-content .gm-list .act-con{width: 300px; height:230px; margin: 15px 9px 0 9px; float: left; position: relative; background: #fff;}
+.table-content .gm-list .act-con img{width:300px; height: 143px;}
+.table-content .gm-list .act-con .hov-mose{ width: 300px; height: 143px;  position: absolute; top: 0; left: 0; background: #000; opacity: 0.5; }
+.table-content .gm-list .act-con h4{text-align: center; color: #29ff38; font-weight: bold; font-size:14px; font-family: simsun; position: absolute; top: 0; left: 0; width: 300px; height: 143px; line-height: 143px;cursor: pointer;}
+.table-content .gm-list .act-con img{ display: block;}
+.table-content .gm-list .act-con .info-act{ width: 298px; border: 1px solid #f5f5f5; border-top: none; padding-top: 10px; overflow: hidden;}
+.table-content .gm-list .act-con .info-act h3{ font-weight: normal; font-size: 14px; font-family: simsun; padding: 0 8px; overflow: hidden;}
+.table-content .gm-list .act-con .info-act h3 i{ width: 15px; height: 15px; float: left; cursor: pointer;}
+.table-content .gm-list .act-con .info-act h3 em{vertical-align: middle; float: left; margin-left: 25px; width: 220px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;text-align: center;}
+.table-content .gm-list .act-con .info-act p{ font-family: simsun; padding:10px 10px 10px 35px; }
+.table-content .gm-list .act-con.can-chek .info-act h3 i{ border: 1px solid #f9b282; width: 13px; height: 13px;}
+.table-content .gm-list .act-con.can-chek .info-act h3 em{ color: #ff7f28;}
+.table-content .gm-list .act-con.can-chek .info-act p{ color: #666666;}
+
+.table-content .gm-list .act-con.has-chek .info-act h3 i{background: url("http://pic.7881.com/51508-2015/css/images/xuanzhong.png") no-repeat; border: none;width: 15px; height: 15px;}
+.table-content .gm-list .act-con.has-chek .info-act h3 em{ color: #666666;}
+.table-content .gm-list .act-con.has-chek .info-act p{ color: #666666;}
+
+.table-content .gm-list .act-con.un-chek .info-act h3 i{ border: 1px solid #999;}
+.table-content .gm-list .act-con.un-chek .info-act h3 em{ color: #999;}
+.table-content .gm-list .act-con.un-chek .info-act p{ color: #999;}
+
+.table-content .gm-list .act-con.dis-chek .info-act h3 i{ border: 1px solid #999;}
+.table-content .gm-list .act-con.dis-chek .info-act h3 em{ color: #999;}
+.table-content .gm-list .act-con.dis-chek .info-act p{ color: #999;}
+
+.table-content .pos-ad{ height: 50px; border-bottom: 1px solid #e4e4e4; margin-top: 25px;}
+.table-content .pos-ad ul{ border-bottom: 3px solid #008be3; overflow: hidden; width:90px; margin-left: 25px;}
+.table-content .pos-ad ul li{float: left; line-height: 47px; margin: 0 5px; font-size: 16px;color: #008be3;}
+.table-content .cz-tips{ padding: 10px 0 0 15px;}
+.table-content .cz-tips p{ color: #aaa; float: left;}
+.table-content .cz-tips span{float: right; margin-right: 30px; display: inline-block;*display: inline-block;*zoom: 1;}
+.table-content .cz-tips span em{ color: #008be3;}
+.table-content .btn-qrtj{ text-align: center; padding: 20px 0; margin-bottom: 60px;}
+.table-content .btn-qrtj a{ display: inline-block;*display: inline-block;*zoom: 1; color: #fff; background: #008be3; font-size: 16px; padding: 10px 50px; font-weight: bold;}
+
+.example { position: relative; overflow: hidden; width: 954px; margin: 0 auto}
+.example .gridly{ }
+.example .act-con { opacity: 1; cursor: pointer;background: #fff;}
+.example .act-con .delete { display: block;color: #7c7c7c;background: #fff; border:1px solid #ccc; width: 18px;height: 18px;top: 10px;right: 0;position: absolute;text-align: center;line-height: 16px; font-size: 20px; font-weight: bold;}
+.example .act-con .delete:hover{ color: #008be3;}      
+.example .act-con{width: 300px; margin: 0px 9px; padding-top: 30px; }
+.example .act-con img{ display: block; width: 300px; height: 143px;}
+.example .act-con .info-act{ width: 298px; border: 1px solid #f5f5f5; border-top: none; padding-top: 10px; overflow: hidden;}
+.example .act-con .info-act h3{ font-weight: normal; font-size: 14px; font-family: simsun; padding: 0 8px; overflow: hidden;}
+.example .act-con .info-act h3 input{ width: 18px; height: 18px; float: left;}
+.example .act-con .info-act h3 span{vertical-align: middle; float: left; margin-left: 10px; color: #999;}
+.example .act-con .info-act h3 em{vertical-align: middle; float: left; margin-left: 25px; width: 133px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #999;}
+.example .act-con .info-act h3 a em:hover{ color: #008be3;}
+.example .act-con .info-act p{ font-family: simsun; color: #666; padding:10px 10px 10px 35px;}
+
+.page-left .left-content ul li.app-game-list span{background: url("http://pic.7881.com/51508-2015/css/images/app-game-list.png"); background-position: left center; background-repeat: no-repeat;    padding-left:28px; background-size:23px ; display:inline-block;* display: inline-block; *zoom: 1; height:23px; line-height: 23px; margin-bottom: 0;}
+
+/*--20160704--*/
+.heji-sj{width: 940px; margin: 20px auto; height:100px; }
+.heji-sj ul{overflow: hidden;}
+.heji-sj ul li{ float: left;height: 85px; text-align: center; background: #e9f7fd; width: 295px; border-right:1px solid #fff; padding-top: 15px;}
+.heji-sj .first-li{background: #666; font-size: 24px; color: #fff; width: 24px; padding: 15px 10px 0 10px;}
+.heji-sj ul li p{ font-size: 28px;}
+.heji-sj ul li span{ color: #3399ff; font-size: 12px;}
+.heji-sj.userall ul li{width:178px;}
+.heji-sj.userall .first-li{background: #666; font-size: 24px; color: #fff; width: 24px; padding: 15px 10px 0 10px;}
+.time-chose{ border-bottom: 1px solid #e4e4e4; border-top: 1px solid #e4e4e4; padding: 25px 0; height: 30px; line-height: 30px; text-align: center; position:relative;}
+.time-chose span{ font-size: 14px; padding: 0 5px;}
+.time-chose input{ background: url("http://pic.7881.com/51508-2015/css/images/date-bg.jpg") no-repeat right 10px center; border: 1px solid #e4e4e4; height: 28px; line-height: 28px; padding: 0 40px 0 10px; width: 100px;}
+.time-chose input.dbzh{ background: none; padding: 0 5px; width: 120px;}
+.time-chose a{ font-size: 12px; background: #f8f8f8; color: #666; border: 1px solid #e5e5e5; margin-left: 10px; padding:6px 15px;}
+.time-chose a.on{background: #e8e8e8; font-weight: bold;}
+.time-chose em{ font-size: 12px; font-weight: bold; font-family: simsun; color: #fff; background: #008be3; padding:10px 15px 7px 15px; margin-left: 10px; cursor: pointer;}
+.time-chose .clearall{background: #e4e4e4;}
+
+.time-chose-two{ border-bottom: 1px solid #e4e4e4; border-top: 1px solid #e4e4e4; padding:5px 0 15px 0;line-height: 30px; position:relative; height: 80px;}
+.time-chose-two .sj-and-game{width: 600px; margin: 0 auto;}
+.time-chose-two span{ font-size: 14px; padding: 0 5px; padding-top: 10px;}
+.time-chose-two input{ background: url("http://pic.7881.com/51508-2015/css/images/date-bg.jpg") no-repeat right 10px center; border: 1px solid #e4e4e4; height: 28px; line-height: 28px; padding: 0 40px 0 10px; width: 100px; margin-top: 10px;}
+.time-chose-two input.dbzh{ background: url("http://pic.7881.com/51508-2015/css/images/jt-down.png") no-repeat right center;; padding: 0 5px 0 15px; width: 130px;}
+.time-chose-two input.chax{ background: url("http://pic.7881.com/51508-2015/css/images/jt-down.png") no-repeat right center;; padding: 0 5px 0 15px; width: 102px;}
+
+.time-chose-two a{ font-size: 12px; background: #f8f8f8; color: #666; border: 1px solid #e5e5e5; margin-left: 10px; padding:6px 15px;}
+.time-chose-two a.on{background: #e8e8e8; font-weight: bold;}
+.time-chose-two em{ font-size: 12px; font-weight: bold; font-family: simsun; color: #fff; background: #008be3; padding:0 22px; margin-left: 10px; cursor: pointer; display: inline-block;*display: inline;*zoom: 1;}
+.time-chose-two .chose-dl{border: 1px solid #e4e4e4; height: 28px; line-height: 28px; padding: 0 10px; width: 124px;}
+.time-chose-two .chose-dl option{ height: 30px; line-height: 30px;}
+.time-chose-two input.erdl{ margin-left: 8px;background: none;}
+.time-chose-two .clearall{ padding: 6px 21px; background: #e4e4e4;}
+
+.gift-select{ position: absolute; top: 54px;left:113px;z-index: 1;}
+.gift-select  input{width: 190px; height: 36px; border: 1px solid #ccc; background: url(http://pic.7881.com/51508-2015/css/images/ser-bg.jpg) no-repeat right center #fff; padding: 0 25px 0 5px;}
+.gift-select .all-dl-name{width: 220px; max-height: 244px; background: #fff; border: 1px solid #ccc; border-top: none; overflow-y: scroll;}
+.gift-select .all-dl-name p{ width: 180px; height:30px; line-height: 30px; margin:3px 0;white-space: nowrap;overflow: hidden;    text-overflow: ellipsis; cursor: pointer;}
+.gift-select .all-dl-name p:hover{ background: #a0e4ff; color: #333;}
+
+.gift-select-two{ position: absolute; top:74px;left:282px;z-index: 1;}
+.gift-select-two  input{width: 120px; height: 36px; border: 1px solid #ccc; background: url(http://pic.7881.com/51508-2015/css/images/ser-bg.jpg) no-repeat right center #fff; padding: 0 25px 0 5px;}
+.gift-select-two .all-dl-name{width: 150px; max-height: 244px; background: #fff; border: 1px solid #ccc; border-top: none; overflow-y: scroll;overflow-x: hidden;}
+.gift-select-two .all-dl-name p{ width: 130px; height:30px; line-height: 30px; margin:3px 0;white-space: nowrap;overflow: hidden;    text-overflow: ellipsis; cursor: pointer; padding-left: 10px; border-bottom:1px solid #E5E5E5;}
+.gift-select-two .all-dl-name p:hover{ background: #a0e4ff; color: #333;}
+.gift-select-two .all-dl-name .all-all{ background: #e6e6e6;}
+
+.gift-select-three{ position: absolute; top:82px;left:493px;z-index: 1;}
+.gift-select-three .all-dl-name{width:122px; max-height: 244px; background: #fff; border: 1px solid #ccc; border-top: none;}
+.gift-select-three .all-dl-name p{ width: 112px; height:30px; line-height: 30px; margin:3px 0;white-space: nowrap;overflow: hidden;    text-overflow: ellipsis; cursor: pointer; padding-left: 10px;}
+.gift-select-three .all-dl-name p:hover{ background: #a0e4ff; color: #333;}
+.gift-select-three .all-dl-name .all-all{ background: #e6e6e6;}
+.gift-select-three .all-dl-name .dl-idnum{ background: none; margin-top: 0; margin-bottom:5px; padding: 0 10px; border-left: none; border-right: none;}
+
+.area-box{width: 960px; margin: 20px auto;}
+.area-box h3{ color: #008be3; font-weight: normal; font-size: 18px; text-align: center;}
+.area-box .highcharts-button{display:none;}
+.area-box .highcharts-legend-item{display:none;}
+
+.xzt-chose{ padding: 15px 0;}
+.xzt-chose ul{ overflow: hidden; width: 425px; margin: 0 auto; padding: 2px 0;}
+.xzt-chose ul li{width:82px; height:40px; float: left; border: 1px solid #e5e5e5; margin-left: 15px; cursor: pointer; background: #f8f8f8; padding-left: 38px; line-height: 40px; font-size: 14px;}
+.xzt-chose ul li.xfje{ background: url("http://pic.7881.com/51508-2015/css/images/jbbg.png") no-repeat left center #f8f8f8;}
+.xzt-chose ul li.ffyh{ background: url("http://pic.7881.com/51508-2015/css/images/ffbg.png") no-repeat left center #f8f8f8;}
+.xzt-chose ul li.zcyh{ background: url("http://pic.7881.com/51508-2015/css/images/zcbg.png") no-repeat left center #f8f8f8;}
+.xzt-chose ul li.xfje.on{ background: url("http://pic.7881.com/51508-2015/css/images/jbbg.png") no-repeat left center #fff; border: 2px solid #008be3; margin-top: -1px;}
+.xzt-chose ul li.ffyh.on{ background: url("http://pic.7881.com/51508-2015/css/images/ffbg.png") no-repeat left center #fff; border: 2px solid #4db670; margin-top: -1px;}
+.xzt-chose ul li.zcyh.on{ background: url("http://pic.7881.com/51508-2015/css/images/zcbg.png") no-repeat left center #fff; border: 2px solid #7cb5ec; margin-top: -1px;}
+
+.xzt-chose-two{ padding: 15px 0;}
+.xzt-chose-two ul{ overflow: hidden; width: 425px; margin: 0 auto; padding: 2px 0}
+.xzt-chose-two ul li{width:82px; height:40px; float: left; border: 1px solid #e5e5e5; margin-left: 15px; cursor: pointer; background: #f8f8f8; padding-left: 38px; line-height: 40px; font-size: 14px;}
+.xzt-chose-two ul li.xfje{ background: url("http://pic.7881.com/51508-2015/css/images/jbbg.png") no-repeat left center #f8f8f8;}
+.xzt-chose-two ul li.ffyh{ background: url("http://pic.7881.com/51508-2015/css/images/ffbg.png") no-repeat left center #f8f8f8;}
+.xzt-chose-two ul li.zcyh{ background: url("http://pic.7881.com/51508-2015/css/images/zcbg.png") no-repeat left center #f8f8f8;}
+.xzt-chose-two ul li.xfje.on{ background: url("http://pic.7881.com/51508-2015/css/images/jbbg.png") no-repeat left center #fff; border: 2px solid #008be3; margin-top: -1px;}
+.xzt-chose-two ul li.ffyh.on{ background: url("http://pic.7881.com/51508-2015/css/images/ffbg.png") no-repeat left center #fff; border: 2px solid #4db670; margin-top: -1px;}
+.xzt-chose-two ul li.zcyh.on{ background: url("http://pic.7881.com/51508-2015/css/images/zcbg.png") no-repeat left center #fff; border: 2px solid #7cb5ec; margin-top: -1px;}
+
+.search-results .table-content table tr td.name{white-space: nowrap; overflow: hidden;text-overflow: ellipsis; max-width:150px;overflow: hidden;}
+
+.newpop{width: 450px;}
+.pop-con{width: 450px; height: 300px; background: url("http://pic.7881.com/51508-2015/css/images/open-bg.png") no-repeat; position: relative;}
+/*.pop-con h3{font-size: 18px; font-weight: normal; padding: 26px 0 0 30px;}*/
+.pop-con p{padding: 26px 0 0 30px;}
+.pop-con p span{font-size: 18px;}
+.pop-con h3{width: 380px; margin:0px auto; font-size: 14px; font-family: simsun; color: #bc9680; line-height: 26px; font-weight: normal; max-height: 78px; overflow: auto;}
+.pop-con .game-lt{width: 395px; margin:30px auto;}
+.pop-con .game-lt p{ text-align: center; font-size:14px; font-family: simsun; color: #666;}
+.pop-con .game-lt ul{ max-height: 78px; overflow: auto; margin-top: 15px;}
+.pop-con .game-lt ul li{ font-size: 14px; font-family: simsun; color: #bc9680; line-height: 26px; padding:0 60px 0 80px; overflow: hidden;}
+.pop-con .game-lt ul li em{float: left;}
+.pop-con .game-lt ul li span{float: right;}
+.pop-con .more-info{ height: 30px; line-height: 30px; padding: 10px 35px 0 35px; position: absolute; width: 380px; bottom: 20px;}
+.pop-con .more-info span{ float: left;}
+.pop-con .more-info span a{ color: #3399ff;}
+.pop-con .more-info em{float: right;}
+#new-pop-head { width: 100%; height: 47px; line-height: 47px;}
+#new-pop-head img { float: right; cursor: pointer;}
+
+.md-app-win{width: 540px; position: relative;}
+.md-app-win-con{width: 540px; height: 490px; background: url("http://pic.7881.com/51508-2015/css/images/dz-app-bg.png") no-repeat; text-align: center;}
+.md-app-win-con p{ text-align: center; font-size: 20px; color: #333; padding-top: 300px;}
+.md-app-win-con a{font-size: 22px; color: #008be3; border: 2px solid #008be3; padding: 10px 25px; display: inline-block;*display: inline;*zoom: 1; margin-top: 20px; border-radius: 10px;}
+.md-app-win-con a:hover{background: #008be3; color: #fff;}
+#md-app-tit { width: 100%; height: 47px; line-height: 47px; position: absolute; top: -43px;}
+#md-app-tit img { float: right; cursor: pointer;}

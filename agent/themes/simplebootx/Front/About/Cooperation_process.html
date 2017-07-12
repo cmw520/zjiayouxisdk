@@ -1,0 +1,54 @@
+<!DOCTYPE html >
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >合作流程</title >
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="" >
+    <link type="image/x-icon" rel="shortcut icon" href="" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+</head >
+<body >
+<div class="main" >
+    <!--页眉-->
+    <agenttpl file="header" />
+    <!--通用栏广告位-->
+    <!--通用栏广告位-->
+    <!--主题内容区域-->
+    <div class="page-content" >
+        <!--左侧导航栏-->
+        <div class="page-left" >
+            <agenttpl file="aboutSide" />
+        </div >
+        <div class="page-right usage-rule" style="min-height:760px;" >
+            <div class="breadcrumb-navigation" >
+                <ul >
+                    <li class="on" >{$data.title}</li >
+                </ul >
+            </div >
+            <div class="rules-content" >
+                <div class="one" >
+                    <div class="title" ></div >
+                    {$data.content}
+                </div >
+            </div >
+        </div >
+    </div >
+    <!--页脚-->
+    <div class="page-footer" >
+        <agenttpl file="footer" />
+    </div >
+</div >
+
+</body >
+<script type="text/javascript" src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/agent/js/xhr.js" ></script >
+<script >
+    function succHeader() {
+        $(".tab>ul>li").eq(2).addClass("on").siblings().removeClass("on");
+    }
+    succHeader();
+</script >
+</html >

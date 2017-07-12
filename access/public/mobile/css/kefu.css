@@ -1,0 +1,52 @@
+@import "public.css";
+@import "bottom.css";
+
+.kefu {
+    padding-bottom: 50px;
+    background-color: #FFFFFF;
+}
+
+.kefu > .kefuImg {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.kefu > .kefuImg > img {
+    width: 100%;
+    max-width: 50px;
+    height: 50px;
+    display: block;
+    margin: 20px auto;
+}
+
+.kefu > .kefuImg > a {
+    text-align: center;
+    display: block;
+    color: #818181;
+    letter-spacing: 1px;
+    font-size: 14px;
+    border: 1px solid #AAAAAA;
+    width: 90%;
+    margin: 0 auto;
+    height: 40px;
+    background-color: #FFFFFF;
+    line-height: 40px;
+    margin-top: 30px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 1px 1px #EFEFEF;
+}
+
+/*.kefu > .kefuImg >a{*/
+/*margin-top:30px;*/
+/*display:inline-block;*/
+/*}*/
+.kefu > .kefuImg > a.qqGroup {
+    margin-top: 10px;
+}
+
+/*.kefu > .kefuImg > p > a {*/
+/*color: #aaa;*/
+/*display:block;*/
+/*}*/

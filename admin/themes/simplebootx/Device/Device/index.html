@@ -1,0 +1,193 @@
+﻿<admintpl file="header" />
+
+<style >
+
+    .select2-container .select2-dropdown {
+
+        z-index: 99999999;
+
+    }
+
+</style>
+
+</head>
+
+<body class="J_scroll_fixed" >
+
+<div class="wrap js-check-wrap" >
+
+    <ul class="nav nav-tabs" >
+
+        <li class="active" ><a href="{:U('Device/Device/index')}" >设备列表</a ></li >
+
+       
+        <li><a href="{:U('Device/add')}">添加设备</a></li>
+
+    </ul >
+
+
+
+    <form class="well form-search" method="get" action="{:U('Device/index')}" >
+
+        <div class="search_type cc mb10" >
+
+            <div class="mb10" >
+
+                <span class="mr20" >
+
+                     状态：
+
+                    <select class="select_2" name="status" id="selected_id" >
+                  
+                            <option value="0"  >请选择状态</option>
+                            <option value="1"  <if condition="$formget['status'] eq 1">selected</if> >在线</option>
+                            <option value="2"  <if condition="$formget['status'] eq 2">selected</if> >已下线</option >
+                    </select >
+
+                   
+
+                        &nbsp;&nbsp;
+
+                    设备名称：
+
+                      <input type="text" name="brand" value="{$formget['brand']}">
+
+                    &nbsp;&nbsp;
+
+                    <input type="submit" name="submit" class="btn btn-primary" value="搜索" />
+
+                </span >
+
+            </div >
+
+        </div >
+
+    </form >
+
+
+
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/share.css" />
+
+ 
+
+
+
+    <form class="js-ajax-form" action="" method="post" >
+
+        <table class="table table-hover table-bordered table-list" >
+
+            <thead >
+
+            <tr >
+
+                <th width=50 >设备ID</th >
+
+                <th width=150 >设备品牌</th >
+
+                <th width=50 >尺寸</th >
+
+                <th width=100 >分辨率</th >
+
+                <th width=120 >排图方式</th >
+
+                <th width=150 >编辑设备</th >
+
+                <th width=150 >设备状态</th >
+
+               
+
+            </tr >
+
+            </thead >
+
+            <foreach name="items" item="vo" >
+
+                <tr >
+
+                    <td >{$vo.id}</td >
+
+                    <td >
+
+                        {$vo.brand}
+
+                    </td >
+
+                    <td >
+
+                         {$vo.size}
+
+                    </td >
+
+                    <td>
+                       {$vo.rp_width}×{$vo.rp_height}
+                       
+                    </td>
+                       
+                    <td>
+                       <if condition="$vo.grap_method eq 1">
+                        直排
+                       <elseif condition="$vo.grap_method eq 2"/>
+                       斜排
+                      
+                       </if>
+                       
+                      
+                        
+                    </td>
+
+
+
+                    <td style="word-wrap:break-word;word-break:break-all; " >
+
+                       <a href="{:U('Device/edit',array('brandid'=>$vo['id']))}" >编辑设备</a >
+
+                           
+
+                    </td >
+
+
+
+                    <td >
+
+                       <if condition="$vo.status eq 1">
+                        在线
+                       <elseif condition="$vo.status eq 2"/>
+                       已下线
+                      
+                       </if>
+                       
+                    </td >
+
+                </tr >
+
+            </foreach >
+
+        </table >
+
+        <div class="pagination" >{$Page}</div >
+
+
+
+    </form >
+
+</div >
+
+
+
+
+
+<script src="__PUBLIC__/js/common.js" ></script >
+
+
+
+<script src="__PUBLIC__/share/clipboard/clipboard.min.js" ></script >
+
+<script src="__PUBLIC__/share/clipboard/clipboard.js" ></script >
+
+<link href="__PUBLIC__/share/clipboard/clipboard.css" rel="stylesheet" type="text/css" >
+
+
+
+</body >
+
+</html>

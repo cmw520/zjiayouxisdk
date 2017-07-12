@@ -1,0 +1,87 @@
+@import "public.css";
+@import "bottom.css";
+
+body {
+    -webkit-user-select: none; /*禁用手机浏览器的用户选择功能 */
+    -moz-user-select: none;
+}
+
+.show_infoimg > .top {
+    width: 60px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.show_infoimg > .top > img {
+    width: 100%;
+}
+
+.show_infoimg > .top > p {
+    text-align: center;
+    margin-top: 25px;
+    letter-spacing: 2px;
+}
+
+.recharge_money {
+    box-sizing: border-box;
+    padding: 0px 20px;
+    margin-top: 40px;
+}
+
+.recharge_money > p {
+    color: #717171;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.recharge_money > p > i {
+    color: #FF0000;
+}
+
+footer {
+    box-sizing: border-box;
+    padding: 0px 20px;
+}
+
+footer > p {
+    color: #717171;
+    line-height: 20px;
+}
+
+footer > .time {
+    color: #AAAAAA;
+}
+
+footer > .time > a {
+    color: #AAAAAA;
+}
+
+@media screen and (min-width: 400px) {
+    .header > .main_layout > li > img {
+        width: 16px;
+        height: 16px;
+        margin-top: 17px;
+    }
+
+    .show_infoimg > .top {
+        width: 75px;
+    }
+
+    .show_infoimg > .top > p {
+        font-size: 16px;
+    }
+
+    .recharge_money > p {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .confim_change > button {
+        font-size: 16px;
+        height: 50px;
+    }
+
+    footer > p {
+        font-size: 16px;
+    }
+}

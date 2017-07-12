@@ -1,0 +1,137 @@
+<agenttpl file="user_center_header" />
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right my-game query-records" >
+                <form id="queryForm" action="{:U('Agent/ucenter/do_post')}" method="post" >
+                    <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                    <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                    <div class="input-content" style="height: 92px;" >
+                        <div class="search-game" >
+                            <span >关键字：</span >
+                            <input name="key" value="" type="text" placeholder="请输入关键字查询" >
+                        </div >
+                        <div class="pack-time time" >
+                            <span >时间:</span >
+                            <div id="time-one" >
+                                <input id="stime" name="stime" type="text" value=""
+                                       onclick="WdatePicker({startDate:'%y-%M-%d 00:00:00' , dateFmt:'yyyy-MM-dd ' , maxDate: '#F{$dp.$D(\'etime\',{d:0});}' , readOnly:true})" >
+                            </div >
+                            <span class="to" >至</span >
+                            <div id="time-two" >
+                                <input id="etime" name="etime" type="text" value=""
+                                       onclick="WdatePicker({startDate:'%y-%M-%d 00:00:00',dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'etime\',{d:0});}',readOnly:true})" >
+                            </div >
+                        </div >
+                        <div class="search-btn" id="search-btn" onclick="searchKeyWord()" >搜&nbsp;索</div >
+                        <div class="search-btn export-excel" >导出Excel</div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$n}</i >个游戏用户</span >
+                        <!--                            <div class="each-page-num">
+                                                        <div>每页10条</div>
+                                                        <ul>
+                                                            <li onclick="changePageCount(10)">每页10条</li>
+                                                            <li onclick="changePageCount(20)">每页20条</li>
+                                                            <li onclick="changePageCount(50)">每页50条</li>
+                                                            <li onclick="changePageCount(100)">每页100条</li>
+                                                        </ul>
+                                                    </div>-->
+                    </div >
+                    <div class="table-content registration-details" >
+                        <table border="0" cellspacing="0" cellpadding="0" >
+                            <tbody >
+                            <tr >
+                                <th width="15" >渠道ID</th >
+                                <th width="20" >渠道姓名</th >
+                                <th width="10" >渠道类型</th >
+                                <th width="25" >游戏用户名</th >
+                                <th width="25" >游戏名称</th >
+                                <th width="25" >注册时间</th >
+                            </tr >
+                            <volist name="members" id="vo" >
+                                <tr class="even" >
+                                    <td >{$vo.agent_id}</td >
+                                    <td >{$vo.user_nicename}</td >
+                                    <td >
+
+                                        {$vo.user_type}
+                                    </td >
+                                    <td >{$vo.username}</td >
+                                    <td >{$vo.gamename}</td >
+                                    <td ><?php echo date("Y-m-d H:i:s",$vo['reg_time']); ?></td >
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+
+                        <div class="page" style="" >
+                                <span class="game-num" >
+                                    共为您找到 {$n} 个游戏用户
+                                </span >
+                            <div class="paging" >
+                                {$page}
+                                <!--                                    <ul>
+                                                                        <li class="home-page" onclick="locatePage_queryForm(1)">首页</li>
+                                                                        <li class="previous-page" onclick="locatePage_queryForm(0)">&lt;</li>
+                                                                        <li onclick="locatePage_queryForm(1)" class="now-num">1</li>
+                                                                         总条数大于6，页面显示6个页标
+                                                                        <li class="next-page" onclick="locatePage_queryForm(2)">&gt;</li>
+                                                                        <li class="end-page" onclick="locatePage_queryForm(1)">末页</li>
+                                                                        <li class="input-page">第<input id="gopage_queryForm" type="text">页</li>
+                                                                        <li class="confirm" onclick="jumpPage_queryForm()">确定</li>
+                                                                    </ul>-->
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+
+<!--页脚-->
+<agenttpl file="footer" />
+
+<script src="__PUBLIC__/agent/js/gameuser.js" ></script >
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+<script >
+
+    function succHeader() {
+
+        $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+    }
+
+    function locatePage_queryForm(page) {
+        sendData("{:U('Agent/ucenter/do_post')}", {"page": page}, function (data) {
+            yxalert("成功请求到数据....");
+        })
+    }
+    function jumpPage_queryForm() {
+        if ($("#gopage_queryForm").val() > 1) {
+            sendData("{:U('Agent/ucenter/do_post')}", {page: $("#gopage_queryForm").val()}, function (data) {
+                yxalert("跳到" + $("#gopage_queryForm").val() + "页");
+            })
+        } else {
+            yxalert("输入有误...");
+        }
+
+    }
+    function searchKeyWord() {
+        if (($(".search-game>input").val() !== "") || ($("#stime").val() !== "") || ($("#etime").val() !== "")) {
+//        $("#queryForm").submit();
+//        yxalert("数据已提交....");
+        } else {
+//        yxalert("无数据....");
+        }
+    }
+</script >

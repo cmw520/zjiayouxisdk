@@ -1,0 +1,105 @@
+<div class="container full_tranparent module_AppDetail" ng-cloak >
+    <div class="row white_div" style="padding:10px;border-bottom:0px solid #CCCCCC;margin-bottom:10px;" >
+        <div class="col-xs-2" style="padding:0;" >
+            <img ng-src="{{data.icon}}" class="icon_full" alt="图标" />
+        </div >
+        <div class="col-xs-7" style="padding-right:0;" >
+            <div class="row" ><span style="font-size:16px;font-weight: 400;" >{{data.name}}</span ></div >
+            <div class="row" style="margin-top:5px;margin-bottom:10px;color:#333333;font-size:12px;" >
+                <span class="label label-warning" >角色</span >
+                <span class="label label-warning" >扮演</span >
+            </div >
+            <div class="row" style="font-size:12px;color:#999999;" >
+                人气：{{data.clicknum}}
+            </div >
+        </div >
+        <div class="col-xs-3" style="text-align: center;float:right;padding-right:0;" >
+            <div style="width:100%;float:left;font-size:16px;color:#00AAEE;padding-top:15px;text-align: right;" >
+                <button class="btn btn-success" ng-click="charge(data.id);" >充值</button >
+            </div >
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >游戏介绍</h4 >
+        </div >
+        <div class="col-xs-12 grey_text_block" style="font-size:14px;" ng-bind-html="data.description | to_trusted" >
+
+        </div >
+        <div class="col-xs-12" ng-click="toggle_intro();" style="text-align: right;" >
+            <img ng-show="!arrow_up" src='./static/img/asset/up_arrow.png' alt="" style='width:20px;' />
+            <img ng-show="arrow_up" src='./static/img/asset/down_arrow.png' alt="" style='width:20px;' />
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >游戏截图</h4 >
+        </div >
+        <div class="col-xs-12" style="height:210px;overflow-x: scroll;overflow-y:hidden;" >
+            <div class="image_wrap" ng-click="images_full();" >
+                <img ng-repeat="x in data.shots" ng-src="{{x.image}}" alt="" class="app_shot_item" style="" />
+            </div >
+
+        </div >
+    </div >
+    <div ng-show="images_full_show"
+         style="overflow-x: scroll;overflow-y:hidden;position:fixed;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,0.6);z-index:99999;" >
+        <div class="image_wrap_full" ng-click="images_full();" >
+            <img ng-repeat="x in data.shots" ng-src="{{x.image}}" alt="" class="app_shot_item_full" style="" />
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >礼包</h4 >
+        </div >
+        <div class="col-xs-12" >
+            <div class="row" ng-repeat="x in gift" ng-click="goto(x.id);" style="margin:10px 0;" >
+                <div class="col-xs-2" style="padding:0;" >
+                    <img ng-src="{{x.icon}}" class="icon_full" alt="图标" />
+                </div >
+                <div class="col-xs-7" style="padding-right:0;" >
+                    <div class="row" style="padding-right:0;" ><span
+                            style="font-size:15px;font-weight: 400;" >{{x.name}}</span ></div >
+                    <div class="row" style="margin-top:10px;margin-bottom:10px;" >
+                        <div style="width:100%;float:left;background-color:#DDDDDD;" >
+                            <div style="width:{{x.remain}}%;height:4px;background-color:#00AAEE;float:left;" ></div >
+                        </div >
+                    </div >
+                    <div class="row" style="font-size:12px;color:#999999;" >剩余：{{x.remain}}%</div >
+                </div >
+                <div class="col-xs-3" style="text-align: center;float:right;padding-right:0;" >
+                    <div style="width:100%;float:left;font-size:16px;color:#00AAEE;padding-top:15px;text-align: right;" >
+                        领号
+                        <img src="./static/img/asset/arrow-right.png" style="height:14px;margin-top:-2px;" alt="icon" />
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;margin-bottom:100px;" >
+        <div class="col-xs-12" >
+            <h4 >资讯</h4 >
+        </div >
+        <div class="col-xs-12" >
+            <div class="row module_TodayNews_item" ng-repeat="x in news" ng-click="showDetail(x.id)"
+                 style="padding-left:0;padding-right:0;" >
+                <div class="col-xs-2" style="padding:0;" >
+                    <span class="label label-info" >{{x.label}}</span >
+                </div >
+                <div class="col-xs-10"
+                     style="padding:0 0 0 5px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" >
+                    {{x.title}}
+                </div >
+            </div >
+        </div >
+    </div >
+    <div class="row"
+         style="text-align: center;position:fixed;bottom:50px;left:0;width:100%;padding:10px 0;background-color:#FAFAFA;border-top:1px solid #EEEEEE;" >
+        <a class="btn btn-success" style="width:90%;height:30px;" href="{{data.download_url}}" >下载游戏</a >
+    </div >
+</div >
+

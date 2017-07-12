@@ -1,0 +1,181 @@
+<mobiletpl file="header" />
+
+<section >
+    <!--    <div class="container">
+            <div class="row">
+                <h2>{:C('BRAND_NAME')}找回密码</h2>
+            </div>
+        </div>-->
+
+    <form id="login_form" class="form-signin container" method="post" action="" onsubmit="return false;" >
+
+        <div class="row" >
+            <div class="col-xs-8" style="padding:0 5px 0 0;margin:0;" >
+                <input type='text' name='phone' class="form-control" placeholder="请输入您的手机号" required autofocus />
+            </div >
+            <div class="col-xs-4" style="padding:0;margin:0;" >
+                <button id="sendCode" class="btn btn-success" >发送验证码</button >
+            </div >
+        </div >
+        <div class="row code_row" >
+            <input type='text' name='code' class="form-control" placeholder="请输入验证码" required autofocus />
+        </div >
+        <div class="row" >
+            <div id="notice" class="alert alert-info" role="alert" ></div >
+        </div >
+        <div class="row submit_row" style="display:none;" >
+            <button id="verifyCode" class="btn btn-success btn-lg" >验证</button >
+        </div >
+    </form >
+
+    <div id="reset_form" class="container" >
+        <div class="row" >
+            <input type='password' name='pass' class="form-control" placeholder="新密码" required autofocus />
+        </div >
+        <div class="row" >
+            <input type='password' name='confirm' class="form-control" placeholder="确认密码" required autofocus />
+        </div >
+        <div class="row" >
+            <div id="notice2" style="display:none;" class="alert alert-info" role="alert" ></div >
+        </div >
+        <div class="row" >
+            <button id="resetPass" class="btn btn-success btn-lg" >重 设</button >
+        </div >
+    </div >
+</section >
+<style >
+    .container {
+        padding: 20px 20px;
+    }
+
+    #resetPass {
+        width: 100%;
+    }
+
+    .row {
+        padding: 10px 0;
+        margin: 0;
+    }
+
+    #submit {
+        width: 100%;
+    }
+
+    .code_row {
+        display: none;
+    }
+
+    #sendCode {
+
+    }
+
+    #reset_form {
+        display: none;
+    }
+</style >
+<script >
+    $("#sendCode").click(sendcode);
+    $("#verifyCode").click(verifyCode);
+    $("#resetPass").click(resetPass);
+
+    function sendcode() {
+        var phone = $("input[name='phone']").val();
+
+        $.post("{:U('Mobile/Front/resetPwdSendMsg_post')}", {"phone": phone}, function (data) {
+            if (data.error === '0') {
+                $(".code_row").show();
+                $(".submit_row").show();
+                $("#notice").hide();
+                $("input[name='phone']").attr("disabled", "disabled");
+            } else {
+                notice(data.msg, "red");
+            }
+        });
+    }
+
+    function verifyCode() {
+        var code = $("input[name='code']").val();
+        if (! $.trim(code)) {
+            notice("请输入验证码", "red");
+            return;
+        }
+        $.post("{:U('Mobile/Front/resetPwdCheckCode_post')}", {"code": code}, function (data) {
+            if (data.error === '0') {
+                notice(data.msg, "green");
+                $("#login_form").hide();
+                $("#reset_form").show();
+            } else {
+                notice(data.msg, "red");
+            }
+        });
+    }
+
+    function resetPass() {
+        var pass    = $("input[name='pass']").val();
+        var confirm = $("input[name='confirm']").val();
+        if ($.trim(pass) === '') {
+            notice2("密码不能为空", "red");
+        }
+        if ($.trim(confirm) === '') {
+            notice2("确认密码不能为空", "red");
+        }
+        if (pass !== confirm) {
+            notice2("两次输入不一致", "red");
+        }
+        $.post("{:U('Mobile/Front/resetPwd_post')}", {"pass": pass, "confirm": confirm}, function (data) {
+            if (data.error === '0') {
+                notice2(data.msg, "green");
+            } else if (data.error === '1') {
+                notice2(data.msg, "red");
+            }
+        });
+    }
+
+    function notice2(msg, color) {
+        $("#notice2").show();
+        $("#notice2").text(msg);
+        $("#notice2").css("color", color);
+    }
+    function notice(msg, color) {
+        $("#notice").show();
+        $("#notice").text(msg);
+        $("#notice").css("color", color);
+    }
+</script >
+<style >
+    .form-signin {
+        /*max-width: 330px;*/
+        /*padding: 15px;*/
+        /*margin: 0 auto;*/
+        /*margin-top:50px;*/
+    }
+
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+
+    .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .form-control:focus {
+        z-index: 2;
+    }
+
+    #notice {
+        display: none;
+    }
+</style >
+
+<mobiletpl file="footer" />

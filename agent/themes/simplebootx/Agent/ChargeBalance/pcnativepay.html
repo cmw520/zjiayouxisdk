@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html >
+<head >
+    <meta charset="UTF-8" >
+    <title >微信安全支付</title >
+</head >
+<body >
+<div align="center" >
+    <p >
+        订单号：
+        <?php echo $out_trade_no; ?>
+    </p >
+    <img src="{$code_img_url}" />
+    <div class="msg_default_box" >
+        <i class="icon60_qr pngFix" ></i >
+        <p >
+            请使用微信扫描<br >二维码以完成支付
+        </p >
+    </div >
+</div >
+<br >
+</body >
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js" ></script >
+<script >
+    //定时任务查询订单的状态是否完成支付
+    var pay_dis = setTimeout("showpaysuccesspage()", 3000);
+
+    var i = 0;
+    function showpaysuccesspage() {
+        var order_id = "{$out_trade_no}"; //pay_charge表中的id
+
+        $.ajax({
+            type    : "post",
+            url     : "{:U('Agent/ChargeBalance/wxpayState')}",//跳转到查看支付状态的方法
+            data    : {
+                'order_id': order_id
+            }, //ptb_Charge表中的ID
+            dataType: "json",
+            success : function (data) {
+                if (data.success == 1) {
+                    window.location.href = "{:U('Agent/ChargeBalance/charge_ok')}";
+                } else {
+                    i = i + 1;
+                    if (i > 20) { //请求20次，判断状态是否成功
+                        alert('二维码已失效，请重新支付');
+                        window.location.href = "{:U('Agent/Money/recharge_balance')}";
+                    }
+                    //重新请求支付状态,3秒重新请求一次
+                    pay_dis = setTimeout("showpaysuccesspage()", 3000);
+                }
+            }
+        });
+    }
+</script >
+</html >
+</html>

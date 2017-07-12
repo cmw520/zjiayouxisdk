@@ -1,0 +1,85 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >标签管理</a ></li >
+        <button id="add" >+添加</button >
+    </ul >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="50" >标签名</th >
+                <th width="50" >编辑</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.name}</td >
+                    <td >
+                        <a href="javascript:;" data-id="{$vo['id']}" data-name="{$vo['name']}"
+                           onclick="edit(this);" >编辑</a >
+                        &nbsp;&nbsp; | &nbsp;&nbsp;
+                        <a href="javascript:;" data-id="{$vo['id']}" onclick="del(this);" >删除</a >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script src="__PUBLIC__/js/jquery.js" ></script >
+<script >
+    $("#add").click(function () {
+        var name = prompt("请输入标签名");
+        if ($.trim(name) === "") {
+            return;
+        }
+        $.post("{:U('Content/GameTag/add_post')}", {"name": name}, function (data) {
+            if (data.error === '0') {
+                location.reload();
+            } else if (data.error === '1') {
+                alert(data.msg);
+            }
+        });
+    });
+
+    function del(e) {
+        var id = $(e).attr("data-id");
+        $.post("{:U('Content/GameTag/del')}", {"id": id}, function (data) {
+            if (data.error === '0') {
+                location.reload();
+            } else if (data.error === '1') {
+                alert(data.msg);
+            }
+        });
+    }
+
+    function edit(e) {
+        var id       = $(e).attr("data-id");
+        var name     = $(e).attr("data-name");
+        var new_name = prompt("请输入标签名", name);
+        if ($.trim(new_name) === "") {
+            return;
+        }
+        $.post("{:U('Content/GameTag/edit_post')}", {"id": id, "name": new_name}, function (data) {
+            if (data.error === '0') {
+                location.reload();
+            } else if (data.error === '1') {
+                alert(data.msg);
+            }
+        });
+    }
+
+</script >
+<style >
+    #add {
+        margin: 5px 0 0 15px;
+        padding: 0px 15px;
+    }
+</style >
+</body >
+</html>

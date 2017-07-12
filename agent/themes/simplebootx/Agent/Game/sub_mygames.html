@@ -1,0 +1,362 @@
+<agenttpl file="user_center_header" />
+<link rel="stylesheet" href="__PUBLIC__/agent/css/popup.css" />
+<script type="text/javascript" src="__PUBLIC__/agent/js/jquery.popup.min.js" ></script >
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .apply-for-game .page .game-num {
+        margin-left: 30px;
+    }
+
+    .table-content {
+        position: relative;
+    }
+
+    .footer {
+        transform: translateY(100px)
+    }
+
+    .apply-for-game .table-content table tr td {
+        vertical-align: middle
+    }
+
+    .search-results .table-content table tr th {
+        line-height: 46px;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records lower-channel-management apply-for-game" >
+                <form id="queryForm" action="{:U('Agent/game/sub_mygames')}" method="post" >
+                    <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                    <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                    <div class="input-content" >
+                        <div class="search-game search-channel" style="text-align:left;font-size:16px;width:100%;" >
+                            {$subtxt}
+                        </div >
+                    </div >
+                </form >
+
+                <div class="search-results" >
+                    <div class="results-header" >
+                        <!--<span class="game-num">共找到<i>{$total_count}</i>个游戏</span>-->
+                    </div >
+                    <notempty name="sub_game_list" >
+                        <div class="table-content" >
+                            <!-- 游戏用户充值查询-->
+                            <table border="0" cellspacing="0" cellpadding="0" class="table-1" >
+                                <tbody >
+                                <tr >
+                                    <th width="86" >游戏ID</th >
+                                    <th width="120" >图标</th >
+                                    <th width="200" >游戏名称</th >
+                                    <!--                                    <th width="80">游戏大小</th>
+                                                                        <th width="102">版本</th>-->
+                                    <!--<th width="102">状态</th>-->
+                                    <th width="170" >更新时间</th >
+                                </tr >
+
+                                <volist name="sub_game_list" id="vo" >
+                                    <tr class="even" >
+                                        <td >{$vo.id}</td >
+                                        <td ><a href="javascript:void(0);" >
+                                            <img src="{$vo.icon}" style="width:75px;height:75px"
+                                                 onclick="showGameInfo('', '{$vo.id}')" ></a >
+                                        </td >
+                                        <td title="{$vo.name}" class="click-copy" >
+                                            <span class="cuttitle" onclick="" >{$vo.name}</span >
+                                        </td >
+                                        <!--                                    <td class="game-size">
+                                                                                <if condition="$vo.size eq ''">
+                                                                                    --
+                                                                                <else />
+                                                                                    {$vo.size}M
+                                                                                </if>
+                                                                            </td>
+                                                                            <td>{$vo.version}</td>-->
+                                        <!--                                    <td>
+                                                                             <switch name="vo.check_status">
+                                                                                <case value="1">
+                                                                                    <span style="color:red;">审核中 <a href="#" onclick="delete_apply({$vo['id']});">撤销申请</a></span>
+                                                                                </case>
+                                                                                <case value="2">
+                                                                                    <span class="pack-successful">申请成功</span>
+
+                                                                                    <if condition="$vo.app_fp eq '#'">
+                                                                                        <span title="游戏包还未准备好，请稍后下载" style="color:#ccc;">游戏包</span>
+                                                                                    <else />
+                                                                                        <if condition="$vo.pack_updated eq 0">
+                                                                                            <a href="javascript:;" onclick="download_app('{$vo.app_fp}','{$vo.id}');" target="_blank">游戏包</a>
+                                                                                            <else />
+                                                                                            <a href="javascript:;" onclick="download_app('{$vo.app_fp}','{$vo.id}');" target="_blank" style="color:red;" title="游戏包版本已更新，请重新下载">游戏包</a>
+                                                                                        </if>
+                                                                                    </if>
+                                                                                    <a href="__UPLOAD__zqdata/{$vo.gamename}_游戏专区资料.zip" target="_blank">专区资料</a>
+                                                                                    <if condition="$vo.zqdata_fp eq '#'">
+                                                                                        <span title="资料还未准备好，请稍后下载" style="color:#ccc;">专区资料</span>
+                                                                                        <else />
+                                                                                        <a href="{$vo.zqdata_fp}" target="_blank">专区资料</a>
+                                                                                    </if>
+                                                                                </case>
+                                                                                <case value="3"><span style="color:red;">申请失败</span></case>
+                                                                                </switch>
+                                                                            </td>-->
+                                        <!--<td>{$vo.update_time}</td>-->
+                                        <td ><?php echo date("Y-m-d H:i:s",$vo['update_time']); ?> </td >
+                                    </tr >
+                                </volist >
+                                </tbody >
+                            </table >
+                            <div class="cf" >
+
+                                <div class="page" style="" >
+                                    <div class="paging" >{$Page}</div >
+                                </div >
+                            </div >
+                        </div >
+                        <a href="#agent_choose" class="default_popup" id="agent_choose_trigger"
+                           style="display:none;" >选择</a >
+                    </notempty >
+
+                </div >
+            </div >
+        </div >
+</section >
+
+<link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+
+<script src="__PUBLIC__/agent/js/apply_game.js" ></script >
+
+<script >
+    //    var choose_list = [];
+    var selected_subid = "{:I('subid')}";
+
+    $("select[name='subid']").change(function () {
+        var subid     = $(this).val();
+        var url       = "{:U('Agent/Game/sub_mygames')}" + "?subid=" + subid;
+        location.href = url;
+//    yxalert(url+"?subid="+subid);    
+    });
+
+    function succHeader() {
+        $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+    }
+    //                                $(".default_popup").popup({
+    //                                    beforeOpen:bind_click
+    //                                });
+
+    window.onscroll = function () {
+        if ($(window).scrollTop() > 700) {
+            $(".psBtnFixed").css({
+                position: "absolute",
+                bottom  : "-99px"
+            });
+        } else {
+            $(".psBtnFixed").css({
+                position: "fixed",
+                bottom  : "0px"
+            });
+        }
+    }
+    $(".cf .all-select-input").live("click", function () {
+        check_all(this);
+    })
+    $(".table-1 .all-select-input").live("click", function () {
+        check_all(this);
+    })
+    function check_all(x) {
+        if ($(x).prop("checked")) {
+            $(".table-1 tbody tr>td>input").each(function () {
+                $(this).prop("checked", "checked");
+            });
+            $(".cf .all-select-input").prop("checked", "checked");//选中下方全选按钮
+            $(".table-1 .all-select-input").prop("checked", "checked");//选中上方全选按钮
+        } else {
+            $(".table-1 tbody>tr>td>input").each(function () {
+                $(this).prop("checked", "");
+            });
+            $(".cf .all-select-input").prop("checked", "");//选中下方全选按钮
+            $(".table-1 .all-select-input").prop("checked", "");//选中上方全选按钮
+        }
+    }
+    function jumpPage_queryForm(x) {
+        sendData("{:U('Agent/ucenter/do_post')}", {page: x}, function (data) {
+            console.log(data);
+        })
+    }
+    /************全选按钮*************/
+    $(".table-1 tbody>tr>td>input").each(function () {
+        $(this).live("click", function () {
+            var input_count = $(".table-1 tbody tr").length;
+            var checked_1   = 0;
+            for (var i = 0; i < input_count - 1; i ++) {
+                if ($(".table-1 tbody tr>td>input").eq(i).prop("checked")) {
+                    checked_1 ++;
+                    if (checked_1 == input_count - 1) {
+                        $(".cf .all-select-input").prop("checked", "checked");
+                        $(".table-1 .all-select-input").prop("checked", "checked");
+                    }
+                } else {
+                    $(".cf .all-select-input").prop("checked", "");
+                    $(".table-1 .all-select-input").prop("checked", "");
+                    return;
+                }
+            }
+            checked_1 = 0;
+        })
+    });
+    /*****************选中申请按钮****************/
+    $(".select-package").live("click", function () {
+        var list = [];
+        for (var i = 0; i < $(".table-1 tbody>tr>td>input").length; i ++) {
+            var input = $(".table-1 tbody>tr>td>input").eq(i);
+            if (input.prop("checked")) {
+                list.push(input.val());
+            }
+        }
+        if (list.length > 0) {
+//                                        $("#agent_choose_trigger").click();
+            sendData("{:U('Agent/ucenter/apply_game_sub_post')}",
+                    {"list": list, "subid": selected_subid},
+                    function (data) {
+                        if (data.error === '0') {
+                            yxalert("游戏申请成功，如已申请，请不要重复申请！");
+                            location.href = "{:U('Agent/game/sub_mygames')}";
+                        } else if (data.error === '1') {
+                            yxalert(data.msg);
+                        }
+                    });
+        } else {
+            yxalert("请选择要申请的游戏...");
+        }
+
+    });
+
+    /*****************跳转页按钮****************/
+    function locatePage_queryForm(count) {
+        $(".paging ul li").each(function () {
+            if ($(this).html() == count) {
+                console.log($(this).html());
+                $(this).attr("class", "now-num").siblings().removeClass("now-num");
+            }
+        });
+        sendData("{:U('Agent/ucenter/do_post')}", {value: count}, function (data) {
+            console.log(data);
+        })
+    }
+
+    function popupbox(popid) {
+        var pop = "#" + popid;
+        var w   = $(pop).outerWidth();
+        var h   = $(pop).outerHeight();
+        var _dl = document.documentElement.scrollTop || document.body.scrollTop;
+        var l   = Math.round((document.documentElement.clientWidth - w) / 2 + document.documentElement.scrollLeft);
+        var t   = Math.round((document.documentElement.clientHeight - h) / 2 + _dl);
+        $(pop).css({"top": - 200, "left": 0});
+        $(pop).find(".pop-box-bg").css({"width": w, "height": h});
+        var ch                 = document.documentElement.scrollHeight;
+        var cw                 = document.documentElement.scrollLeft + document.documentElement.clientWidth;
+        var cover              = document.createElement("div");
+        cover.id               = "cover";
+        cover.style.position   = "absolute";
+        cover.style.top        = "0px";
+        cover.style.left       = "0px";
+        cover.style.width      = cw + "px";
+        cover.style.height     = ch + "px";
+        cover.style.zIndex     = "9999";
+        cover.style.filter     = "alpha(opacity=0)";
+        cover.style.opacity    = "0";
+        cover.style.display    = "block";
+        cover.style.background = "#252130";
+        cover.innerHTML        = '<iframe id="if" name="if" style="position:absolute;top:-5px;left:0;border:none;width:100%;height:100%;filter:alpha(opacity=0);" ></iframe>';
+        document.body.appendChild(cover);
+        $("#cover").css({zIndex: "8888"});
+        $("#cover").animate({opacity: 0.8}, 100, function () {
+            $(pop).fadeIn(300);
+        });
+        $(window).resize(function () {
+            var ncw = document.documentElement.scrollLeft + document.documentElement.clientWidth;
+            $("#cover").width(ncw);
+        });
+    }
+    ;
+
+    //显示游戏详细信息
+    function showGameInfo(ctx, gameid) {
+
+        $.ajax({
+            url     : "{:U('Agent/game/gameinfo')}?id=" + gameid,
+            type    : 'get',
+            dataType: 'json',
+            cache   : false,
+            success : function (data) {
+//                                            yxalert(data);
+//                        if(data == "401"){
+//                                location = location;
+//                        } else if(data.gameid != null  && data.gameid != ""){
+                $("#pop-gamename").html(data.gamename);
+                $("#pop-version").html(data.version);
+//                                            $("#pop-gamesize").html(data.gamesize + "M");
+                $("#pop-gametheme").html(data.theme);
+                $("#pop-gamecontent").html(data.content);
+//                                            var pics = data.gamepic.split(", ");
+//                                            var picli = "";
+//                                            for (var i = 0; i < pics.length; i++) {
+//                                                if (i == 0) {
+//                                                    picli += "<li class=\"left\"><img src=\"" + picserver + pics[i] + "\"/></li>"
+//                                                } else {
+//                                                    picli += "<li><img src=\"" + picserver + pics[i] + "\" /></li>"
+//                                                }
+//                                            }
+//                                            $("#pop-gamepic").html(picli);
+//                                            $(".screenshots").slide({titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "left", scroll: 3, vis: 3, pnLoop: false});
+                popupbox('game-pop');
+//                        }
+            }
+        });
+    }
+    function closebox(popup) {
+        $("#cover").remove();
+        $(popup).fadeOut(100);
+    }
+
+    $(".search-btn").click(function () {
+        $("#queryForm").submit();
+    });
+
+    //function bind_click(){
+    //    $("#agent_choose_table tr").click(function(){
+    //        var id=$(this).attr("data-id");
+    //        sendData("{:U('Agent/ucenter/apply_game_post')}",
+    //        {"list": choose_list,"agent_id":id},
+    //        function(data) {
+    //            if (data.error === '0') {
+    //                yxalert("游戏申请成功，如已申请，请不要重复申请！");
+    //                location.href="{:U('Agent/game/mygames')}";
+    //            } else if (data.error === '1') {
+    //                yxalert(data.msg);
+    //            }
+    //
+    //        });
+    //    });
+    //}
+
+</script >
+
+<agenttpl file="user_center_footer" />

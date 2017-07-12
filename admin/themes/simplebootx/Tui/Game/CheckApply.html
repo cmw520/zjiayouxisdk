@@ -1,0 +1,262 @@
+<admintpl file="header" />
+
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >游戏申请审核</a ></li >
+        <!--<li><a href="{:U('Agent/Agent/add')}" target="_self">添加渠道</a></li>-->
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        渠道： 
+                        <select class="select_2" name="agent" id="selected_id" >
+                            <empty name="formget['agent']" >
+                                <option value="" selected="selected" >全部</option >
+                            </empty >
+                            <notempty name="formget['agent']" >
+                                <option value="" >全部</option >
+                            </notempty >
+                            <volist name="agents" id="vo" >
+                                <if condition="$vo.id eq $formget['agent']" >
+                                    <option value="{$vo.id}" selected="selected" >{$vo.user_login}</option >
+                                    <else />
+                                    <option value="{$vo.id}" >{$vo.user_login}</option >
+                                </if >
+                            </volist >
+                        </select >
+                        &nbsp;&nbsp;
+                        <input type="submit" class="btn btn-primary" value="搜索" />
+                        <notempty name="current_agent" >
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button onclick="passall('{$current_agent}');" >此渠道的申请全部审核通过</button >
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button onclick="unpassall('{$current_agent}');" >此渠道的申请全部审核不通过</button >
+                            <script >
+                                function passall(agent_id) {
+                                    //event.preventDefault();
+                                    $.post("{:U('tui/game/passall_post')}", {"agent_id": agent_id}, function (result) {
+                                        //location.reload();
+                                    });
+                                }
+                                function unpassall(agent_id) {
+                                    //event.preventDefault();
+                                    $.post("{:U('tui/game/unpassall_post')}", {"agent_id": agent_id}, function (result) {
+                                        //location.reload();
+                                    });
+                                }
+                            </script >
+                        </notempty >
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="20" >ID</th >
+                <th width="50" >渠道名</th >
+                <th width="50" >登录名</th >
+                <th width="50" >手机号</th >
+                <th width="50" >游戏名</th >
+                <th width="50" >申请时间</th >
+
+                <th width="50" >审核时间</th >
+                <th width="50" >审核状态</th >
+                <th width="60" >审核操作</th >
+                <th width="60" >子包状态</th >
+            </tr >
+            </thead >
+            <php >
+                $status=array("3"=>"审核不通过","2"=>"审核通过","1"=>"待审核");
+            </php >
+            <foreach name="users" item="vo" >
+                <tr >
+                    <td >{$vo.id}</td >
+                    <td >{$vo.username}</td >
+                    <td >{$vo.user_login}</td >
+                    <td >{$vo.mobile}</td >
+                    <td >{$vo.gamename}</td >
+                    <td ><?php echo date("Y-m-d H:i:s",$vo['create_time']); ?></td >
+                    <td ><?php echo date("Y-m-d H:i:s",$vo['update_time']); ?></td >
+                    <td >{$status[$vo['check_status']]}</td >
+                    <td >
+                        <switch name="vo.check_status" >
+                            <case value="1" >
+                                <a href="javascript:;" onclick="setpass({$vo['id']});" class="check_game" >通过</a > |
+                                <a href="javascript:;" onclick="setnotpass({$vo['id']});" >不通过</a >
+                            </case >
+
+                            <case value="3" >
+                                <a href="javascript:;" onclick="setpass({$vo['id']});" class="check_game" >通过</a >
+                            </case >
+                        </switch >
+                    </td >
+                    <td >{$vo.subpackage_status}</td >
+                    <!--                        <td>
+                                                <switch name="vo.check_status">
+                                                    <case value="2">
+                                                        <a href="{:U('Tui/Game/generateChildApp',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn">一键生成子包</a>
+                                                    </case>
+                                                </switch>
+                                            </td>-->
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+    <div style="display:none;width:300px;text-align:center;font-size:20px;padding:20px;"
+         id="domessage" >审核并生成子包中，请稍等...
+    </div >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script src="__PUBLIC__/js/jquery.blockUI.min.js" ></script >
+<script >
+
+    $(document).ajaxStop($.unblockUI);
+
+    function test() {
+//        $.ajax({ url: "{:U('Tui/Game/pass')}", data:{"id"}cache: false });
+
+    }
+
+    function setpass(id) {
+        $.blockUI({message: $('#domessage')});
+        $.post("{:U('Tui/Game/pass')}", {"id": id}, function (data) {
+            if (data.status == '0') {
+                alert(data.info);
+            }
+
+            location.reload();
+        });
+    }
+
+    function setnotpass(id) {
+        $.post("{:U('Tui/Game/notpass')}", {"id": id}, function (data) {
+            if (data.error === '0') {
+                location.reload();
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+
+    //        $('.check_game').click(function() {
+    //            $.blockUI();
+    ////            test();
+    //        });
+    //    $(document).ready(function () {
+    //            $(".check_game").click(function () {
+    //                    $("#BgDiv1").css({
+    //                    display: "block", height: $(document).height() });
+    //                    var yscroll = document.documentElement.scrollTop;
+    //                    var screenx=$(window).width();
+    //                    var screeny=$(window).height();
+    //                    $(".DialogDiv").css("display", "block");
+    //                     $(".DialogDiv").css("top",yscroll+"px");
+    //                     var DialogDiv_width=$(".DialogDiv").width();
+    //                     var DialogDiv_height=$(".DialogDiv").height();
+    //                      $(".DialogDiv").css("left",(screenx/2-DialogDiv_width/2)+"px")
+    //                     $(".DialogDiv").css("top",(screeny/2-DialogDiv_height/2)+"px")
+    //                     $("body").css("overflow","hidden");
+    //
+    //                    var bagurl = $("#bagurl").val();
+    //
+    //                    var options = {
+    //                            url: bagurl,
+    //                            type: 'post',
+    //                            dataType: 'json',
+    //                            data: $("#fm").serialize(),
+    //                            success:function(data){
+    //                                    $("#BgDiv1").css({
+    //                                    display: "none", height: $(document).height() });
+    //                                    $(".DialogDiv").css("display", "none");
+    //                                     $("body").css("overflow","visible");
+    //
+    //                                    if (data.success){
+    //                                            alert(data.msg);
+    //                                    } else {
+    //                                            alert(data.msg);
+    //                                            window.location.reload();//刷新当前页面.
+    //                                    }
+    //                            }
+    //                    };
+    //                    $.ajax(options);
+    //                    return false;
+    //            });
+    //
+    //            $("#agent_type").bind("change",function(){
+    //                    var agent_type = $("#agent_type").val();
+    //                    if (agent_type == "1") {
+    //                            $("#agent_ida").show();
+    //                            $("#agent_idb").hide();
+    //                    } else {
+    //                            $("#agent_idb").show();
+    //                            $("#agent_ida").hide();
+    //                    }
+    //            });
+    //
+    //            Wind.use('artDialog', function () {
+    //                    $('.J_ajax_updatebag').on('click', function (e) {
+    //                            e.preventDefault();
+    //                            var $_this = this,
+    //                                    $this = $($_this),
+    //                                    href = $this.prop('href'),
+    //                                    msg = $this.data('msg');
+    //                            art.dialog({
+    //                                    title: false,
+    //                                    icon: 'question',
+    //                                    content: '确定要更新吗？',
+    //                                    follow: $_this,
+    //                                    close: function () {
+    //                                            $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+    //                                            return true;
+    //                                    },
+    //                                    ok: function () {
+    //                                            $("#BgDiv1").css({
+    //                                            display: "block", height: $(document).height() });
+    //                                            var yscroll = document.documentElement.scrollTop;
+    //                                            var screenx=$(window).width();
+    //                                            var screeny=$(window).height();
+    //                                            $(".DialogDiv").css("display", "block");
+    //                                             $(".DialogDiv").css("top",yscroll+"px");
+    //                                             var DialogDiv_width=$(".DialogDiv").width();
+    //                                             var DialogDiv_height=$(".DialogDiv").height();
+    //                                              $(".DialogDiv").css("left",(screenx/2-DialogDiv_width/2)+"px")
+    //                                             $(".DialogDiv").css("top",(screeny/2-DialogDiv_height/2)+"px")
+    //                                             $("body").css("overflow","hidden");
+    //
+    //                                            $.getJSON(href).done(function (data) {
+    //                                                    $("#BgDiv1").css({
+    //                                                    display: "none", height: $(document).height() });
+    //                                                    $(".DialogDiv").css("display", "none");
+    //                                                     $("body").css("overflow","visible");
+    //
+    //                                                    if (data.success) {
+    //                                                            alert(data.msg);
+    //                                                            if (data.referer) {
+    //                                                                    location.href = data.referer;
+    //                                                            } else {
+    //                                                                    reloadPage(window);
+    //                                                            }
+    //                                                    } else {
+    //                                                            //art.dialog.alert(data.info);
+    //                                                            alert(data.info);//暂时处理方案
+    //                                                    }
+    //                                            });
+    //                                    },
+    //                                    cancelVal: '关闭',
+    //                                    cancel: true
+    //                            });
+    //                    });
+    //
+    //            });
+    //
+    //    });
+</script >
+</body >
+</html>

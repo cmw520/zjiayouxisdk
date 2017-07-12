@@ -1,0 +1,754 @@
+.border_bottom {
+    border-bottom: 1px solid #EFEFEF;
+}
+
+button.noCan {
+    background-color: #AAAAAA !important;
+    border-color: #EFEFEF !important;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "微软雅黑";
+}
+
+/******头部区域*******/
+header {
+    text-align: center;
+    background-color: #D33D3E;
+    color: #FFFFFF;
+    position: relative;
+}
+
+header > span {
+    height: 35px;
+    line-height: 35px;
+    font-size: 1.4rem;
+}
+
+header > b {
+    display: inline-block;
+    width: 36px;
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    background: url("../images/icon_list1.png") no-repeat;
+}
+
+section {
+    /****下载App区域*******/
+}
+
+section > .download_app {
+    height: 50px;
+    background-color: #FFFFFF;
+    padding-left: 10px;
+}
+
+section > .download_app > .text {
+    float: left;
+    margin-top: 5px;
+}
+
+section > .download_app > .text > b {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+section > .download_app > .text > b > img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+section > .download_app > .text > span {
+    font-size: 1.2rem;
+}
+
+section > .download_app > button {
+    float: right;
+    width: 55px;
+    height: 25px;
+    margin-top: 12px;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: 1px solid #E38485;
+    background-color: #FFFFFF;
+}
+
+/******尾部样式*******/
+footer {
+    background-color: #FFFFFF;
+    padding-bottom: 50px;
+}
+
+footer > button {
+    height: 30px;
+    width: 96%;
+    display: block;
+    margin-left: 2%;
+    position: fixed;
+    bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #D33D3E;
+    color: #FFFFFF;
+}
+
+/******个人中心每条的样式*******/
+.list_item {
+    height: 40px;
+    background-color: #FFFFFF;
+}
+
+.list_item > .icon_left {
+    float: left;
+}
+
+.list_item > .icon_left > b {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+    float: left;
+    /*background: url("../images/icon_list1.png") no-repeat 0px -26px;*/
+}
+
+.list_item > .icon_left > b > img {
+    width: 100%;
+    height: 100%;
+}
+
+.list_item > .icon_left > span {
+    display: inline-block;
+    line-height: 40px;
+    margin-left: 4px;
+    font-size: 1.2rem;
+}
+
+.list_item > .icon_right {
+    float: right;
+    margin-right: 10px;
+}
+
+.list_item > .icon_right > i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    float: right;
+    background: url("../images/icon_list1.png") 8px -61px;
+}
+
+.list_item > .icon_right > span {
+    line-height: 40px;
+}
+
+.list_item > .icon_right > s {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    float: right;
+}
+
+/**************模态框***********/
+.alert_box {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    /***************模态框标题*******************/
+    /**********下一步按钮***********/
+    /*********修改密码框***********/
+    /**********更换手机号码弹框***********/
+    /**********修改密码***********/
+    /**********修改昵称***********/
+}
+
+.alert_box > .change_name > .error_box {
+    height: 25px;
+    line-height: 25px;
+    margin: 0px 10px;
+}
+
+.change_pwd .error_box {
+    height: 25px;
+    line-height: 25px;
+    width: 88%;
+    margin: 0px 10px;
+}
+
+.alert_box .model_title {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    margin: 0px 0px;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #E4E4E4;
+}
+
+.alert_box .model_title > span {
+    color: #D33D3E;
+}
+
+.alert_box .cacle_btn {
+    height: 30px;
+    margin: 0px auto;
+    margin-top: 8px;
+}
+
+.alert_box .cacle_btn > button {
+    float: left;
+    width: 45%;
+    height: 100%;
+    border: 1px solid #D33D3E;
+    color: #D33D3E;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+}
+
+.alert_box .cacle_btn > .next {
+    float: right;
+    background-color: #D33D3E;
+    color: #FFFFFF;
+}
+
+.alert_box .pass_input {
+    width: 88%;
+    margin: 10px auto;
+    border: 1px solid #AAAAAA;
+}
+
+.alert_box .pass_input > b {
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-right: 8px;
+    background: url("../images/icon_list1.png") no-repeat 0px -100px;
+}
+
+.alert_box .pass_input > input {
+    width: calc(100% - 30px);
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    height: 30px;
+    text-indent: 5px;
+    outline: none;
+    box-sizing: border-box;
+    padding-right: 6px;
+}
+
+.alert_box > .alert_phone {
+    position: absolute;
+    display: none;
+    width: 70%;
+    max-width: 300px;
+    height: 258px;
+    top: 130px;
+    left: 50%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.alert_box > .alert_phone > .phone1 {
+    display: none;
+    /**********验证已绑定手机号***********/
+    /**********验证码框，下一步按钮***********/
+    /**********无法绑定联系客服***********/
+}
+
+.alert_box > .alert_phone > .phone1 > .verification {
+    margin: 0px 10px;
+}
+
+.alert_box > .alert_phone > .phone1 > .verification > p {
+    margin-top: 10px;
+    line-height: 23px;
+}
+
+.alert_box > .alert_phone > .phone1 > .verification > p > span {
+    color: #D33D3E;
+}
+
+.alert_box > .alert_phone > .phone1 > .next_btn {
+    margin: 0px 10px;
+}
+
+.alert_box > .alert_phone > .phone1 > .next_btn > .code_input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #AAAAAA;
+    margin-top: 6px;
+}
+
+.alert_box > .alert_phone > .phone1 > .next_btn > .code_input > b {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 6px;
+    background: url("../images/icon_list1.png") no-repeat 0px -82px;
+}
+
+.alert_box > .alert_phone > .phone1 > .next_btn > .code_input > input {
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    height: 30px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    text-indent: 3px;
+    padding-right: 10px;
+}
+
+.alert_box > .alert_phone > .phone1 > .next_btn > .code_input > button {
+    width: calc(50% - 28px);
+    padding: 4px 3px;
+    border: 1px solid #AAAAAA;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #D33D3E;
+}
+
+.alert_box > .alert_phone > .phone1 > .next_btn > .phone_msg1 {
+    margin-top: 5px;
+    height: 16px;
+}
+
+.alert_box > .alert_phone > .phone1 > .contact {
+    margin: 5px 10px;
+}
+
+.alert_box > .alert_phone > .phone1 > .contact > p {
+    line-height: 14px;
+}
+
+.alert_box > .alert_phone > .phone1 > .contact > p > a {
+    color: #000000;
+}
+
+.alert_box > .alert_phone > .phone2 {
+    display: none;
+    margin: 0px 10px;
+}
+
+.alert_box > .alert_phone > .phone2 > .new_phone {
+    height: 35px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #AAAAAA;
+}
+
+.alert_box > .alert_phone > .phone2 > .new_phone > span {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 8px;
+}
+
+.alert_box > .alert_phone > .phone2 > .new_phone > span > img {
+    width: 100%;
+}
+
+.alert_box > .alert_phone > .phone2 > .new_phone > input {
+    border: 0px;
+    width: calc(100% - 24px);
+    height: 31px;
+    margin: 0px;
+    margin-top: 4px;
+    padding: 0px;
+    float: right;
+    outline: none;
+}
+
+.alert_box > .alert_phone > .phone2 > .next_btn > .code_input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #AAAAAA;
+    margin-top: 6px;
+}
+
+.alert_box > .alert_phone > .phone2 > .next_btn > .code_input > b {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 6px;
+    background: url("../images/icon_list1.png") no-repeat 0px -82px;
+}
+
+.alert_box > .alert_phone > .phone2 > .next_btn > .code_input > input {
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    height: 30px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    text-indent: 3px;
+    padding-right: 10px;
+}
+
+.alert_box > .alert_phone > .phone2 > .next_btn > .code_input > button {
+    width: calc(50% - 30px);
+    padding: 4px 3px;
+    border: 1px solid #AAAAAA;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #D33D3E;
+}
+
+.alert_box > .alert_phone > .phone2 > .next_btn > .phone_msg2 {
+    margin-top: 6px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.alert_box > .alert_phone > .phone3 {
+    display: none;
+}
+
+.alert_box > .alert_phone > .phone3 > h3 {
+    font-size: 1.3rem;
+    margin: 20px 10px 30px 10px;
+}
+
+.alert_box > .alert_phone > .phone3 > .cacle_btn {
+    margin: 0px 10px;
+}
+
+.alert_box > .alert_phone > .phone3 > .cacle_btn > .cacle {
+    width: 100%;
+}
+
+.alert_box > .alert_phone > .phone3 > .logo {
+    text-align: center;
+}
+
+.alert_box > .alert_phone > .phone3 > .logo > img {
+    margin-top: 17px;
+}
+
+.alert_box > .change_pwd {
+    display: none;
+    position: absolute;
+    width: 70%;
+    max-width: 300px;
+    height: 230px;
+    top: 130px;
+    left: 50%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.alert_box > .change_pwd .cacle_btn {
+    width: calc(100% - 20px);
+    margin: 0px 10px 10px 10px;
+}
+
+.alert_box > .change_pwd .confirm {
+    margin-bottom: 0px;
+}
+
+.alert_box > .change_name {
+    display: none;
+    position: absolute;
+    width: 70%;
+    max-width: 300px;
+    height: 180px;
+    top: 130px;
+    left: 50%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.alert_box > .change_name > .input_name {
+    border: 1px solid #333333;
+    height: 40px;
+    margin: 0 15px;
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+.alert_box > .change_name > .input_name > input {
+    margin: 0 auto;
+    height: 40px;
+    width: calc(100% - 50px);
+    border: none;
+    padding: 0px;
+    text-indent: 14px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.alert_box > .change_name > .input_name > b {
+    float: right;
+    width: 25px;
+    height: 16px;
+    margin-top: 12px;
+    background: url("../images/close.png") no-repeat 0px -30px;
+    transform: scale(1.3);
+}
+
+.alert_box > .change_name > .cacle_btn {
+    margin: 30px 10px;
+    margin-top: 0px;
+}
+
+.alert_box > .change_name > .error_box {
+    font-size: 1.2rem;
+}
+
+.margin_bottom_bg {
+    height: 12px;
+    background-color: #F4F5F7;
+}
+
+/**********媒体查询样式，主要iphone 6plus***********/
+@media screen and (max-width: 600px) {
+    header {
+        text-align: center;
+        background-color: #D33D3E;
+        color: #FFFFFF;
+        position: relative;
+        height: 50px;
+    }
+
+    header > span {
+        line-height: 50px;
+        font-size: 1.4rem;
+    }
+
+    header > b {
+        display: inline-block;
+        width: 36px;
+        height: 25px;
+        position: absolute;
+        top: 13px;
+        left: 15px;
+        background: url("../images/icon_list1.png") no-repeat;
+    }
+
+    section > .download_app {
+        height: 60px;
+        background-color: #FFFFFF;
+        padding-left: 10px;
+    }
+
+    section > .download_app > .text {
+        float: left;
+        margin-top: 10px;
+    }
+
+    section > .download_app > .text > b {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+    }
+
+    section > .download_app > .text > b > img {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    section > .download_app > .text > span {
+        font-size: 1.2rem;
+    }
+
+    section > .download_app > button {
+        float: right;
+        width: 55px;
+        height: 25px;
+        margin-top: 18px;
+        margin-right: 10px;
+        border-radius: 6px;
+        border: 1px solid #E38485;
+        background-color: #FFFFFF;
+    }
+
+    .list_item {
+        height: 40px;
+        background-color: #FFFFFF;
+    }
+
+    .list_item > .icon_left {
+        float: left;
+    }
+
+    .list_item > .icon_left > b {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-top: 5px;
+        margin-left: 10px;
+        float: left;
+        /*background: url("../images/icon_list1.png") no-repeat 0px -26px;*/
+    }
+
+    .list_item > .icon_left > span {
+        display: inline-block;
+        line-height: 40px;
+        margin-left: 4px;
+        font-size: 1.4rem;
+    }
+
+    .list_item > .icon_right {
+        float: right;
+        margin-right: 10px;
+        font-size: 1.4rem;
+    }
+
+    .list_item > .icon_right > i {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-top: 10px;
+        float: right;
+        background: url("../images/icon_list1.png") 8px -61px;
+    }
+
+    .list_item > .icon_right > span {
+        line-height: 40px;
+    }
+
+    .list_item > .icon_right > s {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-top: 15px;
+        float: right;
+    }
+
+    /******尾部样式*******/
+    footer {
+        background-color: #FFFFFF;
+        padding-bottom: 50px;
+    }
+
+    footer > button {
+        height: 50px;
+        width: 96%;
+        display: block;
+        margin-left: 2%;
+        position: fixed;
+        bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #D33D3E;
+        color: #FFFFFF;
+    }
+}
+
+/**********媒体查询样式，主要iphone 6***********/
+@media screen and (max-width: 374px) {
+    /******头部区域*******/
+    header {
+        text-align: center;
+        background-color: #D33D3E;
+        color: #FFFFFF;
+        height: 35px;
+        position: relative;
+    }
+
+    header > span {
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.4rem;
+    }
+
+    header > b {
+        display: inline-block;
+        width: 36px;
+        height: 25px;
+        position: absolute;
+        top: 5px;
+        left: 15px;
+        background: url("../images/icon_list1.png") no-repeat;
+    }
+
+    .list_item {
+        height: 40px;
+        background-color: #FFFFFF;
+    }
+
+    .list_item > .icon_left {
+        float: left;
+    }
+
+    .list_item > .icon_left > b {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-top: 5px;
+        margin-left: 10px;
+        float: left;
+        /*background: url("../images/icon_list1.png") no-repeat 0px -26px;*/
+    }
+
+    .list_item > .icon_left > span {
+        display: inline-block;
+        line-height: 40px;
+        margin-left: 4px;
+        font-size: 1.2rem;
+    }
+
+    .list_item > .icon_right {
+        float: right;
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+
+    .list_item > .icon_right > i {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-top: 10px;
+        float: right;
+        background: url("../images/icon_list1.png") 8px -61px;
+    }
+
+    .list_item > .icon_right > span {
+        line-height: 40px;
+    }
+
+    .list_item > .icon_right > s {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-top: 10px;
+        float: right;
+    }
+
+    /******尾部样式*******/
+    footer {
+        background-color: #FFFFFF;
+        padding-bottom: 50px;
+    }
+
+    footer > button {
+        height: 30px;
+        width: 96%;
+        display: block;
+        margin-left: 2%;
+        position: fixed;
+        bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #D33D3E;
+        color: #FFFFFF;
+    }
+}

@@ -1,0 +1,69 @@
+<mobiletpl file="header" />
+<script src="/access/public/mobile/js/clipboard.min.js" ></script >
+<section >
+    <div class="container" >
+        <volist name="codes" id="vo" >
+            <div class="row" >
+                <div class='col-xs-2' >
+                    <img src="/upload/{$vo.game.icon}" width="60" />
+                </div >
+                <div class="col-xs-6" >
+                    <div class='name' >{$vo.game.name}</div >
+                    <div class="info" >
+                        <span class="code" >{$vo.code}</span >
+                    </div >
+                </div >
+                <div class="col-xs-2" >
+                    <a href="javascript:;" class="btn btn-success btn-sm link_copy_btn"
+                       data-clipboard-text="{$vo.code}" >复制</a >
+                </div >
+            </div >
+        </volist >
+    </div >
+</section >
+<style >
+    .row {
+        /*margin:10px 0;*/
+        padding: 10px;
+        /*text-align:left;*/
+        border-bottom: 1px solid #EEEEEE;
+    }
+
+    .col-xs-6 {
+        margin: 0 20px;
+    }
+
+    .row img {
+        width: 60px;
+        height: 60px;
+        /*float:left;*/
+        /*margin:0 10px 0 0;*/
+    }
+
+    .row .name {
+        /*min-width:200px;*/
+        /*float:left;*/
+    }
+
+    .row .info {
+        /*min-width:200px;*/
+        /*margin:5px 0 0 0;*/
+        /*float:left;*/
+    }
+
+    .row .code {
+        color: orange;
+    }
+
+</style >
+<script >
+    var clipboard = new Clipboard('.link_copy_btn');
+    clipboard.on('success', function (e) {
+        alert("复制链接成功！");
+    });
+    clipboard.on('error', function (e) {
+        alert("复制链接失败，您的浏览器不支持此功能，请右键单击选择复制！");
+    });
+</script >
+
+<mobiletpl file="footer" />

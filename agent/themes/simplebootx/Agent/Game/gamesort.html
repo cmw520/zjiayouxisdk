@@ -1,0 +1,264 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+</style >
+
+<script >
+    function succHeader() {
+        window.onload = function () {
+            $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+        }
+    }
+
+</script >
+
+<div class="main" >
+    <!--主题内容区域-->
+    <div class="page-content" >
+        <agenttpl file="share/side" />
+        <div class="page-right my-game" >
+            <form id="queryForm" action="./gamesort_files/gamesort.html" method="post" >
+                <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                <div class="input-content" >
+                    <div class="search-game" >
+                        <span >搜索游戏:</span >
+                        <input type="text" name="gamename" id="gamequeryForm" value="" maxlength="25"
+                               placeholder="请输入游戏名称" >
+                    </div >
+                    <div class="status choose-channel" style="margin-top: 30px;" >
+                        <span style="margin-left:10px;" >状态:</span >
+                        <i class="i-one" >
+                            <input id="flag" name="flag" type="hidden" value="" >
+                            <div class="input input-one" >全部</div >
+                            <ul class="ul-one" >
+                                <li data-val="" >全部</li >
+                                <li data-val="1" >申请中</li >
+                                <li data-val="2" >申请成功</li >
+                                <li data-val="0" >申请失败</li >
+                            </ul >
+                        </i >
+                    </div >
+                    <div class="pack-time" >
+                        <span >申请时间:</span >
+                        <div id="time-one" ><input id="stime" name="stime" type="text" value=""
+                                                   onclick="WdatePicker({startDate: & #39; % y - % M - % d 00:00:00 & #39; , dateFmt: & #39; yyyy - MM - dd HH:mm:ss & #39; , maxDate: & #39; #F{$dp.$D(\ & #39; etime\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                        </div >
+                        <span class="to" >至</span >
+                        <div id="time-two" ><input id="etime" name="etime" type="text" value=""
+                                                   onclick="WdatePicker({startDate: & #39; % y - % M - % d 23:59:59 & #39; , dateFmt: & #39; yyyy - MM - dd HH:mm:ss & #39; , minDate: & #39; #F{$dp.$D(\ & #39; stime\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                        </div >
+                    </div >
+                    <div class="status" style="width:380px;" >
+                    </div >
+                    <div class="search-btn" >搜 &nbsp;索</div >
+                </div >
+            </form >
+            <div class="search-results" >
+
+                <div class="results-header" >
+                    <span class="game-num" >共找到<i >15</i >个游戏</span >
+                    <div class="each-page-num" >
+                        <div >每页10条</div >
+                        <ul >
+                            <li onclick="changePageCount(10)" >每页10条</li >
+                            <li onclick="changePageCount(20)" >每页20条</li >
+                            <li onclick="changePageCount(50)" >每页50条</li >
+                            <li onclick="changePageCount(100)" >每页100条</li >
+                        </ul >
+                    </div >
+                </div >
+                <div class="table-content" >
+                    <table border="0" cellspacing="0" cellpadding="0" >
+                        <tbody >
+                        <tr >
+                            <th width="95" >序号</th >
+                            <th width="105" >游戏ID</th >
+                            <th width="125" >渠道ID</th >
+                            <th width="145" >游戏名称</th >
+                            <th width="135" >游戏大小</th >
+                            <th width="150" >申请时间</th >
+                            <th width="105" >状态</th >
+                            <th width="65" >操作</th >
+                        </tr >
+
+                        <tr class="even" >
+                            <td >1</td >
+                            <td >110520</td >
+                            <td >110017808</td >
+                            <td >沙巴克传奇</td >
+                            <td >353M</td >
+                            <td >2016-06-28 01:47:17</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281548 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr >
+                            <td >2</td >
+                            <td >99650</td >
+                            <td >110017808</td >
+                            <td >少年四大名捕挂机版</td >
+                            <td >51.5M</td >
+                            <td >2016-07-24 20:50:38</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 319229 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr class="even" >
+                            <td >3</td >
+                            <td >111160</td >
+                            <td >110017808</td >
+                            <td >少年西游记</td >
+                            <td >71M</td >
+                            <td >2016-07-24 20:50:22</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 319228 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr >
+                            <td >4</td >
+                            <td >110680</td >
+                            <td >110017808</td >
+                            <td >萌漫大乱斗</td >
+                            <td >181M</td >
+                            <td >2016-06-28 01:47:17</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281544 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr class="even" >
+                            <td >5</td >
+                            <td >110700</td >
+                            <td >110017808</td >
+                            <td >西游伏妖篇</td >
+                            <td >76M</td >
+                            <td >2016-06-28 01:47:16</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281542 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr >
+                            <td >6</td >
+                            <td >110720</td >
+                            <td >110017808</td >
+                            <td >天天裁决</td >
+                            <td >193M</td >
+                            <td >2016-06-28 01:47:16</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281540 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr class="even" >
+                            <td >7</td >
+                            <td >110701</td >
+                            <td >110017808</td >
+                            <td >再战沙城</td >
+                            <td >273M</td >
+                            <td >2016-06-28 01:47:16</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281538 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr >
+                            <td >8</td >
+                            <td >110740</td >
+                            <td >110017808</td >
+                            <td >傲视天下</td >
+                            <td >52M</td >
+                            <td >2016-06-28 01:47:15</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281536 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr class="even" >
+                            <td >9</td >
+                            <td >110760</td >
+                            <td >110017808</td >
+                            <td >梦幻西游无双版</td >
+                            <td >405M</td >
+                            <td >2016-06-28 01:47:15</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281534 & #39; )" ></td >
+
+                        </tr >
+
+                        <tr >
+                            <td >10</td >
+                            <td >111109</td >
+                            <td >110017808</td >
+                            <td >三国辣么萌</td >
+                            <td >99M</td >
+                            <td >2016-06-28 01:47:14</td >
+
+                            <td class="pack-successful" >申请成功</td >
+
+                            <td class="iwnt-caoz" onclick="topTheGame( & #39; 281532 & #39; )" ></td >
+
+                        </tr >
+
+                        </tbody >
+                    </table >
+
+                    <div class="page" style="" >
+                                <span class="game-num" >
+                                    共为您找到15个游戏，第<span >1</span >/<span id="maxcountqueryForm" >2</span >页
+                                </span >
+                        <div class="paging" >
+                            <ul >
+                                <li class="home-page" onclick="locatePage_queryForm(1)" >首页</li >
+                                <li class="previous-page" onclick="locatePage_queryForm(0)" ></li >
+
+                                <li onclick="locatePage_queryForm(1)" class="now-num" >1</li >
+
+                                <li onclick="locatePage_queryForm(2)" class="" >2</li >
+
+                                <!-- 总条数大于6，页面显示6个页标 -->
+
+                                <li class="next-page" onclick="locatePage_queryForm(2)" ></li >
+                                <li class="end-page" onclick="locatePage_queryForm(2)" >末页</li >
+                                <li class="input-page" >第<input id="gopage_queryForm" type="text" >页</li >
+                                <li class="confirm" onclick="jumpPage_queryForm()" >确定</li >
+                            </ul >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</div >
+<agenttpl file="user_center_footer" />

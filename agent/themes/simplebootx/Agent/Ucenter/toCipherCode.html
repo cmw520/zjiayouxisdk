@@ -1,0 +1,165 @@
+<agenttpl file="user_center_header" />
+<style >
+    .modify-pay-pwd .modify-pwd-content .img-code .code-img {
+        border: none;
+    }
+</style >
+
+<script src="__PUBLIC__/agent/js/toCipherCode.js" ></script >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right fc—modify-pwd modify-pay-pwd personal-information-management"
+                 style="height: 760px;*height: 770px;" >
+                <div class="container" style="width:960px;margin-top:30px;" >
+                    <ul class="breadcrumb" >
+                        <li ><a href="{$urls.index}" >首页</a ></li >
+                        <li ><a href="{:U('Agent/Ucenter/security')}" >安全中心</a ></li >
+                        <li class="active" >设置支付密码</li >
+                    </ul >
+                </div >
+
+                <!--第一步-->
+                <div class="modify-pwd-content content-1" style="display: block;" >
+                    <input type="hidden" id="ctx" value="" >
+                    <!--<div class="title"></div>-->
+                    <div class="binding-mobile" style="margin:50px 0 0 0;" >
+                        <span >绑定手机：</span >
+                        <ul >
+                            <li id="phoneli"
+                                style="height: 30px;line-height: 30px;color: #333333;font-weight: bold;" > {$user.mobile}
+                            </li >
+                        </ul >
+                    </div >
+
+                    <div class="binding-mobile pay-pwd" style="margin:20px 0;" >
+                        <span >请输入支付密码：</span >
+                        <ul >
+                            <li ><input type="password" maxlength="20" ><i
+                                    style="margin: 0 0 0 5px;" >数字和字母组合，长度6-20位</i ></li >
+                        </ul >
+                    </div >
+                    <div class="binding-mobile pay-pwd-again" style="margin:20px 0;" >
+                        <span >请再次输入：</span >
+                        <ul >
+                            <li ><input type="password" ></li >
+                            <!--                                <li class="error-note">两次密码输入不一致</li>-->
+                        </ul >
+                    </div >
+
+                    <div class="fill-mobile-code" style="margin:20px 0;" >
+                        <span >请填写手机验证码：</span >
+                        <ul >
+                            <li style="height: 32px;" ><input type="text" id="phonecode" />
+                                <div class="get-mobile-code" >获取手机验证码</div >
+                            </li >
+                            <li class="error-note" ></li >
+                        </ul >
+                    </div >
+                    <!--<div id="msgdiv" style="display:none;"></div>-->
+
+                    <div class="next-btn next-btn-1" style="display: block;margin-left:130px;" >保存</div >
+
+                    <div id="friendship-remind" >
+                        <!--                            <div class="friendship-remind" >
+                                                        <ul>
+                                                            <li class="li-1">启用支付密码后，将在如下环节通过支付密码对您进行身份认证，确保您的资金安全，请您确认！</li>
+                                                            <li>·&nbsp;&nbsp;使用余额提现时</li>
+                                                            <li>·&nbsp;&nbsp;余额兑换{:C(CURRENCY_NAME)}时</li>
+                                                            <li>·&nbsp;&nbsp;游戏玩家充值时</li>
+                                                        </ul>
+                                                    </div>-->
+                        <div class="confirm-btn" style="display: none;" >确认</div >
+                    </div >
+                </div >
+
+                <!--第三步-->
+                <div class="modify-pwd-content content-3" style="display:none;" >
+                    <div class="title" ></div >
+                    <p class="p-1" >支付密码设置成功！</p >
+                    <p class="p-2" >
+                        您的账户安全级还能提升哦，去 <a href="security.html" >安全中心&gt;&gt;</a > 完善其它安全设置吧。
+                    </p >
+                    <p class="p-3" >
+                        您还可以马上 <a href="toEditUser.html" >完善结算信息&gt;&gt;</a >
+                    </p >
+                </div >
+            </div >
+        </div >
+    </div >
+
+    <!--图形验证码弹框-->
+    <!--        <div class="img-code-pop" id="code-pop-1">
+                <div id="header">
+                    <span>请输入图形验证码</span><img src="./toCipherCode_files/pop-closed.png" onclick="closebox('#code-pop-1');">
+                </div>
+                <div id="img-code-content">
+                    <input type="text" id="imgCode" class="fill-input">
+                    <div id="code-img">
+                        <img id="identCode" src="./toCipherCode_files/getIdentCode" onclick="document.getElementById(' identCode ').src = ' /agent/info / getIdentCode?params = ' + new Date()">
+                    </div>
+                    <div id="btn">确定</div>
+                </div>
+            </div>-->
+</section >
+<agenttpl file="user_center_footer" />
+<script >
+
+    succAside(5);
+    var phone = {$user.mobile
+    }
+    ;
+    $(".next-btn-1").click(do_change_paypwd);
+
+    function showok() {
+        $(".content-1").hide();
+        $(".content-2").hide();
+
+        $(".content-3").show();
+    }
+
+    $(".get-mobile-code").click(function () {
+//            showMsg(".error-note", "已发送", "green");
+//            _getCode($(".get-mobile-code"),60,code,1000,$(".error-note"));
+        sendData("{:U('Agent/ucenter/sendPhoneCode')}", {"phone": phone}, function (data) {
+            if (data.error === '0') {
+                showMsg(".error-note", "验证码已发送，请尽快输入", "green");
+            } else {
+                showMsg(".error-note", data.msg, "red");
+            }
+        });
+
+    });
+
+    function do_change_paypwd() {
+        var pwd  = $(".pay-pwd>ul>li>input").val();
+        var code = $("#phonecode").val();
+        if (code.trim() === "") {
+            showMsg(".error-note", "请输入手机验证码", "red");
+            return;
+        }
+
+        if (! ((pwd === $(".pay-pwd-again>ul>li>input").val()) && (pwd.trim() !== ""))) {
+            showMsg(".error-note", "两次密码输入不一致或密码为空...", "red");
+            return;
+        }
+
+        sendData("{:U('Agent/ucenter/change_pay_pass_post')}", {"pwd": pwd, "code": code}, function (data) {
+            if (data.error === '1') {
+                showMsg(".error-note", data.msg, "red");
+            } else if (data.error === '0') {
+                yxalert(data.msg);
+                showMsg(".error-note", "", "red");
+            }
+        });
+    }
+
+    $(function () {
+        $(".next-btn-2").live("click", do_change_paypwd);
+    })
+</script >

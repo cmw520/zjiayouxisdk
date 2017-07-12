@@ -1,0 +1,32 @@
+<mobiletpl file="header" />
+
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/kefu.css" />
+<div class="kefu" >
+    <div class="kefuImg" >
+        <notempty name="contactdata['qq']" >
+            <img src="__PUBLIC__/mobile/images/QQ1.jpg" />
+            <!--<p><a class="QQ" onclick="huosdk_openqq('{$contactdata['qq']}');" href="###">客服QQ:{$contactdata['qq']}</a></p>-->
+            <a href="###" class="QQ" onclick="huosdk_openqq('{$contactdata['qq']}');" ><span >客服QQ：</span >{$contactdata['qq']}</a >
+        </notempty >
+
+        <notempty name="contactdata['qqgroup']" >
+            <a href="###" class="qqGroup"
+               onclick="huosdk_openqqgroup('{$contactdata['qqgroup']}','{$contactdata['qqgroupkey']}');" >客服QQ 群:{$contactdata['qqgroup']}</a >
+        </notempty >
+        <notempty name="contactdata['tel']" >
+            <img src="__PUBLIC__/mobile/images/phone1.jpg" />
+            <a href="###" onclick="huosdk_ringup({$contactdata['tel']});" >客服电话:{$contactdata.tel}</a >
+        </notempty >
+    </div >
+</div >
+<footer class="footer_info" >
+    <p class="kefu_time" >客服时间：{$contactdata.service_time}</p >
+    <p >Copyright © 2016 {:DOCDOMAIN}, 版权所有</p >
+    <p >版权所有：{:C('COMPANY_NAME')}</p >
+</footer >
+<div class="main_model_box" ></div >
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+</html>

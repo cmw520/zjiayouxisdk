@@ -1,0 +1,27 @@
+<div class="container module_TodayNews" >
+    <div class="row" style="padding-bottom:5px;border-bottom:1px solid #EEEEEE;margin-bottom:5px;" >
+        <div class="col-xs-9" style="font-size:18px;" >
+            今日头条
+        </div >
+        <div class="col-xs-3" style="text-align: right;" onclick="yxspa.funcs.goto('#/news');" >
+            更多 <img src="./static/img/asset/arrow-right.png" class="catelist_right_arrow" alt="icon" />
+        </div >
+    </div >
+    <div class="row" ng-click="showDetail(top.id)" style="padding-right:0;" >
+        <div class="col-xs-5" style="text-align: center;padding-right: 0;" >
+            <img ng-src="{{top.icon}}" alt="" style="width:100%;" />
+        </div >
+        <div class="col-xs-7" style="padding:0;" >
+            {{top.title}}
+        </div >
+    </div >
+    <div class="row module_TodayNews_item" ng-repeat="x in list" ng-click="showDetail(x.id)"
+         style="padding-left:0;padding-right:0;" >
+        <div class="col-xs-2" style="text-align: center;padding:0" >
+            <span class="label label-info" style="font-weight: normal;" >{{x.label}}</span >
+        </div >
+        <div class="col-xs-10" style="padding:0 0 0 0px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" >
+            {{x.title}}
+        </div >
+    </div >
+</div >

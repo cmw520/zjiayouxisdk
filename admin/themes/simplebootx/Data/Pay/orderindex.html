@@ -1,0 +1,214 @@
+﻿<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <form class="well form-search" method="get" action="{:U('Data/Pay/orderindex')}" >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+					<span class="mr20" >
+					订单号： 
+					<input type="text" name="orderid" style="width: 150px;" value="{$formget.orderid}"
+                           placeholder="请输入订单号..." >
+					&nbsp;&nbsp; &nbsp;&nbsp; 
+
+					游戏：
+					<select class="select_2" name="gid" id="selected_id" style="width: 200px;" >
+                        <foreach name="games" key="k" item="vo" >
+                            <php >$gid_select=$k==$formget['gid'] ?"selected":"";</php >
+                            <option value="{$k}" {$gid_select} >{$vo}</option >
+                        </foreach >
+                    </select >
+					 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+					 充值账号： 
+					<input type="text" name="username"
+                           style="width: 150px;" value="{$formget.username}"
+                           placeholder="请输入账号..." >
+						
+					<br ><br >
+					 父渠道：
+                                         {$parent_agent_select_with_official}
+                    <!--<input type="text" name="parent_agentname" style="width: 150px;" value="{$formget.parent_agentname}" placeholder="请输入父渠道账号...">-->
+					 &nbsp;&nbsp;  &nbsp;&nbsp;
+                    <!--					 注册渠道号：
+                                        <input type="text" name="agentname" style="width: 150px;" value="{$formget.agentname}" placeholder="请输入注册渠道账号..."> -->
+					
+					渠道名称 ：	
+                                        {$agent_select_with_official}
+                    <!--<input type="text" name="agentnickname" style="width: 150px;" value="{$formget.agentnickname}" placeholder="请输入渠道名称...">-->
+					</span >
+						
+					<span >
+                                            <br ><br >
+					充值方式：					
+					<select class="select_2" name="payway" style="width: 150px;" id="selected_id" >
+                        <option value="0" >全部</option >
+                        <php >$pw_select="-1"==$formget['payway'] ?"selected":"";</php >
+                        <option value="-1" {$pw_select} >第三方支付渠道</option >
+                        <php >$pw_select="-2"==$formget['payway'] ?"selected":"";</php >
+                        <option value="-2" {$pw_select} >非第三方支付渠道</option >
+                        <foreach name="payways" key="k" item="vo" >
+                            <php >$pw_select=$k===$formget['payway'] ?"selected":"";</php >
+                            <option value="{$k}" {$pw_select} >{$vo}</option >
+                        </foreach >
+                    </select >
+					
+					充值状态：	
+					<select class="select_2" name="paystatus" style="width: 150px;" id="selected_id" >
+                        <foreach name="paystatuss" key="k" item="vo" >
+                            <php >$ps_select=$k==$formget['paystatus'] ?"selected":"";</php >
+                            <option value="{$k}" {$ps_select} >{$vo}</option >
+                        </foreach >
+                    </select >
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					回调状态 
+					<select class="select_2" name="cpstatus" style="width: 200px;" id="selected_id" >
+                        <foreach name="cpstatuss" key="k" item="vo" >
+                            <php >$ps_select=$k==$formget['cpstatus'] ?"selected":"";</php >
+                            <option value="{$k}" {$ps_select} >{$vo}</option >
+                        </foreach >
+                    </select >
+					&nbsp;&nbsp;&nbsp;&nbsp; 
+					<br ><br >
+				时间：
+					<input type="text" name="start_time"
+                           class="js-date" value="{$formget.start_time|default=''}" placeholder="开始时间..."
+                           style="width: 100px;" autocomplete="off" >
+					- 
+					<input type="text" class="js-date" name="end_time" placeholder="时间..."
+                           value="{$formget.end_time}" style="width: 100px;"
+                           autocomplete="off" > &nbsp; &nbsp;
+					</span >
+
+                <input type="submit" name='submit' class="btn btn-warning" value="今日" />
+                <input type="submit" name='submit' class="btn btn-warning" value="昨日" />
+                &nbsp; &nbsp;
+                <input type="submit" name='submit' class="btn btn-warning" value="本周" />
+                <input type="submit" name='submit' class="btn btn-warning" value="上周" />
+                &nbsp; &nbsp;
+                <input type="submit" name='submit' class="btn btn-warning" value="本月" />
+                <input type="submit" name='submit' class="btn btn-warning" value="上月" />
+                &nbsp; &nbsp;
+                <input type="submit" name='submit' class="btn btn-primary" id='search_btn_default' value="搜索" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <?php echo \Huosdk\UI\Pieces::export_excel(); ?>
+                <!--<a href="{:U('Data/Pay/export')}" class="btn btn-success" style='float:right;'>导出数据为EXCEL文件</a>-->
+            </div >
+        </div >
+    </form >
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th >订单号</th >
+                <th >时间</th >
+                <th >账号</th >
+                <th >游戏</th >
+                <th >金额</th >
+
+                <th >实收金额</th >
+
+                <th >充值方式</th >
+
+                <th >父渠道</th >
+
+                <th >渠道名称</th >
+
+                <!--<th>回调状态</th>-->
+                <th >状态</th >
+                <th >操作</th >
+            </tr >
+            </thead >
+
+            <tr >
+                <th style='color:#FF0000' >汇总</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >{$sums}</th >
+                <th style='color:#FF0000' >{$realsum}</th >
+
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <!--<th style='color:#f00'>--</th>-->
+                <th style='color:#FF0000' >--</th >
+                <!--<th style='color:#f00'>--</th>-->
+            </tr >
+
+            <foreach name="orders" item="vo" >
+                <tr >
+                    <td >{$vo.order_id}</td >
+                    <td >{$vo.create_time|date='Y-m-d H:i:s',###}</td >
+                    <td >{$vo.username}</td >
+                    <td >{$vo.gamename}</td >
+                    <td >{$vo.amount}</td >
+                    <td >{$vo.real_amount}</td >
+
+                    <td >
+                        <if condition=" '0' eq $vo.payway OR '' eq $vo.payway " >
+                            该订单还未支付
+                            <else />
+                            {$payways[$vo['payway']]}
+                        </if >
+                    </td >
+                    <!--<td>{$vo['parent_agentname']}</td>-->
+                    <td >{$vo['parent_agentname']}</td >
+
+                    <!--                                    <td>
+                                                            <if condition=" 0 eq $vo['agent_id'] ">
+                                                                            <span style='color:#000'>default</span>
+                                                                <else />
+                                                                    <span style='color:#000'>{$vo['agentname']}</span>
+                                                            </if>
+                                                        </td>-->
+
+                    <td >
+                        <if condition=" 0 eq $vo['agent_id'] " >
+                            <span style='color:#000000' >官包</span >
+                            <else />
+                            <span style='color:#000000' >{$vo.agentnickname}</span >
+                        </if >
+                    </td >
+                    <!--                                    <td>
+                                                            <if condition=" 2 eq $vo['cpstatus'] ">
+                                                                            <span style='color:#f00'>回调成功</span>
+                                                                <elseif condition=" ( 2 eq $vo['status'] ) and ( 1 eq $vo['cpstatus'] OR 3 eq $vo['cpstatus'])  " />
+                                                                    <span style='color:#00f'>回调失败</span>
+                                                                <else/>
+                                                                    <span style='color:#000'>待支付</span>
+                                                            </if>
+                                                        </td>-->
+                    <td >
+                        <if condition=" 2 eq $vo.status " >
+                            <span style='color:#FF0000' >成功</span >
+                            <elseif condition=" 3 eq $vo.status" />
+                            <span style='color:#0000FF' >失败</span >
+                            <else />
+                            <span style='color:#000000' >待支付</span >
+                        </if >
+                    </td >
+                    <td >
+                        <if condition=" ( 2 eq $vo.status ) and ( 1 eq $vo['cpstatus'] OR 3 eq $vo['cpstatus']) " >
+                            <a href="{:U('Data/Pay/repairorder', array('orderid'=>$vo['order_id']))}"
+                               class="js-ajax-dialog-btn" data-msg="您确定要补单吗？" >补单</a >
+                    </td >
+                    </if>
+                    </td>
+                </tr >
+            </foreach >
+
+        </table >
+        <div class="pagination" >{$Page}</div >
+        <div >共{$total_rows}条记录</div >
+
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    $(".form-search select").change(function () {
+        $("#search_btn_default").click();
+    });
+</script >
+</body >
+</html>

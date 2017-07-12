@@ -1,0 +1,97 @@
+#notes {
+    padding: 30px 0px 0px 0px;
+}
+
+#notes form {
+    padding: 0px 20px;
+    overflow-y: scroll;
+}
+
+.agreement-mask {
+    position: fixed !important;
+}
+
+.agreement-mask {
+    position: absolute;
+    background: #000000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    display: none;
+}
+
+.agreement {
+    position: fixed;
+    width: 600px;
+    height: auto;
+    top: 150px;
+    left: 50%;
+    margin-left: -300px;
+    background: #FFFFFF;
+    z-index: 9999;
+    text-align: left;
+    font-family: '\5b8b\4f53';
+    display: none;
+}
+
+.agreement h3 {
+    background: #F7F7F7;
+    font-size: 14px;
+    height: 47px;
+    line-height: 47px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.agreement h3 .close {
+    font-size: 24px;
+    float: right;
+    padding-right: 15px;
+    color: #CCCCCC;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.agreement p.tips {
+    font-size: 12px;
+    height: 18px;
+    padding: 10px 0 10px 15px;
+    color: #999999;
+}
+
+.agreement form {
+    padding: 0 20px;
+}
+
+.agreement form div {
+    margin-bottom: 15px;
+}
+
+.agreement form .a p {
+    line-height: 30px;
+}
+
+.agreement form .bnt {
+    display: block;
+    border: none;
+    background: #E4393C;
+    height: 40px;
+    line-height: 40px;
+    width: 120px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: '\5b8b\4f53';
+    font-weight: bold;
+    margin: 0px auto;
+}
+
+.agreement form .b {
+    text-align: center;
+}
+
+.agreement form .c {
+}

@@ -1,0 +1,177 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .search-results .table-content table tr th {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+
+    .search-results .table-content table tr td {
+        vertical-align: middle;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+                <form id="queryForm" action="{:U('Agent/data/normalChargeRecord')}" method="get" >
+                    <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                    <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                    <div class="input-content" style="height:80px;" >
+                        <div class="search-game" >
+                            <span >游戏:</span >
+                            <input type="text" name="gamename" id="gamename" value="{$formget.gamename}" maxlength="25"
+                                   placeholder="请输入游戏名称" >
+                        </div >
+                        <div class="choose-channel" >
+                            <span >玩家：</span >
+                            <input type="text" name="memname" id="memname" value="{$formget.memname}" maxlength="20"
+                                   placeholder="" >
+                        </div >
+                        <div class="search-btn" style="margin-top:30px;" >搜 &nbsp;索</div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$num_of_records}</i >个记录</span >
+                    </div >
+                    <div class="table-content" >
+                        <table border="0" cellspacing="0" cellpadding="0" >
+                            <tbody >
+                            <tr >
+                                <th >订单号</th >
+                                <th width="120" >时间</th >
+                                <th >账号</th >
+                                <th >游戏</th >
+                                <th >金额</th >
+                                <th >状态</th >
+                                <th >充值方式</th >
+                                <th >注册渠道账号</th >
+                                <th >充值渠道名称</th >
+                                <th >回调状态</th >
+                                <!--<th>操作</th>-->
+                            </tr >
+                            <!--<th width="80">收入总额</th>-->
+
+                            <tr style="color:#00AAEE;" >
+                                <td >汇总</td >
+                                <td >--</td >
+                                <td >--</td >
+                                <td >--</td >
+                                <td >{$sum_value['sum_amount']}</td >
+
+                                <td >--</td >
+                                <td >--</td >
+                                <td >--</td >
+                                <td >--</td >
+                                <td >--</td >
+                            </tr >
+
+                            <foreach name="orders" item="vo" >
+                                <tr >
+                                    <td >{$vo.order_id}</td >
+                                    <td >{$vo.create_time|date='Y-m-d H:i:s',###}</td >
+                                    <td >{$vo.username}</td >
+                                    <td >{$vo.gamename}</td >
+                                    <td >{$vo.amount}</td >
+                                    <td >
+                                        <if condition=" 2 eq $vo.status " >
+                                            <span style='color:#FF0000' >成功</span >
+                                            <elseif condition=" 3 eq $vo.status" />
+                                            <span style='color:#0000FF' >失败</span >
+                                            <else />
+                                            <span style='color:#000000' >待支付</span >
+                                        </if >
+                                    </td >
+                                    <td >
+                                        <if condition=" '0' eq $vo.payway OR '' eq $vo.payway " >
+                                            该订单还未支付
+                                            <else />
+                                            {$payways[$vo['payway']]}
+                                        </if >
+                                    </td >
+
+                                    <td >
+                                        <if condition=" 0 eq $vo['agent_id'] " >
+                                            <span style='color:#000000' >default</span >
+                                            <else />
+                                            <span style='color:#000000' >{$vo['agentname']}</span >
+                                        </if >
+                                    </td >
+
+                                    <td >
+                                        <if condition=" 0 eq $vo['agent_id'] " >
+                                            <span style='color:#000000' >官包</span >
+                                            <else />
+                                            <span style='color:#000000' >{$vo.agentnickname}</span >
+                                        </if >
+                                    </td >
+                                    <td >
+                                        <if condition=" 2 eq $vo['cpstatus'] " >
+                                            <span style='color:#FF0000' >回调成功</span >
+                                            <elseif condition=" ( 2 eq $vo['status'] ) and ( 1 eq $vo['cpstatus'] OR 3 eq $vo['cpstatus'])  " />
+                                            <span style='color:#0000FF' >回调失败</span >
+                                            <else />
+                                            <span style='color:#000000' >待支付</span >
+                                        </if >
+                                    </td >
+                                    <!--                                                <td>
+                                                                                            <if condition=" ( 2 eq $vo.status ) and ( 1 eq $vo['cpstatus'] OR 3 eq $vo['cpstatus']) " >
+                                                                                                    <a href="{:U('Data/Pay/repairorder', array('orderid'=>$vo['order_id']))}"
+                                                                                                    class="js-ajax-dialog-btn" data-msg="您确定要补单吗？">补单</a></td>
+                                                                                            </if>
+                                                                                    </td>					-->
+                                </tr >
+                            </foreach >
+
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$Page}</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <!--    <section>
+                    <div class="user_center main">
+                        <div class="user_center_main page-content">
+
+                        </div>
+                    </div>
+                </section>-->
+
+            <script src="__PUBLIC__/agent/js/autoPage.js" ></script >
+            <script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+            <script src="__PUBLIC__/agent/js/mygames.js" ></script >
+            <script >
+                $(".search-btn").live("click", function () {
+//    console.log(111);
+//    var arr={"name":$("#gamequeryForm").val(),"channel":$("#agenttagForm").val(),"time1":$("#stime").val(),timer2:$("#etime").val()};
+//    sendData("{:U('Agent/money/getuserpayment_post')}",arr,function(data){
+////        yxalert("已发送搜索数据...");
+//yxalert(data.msg);
+//    });
+                    $("#queryForm").submit();
+                });
+            </script >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />

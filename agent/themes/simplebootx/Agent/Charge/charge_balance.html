@@ -1,0 +1,99 @@
+<div class="item-tab-con individual-top-up only-gou-bg" style="min-height:688px;*min-height: 770px;" >
+    <div class="search-results3" style="min-height:688px;*min-height: 770px;" >
+        <span id="display3" >
+            <div class="top-up-account" >
+                <div class="left" >账号充值：</div >
+                <div class="right" > {$user.user_login}</div >
+            </div >
+            <div class="top-up-amount" id="topAmount" >
+                <div class="left" >{:C('CURRENCY_NAME')}数量：</div >
+                <div class="right right-amout" >
+                    <ul >
+                        <li class="amount-entered li" >
+                            <input onkeyup="value = value.replace(/[^\d.]/g, ' ')" type="text" class="amount-input"
+                                   value="10" >
+                        </li >
+                        <li class="error-msg" style="display:none" >（充值金额最低￥10元）</li >
+                    </ul >
+                </div >
+            </div >
+            <div class="top-up-account pay-way" >
+                <div class="left" >支付方式：</div >
+                <div class="right" >在线支付</div >
+            </div >
+            <div class="top-up-amount top-up-way" >
+                <div class="left" >充值方式：</div >
+                <div class="right right-pay-way" >
+                    <ul >
+                        <li class="li alipay on account_charge_way" data-value="zfb" ><span ></span ></li >
+
+                        <!--                        <li class="li bank-pay account_charge_way" data-value="unionpay"><span></span></li>
+                                                <li class="li wxpay account_charge_way" data-value="alipay"><span>微信支付</span></li> -->
+                        <li class="li account_balance account_charge_way" data-value="account_balance" >
+                            <span >账户余额</span ></li >
+                    </ul >
+                </div >
+            </div >
+            <div class="top-up-amount back-content" style="display:none" >
+                <div class="right" >
+                    <ul >
+                        <li class="li-on" ><img src="__PUBLIC__/agent/img/agricultural-bank.png" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/merchants-bank.png" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/minsheng-bank.png" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/pudong-bank.png" alt="" ></li >
+                        <li style="margin-right: 0px;" ><img src="__PUBLIC__/agent/img/societe-bank.png" alt="" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/postal-savings.png" alt="" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/everbright-bank.png" alt="" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/communications-bank.png" alt="" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/development-bank.png" alt="" ></li >
+                        <li style="margin-right: 0px;" ><img src="__PUBLIC__/agent/img/china-bank.png" alt="" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/beijing-bank.png" alt="" ></li >
+                        <li ><img src="__PUBLIC__/agent/img/pingan-bank.png" alt="" ></li >
+                    </ul >
+                </div >
+            </div >
+
+            <div class="top-up-account pay-amount" >
+                <div class="left" >支付金额：</div >
+                <div class="right" ><span id="recharge-amount" class="amount" >10元</span ></div >
+                <div class="error-msg" ></div >
+            </div >
+            <div class="pay-btn" id="pay-btn1" >立即支付</div >
+        </span >
+        <div class="success-note" >
+            <p class="p-1" >支付成功！</p >
+            <p class="p-2" >正在处理中，稍后充值金额会加入您的账户余额中。</p >
+            <div class="btn" >
+                <div class="continue-prepaid" >继续充值</div >
+                <div class="view-personal-account" >查看个人账户</div >
+            </div >
+        </div >
+    </div >
+</div >
+<form id="payform" method="post" action="{:U('agent/ChargeBalance/charge')}" >
+    <input id="submit_amount" name="amount" type="hidden" >
+    <input id="submit_payway" name="payway" type="hidden" >
+</form >
+<script >
+    var payway = 'alipay';
+    $(".alipay").click(function () {
+        $(".account_charge_way").removeClass("on");
+        $(".alipay").addClass("on");
+        payway = 'alipay';
+    });
+    $(".wxpay").click(function () {
+        $(".account_charge_way").removeClass("on");
+        $(".wxpay").addClass("on");
+        payway = 'wxpay';
+    });
+    $(".bank-pay").click(function () {
+        $(".account_charge_way").removeClass("on");
+        $(".bank-pay").addClass("on");
+        payway = 'bank-pay';
+    });
+    $(".account_balance").click(function () {
+        $(".account_charge_way").removeClass("on");
+        $(".account_balance").addClass("on");
+        payway = 'ab';
+    });
+</script >

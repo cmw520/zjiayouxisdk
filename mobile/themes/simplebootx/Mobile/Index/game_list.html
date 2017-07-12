@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<head lang="en" >
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta charset="UTF-8" >
+    <title >游戏列表</title >
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/style.css" >
+    <style >
+        body {
+            background-color: #FFFFFF;
+        }
+    </style >
+</head >
+<body >
+<div class="Mango1" >
+    <div class="logo_1" ><a href="{:U('Mobile/Index/index')}" ><img src="__PUBLIC__/wap/images/1.png" ></a ></div >
+    <!--<div class="email_icon">-->
+    <!--<a href="#"><img src="__PUBLIC__/wap/images/3.png"></a>-->
+    <!--<p>12</p>-->
+    <!--</div>-->
+    <!--<div class="search_icon"><a href="#"><img src="__PUBLIC__/wap/images/2.png"></a></div>-->
+</div >
+<div class="Mango11" >
+    <div class="Mango12" >
+        <div >网络热榜</div >
+        <div onclick="location.href='#'" >
+            <img src="__PUBLIC__/wap/images/11.png" >
+        </div >
+    </div >
+    <ul class="Mango13" >
+        <li >游戏</li >
+        <li >热度值</li >
+    </ul >
+    <ul class="Mango14" >
+        <volist name='items' id='vo' key='k' >
+            <li class="Mango15" >
+                <div >{$k}</div >
+                <div onclick="javascript:window.location.href='{:U('Mobile/Index/game')}/{$vo.id}'" ><img
+                        src="/upload/{$vo.icon}" ></div >
+                <div onclick="javascript:window.location.href='{:U('Mobile/Index/game')}/{$vo.id}'" >
+                    {$vo.name}
+                    <p > 角色
+                         <!--| {$vo.size}M-->
+                    </p >
+                </div >
+                <div ><a href="{:U('Mobile/Front/DownloadApp')}/app_id/{$vo.id}" >下载</a ></div >
+                <div >
+                    <span >{$vo.download_count}</span >
+                    <!--<img src="__PUBLIC__/wap/images/13.png">-->
+                </div >
+            </li >
+        </volist >
+
+    </ul >
+</div >
+</body >
+<script src="__PUBLIC__/wap/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/wap/js/gamelist.js" ></script >
+</html >

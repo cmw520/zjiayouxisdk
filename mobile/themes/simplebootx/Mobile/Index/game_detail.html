@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" >
+    <meta name="format-detection" content="telephone=no" >
+    <title >游戏详情</title >
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1,minimal-ui" >
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/wap/css/gamezxs.css" >
+    <script src="__PUBLIC__/wap/js/iscroll.min.js" ></script >
+    <style type="text/css" >
+        .package_name {
+            display: block;
+            font-size: 12px;
+            color: #000000;
+            width: 195px;
+            overflow: hidden;
+            height: 14px
+        }
+
+        .gameicon {
+            border-radius: 7px;
+            width: 54px;
+            height: 54px;
+        }
+
+        .d-play {
+            line-height: 35px;
+            background-color: #FF9900;
+            border-radius: 3px;
+            margin: 10px auto 10px auto;
+            width: 70px;
+            text-align: center;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-size: 13px;
+            vertical-align: middle;
+            text-align: center;
+            display: block;
+        }
+
+        .tab {
+            padding: 0 10px;
+            margin: 10px 0;
+        }
+
+        .ui-btns > .ui-btn {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            display: block;
+            border-radius: 0;
+            margin-right: -1px;
+        }
+
+        .ui-btns {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+
+        }
+
+        .ui-btn {
+            vertical-align: top;
+            text-decoration: none;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            border-style: solid;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 12px;
+            padding: 0 12px;
+            line-height: 30px;
+            min-width: 44px;
+            height: 30px;
+            border-width: 1px;
+            color: #90929A;
+            border-color: #C2C3CB;
+            background: transparent;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        .ui-btns > .ui-btn:first-child {
+            border-radius: 3px 0 0 3px;
+        }
+
+        .ui-btns > .ui-btn:last-child {
+            border-radius: 0 3px 3px 0;
+        }
+
+        .container.game .tab .ui-btn {
+            font-size: 12px;
+            height: 1.875rem;
+            line-height: 1.875rem;
+        }
+
+        .ui-btn[data-ui~=active][data-ui~=active] {
+            color: #FFFFFF;
+            border-color: #ADAEB9;
+            background: #ADAEB9;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        .progress-bar {
+            height: 3px;
+            width: 120px;
+            border: 1px solid #EAEDED;
+            border-radius: 5px;
+        }
+
+        .g-progress {
+            display: inline-block;
+        }
+
+        .progress-bar .progress-active {
+            background-color: #FCA218;
+            height: 5px;
+            border-radius: 5px;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
+
+        .g-rest {
+            display: inline-block;
+            vertical-align: sub;
+            margin-left: 10px;
+            color: #FCA218;
+            font-size: 12px;
+        }
+
+        .play-btn {
+            border: 1px solid #F76F5C;
+            color: #F76F5C;
+            margin: 6px;
+            font-size: 10px;
+            border-radius: 2px;
+            padding: 3px;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+            display: inline-block;
+            width: 30px;
+        }
+
+        .r-game {
+
+            background-color: #FFFFFF;
+            padding: 3px;
+            border: 1px solid rgb(230, 230, 230);
+            border-radius: 4px;
+            width: 95%;
+            margin: 10px auto;
+        }
+
+        .kwd {
+            display: inline-block;
+            color: #272727;
+            background-color: #FFFFFF;
+            font-size: 1.1875em;
+            font-size: 1.1875em;
+            padding: .75em 1em;
+            border: 1px dashed #E60012;
+            -webkit-user-select: element;
+            margin: 2em;
+        }
+
+        .kwd span {
+            display: block;
+            border: 1px solid #FFFFFF;
+        }
+
+        .desc {
+            color: #999999;
+            width: 90%;
+            text-overflow: ellipsis;
+            height: 14px;
+            overflow: hidden;
+            font-size: 12px;
+            padding-top: 3px;
+
+        }
+
+        .alertBox {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 200;
+            display: none;
+        }
+
+        .alertBox .slider {
+            height: 100%;
+        }
+
+        .alertBox .slider > ul {
+            box-sizing: border-box;;
+            padding: 0px;
+            width: 300%;
+            height: 100%;
+            margin: 0px;
+        }
+
+        .alertBox .slider > ul > li {
+            height: 100%;
+            float: left;
+        }
+
+        .alertBox .slider > ul > li > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 20px 0px;
+        }
+
+        .alertBox .slider > ul > li > a > img {
+            width: 100%;
+            height: 100%;
+        }
+    </style >
+    <script src="__PUBLIC__/wap/js/jquery-1.8.3.min.js" ></script >
+    <script src="__PUBLIC__/wap/js/banner.js" ></script >
+</head >
+<body style="margin: 0px auto; max-width: 640px;padding-bottom:40px;" >
+
+<div class="fix_nav" id="fix_nav"
+     style="left: 0px; color: rgb(255, 255, 255); height: 35px; width: 100%; position: fixed; top: 0%; font-size: 12px; z-index: 100; max-width: 640px; right: 0px; margin: auto; background-color: rgb(230, 43, 19);" >
+    <table border="0" width="100%" bgcolor="#e62b13" height="35" >
+        <tbody >
+        <tr >
+            <td width="25%" align="left" ><img src="__PUBLIC__/wap/images/icon_return.png" width="20" onclick="gohome()"
+                                               valign="middle" ></td >
+            <td width="50%" align="center" style="font-size:14px;color:#FFFFFF" id="gametitle" >{$gamedata.name}</td >
+            <td width="24%" align="right" style="font-size:12px;color:#FFFFFF;" >
+                <div id="downloadmain" style="" >
+                </div >
+            </td >
+            <td width="1%" ></td >
+        </tr >
+        </tbody >
+    </table >
+
+</div >
+<div style="height:35px" id="fix_nav_over" ></div >
+</div>
+<div class="r-game" onclick="gotoGame()" >
+    <table border="0" cellspacing="2" cellpadding="2" width="100%" >
+        <tbody >
+        <tr >
+            <td width="20%" ><img src="{$gamedata.icon}" style="border-radius:7px;width:64px;height:64px;"
+                                  id="gameicon" ></td >
+            <td width="75%" >
+                <span style="font-size:16px" id="gamename" >{$gamedata.name}
+                <if condition="$gamedata['rebate_rate'] neq 0" >
+                    <span class="ilabel"
+                          style="color: red;margin-left:5px; border: 1px solid red;font-size:10px;padding:3px 2px;margin-bottom:3px;display:inline-block;" >返利{$gamedata['rebate_rate']*100}%
+                    </span >
+                </if >
+				<div class='tag' >
+                    <foreach name="gamedata['tag']" item="v" key='k' >
+						<span class="ilabel"
+                              style="color: #FF9900;margin-left:5px; border: 1px solid #FF9900;font-size:10px;padding:3px 2px;margin-bottom:3px;display:inline-block;" >{$v}
+						</span >
+                    </foreach >
+                </div >
+				<if condition="$gifttypedata[$vo['id']] neq ''" >
+                    <span class="ilabel"
+                          style="color: #88D3FE; border: 1px solid #88D3FE" >礼包x{$gifttypedata[$vo['id']]}</span >
+                </if >
+				<br >
+				</span >
+                <!-- <span id="gamecount" style="font-size:12px;color:#999999;display:inline-block;">{$gamedata.gametype}</span><br> -->
+                <span id="gamecomment"
+                      style="font-size:12px;color:#999999;display:inline-block;" >{$gamedata.publicity}</span >
+            </td >
+            <td width="5%" align="right"
+                onclick="window.location.href='{:U('Pay/charge',array('id'=>$gamedata['id']))}'" ><a class="d-play"
+                                                                                                     style="border:none" >充值</a >
+            </td >
+        </tr >
+        </tbody >
+    </table >
+</div >
+
+<div id="gameDesc" style="" >
+    <table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tbody >
+        <tr >
+            <td >
+                <div style="font-size:14px;margin:10px" >游戏介绍</div >
+            </td >
+        </tr >
+        <tr >
+            <td >
+                <div id="gameDescContent" >
+                    <div style="width:95%;margin:0 auto" >
+                        <div style="font-size:12px;margin:5px;line-height:150%;color:#999999" >
+                            {$gamedata.description}
+                        </div >
+                    </div >
+                </div >
+            </td >
+        </tr >
+        </tbody >
+    </table >
+</div >
+<!--     <div style="height:10px"></div>
+<div> -->
+
+<div id="gameGift" style="" >
+    <div id="screenShots" style="width: 95%; margin: 0px auto;" >
+
+    </div >
+    <table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tbody >
+        <tr >
+            <td >
+                <div style="font-size:14px;margin:10px" >游戏礼包</div >
+            </td >
+        </tr >
+        <volist name="giftdata" id="vo" >
+            <tr >
+                <td >
+                    <div id="packageInfo" style="width:95%;margin:0 auto" >
+                        <table border="0" cellspacing="2" cellpadding="2" width="100%" align="center" >
+                            <tbody >
+                            <tr >
+                                <td width="75%" >
+                                    <table border="0" cellspacing="0" cellpadding="0" width="100%" align="center" >
+                                        <tbody >
+                                        <tr >
+                                            <td ><span class="package_name" >{$vo.name}：{$vo.title}<font
+                                                    color="#eeeeee" ></font ></span ></td >
+                                        </tr >
+                                        <tr >
+                                            <td >
+                                                <div class="desc" >{$vo.content}</div >
+                                            </td >
+                                        </tr >
+                                        <tr >
+                                            <td height="30" >
+                                                <div class="progress-bar g-progress" >
+                                                    <div class="progress-active"
+                                                         style="width: {$vo['remain']*100/$vo['total']|number_format=2}%;" ></div >
+                                                </div >
+                                                <span class="g-rest" >剩余{$vo['remain']*100/$vo['total']|number_format=2}%</span >
+                                            </td >
+                                        </tr >
+                                        </tbody >
+                                    </table >
+                                </td >
+                                <td width="15%" align="right" ><a class="play-btn"
+                                                                  onclick="showCode({$vo['id']})" >领号</a >
+                                </td >
+                            </tr >
+                            </tbody >
+                        </table >
+                        <table border="0" cellspacing="0" cellpadding="0" width="95%" align="center" >
+                            <tbody >
+                            <tr >
+                                <td bgcolor="#ffffff" height="5" ></td >
+                            </tr >
+                            </tbody >
+                        </table >
+                    </div >
+                </td >
+            </tr >
+        </volist >
+        </tbody >
+    </table >
+</div >
+
+<div style="height:10px" ></div >
+<input id="website" type="hidden" value="{:U('Index/pcajax')}" >
+<div >
+    <div id="iScrollDemo" style="width: 100%; height: 200px; overflow-x: scroll;overflow-y:hidden;" >
+        <div class="content"
+             style="position: relative; transition-property: -webkit-transform; transform-origin: 0px 0px 0px; transform: translate3d(0px, 0px, 0px);" >
+            <volist name="gameShots" id="vo" >
+                <div class="box" style="float: left; width: 120px; margin-right: 5px;" ><img src="{$vo}" width="120"
+                                                                                             height='200' ></div >
+            </volist >
+        </div >
+    </div >
+</div >
+<div class="downGame" onclick="downGame()" ><a href="{$gamedata.androidurl}" >下载游戏</a ></div >
+<div id="fix_footer"
+     style="border-top: 1px solid rgb(221, 221, 221); left: 0px; line-height: 80%; color: rgb(255, 255, 255); height: 50px; width: 100%; position: fixed; bottom: 0%; max-width: 640px; right: 0px; margin: auto; background-color: rgb(248, 248, 248);" >
+    <table width="100%" height="100%" border="0" >
+        <tbody >
+        <tr >
+            <td width="33%" onclick="window.location.href='{:U('Index/index')}'"
+                align="center" ><img src="__PUBLIC__/wap/images/nav_14_on.png"
+                                     height="24" style="margin-bottom: 1px;" ><br > <span
+                    id="menu_1_label" style="font-size: 10.5px; color: red" >游戏</span ></td >
+            <td width="33%" onclick="window.location.href='{:U('Index/qlb')}'"
+                align="center" ><img src="__PUBLIC__/wap/images/nav_17_off.png"
+                                     height="24" style="margin-bottom: 1px;" ><br > <span
+                    id="menu_3_label" style="font-size: 10.5px; color: #929292" >礼包</span >
+            </td >
+            <td width="33%" onclick="window.location.href='{:U('Account/userinfo')}'"
+                align="center" ><img src="__PUBLIC__/wap/images/nav_11_off.png"
+                                     height="24" style="margin-bottom: 1px;" ><br > <span
+                    id="menu_3_label" style="font-size: 10.5px; color: #929292" >我</span >
+            </td >
+        </tr >
+        </tbody >
+    </table >
+    <div id="footer_badge_message"
+         style="position: absolute; left: 83%; top:3px; background: #FF0000; border-radius: 8px; color: #FFFFFF; padding: 2px 5px; font-family: SimHei; font-size: 12px; display: none;" ></div >
+</div >
+<div style="display:none" ></div >
+<div class="alertBox" >
+    <div class="slider" >
+        <ul >
+            <volist name="gameShots" id="vo" >
+                <li >
+                    <a href="#" >
+                        <img src="{$vo}" >
+                    </a >
+                </li >
+            </volist >
+        </ul >
+    </div >
+</div >
+</div>
+</body >
+<style >
+    .downGame {
+        line-height: 35px;
+        background-color: #FF9900;
+        border-radius: 3px;
+        margin: 10px;
+        margin-bottom: 40px;
+        width: calc(100% - 20px);
+        text-align: center;
+        cursor: pointer;
+
+        vertical-align: middle;
+        display: block;
+    }
+
+    .downGame > a {
+        font-size: 15px;
+        color: #FFFFFF;
+        text-align: center;
+        text-decoration: none;
+    }
+</style >
+
+<script >
+    function downGame() {
+        window.location.href = "{$gamedata.androidurl}";
+    }
+    function gohome() {
+        window.history.back();
+    }
+    function closeBox() {
+        $(".getBox").fadeOut();
+        window.location.reload();
+    }
+    function showCode(infoid) {
+        var web    = $('#website').val();
+        var giftid = infoid;
+        $.ajax({
+            type   : 'POST',
+            url    : web,
+            data   : {giftid: giftid},
+            error  : function (d, t) {
+                alert('网络错误');
+            },
+            success: function (data) {
+                var resJson = $.parseJSON($.trim(data));
+                var code    = resJson.a;
+                if (code.length > 2) {
+                    $("#activeCode").html(code);
+                    $(".getBox").fadeIn();
+
+                } else if (code == 2) {
+                    alert('请先登录');
+                    window.location.href = "{:U('Account/login')}";
+                } else if (code == 3) {
+                    alert('亲，该礼包已被领取完了');
+                } else if (code == 1) {
+                    alert('该礼包您已领取');
+                }
+            }
+        });
+
+    }
+    function setBannner() {
+        var proportion = parseInt($(".box>img").eq(0).css("width")) / parseInt($(".box>img").eq(0).css("height"));
+        $(".alertBox .slider li").each(function () {
+            // var parentPadding=10;
+            var parentPadding = 0;
+            var Height        = Math.floor(parseInt($("html").css("width")) / proportion);
+            var WindowHeight  = parseInt(window.innerHeight);
+            if (Height > WindowHeight) {
+                var margin = (parseInt($("html").css("width")) - Math.floor(parseInt(WindowHeight * proportion))) / 2;
+                $(this).css("width", parseInt($("html").css("width")) + "px");
+                $(this).css("height", WindowHeight + "px");
+                $(this).find("a").css({
+                    "width"      : Math.floor(WindowHeight * proportion) + "px",
+                    'height'     : WindowHeight + 'px',
+                    "margin-left": margin + "px",
+                    'margin-top' : "0px",
+                });
+            } else {
+                var margin = (WindowHeight - Height) / 2;
+                $(this).css("width", parseInt($("html").css("width")) + "px");
+                $(this).find("a").css({
+                    "width"      : Height * proportion - (parentPadding * 2) + "px",
+                    'height'     : Height + 'px',
+                    "margin-left": parentPadding + "px",
+                    'margin-top' : margin + "px",
+                });
+            }
+
+        });
+    }
+
+    $(".alertBox").click(function () {
+        $(this).fadeOut();
+    });
+    window.addEventListener("load", function () {
+        $("#iScrollDemo .content").css("width", (parseInt($("#iScrollDemo .content").find(".box").css("width")) + 5) * $("#iScrollDemo .content").find(".box").length + "px");
+
+        $("#iScrollDemo").click(function () {
+            setBannner();
+            $(".alertBox .slider").yxMobileSlider({
+                width : parseInt($("body").css("width")),
+                height: "100%",
+                during: 20000
+            });
+            $(".alertBox").fadeIn();
+            $(".alertBox .slider ul").css("width", (parseInt($(".alertBox .slider ul").find("li").css("width"))) * $(".alertBox .slider ul").find("li").length + "px");
+        });
+
+    });
+</script >
+</html >

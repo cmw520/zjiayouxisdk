@@ -1,0 +1,161 @@
+<mobiletpl file="header" />
+
+<section >
+
+    <form id="login_form" class="form-signin" method="post" action="" onsubmit="return false;" >
+        <!--<h2 class="form-signin-heading"></h2>-->
+        <div class='container' >
+            <div class='row' >
+                <div class='icon' style='text-align:center;' >
+                    <notempty name="minfo.portrait" >
+                        <img src="/upload/{$minfo.portrait}" width="100" height="100" />
+                    </notempty >
+                    <empty name="minfo.portrait" >
+                        <span style='font-size:20px;line-height:20px;margin-top:40px;float:left;color:#BBBBBB;margin-left:8px;' >添加头像</span >
+                    </empty >
+                </div >
+            </div >
+            <!--            <div class='row'>
+                            <div class='col-xs-2'>头像</div>
+                            <div class='col-xs-10'>
+                                <div class='icon'></div>
+                            </div>
+                        </div>-->
+            <div class='row' >
+                <div class='col-xs-2' >昵称</div >
+                <div class='col-xs-10' >
+                    <input type='text' name='nickname' value="{$minfo.nickname}" class="form-control" required
+                           autofocus />
+                </div >
+            </div >
+            <div class='row' >
+                <div class='col-xs-2' >Email</div >
+                <div class='col-xs-10' >
+                    <input type='text' name='email' value="{$minfo.email}" class="form-control" required autofocus />
+                </div >
+            </div >
+            <!--            <div class='row'>
+                            <div class='col-xs-2'>手机</div>
+                            <div class='col-xs-10'>
+                                <input type='text' name='phone' class="form-control"  required autofocus />
+                            </div>
+                        </div>-->
+        </div >
+        <div id="notice" class="alert alert-info" role="alert" ></div >
+        <button id="submit" class="btn btn-lg btn-primary btn-block" >保存</button >
+
+    </form >
+    <form id="change_icon_form" style="display:none;" action="{:U('Mobile/Account/ChangeIcon_post')}" method="post"
+          enctype="multipart/form-data" >
+        <input type="file" name="icon" id="icon_hidden_input" />
+    </form >
+</section >
+<style >
+
+</style >
+<script >
+    $("#submit").click(doit);
+    function doit() {
+        var nickname = $("input[name='nickname']").val();
+        var email    = $("input[name='email']").val();
+        $.post("{:U('Mobile/Account/modifyInfo_post')}", {"nickname": nickname, "email": email}, function (data) {
+            if (data.error === '0') {
+                notice(data.msg, "green");
+                location.reload();
+            } else if (data.error === '1') {
+                notice(data.msg, "red");
+            }
+        });
+    }
+
+    function notice(msg, color) {
+        $("#notice").show();
+        $("#notice").text(msg);
+        $("#notice").css("color", color);
+    }
+
+    $(".icon").click(function () {
+        $("#icon_hidden_input").click();
+
+        $("#icon_hidden_input").change(function () {
+            $("#change_icon_form").submit();
+        });
+
+    });
+</script >
+<style >
+    .form-signin {
+        /*max-width: 330px;*/
+        padding: 15px;
+        margin: 0 auto;
+        /*margin-top:50px;*/
+    }
+
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        box-shadow: none;
+    }
+
+    .form-signin .form-control:focus {
+        z-index: 2;
+    }
+
+    .form-signin input[type="text"] {
+        margin-bottom: 10px;
+        /*border:1px solid #ccc;*/
+    }
+
+    #notice {
+        display: none;
+
+        /*    width:96%;
+            margin:5px 2%;
+            height:20px;
+            float:left;
+            font-size:12px;*/
+    }
+
+    .container {
+        /*margin:0 15px;*/
+    }
+
+    .row {
+        padding: 5px;
+        margin: 10px 0 10px 0;
+        border: 1px solid #EEEEEE;
+    }
+
+    .col-xs-2 {
+        padding: 10px 0 0 0;
+    }
+
+    .col-xs-10 {
+        padding: 0;
+    }
+
+    .icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        border: 1px solid #CCCCCC;
+        border-radius: 5px;
+    }
+</style >
+
+<mobiletpl file="footer" />

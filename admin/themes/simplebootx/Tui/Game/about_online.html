@@ -1,0 +1,52 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Tui/Game/hot')}" target="_self" >最热游戏</a ></li >
+        <li class="active" ><a href="{:U('Tui/Game/about_online')}" target="_self" >即将上线</a ></li >
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        添加即将上线： 
+                        <select class="select_2" name="gameid" id="selected_id" >
+                            <volist name="games" id="vo" >
+                                <option value="{$vo.id}" > {$vo.name}</option >
+                            </volist >
+                        </select >
+                        <input type="submit" class="btn btn-primary" value="添加" />
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <!--<th width="20">ID</th>-->
+                <th width="50" >游戏名称</th >
+                <th width="50" >游戏图标</th >
+                <th width="60" >操作</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <!--<td>{$vo.id}</td>-->
+                    <td >{$vo.name}</td >
+                    <td ><img src="__UPLOAD__/{$vo.icon}" width="50" /></td >
+                    <td >
+                        <a href="{:U('Tui/Game/about_online_delete',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn"
+                           data-msg="确定要删除吗？" >删除</a >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

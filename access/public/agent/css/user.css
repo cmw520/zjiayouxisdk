@@ -1,0 +1,114 @@
+.my-game .input-content div.status div{height: 30px;padding-left: 6px;line-height: 30px;color:#333333;width: 112px;border: 1px solid #e4e4e4;background:url(http://pic.7881.com/51508-2015/images/input-arrow-down.png);background-repeat: no-repeat;background-position:100px center;cursor:pointer;background-color: #FFFFFF;}
+.my-game .input-content div.status div.up{height: 30px;padding-left: 6px;line-height: 30px;color:#333333;width: 73px;border: 1px solid #e4e4e4;background:url(http://pic.7881.com/51508-2015/images/input-arrow-up.png);background-repeat: no-repeat;background-position:62px center;cursor:pointer;background-color: #FFFFFF;}
+.search-btn{margin-top: -6px;width: 80px;height: 32px;text-align:center;line-height: 30px;*line-height: 32px;color:#FFFFFF!important;background: #008be3;cursor: pointer;font-weight: bold;margin-left: 38px;}
+.search-results .table-content table tr td .forced-updating{;cursor: pointer;padding: 4px;background: url(http://pic.7881.com/51508-2015/css/images/forced-updating.jpg);background-repeat: no-repeat;padding: 4px 6px;color: #008be3;margin-left: 10px;}
+.screenshots .bd a.prev{width: 60px;height: 400px;position: absolute;top:0px;left:0px;background: url(http://pic.7881.com/51508-2015/css/images/pop-left.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+.screenshots .bd a.next{width: 60px;height: 400px;position: absolute;top:0px;right:0px;background: url(http://pic.7881.com/51508-2015/css/images/pop-right.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+.screenshots .bd a.nextStop{background: url(http://pic.7881.com/51508-2015/css/images/pop-gray-right.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+.screenshots .bd a.prevStop{background: url(http://pic.7881.com/51508-2015/css/images/pop-gray-left.png);background-position: center;background-color: #f4f4f4;background-repeat: no-repeat;}
+/*.search-way input,.query-records input{height: 30px;padding-left: 6px;line-height: 30px;width: 200px;border: 1px solid #e4e4e4;border-left: none;}*/
+
+
+
+
+.security-center .search-results .login-pwd{margin-top:30px;}
+.security-center .search-results .login-pwd span{float:left;margin-top: 26px;}
+.security-center .search-results .login-pwd span.icon{width:110px;height: 32px;background: url(http://pic.7881.com/51508-2015/css/images/security-center.png);background-repeat: no-repeat;background-position: left center;text-align: right;line-height: 32px;font-size: 15px;font-weight: bold;}
+.security-center .search-results .login-pwd span.remind{height: 32px;line-height: 32px;color: #666666;}
+.security-center .search-results .login-pwd span.immediately{background: url(http://pic.7881.com/51508-2015/css/images/immediately.png);background-repeat: no-repeat;background-position: center;width: 32px;height: 32px;float: right;margin-right: 12px;}
+.security-center .search-results .safety-tips{width: 666px;height: 130px;border:1px solid #fff3eb;background: #fffdfc;margin: 130px auto 0 auto;}
+
+.individual-account .input-content .balance-withdrawal ul li.first-li{background: url(http://pic.7881.com/51508-2015/css/images/balance-withdrawal.png);background-repeat: no-repeat;background-position:center;background-color: #008be3;}
+.individual-account .input-content .cash-voucher ul li.first-li{background: url(http://pic.7881.com/51508-2015/css/images/cash-voucher.png);background-repeat: no-repeat;background-position:center;background-color: #00a5d7;}
+#balance-withdrawal-pop{width: 460px;height: 288px;background: #FFFFFF;position: absolute;display: none;z-index: 99999;}
+#balance-withdrawal-pop .to-aliPay{margin-top: 40px;background: url(http://pic.7881.com/51508-2015/css/images/to-aliPay.png);background-repeat:no-repeat;background-color: #00A0E9;}
+#balance-withdrawal-pop .to-bank-card{background: url(http://pic.7881.com/51508-2015/css/images/to-bank-card.png);background-repeat:no-repeat;background-color: #008be3;}
+.individual-top-up .top-up-amount{margin-left:148px;margin-top: 30px;*width: 726px;}
+.individual-top-up .top-up-amount .right ul li.on{line-height: 38px;height: 38px;border:2px solid #77be4c;margin-right:8px;background: url(http://pic.7881.com/51508-2015/css/images/checked.png);background-repeat: no-repeat;background-position: right bottom;}
+.individual-top-up  .top-up-way .right ul li.alipay span{float:left;width: 75px;height: 24px;background: url(http://pic.7881.com/51508-2015/css/images/alipay.png);background-repeat: no-repeat;background-position: center;margin: 7px 23px;}
+.individual-top-up  .top-up-way .right ul li.wx-pay span{float:left;width:88px;height: 24px;background: url(http://pic.7881.com/51508-2015/css/images/wx-pay.png);background-repeat: no-repeat;background-position: center;margin: 7px 15px;}
+.individual-top-up  .top-up-way .right ul li.bank-pay span{float:left;width: 83px;height: 23px;background: url(http://pic.7881.com/51508-2015/css/images/bank-pay.png);background-repeat: no-repeat;background-position: center;margin: 9px 19px;}
+.withdrawal-application .application-information div.withdrawal-amount  div,.withdrawal-application .application-information div.withdrawal-pwd div{display: none;color:#008be3;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-repeat: no-repeat;background-position: left center;padding-left: 16px;height:10px;line-height: 10px;*height:12px;*line-height: 12px;margin-left: 130px;margin-top: 40px;}
+.voucher-details .account-overview ul li.vouchers-account{height: 100px;margin-top:-1px;width: 250px;background:url(http://pic.7881.com/51508-2015/css/images/vouchers-account.png);background-repeat: no-repeat;background-position:center;background-color: #00a5d7;}
+.apply-for-game .table-content table tr td{height: 100px;line-height: 16px;}
+.personal-information-management .input-content ul{margin-left: 44px;}
+.personal-information-management .basic-information ul li{width: 326px;height: 30px;margin: 0 auto;margin-bottom: 30px;font-size: 13px;}
+.personal-information-management .basic-information ul li span{float:left;text-align: right;height: 30px;;line-height: 30px;color: #666666;width: 66px;margin-right: 10px;}
+.personal-information-management .settlement-information .menu ul li{float:left;height: 38px;*line-height: 38px;line-height: 36px;text-align: center;width: 250px;color: #AAAAAA;font-size: 14px;cursor: pointer;}
+.personal-information-management .settlement-information  .menu-content div input{height: 30px;border: 1px solid #e4e4e4;padding-left: 6px;}
+.personal-information-management .settlement-information  .menu-content div.fill-phoone-code .get-code{float:left;height: 30px;border: 1px solid #e4e4e4;text-align: center;line-height: 30px;background: #f8f8f8;float:left;margin-left:0;width: 103px;cursor: pointer;margin-right: 10px;}
+.two-btn{background: #00a0e9!important;}
+.no-information{height: 694px!important;background: url(http://pic.7881.com/51508-2015/css/images/no-phone.png);background-position:center 208px;background-repeat: no-repeat;}
+
+.fc—modify-pwd  .content-3 {background: url(http://pic.7881.com/51508-2015/css/images/modify-success.png);background-position:center 224px!important;background-repeat: no-repeat;height: 600px;}
+.modify-pay-pwd .modify-pwd-content .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/css/images/modify-pwd-title01.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyPayPwd .modify-pwd-content .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title001.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyBindPhone .modify-pwd-content .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title0001.jpg);background-position:center;background-repeat: no-repeat;}
+.modify-pay-pwd .modify-pwd-content .binding-mobile .error-note{color:#008be3;margin-left: 132px;margin-top: 6px;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-position: left center;background-repeat: no-repeat;padding-left: 16px;display: none;margin-bottom: -10px;}
+
+.modify-pay-pwd .modify-pwd-content .fill-mobile-code .error-note{color:#008be3;margin-left: 132px;margin-top: 10px;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-position: left center;background-repeat: no-repeat;padding-left: 16px;display: none;}
+
+.modify-pay-pwd .modify-pwd-content .img-code .error-note{color:#008be3;margin-left: 132px;margin-top: 10px;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-position: left center;background-repeat: no-repeat;padding-left: 16px;display: none;}
+.modify-pay-pwd .modify-pwd-content .img-code i{height:30px;line-height: 30px;margin-left: 10px;color:#AAAAAA;}
+
+.modify-pay-pwd .content-2 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/css/images/modify-pwd-title02.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyPayPwd .content-2 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title002.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyBindPhone .content-2 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title0002.jpg);background-position:center;background-repeat: no-repeat;}
+.modify-pay-pwd .content-2 .img-code .error-note{margin-left: 147px;}
+.modify-pay-pwd .content-3 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/css/images/modify-pwd-title03.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyPayPwd  .content-3 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title003.jpg);background-position:center;background-repeat: no-repeat;}
+.modifyBindPhone .content-3 .title{width: 672px;height: 28px;margin: 40px auto 60px auto;background: url(http://pic.7881.com/51508-2015/images/modify-pwd-title003.jpg);background-position:center;background-repeat: no-repeat;}
+.modify-pay-pwd .content-3 {background: url(http://pic.7881.com/51508-2015/images/modify-success.png);background-position:center 126px;background-repeat: no-repeat;height: 660px;}
+
+.game-user-up{height:760px!important;background-color:#FFFFFF;background: url(http://pic.7881.com/51508-2015/css/images/modify-success.png);background-position: 424px 250px;background-repeat: no-repeat;background-color:#FFFFFF}
+.game-user-up div.use-type ul li.on{height: 28px;border: 2px solid #77BE4C;line-height: 28px;background: url(http://pic.7881.com/51508-2015/css/images/checked.png);background-position: right 8px;background-repeat: no-repeat;}
+#pop-content table tr th{border-top:1px solid #008be3;border-bottom:2px solid #008be3;background: #a0e4ff;}
+#pop-content table tr td{text-align: center;height: 40px;padding: 0;}
+
+.psBtnFixed{position: fixed;bottom: 0px;width: 998px;height: 98px;background: #fbfcfe;border-top: 1px solid #e4e4e4;}
+.fixed div.select-package{float: right;height: 32px;width: 100px;color:#FFFFFF;background: #008be3;text-align: center;line-height: 32px;cursor: pointer;margin-top: 33px;}
+
+.coContent ul li{height: 68px;border-bottom: 1px solid #f5f5f5;width: 500px;line-height: 68px;color:#333333;font-size:16px;}
+.coContent ul li .left{float: left;height: 68px;width: 92px;text-align: right;margin-left: 62px;margin-right: 40px;}
+
+.orderSuccessContent .osc-1{border-bottom: 1px solid #f5f5f5;width: 100%;height: 400px;background: url(http://pic.7881.com/51508-2015/css/images/modify-success.png);background-repeat: no-repeat;background-position: center 234px;}
+    /*width: 98px;*/
+ 
+    /*height: 28px;*/
+    text-align: center;line-height: 28px;font-family: '宋体';color:#333333}
+.mygameCenter .editname .editContent .editcontentC .querenBtn:hover{background: #008be3;color: #FFFFFF;border: 1px solid #008be3;}*/
+.ewm-tips { width: 938px; text-align: center; border: #5bacff 1px solid; margin: 20px auto; background: #f7faff; padding: 20px 0; color: #333333;}
+
+.mygameCenter .sqabnormal .editcontentC{background: url(http://pic.7881.com/51508-2015/css/images/no-phone.png);background-position:center 54px;background-repeat: no-repeat;}
+
+
+.page-right{width:998px;border:#FFF 1px solid;border-shadow:0px 0px 4px #ccc;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.com-tips { display: inline-block;*display: inline;*zoom:1; vertical-align: middle; margin-top: -3px; padding-left: 8px; width: 13px; height: 13px; background: url(http://pic.7881.com/51508-2015/css/images/tips-icon.png) 8px 0 no-repeat;}
+.com-tips-box.layui-layer-tips i.layui-layer-TipsB,.com-tips-box.layui-layer-tips i.layui-layer-TipsT { border: none; width:13px; height: 7px;top: -7px;left:7px;background: url(http://pic.7881.com/51508-2015/css/images/tips-jt.png) no-repeat;}
+
+.app-tab-top ul li p { color: #00a5d7;}
+.app-tab-top ul li em { display: none; width: 15px; height: 7px; position: absolute; left: 103px; bottom: -7px;; background: url(http://pic.7881.com/51508-2015/css/images/app-tab-jt.png) no-repeat;;}
+
+.down-zj { width: 222px; height: 32px; line-height: 32px; margin: 0 auto; margin-top: 40px; border: #efefef 1px solid; border-radius: 2px; text-align: center;}
+
+#select-game-pop #pop-content #content-header div.select-all-game{height: 32px;float: right;line-height: 32px;text-align: center;color:#FFFFFF;background: url(http://pic.7881.com/51508-2015/css/images/select-all-game.png);background-color: #1ec2ff;margin-top: 7px;font-weight: bold;padding-left: 30px;padding-right: 10px;font-size: 13px;cursor: pointer;}
+
+
+

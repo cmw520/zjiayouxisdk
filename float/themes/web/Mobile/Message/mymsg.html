@@ -1,0 +1,36 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/mymsg.css" />
+
+<div class="msg_box" >
+    <ul class="box" >
+        <volist name="mymsg" id="vo" >
+            <li class="item" >
+                <div class="left" ><img src="{$vo.icon}" alt="{$vo.name}" /></div >
+                <div class="right" >
+                    <h3 >{$vo.user_nicename}</h3 >
+                    <p ><a target='_top' href="{:U('Mobile/News/detail',array('id',$vo.id))}" >{$vo.post_title}</a >
+                    </p >
+                    <span >{$vo.post_date|date="Y-m-d H:i:s", ###}</span >
+                </div >
+            </li >
+        </volist >
+    </ul >
+</div >
+<div class="loading_more" >
+    <ul class="loadBtn loadBtn2" >
+        <li class="line" ><b ></b ></li >
+        <li class="text" >加载更多</li >
+        <li class="line" ><b ></b ></li >
+    </ul >
+    <div class="btn_top" >
+        <img src="__PUBLIC__/mobile/images/btn_top.png" alt="" />
+    </div >
+</div >
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+<div class="main_model_box" ></div >
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/mymsg.js" ></script >
+</html>

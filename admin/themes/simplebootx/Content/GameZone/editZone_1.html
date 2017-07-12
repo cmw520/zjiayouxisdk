@@ -1,0 +1,58 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Mobile/game')}" >游戏信息管理</a ></li >
+        <li class="active" ><a href="#" >编辑专区信息</a ></li >
+    </ul >
+    <form method="post" class="form-horizontal js-ajax-form" action="{:U('Mobile/editZone_post')}"
+          enctype="multipart/form-data" >
+        <fieldset >
+            <div class="control-group" >
+                <label class="control-label" >游戏:</label >
+                <div class="controls" >
+                    {$data['name']}
+                </div >
+            </div >
+            <input type="hidden" name="app_id" value="{$data['id']}" />
+            <div class="control-group" >
+                <label class="control-label" >页面banner大图一:</label >
+                <div class="controls" >
+                    <input type="file" class="input" name="img[]" ><font color="red" >*图片显示大小(w*h)为375*235</font >
+                </div >
+            </div >
+            <div class="control-group" >
+                <label class="control-label" >页面banner大图二:</label >
+                <div class="controls" >
+                    <input type="file" class="input" name="img[]" ><font color="red" >*图片显示大小(w*h)为375*235</font >
+                </div >
+            </div >
+            <div class="control-group" >
+                <label class="control-label" >下载图标:</label >
+                <div class="controls" >
+                    <input type="file" class="input" name="img[]" ><font color="red" >*图片显示大小(w*h)为188*74</font >
+                </div >
+            </div >
+            <div class="control-group" >
+                <label class="control-label" >礼包图标:</label >
+                <div class="controls" >
+                    <input type="file" class="input" name="img[]" ><font color="red" >*图片显示大小(w*h)为188*74</font >
+                </div >
+            </div >
+            <div class="control-group" >
+                <label class="control-label" >背景图:</label >
+                <div class="controls" >
+                    <input type="file" class="input" name="img[]" ><font color="red" >*图片显示大小(w*h)为1080*1680</font >
+                </div >
+            </div >
+        </fieldset >
+        <div class="form-actions" >
+            <button type="submit" class="btn btn-primary" >{:L('ADD')}</button >
+            <a class="btn" href="{:U('Mobile/game')}" >{:L('BACK')}</a >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

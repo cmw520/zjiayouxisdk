@@ -1,0 +1,69 @@
+<div class="center_left" >
+    <div class="Withdrawals" >
+        <button class="btn btn-warning" onclick="location.href='{:U('Agent/money/recharge_member')}'" >充值</button >
+        <button class="btn btn-info" onclick="location.href='{:U('Agent/settle/index')}'" >提现</button >
+    </div >
+    <div class="aside_nav" >
+        <ul >
+            <h3 ><em class="fa fa-file normal" ></em ><span >资源管理</span ></h3 >
+            <li id="apply_game" ><a href="{:U('Agent/Game/apply_game')}" >添加游戏</a ></li >
+            <li id="mygames" ><a href="{:U('Agent/Game/mygames')}" >我的游戏</a ></li >
+            <li id="set" ><a href="{:U('Agent/Benefit/set')}" >优惠设定</a ></li >
+            <li id="toSub" ><a href="{:U('Agent/Game/toSub')}" >游戏分发</a ></li >
+            <li id="sub_mygames" ><a href="{:U('Agent/Game/sub_mygames')}" >下级游戏</a ></li >
+
+            <!--<li id="generateApp"><a href="{:U('Agent/Game/generateApp')}">生成APP</a></li>-->
+        </ul >
+        <ul class="user_management" >
+            <h3 ><em class="fa fa-sitemap normal" ></em ><span >推广中心</span ></h3 >
+            <li id="plink" ><a href="{:U('Agent/promote/plink')}" >推广工具</a ></li >
+        </ul >
+        <ul class="user_management" >
+            <h3 ><em class="fa fa-gears normal" ></em ><span >账户管理</span ></h3 >
+            <!--<li id="checkvipstate"><a href="{:U('Agent/ucenter/checkvipstate')}">会员申请</a></li>-->
+            <li id="tovip" ><a href="{:U('Agent/ucenter/tovip')}" >实名认证</a ></li >
+            <li id="security" ><a href="{:U('Agent/ucenter/security')}" >安全中心</a ></li >
+        </ul >
+        <ul class="user_agent" >
+            <h3 ><em class="fa fa-group normal" ></em ><span >渠道管理</span ></h3 >
+            <li id="subAgent" ><a href="{:U('Agent/ucenter/subAgent')}" >下级渠道</a ></li >
+            <li id="subAgentInfo" ><a href="{:U('Agent/ucenter/subAgentInfo')}" >渠道信息</a ></li >
+        </ul >
+        <ul class="Date_center" >
+            <h3 ><em class="fa fa-bar-chart normal" ></em ><span >数据中心</span ></h3 >
+            <li id="member" ><a href="{:U('Agent/Data/member')}" >玩家注册明细</a ></li >
+            <li id="normalChargeRecord" ><a href="{:U('Agent/Data/normalChargeRecord')}" >玩家自然流水充值</a ></li >
+            <li id="memGmRechargeRecord" ><a href="{:U('Agent/Data/memGmRechargeRecord')}" >玩家充值订单记录</a ></li >
+            <li id="getUserPayment" ><a href="{:U('Agent/Data/getUserPayment')}" >玩家{:C(CURRENCY_NAME)}充值明细</a ></li >
+            <li id="getGamePTBCheck" ><a href="{:U('Agent/Data/getGamePTBCheck')}" >玩家{:C(CURRENCY_NAME)}消费明细</a ></li >
+            <li id="getBalanceChargeRecord" ><a href="{:U('Agent/Data/getBalanceChargeRecord')}" >账户余额充值明细</a ></li >
+            <li id="getUserPTBValidityDuration" ><a
+                    href="{:U('Agent/Data/getUserPTBValidityDuration')}" >玩家{:C(CURRENCY_NAME)}余额</a ></li >
+        </ul >
+        <!--        <ul class="App_customization">
+                    <h3><em></em><span>APP定制中心</span></h3>
+                    <li><a href="#">定制广告位</a></li>
+                    <li><a href="#">游戏列表排序</a></li>
+                </ul>-->
+
+    </div >
+
+    <script >
+        var current_li = "{:I('path.1')}";
+        succAsideID(current_li);
+
+        $(".aside_nav ul h3").css("cursor", "pointer");
+        $(".aside_nav li").hide();
+        $(".aside_nav li").each(function () {
+            var id = $(this).attr("id");
+            if (id === current_li) {
+//                $("#"+id).parent("ul").siblings("ul").children("li").hide();
+                $("#" + id).parent("ul").children("li").show();
+            }
+        });
+        $(".aside_nav ul h3").click(function () {
+            $(".aside_nav li").hide();
+            $(this).parent("ul").children("li").slideDown("fast");
+        });
+    </script >
+</div >

@@ -1,0 +1,101 @@
+@import "public.css";
+@import "bottom.css";
+
+body {
+    padding-bottom: 50px;
+}
+
+.changepwd_box ul {
+    box-sizing: border-box;
+    padding: 0px 20px;
+    margin-bottom: 15px;
+}
+
+.changepwd_box ul > li > p {
+    height: 40px;
+    line-height: 40px;
+}
+
+.changepwd_box ul > li > p > span {
+    margin-left: -3px;
+    font-size: 16px;
+}
+
+.changepwd_box ul > li > input {
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    text-indent: 10px;
+    padding: 0px;
+    border: 1px solid #909090;
+    background-color: #FFFFFF;
+    -webkit-appearance: none;
+    font-size: 16px;
+}
+
+.error_box {
+    text-align: center;
+    color: #FF0000;
+    font-size: 14px;
+    display: none;
+}
+
+footer > p {
+    text-align: center;
+    color: #464646;
+    letter-spacing: 1px;
+}
+
+footer > p > a {
+    color: #464646;
+}
+
+#ajaxform > input[type='submit'] {
+    width: calc(100% - 40px);
+    height: 40px;
+    letter-spacing: 2px;
+    padding: 0px;
+    background-color: #00FF1C !important;
+    color: #000000;
+    /*border: 1px solid #c6c6c6;*/
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 20px;
+    -webkit-appearance: none;
+}
+
+@media screen and (min-width: 400px) {
+    .changepwd_box ul > li {
+        margin: 15px 0px;
+    }
+
+    .changepwd_box ul > li > p > span {
+        font-size: 16px;
+    }
+
+    .changepwd_box ul > li > input {
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .confim_change > button {
+        height: 47px;
+        font-size: 16px;
+    }
+
+    .error_box {
+        font-size: 16px;
+    }
+
+    footer > p {
+        text-align: center;
+        color: #464646;
+        letter-spacing: 1px;
+        font-size: 16px;
+    }
+
+    footer > p > a {
+        color: #464646;
+    }
+}

@@ -1,0 +1,67 @@
+<!--
+ @time 2017-1-19 11:13:09
+ @author 严旭
+-->
+
+﻿<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+    <div class="wrap js-check-wrap" >
+        <ul class="nav nav-tabs" >
+            <li class="active" ><a href="{:U('Newapp/gametest/index')}" >开测列表</a ></li >
+            <li ><a href="{:U('Newapp/gametest/add')}" >添加</a ></li >
+        </ul >
+        <form class="well form-search" method="get" id="cid-form" action='__SELF__' >
+            <div class="search_type cc mb10" >
+                <div class="mb10" >
+                    <span class="mr20" >
+                        选择游戏：
+                        {$app_select}
+
+                        
+                        <button class='btn btn-primary' >搜索</button >
+                    </span >
+                    
+                </div >
+            </div >
+        </form >
+        <form class="js-ajax-form" method="post" >
+            <div class="table-actions" >
+
+            </div >
+
+            <table class="table table-hover table-bordered table-list" >
+                <thead >
+                    <tr >
+                        <th >游戏</th >
+                        <th >开测描述</th >
+                        <th >开测时间</th >
+                        <th >状态</th >
+                        <th >操作</th >
+                    </tr >
+                </thead >
+                <volist name="items" id="vo" >
+                    <tr >
+                        <td >
+                            <img src="{$vo.game_icon}" alt="" style="height:50px;" />
+                            {$vo.game_name}
+                        </td >
+                        <td >{$vo.testdesc_striped}</td >
+                        <td >{$vo.start_time}</td >
+                        <td >{$vo.status_txt}</td >
+                        <td >
+                            <a href="{:U('Newapp/gametest/edit',array('id'=>$vo['id']))}" >编辑</a >
+                            | 
+                            <a href="{:U('Newapp/gametest/deletePost',array('id'=>$vo['id']) )}"
+                               class='js-ajax-delete' >删除</a >
+                        </td >
+                    </tr >
+                </volist >
+            </table >
+            <div class="pagination" >{$page}</div >
+        </form >
+    </div >
+    <script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+</body >
+</html>

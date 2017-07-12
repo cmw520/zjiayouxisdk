@@ -1,0 +1,44 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Aboutus/edit')}" >APP关于我们管理</a ></li >
+    </ul >
+    <form action="{:U('Aboutus/edit_post')}" method="post" class="form-horizontal js-ajax-forms"
+          enctype="multipart/form-data" >
+        <div class="row-fluid" >
+            <div class="span9" >
+                <table class="table table-bordered" >
+                    <tr >
+                        <th width="80" >官方微博</th >
+                        <td >
+                            <textarea name="wburl" id="wburl" style="width: 98%; height: 20px;"
+                                      placeholder="请填写官方微博" >{$info.wburl}</textarea >
+                        </td >
+                    </tr >
+                    <tr >
+                        <th width="80" >官方网站</th >
+                        <td >
+                            <textarea name="website" id="website" style="width: 98%; height: 20px;"
+                                      placeholder="请填写官方网站" >{$info.website}</textarea >
+                        </td >
+                    </tr >
+                    <tr >
+                        <th width="80" >客服QQ</th >
+                        <td >
+                            <input type="text" name="qq" placeholder="客服QQ" value="{$info[qq][0][number]}" />
+                        </td >
+                    </tr >
+                </table >
+            </div >
+        </div >
+        <div class="form-actions" >
+            <button class="btn btn-primary js-ajax-submit" type="submit" >修改</button >
+        </div >
+    </form >
+</div >
+<script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+
+</body >
+</html>

@@ -1,0 +1,231 @@
+    <!DOCTYPE HTML>  
+    <html>  
+        <head>  
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+            <title>用水量时间曲线图</title>  
+            <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>  
+            <script type="text/javascript" src="highcharts.js"></script>  
+            <script type="text/javascript">  
+                $(function () {  
+                    $('#container').highcharts({  
+                        chart: {  
+                            zoomType: 'xy'  
+                        },  
+                        title: {  
+                            text: '图表分析'  
+                        },  
+                        subtitle: {  
+                            text: '不同曲线代表不同数据'  
+                        },  
+                        credits: {//是否显示logo  
+                          enabled:false  
+                        },  
+                        xAxis: [{  
+                            categories: ['一月', '二月', '三月', '四月', '五月', '六月',  
+                                '七月', '八月', '九月', '十月', '十一月', '十二月'],  
+                            labels: {  
+                                style: {  
+                                    color: '#333333',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                        }],  
+                        yAxis: [{ // Primary yAxis  
+                            labels: {  
+                                formatter: function() {  
+                                    return this.value +'m³';  
+                                },  
+                                style: {  
+                                    color: '#4CB143',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            title: {  
+                                text: '瞬时流量',  
+                                style: {  
+                                    color: '#4CB143',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            lineWidth: 1  
+                        }, { // Secondary yAxis  
+                            gridLineWidth: 0,  
+                            title: {  
+                                text: '进水温度',  
+                                style: {  
+                                    color: '#4572A7',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            labels: {  
+                                formatter: function() {  
+                                    return this.value +' °C';  
+                                },  
+                                style: {  
+                                    color: '#4572A7',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            opposite: true,  
+                            lineWidth: 1  
+                        }, { // Tertiary yAxis  
+                            gridLineWidth: 0,  
+                            title: {  
+                                text: '回水温度',  
+                                style: {  
+                                    color: '#AA4643',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            labels: {  
+                                formatter: function() {  
+                                    return this.value +' °C';  
+                                },  
+                                style: {  
+                                    color: '#AA4643',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            opposite: true,  
+                            lineWidth: 1  
+                        }, { // Tertiary yAxis  
+                            gridLineWidth: 0,  
+                            title: {  
+                                text: '功率',  
+                                style: {  
+                                    color: '#8085E9',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            labels: {  
+                                formatter: function() {  
+                                    return this.value +' W';  
+                                },  
+                                style: {  
+                                    color: '#8085E9',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            opposite: true,  
+                            lineWidth: 1  
+                        }, { // Tertiary yAxis  
+                            gridLineWidth: 0,  
+                            title: {  
+                                text: '室内温度',  
+                                style: {  
+                                    color: '#1B979C',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            labels: {  
+                                formatter: function() {  
+                                    return this.value +' °C';  
+                                },  
+                                style: {  
+                                    color: '#1B979C',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            opposite: true,  
+                            lineWidth: 1  
+                        }, { // Tertiary yAxis  
+                            gridLineWidth: 0,  
+                            title: {  
+                                text: '室内设定温度',  
+                                style: {  
+                                    color: '#B44F1F',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            labels: {  
+                                formatter: function() {  
+                                    return this.value +' °C';  
+                                },  
+                                style: {  
+                                    color: '#B44F1F',  
+                                    fontWeight: 'bold'  
+                                }  
+                            },  
+                            opposite: true,  
+                            lineWidth: 1  
+                        }],  
+                        tooltip: {  
+                            shared: true  
+                        },  
+                        legend: {  
+                            // layout: 'vertical',  
+                            // align: 'left',  
+                            // x: 100,  
+                            // verticalAlign: 'top',  
+                            // y: 20,  
+                            // floating: true,  
+                            // backgroundColor: '#FFFFFF'  
+                        },  
+                        series: [{  
+                            name: '瞬时流量',  
+                            color: '#4CB143',  
+                            type: 'spline',  
+                            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],  
+                            tooltip: {  
+                                valueSuffix: ' m³'  
+                            }  
+      
+                        }, {  
+                            name: '进水温度',  
+                            type: 'spline',  
+                            color: '#4572A7',  
+                            yAxis: 1,  
+                            data: [1016, 1016, 1015.9, 1015.5, 1012.3, 1009.5, 1009.6, 1010.2, 1013.1, 1016.9, 1018.2, 1016.7],  
+                            marker: {  
+                                enabled: false  
+                            },  
+                            dashStyle: 'shortdot',  
+                            tooltip: {  
+                                valueSuffix: ' °C'  
+                            }  
+      
+                        }, {  
+                            name: '回水温度',  
+                            color: '#AA4643',  
+                            type: 'spline',  
+                            yAxis: 2,  
+                            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],  
+                            tooltip: {  
+                                valueSuffix: ' °C'  
+                            }  
+                        }, {  
+                            name: '功率',  
+                            color: '#8085E9',  
+                            type: 'spline',  
+                            yAxis: 3,  
+                            data: [17.0, 26.9, 39.5, 24.5, 28.2, 31.5, 35.2, 16.5, 33.3, 28.3, 23.9, 19.6],  
+                            tooltip: {  
+                                valueSuffix: ' W'  
+                            }  
+                        }, {  
+                            name: '室内温度',  
+                            color: '#1B979C',  
+                            type: 'spline',  
+                            yAxis: 4,  
+                            data: [27.0, 36.9, 49.5, 34.5, 18.2, 11.5, 15.2, 36.5, 13.3, 8.3, 3.9, 39.6],  
+                            tooltip: {  
+                                valueSuffix: ' °C'  
+                            }  
+                        }, {  
+                            name: '室内设定温度',  
+                            color: '#B44F1F',  
+                            type: 'spline',  
+                            yAxis: 5,  
+                            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 36.5, 13.3, 38.3, 43.9, 29.6],  
+                            tooltip: {  
+                                valueSuffix: ' °C'  
+                            }  
+                        }]  
+                    });  
+                });               
+            </script>  
+        </head>  
+        <body>  
+            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>  
+        </body>  
+    </html>  

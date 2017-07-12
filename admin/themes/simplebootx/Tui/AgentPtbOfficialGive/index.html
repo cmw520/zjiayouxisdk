@@ -1,0 +1,224 @@
+<admintpl file="header" />
+
+<style >
+    .funcs {
+        padding: 0 0 10px 0;
+    }
+
+    .pop_up_form_div {
+        width: 300px;
+        padding: 20px 20px 40px 20px;
+    }
+
+    .pop_up_form_div .row {
+        width: 300px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pop_up_form_div input[type='text'], .pop_up_form_div input[type='password'] {
+        width: 280px;
+    }
+
+    .pop_up_form_submit_btn {
+        width: 300px;
+    }
+
+    input[disabled='disabled'] {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #CCCCCC;
+    }
+</style >
+
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Tui/AgentPtbOfficialGive/index')}" target="_self" >官方给渠道发平台币统计</a ></li >
+        <li ><a href="{:U('Tui/AgentPtb/official_give_member')}" target="_self" >官方给玩家发游戏统计</a ></li >
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        收币渠道名称：
+                        {$agent_select}
+                        渠道等级：
+                        {$agent_level_select}
+                        <br /><br />
+                        时间：
+                        {$time_choose}
+                        <input type="submit" class="btn btn-primary" value="搜索" />                        
+                    </span >
+            </div >
+        </div >
+    </form >
+    <div class='funcs' >
+        <a class='btn btn-success give_agent_coin_btn' href="javascript:;" >给一级渠道发平台币</a >
+        &nbsp;&nbsp;
+        <a class='btn btn-success give_sub_coin_btn' href="javascript:;" >给二级渠道发平台币</a >
+    </div >
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="50" >操作时间</th >
+                <th width="50" >渠道等级</th >
+                <th width="50" >收币渠道名称</th >
+                <th width="50" >发放数量</th >
+                <th width="50" >备注</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.create_time|date="Y-m-d H:i:s",###}</td >
+                    <td >{$vo.agent_level}</td >
+                    <td >{$vo.agent_name}</td >
+                    <td >{$vo.ptb_cnt}</td >
+                    <td >{$vo.remark}</td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$page}</div >
+    </form >
+
+    <div class="pop_up_form_div container" id='give_agent' style="display:none;" >
+        <!--            <div class="row">
+                        <div class="col-md-4">账号类型</div>
+                        <div class="col-md-8">
+                            <input type="radio" name="user_type" value="6" />一级渠道
+                            <input type="radio" name="user_type" value="7" />二级渠道
+                        </div>
+                    </div>-->
+        <div class="row" >
+            <div class="col-md-4" >一级渠道名称</div >
+            <div class="col-md-8" >
+                <!--<input type="text" name="user_login" />-->
+                {$agent_select_Level_one}
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >发放数量</div >
+            <div class="col-md-8" >
+                <input type="text" name="amount" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >备注</div >
+            <div class="col-md-8" >
+                <input type="text" name="remark" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >二级密码</div >
+            <div class="col-md-8" >
+                <input type="password" name="paypwd" />
+            </div >
+        </div >
+        <div class="row" >
+            <button class="btn btn-success pop_up_form_submit_btn" id='agent_submit_btn' >确认</button >
+        </div >
+    </div >
+
+    <div class="pop_up_form_div container" id='give_sub' style="display:none;" >
+        <div class="row" >
+            <div class="col-md-4" >二级渠道名称</div >
+            <div class="col-md-8" >
+                <!--<input type="text" name="user_login" />-->
+                {$agent_select_Level_two}
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >发放数量</div >
+            <div class="col-md-8" >
+                <input type="text" name="amount" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >备注</div >
+            <div class="col-md-8" >
+                <input type="text" name="remark" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >二级密码</div >
+            <div class="col-md-8" >
+                <input type="password" name="paypwd" />
+            </div >
+        </div >
+        <div class="row" >
+            <button class="btn btn-success pop_up_form_submit_btn" id='sub_submit_btn' >确认</button >
+        </div >
+    </div >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+
+    $(".give_agent_coin_btn").click(function () {
+        layer.open({
+            type   : 1,
+            shift  : 2,
+            area   : '350px',
+            title  : "给一级渠道发平台币",
+            content: $('#give_agent'),
+            cancel : function (index) {
+                layer.close(index);
+            }
+        });
+    });
+
+    $(".give_sub_coin_btn").click(function () {
+        layer.open({
+            type   : 1,
+            shift  : 2,
+            area   : '350px',
+            title  : "给二级渠道发平台币",
+            content: $('#give_sub'),
+            cancel : function (index) {
+                layer.close(index);
+            }
+        });
+    });
+
+    $("#sub_submit_btn").click(function () {
+        var id_txt   = "#give_sub ";
+        var paypwd   = $(id_txt + "input[name='paypwd']").val();
+        var agent_id = $(id_txt + "select[name='agent_id']").val();
+        var amount   = $(id_txt + "input[name='amount']").val();
+        var remark   = $(id_txt + "input[name='remark']").val();
+
+        var url  = "{:U('Tui/GiveCoin/sub')}";
+        var data = {"paypwd": paypwd, "agent_id": agent_id, "amount": amount, "remark": remark};
+
+        $.post(url, data, function (res) {
+            if (res.error === '0') {
+                yxalert(res.msg);
+                reload_delay();
+            } else if (res.error === '1') {
+                yxalert(res.msg);
+            }
+        });
+    });
+    $("#agent_submit_btn").click(function () {
+        var id_txt   = "#give_agent ";
+        var paypwd   = $(id_txt + "input[name='paypwd']").val();
+        var agent_id = $(id_txt + "select[name='agent_id']").val();
+        var amount   = $(id_txt + "input[name='amount']").val();
+        var remark   = $(id_txt + "input[name='remark']").val();
+
+        var url  = "{:U('Tui/GiveCoin/agent')}";
+        var data = {"paypwd": paypwd, "agent_id": agent_id, "amount": amount, "remark": remark};
+
+        $.post(url, data, function (res) {
+            if (res.error === '0') {
+                yxalert(res.msg);
+                reload_delay();
+            } else if (res.error === '1') {
+                yxalert(res.msg);
+            }
+        });
+
+    });
+</script >
+</body >
+</html>

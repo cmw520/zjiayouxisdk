@@ -1,0 +1,99 @@
+<!--<!DOCTYPE html>-->
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html >
+<head >
+    <title >app</title >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head >
+<body >
+<div class="wrapper" >
+    <volist name="games" id="vo" >
+        <div class="game_item" >
+            <div class="game_item_icon" >
+                <a href="javascript:void(0);" >
+                    <img src="{$vo.icon}" style="width:75px;height:75px" onclick="showGameInfo('', '{$vo.id}')" >
+                </a >
+            </div >
+            <div class="game_item_name" >
+                {$vo.name}
+            </div >
+            <!--                    <div class="game_item_download">
+                                    <a href="#" class="download_btn">下载</a>
+                                </div>-->
+        </div >
+    </volist >
+</div >
+<style >
+    body {
+        width: 100%;
+        text-align: center;
+        background-color: #EEEEEE;
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrapper {
+        width: 96%;
+        text-align: center;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .game_item {
+        width: 87px;
+        float: left;
+        padding: 5px;
+        margin: 15px;
+        text-align: center;
+
+        border: 1px solid orange;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+
+    }
+
+    .game_item_icon {
+        width: 85px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    .game_item_name {
+        width: 85px;
+        float: left;
+        padding: 0;
+        margin: 5px 0;
+        font-size: 12px;
+        /*height:14px;*/
+        word-break: keep-all; /* 不换行 */
+        white-space: nowrap; /* 不换行 */
+        overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+        text-overflow: ellipsis; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+    }
+
+    .game_item_download {
+        float: right;
+        margin: 0 0 0 5px;
+    }
+
+    .download_btn {
+        border: 1px solid orange;
+        padding: 5px;
+        margin: 15px 5px 0 0;
+        text-decoration: none;
+        color: orange;
+        border-radius: 5px;
+        float: right;
+    }
+</style >
+<script ></script >
+</body >
+</html >

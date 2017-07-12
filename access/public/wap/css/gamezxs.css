@@ -1,0 +1,3155 @@
+
+.gamezxsloading {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #FF0000;
+}
+
+.gamezxsloading img.gamezxslogo {
+    display: block;
+    margin: 25% auto 0 auto;
+    width: 70%;
+}
+
+.gamezxsloading img.gamezxslogo_up {
+    display: block;
+    margin: 10% auto 0 auto;
+    width: 70%;
+    margin-bottom: 15px;
+}
+
+.gamezxsloading img.cplogo {
+    display: block;
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+.gamezxsloading img.splogo {
+    display: block;
+    margin: 30px auto 0 auto;
+    max-width: 50%;
+}
+
+.gamezxsloading.pc img.gamezxslogo {
+    margin: 3% auto 0 auto;
+    width: 50%;
+}
+
+.gamezxsloading.pc img.gamezxslogo_up {
+    margin: 0 auto 0 auto;
+    width: 50%;
+}
+
+.gamezxsloading.pc img.splogo {
+    margin: 10px auto 0 auto;
+}
+
+img.gamezxsadtop {
+    position: fixed;
+    z-index: 9995;
+    left: 0;
+    top: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.gamezxsadpopup {
+    position: fixed;
+    z-index: 9995;
+    left: 0;
+    top: 25vh;
+    width: 100%;
+}
+
+.gamezxsadpopupimg {
+    margin-top: 7vw;
+    width: 100%;
+}
+
+.gamezxsadpopupmask {
+    position: fixed;
+    z-index: 9994;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.7;
+}
+
+.gamezxsadpopupclose {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7vw;
+    height: 7vw;
+}
+
+img.gamezxsadbottom {
+    position: fixed;
+    z-index: 9995;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+img.gamezxszhongsoutip {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 5%;
+    width: 50%;
+}
+
+img.gamezxsshare {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+img.gamezxsucicon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 64px;
+    height: 64px;
+    z-index: 9999;
+    background-color: #FFFFFF;
+}
+
+.gamezxsdialog {
+    position: fixed;
+    z-index: 9999;
+    left: 5vw;
+    top: 20vh;
+    width: 90vw;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-radius: 3vw;
+}
+
+.gamezxsdialogheader {
+    margin-top: 5vw;
+    font-size: 5vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.gamezxsdialogcontent {
+    margin: 7vw 3vw;
+    text-align: center;
+    font-size: 4.5vw;
+    font-weight: normal;
+    line-height: 6vw;
+}
+
+.gamezxsdialogcontent input {
+    display: block;
+    width: 70vw;
+    height: 10vw;
+    line-height: 10vw;
+    margin: 4vw auto 0 auto;
+    padding: 0 3vw;
+    font-size: 4.5vw;
+    text-align: center;
+    border: 0;
+}
+
+.gamezxsdialogfooter {
+    padding: 2vw 0;
+    border-top: 1px solid #B2B2B2;
+    text-align: center;
+}
+
+.gamezxsdialogfooter a {
+    display: inline-block;
+    margin: 0 3vw;
+    width: 30vw;
+    height: 12vw;
+    line-height: 12vw;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 4.5vw;
+    text-align: center;
+    text-decoration: none;
+    background-color: #2D9916;
+    border-radius: 2vw;
+    overflow: hidden;
+}
+
+.gamezxsdialogfooter a.gamezxsdialogbutton3 {
+    margin: 0 1.5vw;
+    width: 25vw;
+}
+
+.gamezxswait {
+    position: fixed;
+    z-index: 9999;
+    left: 45vw;
+    top: 45vh;
+    width: 10vw;
+}
+
+.gamezxsmask {
+    position: fixed;
+    z-index: 9997;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.7;
+}
+
+.gamezxsprogress {
+    position: fixed;
+    z-index: 9999;
+    left: 20vw;
+    top: 20vh;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: #FFFFFF;
+}
+
+.gamezxsprogresstext {
+    line-height: 60vw;
+    text-align: center;
+    font-family: SimHei;
+    font-size: 7vw;
+    color: #FBC71B;
+}
+
+.gamezxsprogresswrap {
+    position: absolute;
+    top: 0;
+    width: 30vw;
+    height: 60vw;
+    overflow: hidden;
+}
+
+.gamezxsprogresswrap.rightprogress {
+    right: 0;
+}
+
+.gamezxsprogresswrap.leftprogress {
+    left: 0;
+}
+
+.gamezxsprogresscircle {
+    position: absolute;
+    top: 0;
+    width: 54vw;
+    height: 54vw;
+    border: 3vw solid #CCCCCC;
+    border-radius: 50%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.gamezxsprogresscircle.rightcircle {
+    right: 0;
+    border-top: 3vw solid #982200;
+    border-right: 3vw solid #982200;
+}
+
+.gamezxsprogresscircle.leftcircle {
+    left: 0;
+    border-bottom: 3vw solid #982200;
+    border-left: 3vw solid #982200;
+}
+
+.gamezxsprogressbtns {
+    position: fixed;
+    z-index: 9999;
+    left: 20vw;
+    top: 60vh;
+    width: 60vw;
+}
+
+.gamezxsprogressbtns a {
+    display: block;
+    margin: 6vw auto;
+    width: 40vw;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    font-size: 5vw;
+    background: #FBC71B;
+    color: #FFFFFF;
+    border-radius: 2vw;
+}
+
+.gamezxsprogressmask {
+    z-index: 9998;
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.75;
+}
+
+.gamezxssharetip {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #000000;
+    opacity: 0.9;
+    font-size: medium;
+    font-family: SimHei;
+}
+
+.gamezxssharetip img.goup {
+    position: absolute;
+    top: 1%;
+    right: 5%;
+    height: 11%;
+}
+
+/*.gamezxssharetip div.title { position: absolute; top: 12%; right: 20%; }*/
+/*.gamezxssharetip div.content { position: absolute; left: 0; top: 40%; width: 100%; text-align: center; font-size: 1.5em; font-weight: bold; color: #696969; }*/
+.gamezxssharetip div.title {
+    position: absolute;
+    top: 18%;
+    right: 20%;
+    color: #FFFFFF;
+}
+
+.gamezxssharetip div.content {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+    color: #FFFFFF;
+}
+
+.gamezxssharetip div.ignore {
+    position: absolute;
+    left: 10%;
+    bottom: 20%;
+    padding-left: 50px;
+    color: #777777;
+}
+
+.gamezxssharetip img.godown {
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+    height: 10%;
+}
+
+.gamezxssharetip a {
+    position: absolute;
+    cursor: pointer;
+    left: 5%;
+    bottom: 4%;
+    color: #777777;
+}
+
+.gamezxssharetip img.pm {
+    position: absolute;
+    left: 0;
+    top: 35%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.gamezxssharemask {
+    position: fixed;
+    z-index: 9996;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.75;
+    background: #000000;
+}
+
+@-webkit-keyframes gamezxsshareeventmove {
+    from {
+        top: 0;
+    }
+    to {
+        top: 5px;
+    }
+}
+
+@keyframes gamezxsshareeventmove {
+    from {
+        top: 0;
+    }
+    to {
+        top: 5px;
+    }
+}
+
+img.gamezxsshareevent {
+    position: fixed;
+    z-index: 9997;
+    right: 0;
+    top: 0;
+    width: 80%;
+    /* -webkit-animation: gamezxsshareeventmove 0.4s ease-in-out infinite alternate;
+            animation: gamezxsshareeventmove 0.4s ease-in-out infinite alternate; */
+}
+
+img.gamezxsgohome {
+    position: fixed;
+    z-index: 9997;
+    left: 3%;
+    top: 2%;
+    width: 18%;
+}
+
+/************************************ UI *******************************************/
+
+.gamezxszxsstart {
+    position: fixed;
+    z-index: 9998;
+    left: 4vw;
+    top: 3vw;
+    width: 15vw;
+    height: 15vw;
+    background: url(http://game.zxs.com/img/zxsicon.png) no-repeat;
+    background-size: contain;
+}
+
+.gamezxszxsstart {
+    -webkit-transition: left 0.2s;
+    -moz-transition: left 0.2s;
+    transition: left 0.2s;
+}
+
+.gamezxszxsstartbadge {
+    color: #FFFFFF;
+    background: #E00000;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    width: 6vw;
+    height: 6vw;
+    line-height: 6vw;
+    text-align: center; /* border: 1px solid #FFF; */
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.gamezxszxsstarttip {
+    position: fixed;
+    z-index: 9996;
+    left: 16%;
+    top: 9%;
+    width: 46%;
+    opacity: 0;
+}
+
+.gamezxsmenumask {
+    position: fixed;
+    z-index: 9997;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gamezxsmenu {
+    position: fixed;
+    z-index: 9999;
+    left: -76%;
+    top: 0;
+    width: 75%;
+    height: 100%;
+    background: #000000;
+    border-right: 1px solid #777777;
+}
+
+.gamezxsmenu {
+    -webkit-transition: left 0.2s;
+    -moz-transition: left 0.2s;
+    transition: left 0.2s;
+}
+
+.gamezxsmenu.showmenu {
+    left: 0;
+}
+
+.gamezxsmenu .gamezxsmenumy {
+    margin: 4vw 0;
+    text-align: center;
+}
+
+.gamezxsmenu .gamezxsmenumy img {
+    width: 20vw;
+    height: 20vw;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+.gamezxsmenu .gamezxsmenumy div {
+    display: none;
+}
+
+.gamezxsmenu ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 50vw;
+}
+
+.gamezxsmenu ul li {
+    position: relative;
+    margin: 2vw 0;
+    padding-top: 2.5vw;
+    text-align: left;
+}
+
+.gamezxsmenu ul li img {
+    vertical-align: middle;
+    width: 15vw;
+    height: 15vw;
+}
+
+.gamezxsmenu ul li a {
+    font-size: 5vw;
+    font-family: SimHei;
+    color: #FFFFFF;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 3vw;
+}
+
+.gamezxsmenu ul li div {
+    position: absolute;
+    left: 11vw;
+    top: 0;
+    width: 6vw;
+    height: 6vw;
+    line-height: 6vw;
+    text-align: center;
+    font-size: 4vw;
+    font-family: Arial;
+    color: #FFFFFF;
+    background: #FF0000;
+    border-radius: 50%;
+}
+
+.gamezxsmenu .gamezxsgzbanner {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.gamezxsball {
+    position: fixed;
+    z-index: 9996;
+    top: 35vh;
+    right: 3vw;
+    width: 12vw;
+    height: 12vw;
+}
+
+.gamezxsball img {
+    width: 100%;
+    height: 100%;
+}
+
+.gamezxsballmenu {
+    position: fixed;
+    z-index: 9996;
+    padding: 2vw 5vw;
+}
+
+.gamezxsballmenubg {
+    position: absolute;
+    z-index: 9997;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    border-radius: 2vw;
+    opacity: 0.7;
+}
+
+.gamezxsballmenumask {
+    position: fixed;
+    z-index: 9995;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gamezxsballmenu ul {
+    position: relative;
+    z-index: 9998;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gamezxsballmenu li {
+    margin: 3vw 4vw;
+    display: inline-block;
+}
+
+.gamezxsballmenu li img {
+    display: block;
+    margin: 0 auto;
+    width: 8vw;
+    height: 8vw;
+}
+
+.gamezxsballmenu li span {
+    margin-top: 1.2vw;
+    display: block;
+    width: 10vw;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 4vw;
+}
+
+.gamezxsball.pc {
+    right: 3vh;
+    width: 12vh;
+    height: 12vh;
+}
+
+.gamezxsballmenu.pc {
+    padding: 2vh 5vh;
+}
+
+.gamezxsballmenu.pc .gamezxsballmenubg {
+    border-radius: 2vh;
+}
+
+.gamezxsballmenu.pc li {
+    margin: 3vh 4vh;
+}
+
+.gamezxsballmenu.pc li img {
+    width: 8vh;
+    height: 8vh;
+}
+
+.gamezxsballmenu.pc li span {
+    margin-top: 2vh;
+    width: 10vh;
+    font-size: 4vh;
+}
+
+.gamezxschoosegame {
+    position: fixed;
+    z-index: 9998;
+    left: 10vw;
+    top: 10vh;
+    width: 80vw; /* height: 80vh; */
+    border-radius: 4vw;
+    background: #FFFFFF;
+}
+
+.gamezxschoosegame p {
+    margin: 8vw 0 5vw 0;
+    color: #313131;
+    font-size: 5vw;
+    font-weight: bold;
+    line-height: 100%;
+    text-align: center;
+}
+
+.gamezxschoosegame ul {
+    margin: 0 3vw;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+    zoom: 1;
+}
+
+.gamezxschoosegame ul li {
+    float: left;
+    margin: 3vw 0;
+    width: 24.667vw;
+    text-align: center;
+}
+
+.gamezxschoosegame ul li img {
+    width: 16vw;
+    height: 16vw;
+    border: 0;
+    border-radius: 3vw;
+}
+
+.gamezxschoosegame ul li span {
+    display: block;
+    max-width: 24vw;
+    max-height: 8vw;
+    font-size: 4vw;
+    color: #777777;
+    line-height: 10vw;
+    overflow: hidden;
+}
+
+.gamezxschoosegame div {
+    margin: 5vw 0 8vw 0;
+    text-align: center;
+}
+
+.gamezxschoosegame div a {
+    display: inline-block;
+    margin: 0 3vw;
+    width: 22vw;
+    height: 10vw;
+    line-height: 10vw;
+    color: #FFFFFF;
+    font-size: 4vw;
+    background: #999999;
+    border-radius: 2vw;
+}
+
+.gamezxsbindphone {
+    position: fixed;
+    z-index: 9998;
+    left: 3vw;
+    top: 6vh;
+    width: 94vw;
+    color: #000000;
+}
+
+.gamezxsbindphonebox {
+    position: relative;
+    margin: 6vw;
+    padding: 6vw;
+    background: #FFFFFF;
+    border-radius: 3vw;
+}
+
+.gamezxsbindphoneclose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 13vw;
+    height: 13vw;
+    cursor: pointer;
+}
+
+.gamezxsbindphonetip {
+    margin: 3vw 0;
+    text-align: center;
+    font-size: 5vw;
+}
+
+.gamezxsbindphonenum {
+    text-align: center;
+    color: #C52626;
+    font-size: 8vw;
+}
+
+.gamezxsbindphonetext {
+    margin: 2vw 0;
+    padding: 0 3vw;
+    width: 64vw;
+    height: 12vw;
+    font-size: 5vw;
+    border: 0;
+    color: #999999;
+    background: #F7F7F7;
+    border-radius: 1vw;
+}
+
+.gamezxsbindphonebtn {
+    margin-top: 6vw;
+    width: 100%;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    font-size: 5vw;
+    border: 0;
+    color: #FFFFFF;
+    background: #60D536;
+    border-radius: 1vw;
+}
+
+.gamezxsbindphonelink {
+    display: block;
+    margin-top: 1vw;
+    margin-left: 1vw;
+    font-size: 3.5vw;
+    color: #777777;
+}
+
+.gamezxsbindphone p {
+    margin: 3vw 0;
+    font-size: 4.3vw;
+    line-height: 7vw;
+    color: #333333;
+}
+
+.gamezxsbindphonemain {
+    overflow: auto;
+    zoom: 1;
+}
+
+.gamezxsbindphonecode {
+    float: left;
+    padding: 0 3vw;
+    width: 35vw;
+    height: 12vw;
+    font-size: 5vw;
+    border: 0;
+    color: #999999;
+    background: #F7F7F7;
+    border-radius: 1vw;
+}
+
+.gamezxsbindphoneresend {
+    float: right;
+    width: 25vw;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    font-size: 5vw;
+    border: 0;
+    color: #FFFFFF;
+    background: #CCCCCC;
+    border-radius: 1vw;
+}
+
+.gamezxsbindphonefooter {
+    margin-top: 6vw;
+    overflow: auto;
+    zoom: 1;
+}
+
+.gamezxsbindphoneactive {
+    float: left;
+    width: 47%;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    font-size: 5vw;
+    border: 0;
+    color: #FFFFFF;
+    background: #60D536;
+    border-radius: 1vw;
+}
+
+.gamezxsbindphonecancel {
+    float: right;
+    width: 47%;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    font-size: 5vw;
+    border: 0;
+    color: #FFFFFF;
+    background: #CCCCCC;
+    border-radius: 1vw;
+}
+
+.gamezxscaptchabox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 6vw;
+    background: #FFFFFF;
+    border-radius: 3vw;
+}
+
+.gamezxscaptchatitle {
+    font-size: 4.3vw;
+    color: #333333;
+}
+
+.gamezxscaptchalink {
+    margin-left: 2vw;
+    font-size: 4.3vw;
+    color: #114C98;
+}
+
+.gamezxscaptchaimg {
+    display: block;
+    margin: 3vw auto;
+    width: 60vw;
+}
+
+.gamezxscaptchacode {
+    padding: 0 3vw;
+    width: 35vw;
+    height: 12vw;
+    font-size: 5vw;
+    border: 0;
+    color: #999999;
+    background: #F7F7F7;
+    border-radius: 1vw;
+}
+
+.gamezxscaptchabtn {
+    display: inline-block;
+    margin-left: 4vw;
+    width: 25vw;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    font-size: 5vw;
+    border: 0;
+    color: #FFFFFF;
+    background: #CCCCCC;
+    border-radius: 1vw;
+}
+
+.gamezxsbindphone.pc {
+    left: 15vw;
+    top: 6vh;
+    width: 70vw;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonebox {
+    margin: 6vh;
+    padding: 6vh;
+    border-radius: 3vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphoneclose {
+    width: 13vh;
+    height: 13vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonetip {
+    margin: 3vh 0;
+    font-size: 5vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonenum {
+    font-size: 8vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonetext {
+    margin: 2vh 0;
+    padding: 0 3vh;
+    width: 52vw;
+    height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonebtn {
+    margin-top: 6vh;
+    height: 12vh;
+    line-height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonelink {
+    margin-top: 1vh;
+    margin-left: 1vh;
+    font-size: 3.5vh;
+}
+
+.gamezxsbindphone.pc p {
+    margin: 3vh 0;
+    font-size: 4.3vh;
+    line-height: 7vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonecode {
+    padding: 0 3vh;
+    width: 25vw;
+    height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphoneresend {
+    width: 25vw;
+    height: 12vh;
+    line-height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonefooter {
+    margin-top: 6vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphoneactive {
+    height: 12vh;
+    line-height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+.gamezxsbindphone.pc .gamezxsbindphonecancel {
+    height: 12vh;
+    line-height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+.gamezxsbindphone.pc .gamezxscaptchabox {
+    padding: 6vh;
+    border-radius: 3vh;
+}
+
+.gamezxsbindphone.pc .gamezxscaptchatitle {
+    font-size: 4.3vh;
+}
+
+.gamezxsbindphone.pc .gamezxscaptchalink {
+    margin-left: 2vh;
+    font-size: 4.3vh;
+}
+
+.gamezxsbindphone.pc .gamezxscaptchaimg {
+    margin: 3vh auto;
+    width: 40vw;
+}
+
+.gamezxsbindphone.pc .gamezxscaptchacode {
+    padding: 0 3vh;
+    width: 25vw;
+    height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+.gamezxsbindphone.pc .gamezxscaptchabtn {
+    width: 20vw;
+    height: 12vh;
+    line-height: 12vh;
+    font-size: 5vh;
+    border-radius: 1vh;
+}
+
+/************************************ Subscribe UI *******************************************/
+
+.gamezxssubscribe {
+    position: fixed;
+    z-index: 9998;
+    left: 5vw;
+    top: 25vw;
+    width: 90vw;
+    border-radius: 2vw;
+    font-size: 4.5vw;
+    color: #000000;
+    background: #EEEEEE;
+    -webkit-transition: top 0.2s;
+    -moz-transition: top 0.2s;
+    transition: top 0.2s;
+}
+
+.gamezxssubscribeheader {
+    position: relative;
+    padding: 3vw 0;
+    text-align: center;
+}
+
+.gamezxssubscribeheader img {
+    position: absolute;
+    top: 3vw;
+    right: 3vw;
+    width: 5vw;
+    height: 5vw;
+}
+
+.gamezxssubscribeqrmain {
+    text-align: center;
+    background: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.gamezxssubscribeqrcode {
+    margin: 8vw 0;
+    width: 80vw;
+    height: 80vw;
+}
+
+/************************************ Pay UI *******************************************/
+
+.gamezxspay {
+    font-size: 4.5vw;
+    color: #000000;
+    background: #EEEEEE;
+}
+
+.gamezxspaypopup {
+    position: fixed;
+    z-index: 9998;
+    left: 5vw;
+    top: 6vw;
+    width: 90vw;
+    border-radius: 2vw;
+    -webkit-transition: top 0.2s;
+    -moz-transition: top 0.2s;
+    transition: top 0.2s;
+}
+
+.gamezxspayheader {
+    position: relative;
+    padding: 3vw 0;
+    text-align: center;
+}
+
+.gamezxspayheader img {
+    position: absolute;
+    top: 3vw;
+    right: 3vw;
+    width: 5vw;
+    height: 5vw;
+}
+
+.gamezxspaymain {
+    margin-bottom: 4vw;
+    padding: 4vw 0;
+    text-align: center;
+    background: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.gamezxspaymain img {
+    margin-right: 2vw;
+    width: 20vw;
+    height: 20vw;
+    vertical-align: middle;
+    border: 0;
+    border-radius: 3vw;
+}
+
+.gamezxspaymain table {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.gamezxspaymain table td {
+    padding: 1vw;
+    vertical-align: top;
+    text-align: left;
+    max-width: 36vw;
+}
+
+.gamezxspaymain td.gamezxspaylabel {
+    color: #999999;
+}
+
+.gamezxspaymain td.gamezxspaycontent {
+}
+
+.gamezxspaycredit {
+    margin-bottom: 4vw;
+    padding: 4vw 3vw;
+    background: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    overflow: auto;
+    zoom: 1;
+}
+
+.gamezxspaycreditaccount {
+    float: left;
+}
+
+.gamezxspaycreditaccount #gamezxspaycreditcheck {
+    vertical-align: middle;
+    width: 4.5vw;
+    height: 4.5vw;
+}
+
+.gamezxspaycreditaccount label {
+    vertical-align: middle;
+}
+
+.gamezxspaycreditaccount span {
+    vertical-align: middle;
+    color: #999999;
+}
+
+.gamezxspaycreditshow {
+    float: right;
+    color: #999999;
+}
+
+.gamezxspaycredittip {
+    height: 9vw;
+    line-height: 9vw;
+    text-align: center;
+    font-size: 4vw;
+    color: #999999;
+}
+
+.gamezxspaymode {
+    padding: 3vw 0 3vw 4vw;
+    background: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.gamezxspaymodehead {
+    overflow: auto;
+    zoom: 1;
+    padding-bottom: 3vw;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.gamezxspaymodetitle {
+    float: left;
+    color: #999999;
+}
+
+.gamezxspaymodepay {
+    float: right;
+    margin-right: 3vw;
+    color: #999999;
+}
+
+.gamezxspaytype {
+    margin-top: 3vw;
+    text-align: center;
+}
+
+.gamezxspaytype img {
+    width: 40vw;
+}
+
+.gamezxspaytype1 {
+    margin-right: 3vw;
+}
+
+.gamezxspaytype3 {
+    margin-left: 3vw;
+}
+
+.gamezxspayreward {
+    margin-top: 4vw;
+    padding: 4vw 3vw;
+    background: #FFFFFF;
+    text-align: center;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.gamezxspaybtn {
+    margin: 4vw 0 6vw 20vw;
+    text-align: center;
+    width: 50vw;
+    height: 10vw;
+    font-size: 5vw;
+    color: #FADDDE;
+    border: 1px solid #980C10;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ED1C24), to(#AA1317));
+}
+
+.gamezxspayqrmain {
+    background: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.gamezxspayqrbox {
+    margin: 6vw auto;
+    padding: 5vw;
+    width: 60vw;
+    height: 60vw;
+}
+
+.gamezxspay.pc {
+    font-size: 4.5vh;
+}
+
+.gamezxspay.pc.gamezxspaypopup {
+    left: 20vw;
+    top: 6vh;
+    width: 60vw;
+    border-radius: 2vh;
+}
+
+.gamezxspay.pc .gamezxspayheader {
+    padding: 3vh 0;
+}
+
+.gamezxspay.pc .gamezxspayheader img {
+    top: 3vh;
+    right: 3vh;
+    width: 5vh;
+    height: 5vh;
+}
+
+.gamezxspay.pc .gamezxspaymain {
+    display: none;
+}
+
+.gamezxspay.pc .gamezxspaycredit {
+    margin-bottom: 4vh;
+    padding: 3vh 3vh;
+}
+
+.gamezxspay.pc .gamezxspaycreditaccount #gamezxspaycreditcheck {
+    width: 4.5vh;
+    height: 4.5vh;
+}
+
+.gamezxspay.pc .gamezxspaycredittip {
+    height: 9vh;
+    line-height: 9vh;
+    font-size: 4vh;
+}
+
+.gamezxspay.pc .gamezxspaymode {
+    padding: 3vh 0 3vh 4vh;
+}
+
+.gamezxspay.pc .gamezxspaymodehead {
+    padding-bottom: 3vh;
+}
+
+.gamezxspay.pc .gamezxspaymodepay {
+    margin-right: 3vh;
+}
+
+.gamezxspay.pc .gamezxspaytype {
+    margin-top: 3vh;
+}
+
+.gamezxspay.pc .gamezxspaytype img {
+    width: 40vh;
+}
+
+.gamezxspay.pc .gamezxspayreward {
+    margin-top: 4vh;
+    padding: 3vh 3vh;
+}
+
+.gamezxspay.pc .gamezxspaybtn {
+    margin: 4vh 0 4vh 35vw;
+    width: 30vw;
+    height: 10vh;
+    font-size: 5vh;
+}
+
+.gamezxspay.pc.gamezxspaypopup .gamezxspaybtn {
+    margin: 4vh 0 4vh 15vw;
+}
+
+.gamezxspay.pc .gamezxspayqrbox {
+    margin: 3vh auto;
+    padding: 5vh;
+    width: 30vw;
+    height: 30vw;
+}
+
+/************************************ Chat UI *******************************************/
+
+.gamezxsuichatpopupwrap {
+    position: fixed;
+    z-index: 9997;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.gamezxsuichatpopupmask {
+    position: absolute;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.8;
+}
+
+.gamezxsuichatpopup {
+    position: relative;
+    z-index: 9999;
+    margin: 5vw;
+    text-align: left;
+}
+
+.gamezxsuichatpopup div {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    color: #000000;
+    background: #FFFFFF;
+    padding: 1vw 4vw;
+    border-radius: 2vw;
+    font-size: 4vw;
+    max-width: 68vw;
+    max-height: 10vw;
+    line-height: 5.5vw;
+    overflow: hidden;
+}
+
+.gamezxsuichatpopup img {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 3vw;
+}
+
+.gamezxsuichatreplymask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.8;
+}
+
+.gamezxsuichatreply {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 10vh;
+    padding: 10vw 0;
+    width: 100%;
+    text-align: center;
+}
+
+.gamezxsuichatreply input {
+    border: 2px solid #F38800;
+    border-radius: 2vw;
+    width: 60vw;
+    height: 10vw;
+    padding: 0 3vw;
+    font-size: 5vw;
+    vertical-align: middle;
+}
+
+.gamezxsuichatreply .gamezxsuichatreplybtn {
+    display: inline-block;
+    margin-left: 3vw;
+    width: 20vw;
+    height: 10vw;
+    line-height: 10vw;
+    font-size: 5vw;
+    color: #FFFFFF;
+    background: #F38800;
+    border-radius: 2vw;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.gamezxsuichatreply .gamezxsuichatreplytip {
+    display: block;
+    margin: 4vw auto;
+    color: #F38800;
+    font-size: 5vw;
+    text-decoration: underline;
+}
+
+.gamezxsuirequestwrap {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.gamezxsuirequestmask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.8;
+}
+
+.gamezxsuirequest {
+    position: relative;
+    margin: 5vw;
+}
+
+.gamezxsuirequest .gamezxsuirequesthead {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 3vw;
+}
+
+.gamezxsuirequest .gamezxsuirequesttext {
+    display: inline-block;
+    vertical-align: middle;
+    color: #FFFFFF;
+    font-size: 4vw;
+    max-width: 70vw;
+    max-height: 11vw;
+    line-height: 5.5vw;
+    overflow: hidden;
+}
+
+.gamezxsuirequest .gamezxsuirequesttext img {
+    margin: 0 1vw;
+    vertical-align: middle;
+    width: 5vw;
+    height: 5vw;
+}
+
+.gamezxsuirequest .gamezxsuiresponsebtns {
+    margin-top: 2vw;
+    text-align: center;
+}
+
+.gamezxsuirequest .gamezxsuiresponsebtns a {
+    display: inline-block;
+    margin: 0 3vw;
+    padding: 2vw 5vw;
+    color: #FFFFFF;
+    border-radius: 1vw;
+    font-size: 4vw;
+}
+
+.gamezxsuirequest .gamezxsuiresponsebtns a.gamezxsuiresponseagree {
+    background: #FF0000;
+}
+
+.gamezxsuirequest .gamezxsuiresponsebtns a.gamezxsuiresponsereject {
+    background: #CCCCCC;
+}
+
+/************************************ Chat Frame *******************************************/
+
+.gamezxschatframemask {
+    position: fixed;
+    z-index: 9997;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.8;
+}
+
+.gamezxschatframewrap {
+    position: fixed;
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 70%;
+    background: #FFFFFF;
+    border-bottom: 1vw solid #222222;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+}
+
+.gamezxschatframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/************************************ PK UI *******************************************/
+
+.gamezxspk {
+    position: fixed;
+    z-index: 9991;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 27vw;
+}
+
+.gamezxspkbg {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.9;
+}
+
+.gamezxspkmask {
+    position: fixed;
+    z-index: 9991;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #EDEDED; /*opacity: 0.8;*/
+}
+
+.gamezxspkrole {
+    position: fixed;
+    z-index: 9992;
+    width: 30vw;
+    text-align: center;
+}
+
+.gamezxspkrole.matchhero {
+    left: 35vw;
+    top: 5vh;
+}
+
+.gamezxspkrole.matchtarget {
+    left: 35vw;
+    bottom: 5vh;
+}
+
+.gamezxspkrole.roomhero {
+    position: absolute;
+    left: 3vw;
+}
+
+.gamezxspkrole.roomtarget {
+    position: absolute;
+    right: 3vw;
+}
+
+.gamezxspkrole.resulthero {
+    position: absolute;
+    left: 3vw;
+}
+
+.gamezxspkrole.resulttarget {
+    position: absolute;
+    right: 3vw;
+}
+
+.gamezxspkrolehead {
+    width: 20vw;
+    height: 20vw;
+    box-sizing: border-box;
+    border: 2px solid #81CC82;
+    border-radius: 10vw;
+}
+
+.gamezxspkrole.hero .gamezxspkrolehead {
+    border-color: #D96C56;
+}
+
+.gamezxspkresultchaticon {
+    position: absolute;
+    z-index: 9993;
+    top: 13vw;
+    right: 5vw;
+    width: 8vw;
+    height: 8vw;
+    background: url(http://game.zxs.com/img/icon_more.png);
+    background-size: 8vw 8vw;
+}
+
+.gamezxspkrolename {
+    margin-top: 3vw;
+    width: 30vw;
+}
+
+.gamezxspkrolename span {
+    display: inline-block;
+    width: 24vw;
+    height: 5vw;
+    line-height: 5vw;
+    font-size: 4vw;
+    color: #474748;
+    overflow: hidden;
+}
+
+.gamezxspkrolename img {
+    width: 6vw;
+    height: 6vw;
+    border-radius: 3vw;
+}
+
+.gamezxspkrolecity {
+    font-size: 4vw;
+    color: #474748;
+}
+
+.gamezxspkconfirm {
+    position: fixed;
+    z-index: 9993;
+    left: 5vw;
+    width: 90vw;
+    bottom: 10vw;
+    padding: 5vw 0;
+    background: #FFFFFF;
+    border-radius: 3vw;
+}
+
+.gamezxspkconfirmicon {
+    float: left;
+    margin: 0 3vw;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 10vw;
+}
+
+.gamezxspkconfirmtext {
+    float: left;
+    width: 38vw;
+    font-size: 4vw;
+    line-height: 6vw;
+}
+
+.gamezxspkconfirmbtn {
+    float: left;
+    margin: 3vw;
+    width: 20vw;
+}
+
+.gamezxspkconfirmbtn a {
+    display: block;
+    width: 20vw;
+    height: 8vw;
+    line-height: 8vw;
+    border-radius: 2vw;
+    font-size: 4vw;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.gamezxspkconfirmbtnok {
+    background: #429101;
+}
+
+.gamezxspkconfirmbtncancel {
+    background: #FF0202;
+    margin-top: 2vw;
+}
+
+.gamezxspkbtn {
+    position: fixed;
+    z-index: 9993;
+    display: block;
+    left: 30vw;
+    bottom: 10vh;
+    width: 40vw;
+    height: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 6vw;
+    background: #FFA300;
+    border-radius: 3vw;
+}
+
+.gamezxspktip {
+    position: fixed;
+    z-index: 9993;
+    left: 20vw;
+    top: 30vh;
+    width: 60vw;
+    height: 60vw;
+    box-sizing: border-box;
+    border-radius: 30vw;
+    background: #FFFFFF;
+    border: 1vw solid #CCCCCC;
+}
+
+.gamezxspktiptext {
+    position: fixed;
+    z-index: 9994;
+    left: 20vw;
+    top: 30vh;
+    width: 60vw;
+    height: 60vw;
+    line-height: 60vw;
+    text-align: center;
+}
+
+.gamezxspkroom {
+    position: fixed;
+    z-index: 9992;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.gamezxspkroomplayers {
+    margin-top: 3vw;
+    background: url(http://game.zxs.com/img/flash.png) 39vw 0 no-repeat;
+    background-size: 24vw 24vw;
+    height: 35vw;
+}
+
+.gamezxspktime {
+    position: absolute;
+    z-index: 9992;
+    left: 40vw;
+    top: 1vw;
+    width: 20vw;
+    height: 20vw;
+    line-height: 20vw;
+    border-radius: 10vw;
+    text-align: center;
+    font-size: 10vw;
+    color: #FFFFFF;
+    background-image: url(http://game.zxs.com/img/clock.png);
+    background-position: 0 1.5vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.gamezxspkplayer {
+    position: absolute;
+    z-index: 9992;
+    top: 3vw;
+    width: 25vw;
+    text-align: center;
+}
+
+.gamezxspkplayer.hero {
+    left: 0;
+}
+
+.gamezxspkplayer.target {
+    right: 0;
+}
+
+.gamezxspkplayerhead {
+    width: 16vw;
+    height: 16vw;
+    box-sizing: border-box;
+    border: 2px solid #81CC82;
+    border-radius: 8vw;
+}
+
+.gamezxspkplayer.hero .gamezxspkplayerhead {
+    border-color: #D96C56;
+}
+
+.gamezxspkplayername {
+    margin-top: 1.5vw;
+    font-size: 4vw;
+    color: #7A7677;
+    width: 25vw;
+    overflow: hidden;
+    display: none;
+}
+
+.gamezxspkscore {
+    position: absolute;
+    top: 4vw;
+    text-align: center;
+}
+
+.gamezxspkscore.hero {
+    left: 25vw;
+}
+
+.gamezxspkscore.target {
+    right: 25vw;
+}
+
+.gamezxspkscoretitle {
+    color: #8A8989;
+    width: 12vw;
+    font-size: 4vw;
+    padding-bottom: 2vw;
+    border-bottom: 1px solid #8A8989;
+}
+
+.gamezxspkscoretext {
+    font-size: 4vw;
+    padding-top: 2vw;
+}
+
+.gamezxspkscore.hero .gamezxspkscoretext {
+    color: #D76A56;
+}
+
+.gamezxspkscore.target .gamezxspkscoretext {
+    color: #81CC82;
+}
+
+.gamezxspkfight {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5vw;
+}
+
+.gamezxspkfight div {
+    position: absolute;
+    height: 100%;
+}
+
+.gamezxspkfightbest {
+    width: 50%;
+}
+
+.gamezxspkfightscore {
+    width: 100%;
+}
+
+.gamezxspkfightbest.hero {
+    left: 0;
+    background: #D76A56;
+}
+
+.gamezxspkfightscore.hero {
+    left: 0;
+    background: #D34B34;
+}
+
+.gamezxspkfightbest.target {
+    right: 0;
+    background: #81CC82;
+}
+
+.gamezxspkfightscore.target {
+    right: 0;
+    background: #43C143;
+}
+
+.gamezxspktimeout {
+    position: fixed;
+    z-index: 9992;
+    left: 30vw;
+    top: 42vh;
+    width: 40vw;
+    background: url(http://game.zxs.com/img/clock2.png) 10vw 0 no-repeat;
+    background-size: 20vw 20vw;
+    padding-top: 22vw;
+    font-size: 10vw;
+    color: #333333;
+    text-align: center;
+}
+
+.gamezxspkresult {
+    position: fixed;
+    z-index: 9992;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.gamezxspkresultplayers {
+    margin-top: 3vw;
+    background: url(http://game.zxs.com/img/flash.png) 39vw 0 no-repeat;
+    background-size: 24vw 24vw;
+    height: 35vw;
+}
+
+.gamezxspkresultscore {
+    position: relative;
+    margin-top: 6vw;
+}
+
+.gamezxspkresultscoretext {
+    position: absolute;
+    top: 0;
+    font-size: 6vw;
+    color: #333333;
+}
+
+.gamezxspkresultscoretext.hero {
+    left: 6vw;
+}
+
+.gamezxspkresultscoretext.target {
+    right: 6vw;
+}
+
+.gamezxspkresultscorebar {
+    position: relative;
+    margin: 0 15vw;
+    height: 6vw;
+}
+
+.gamezxspkresultscorebar div {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+}
+
+.gamezxspkresultscorebar div.hero {
+    left: 0;
+    background: #D76A56;
+}
+
+.gamezxspkresultscorebar div.target {
+    right: 0;
+    background: #81CC82;
+}
+
+.gamezxspkresultwinner {
+    margin-top: 6vw;
+    font-size: 12vw;
+    text-align: center;
+}
+
+.gamezxspkresultwinner.win {
+    color: red;
+}
+
+.gamezxspkresultwinner.lose {
+    color: green;
+}
+
+.gamezxspkresultbtn {
+    margin-top: 6vw;
+    text-align: center;
+}
+
+.gamezxspkresultbtn a {
+    display: inline-block;
+    margin: 2vw;
+    width: 26vw;
+    height: 13vw;
+    line-height: 13vw;
+    border-radius: 3vw;
+    text-align: center;
+    font-size: 4vw;
+}
+
+.gamezxspkresultbtn a.resultred {
+    background: #D96C56;
+    color: #FFFFFF;
+}
+
+.gamezxspkresultbtn a.resultwhite {
+    background: #FFFFFF;
+    color: #5E5A59;
+}
+
+.gamezxspkemojilist {
+    position: fixed;
+    z-index: 9994;
+    left: 10vw;
+    width: 80vw;
+    bottom: 3vh;
+    background: #FFFFFF;
+    border-radius: 5vw;
+}
+
+.gamezxspkemojilist img {
+    margin: 1vw;
+    width: 14vw;
+    height: 14vw;
+}
+
+.gamezxspkemoji {
+    position: fixed;
+    z-index: 9995;
+    width: 16vw;
+    height: 16vw;
+}
+
+.gamezxspkemojiflyleft {
+    -webkit-animation: gamezxspkemojiflyleft 1.5s linear;
+    animation: gamezxspkemojiflyleft 1.5s linear;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.gamezxspkemojiflyright {
+    -webkit-animation: gamezxspkemojiflyright 1.5s linear;
+    animation: gamezxspkemojiflyright 1.5s linear;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes gamezxspkemojiflyleft {
+    0% {
+        -webkit-transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(-64px, 0, 0);
+    }
+}
+
+@keyframes gamezxspkemojiflyleft {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform: translate3d(-64px, 0, 0);
+    }
+}
+
+@-webkit-keyframes gamezxspkemojiflyright {
+    0% {
+        -webkit-transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(64px, 0, 0);
+    }
+}
+
+@keyframes gamezxspkemojiflyright {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform: translate3d(64px, 0, 0);
+    }
+}
+
+.gamezxspkintro {
+    position: fixed;
+    z-index: 9994;
+    left: 10vw;
+    top: 25vh;
+    width: 80vw;
+    border-radius: 5vw;
+}
+
+.gamezxspkgamelist {
+    position: fixed;
+    z-index: 9993;
+    left: 5vw;
+    top: 50vh;
+}
+
+.gamezxspkgame {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 4vw;
+}
+
+.gamezxspkgame img {
+    width: 20vw;
+    height: 20vw;
+    border: 1vw solid #FFFFFF;
+    border-radius: 3vw;
+}
+
+.gamezxspkgame div {
+    font-size: 4vw;
+    color: #222222;
+    margin-top: 1vw;
+    max-width: 22vw;
+    text-align: center;
+}
+
+.gamezxspkwait {
+    position: fixed;
+    z-index: 9994;
+    left: 30vw;
+    top: 20vh;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    background: #FFFFFF;
+}
+
+.gamezxspkwaittext {
+    line-height: 40vw;
+    text-align: center;
+    font-family: SimHei;
+    font-size: 6vw;
+    color: #464646;
+}
+
+.gamezxspkwaitwrap {
+    position: absolute;
+    top: 0;
+    width: 20vw;
+    height: 40vw;
+    overflow: hidden;
+}
+
+.gamezxspkwaitwrap.rightwait {
+    right: 0;
+}
+
+.gamezxspkwaitwrap.leftwait {
+    left: 0;
+}
+
+.gamezxspkwaitcircle {
+    position: absolute;
+    top: 0;
+    width: 36vw;
+    height: 36vw;
+    border: 2vw solid #CCCCCC;
+    border-radius: 50%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.gamezxspkwaitcircle.rightcircle {
+    right: 0;
+    border-top: 2vw solid #D34A36;
+    border-right: 2vw solid #D34A36;
+}
+
+.gamezxspkwaitcircle.leftcircle {
+    left: 0;
+    border-bottom: 2vw solid #D34A36;
+    border-left: 2vw solid #D34A36;
+}
+
+.gamezxspkprogress {
+    position: fixed;
+    z-index: 9994;
+    left: 20vw;
+    top: 30vh;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: #FFFFFF;
+}
+
+.gamezxspkprogresstext {
+    line-height: 60vw;
+    text-align: center;
+    font-family: SimHei;
+    font-size: 7vw;
+    color: #FBC71B;
+}
+
+.gamezxspkprogresswrap {
+    position: absolute;
+    top: 0;
+    width: 30vw;
+    height: 60vw;
+    overflow: hidden;
+}
+
+.gamezxspkprogresswrap.rightprogress {
+    right: 0;
+}
+
+.gamezxspkprogresswrap.leftprogress {
+    left: 0;
+}
+
+.gamezxspkprogresscircle {
+    position: absolute;
+    top: 0;
+    width: 54vw;
+    height: 54vw;
+    border: 3vw solid #CCCCCC;
+    border-radius: 50%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.gamezxspkprogresscircle.rightcircle {
+    right: 0;
+    border-top: 3vw solid #982200;
+    border-right: 3vw solid #982200;
+}
+
+.gamezxspkprogresscircle.leftcircle {
+    left: 0;
+    border-bottom: 3vw solid #982200;
+    border-left: 3vw solid #982200;
+}
+
+@-webkit-keyframes circleloadright {
+    0% {
+        -webkit-transform: rotate(45deg);
+    }
+    50% {
+        -webkit-transform: rotate(225deg);
+    }
+    100% {
+        -webkit-transform: rotate(225deg);
+    }
+}
+
+@keyframes circleloadright {
+    0% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(225deg);
+    }
+    100% {
+        transform: rotate(225deg);
+    }
+}
+
+@-webkit-keyframes circleloadleft {
+    0% {
+        -webkit-transform: rotate(45deg);
+    }
+    50% {
+        -webkit-transform: rotate(45deg);
+    }
+    100% {
+        -webkit-transform: rotate(225deg);
+    }
+}
+
+@keyframes circleloadleft {
+    0% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(225deg);
+    }
+}
+
+.gamezxspkmatchlist {
+    position: fixed;
+    z-index: 9993;
+    left: 20vw;
+    bottom: 5vh;
+}
+
+.gamezxspkmatcharrow {
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-top: 4vw solid #81CC82;
+    border-left: 4vw solid transparent;
+    border-right: 4vw solid transparent;
+}
+
+.gamezxspkmatchscroll {
+    position: relative;
+    width: 60vw;
+    height: 30vw;
+    overflow: hidden;
+}
+
+.gamezxspkmatchscroll img {
+    position: absolute;
+    left: 0;
+    top: 10vw;
+    margin: 1vw;
+    box-sizing: border-box;
+    width: 18vw;
+    height: 18vw;
+    border-radius: 50%;
+    border: 2px solid #81CC82;
+}
+
+.gamezxspkmatchscroll img {
+    -webkit-transition: left 0.2s;
+    -moz-transition: left 0.2s;
+    transition: left 0.2s;
+}
+
+.gamezxspkroomcreate {
+    position: fixed;
+    z-index: 9993;
+    left: 0;
+    top: 5vh;
+    width: 100%;
+}
+
+.gamezxspkroomcreate b {
+    display: block;
+    margin-top: 3vw;
+    color: #0E0E0E;
+    font-size: 5.5vw;
+    text-align: center;
+}
+
+.gamezxspkroomcreate span {
+    display: block;
+    margin-top: 3vw;
+    text-align: center;
+    font-size: 4.5vw;
+    color: #777777;
+}
+
+/*.gamezxspkroomcreate images { display: block; margin: 13vw auto; width: 20vw; height: 20vw; box-sizing: border-box; border: 2px solid #D96C56; border-radius: 10vw; }*/
+.gamezxspkroomcreate div {
+    margin: 6vw auto;
+    padding: 5vw;
+    width: 50vw;
+    height: 50vw;
+    background: #FFFFFF;
+}
+
+.gamezxspkroomcreate p {
+    display: block;
+    margin: 0 auto;
+    padding: 4vw 10vw;
+    width: 55vw;
+    color: #0E0E0E;
+    font-size: 4.5vw;
+    background: #FFFFFF;
+    border-radius: 5vw;
+    line-height: 8vw;
+}
+
+.gamezxspkgames {
+    position: fixed;
+    z-index: 9997;
+    left: 7vw;
+    top: 8vh;
+    width: 78vw;
+    height: 78vh;
+    padding: 3vh 4vw;
+    background: #FFFFFF;
+    border-radius: 5vw;
+}
+
+.gamezxspkgames ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.gamezxspkgames li {
+    padding: 3vw 0;
+    border-bottom: 1px solid #EEEEEE;
+    overflow: auto;
+    zoom: 1;
+}
+
+.gamezxspkgames li img {
+    float: left;
+    width: 13vw;
+    height: 13vw;
+    border-radius: 2vw;
+    margin-right: 2vw;
+}
+
+.gamezxspkgames li p {
+    margin: 1vw 0 0 0;
+    font-size: 4.3vw;
+    font-weight: normal;
+    color: #333333;
+}
+
+.gamezxspkgames li p label {
+    margin-left: 2vw;
+    padding: 0.4vw 1.5vw;
+    font-size: 4vw;
+    background: #FF0000;
+    color: #FFFFFF;
+    border-radius: 2vw;
+}
+
+.gamezxspkgames li span {
+    display: block;
+    margin-top: 2vw;
+    font-size: 4vw;
+    font-weight: normal;
+    color: #888888;
+}
+
+.gamezxspkgames div {
+    margin-top: 4vw;
+    text-align: center;
+}
+
+.gamezxspkgames div a {
+    display: inline-block;
+    margin: 0 5vw;
+    padding: 2vw 4vw;
+    font-size: 5vw;
+    color: #FFFFFF;
+    background: #CECECE;
+    border-radius: 2vw;
+}
+
+.gamezxspkgamesmask {
+    position: fixed;
+    z-index: 9996;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background: #000000;
+}
+
+.gamezxspkother {
+    position: fixed;
+    z-index: 9997;
+    padding: 6vw 0;
+    left: 10vw;
+    top: 30vh;
+    width: 80vw;
+    text-align: center;
+    background: #FFFFFF;
+    border-radius: 3vw;
+}
+
+.gamezxspkother a {
+    display: block;
+    margin: 6vw auto;
+    width: 46vw;
+    height: 17vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.gamezxspkother a.gamezxspkweixin {
+    background-image: url(http://game.zxs.com/app/playmode2.png);
+}
+
+.gamezxspkother a.gamezxspkrandom {
+    background-image: url(http://game.zxs.com/app/playmode1.png);
+}
+
+.gamezxspkothermask {
+    position: fixed;
+    z-index: 9996;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background: #000000;
+}
+
+/************************************ animate.css *******************************************/
+
+@-webkit-keyframes bounce {
+    from, 20%, 53%, 80%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    40%, 43% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -30px, 0);
+        transform: translate3d(0, -30px, 0);
+    }
+
+    70% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -15px, 0);
+        transform: translate3d(0, -15px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+@keyframes bounce {
+    from, 20%, 53%, 80%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    40%, 43% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -30px, 0);
+        transform: translate3d(0, -30px, 0);
+    }
+
+    70% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -15px, 0);
+        transform: translate3d(0, -15px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+.bounce {
+    -webkit-animation: bounce 1s;
+    animation: bounce 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.bounceIn {
+    -webkit-animation: bounceIn 1s;
+    animation: bounceIn 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceInDown {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -3000px, 0);
+        transform: translate3d(0, -3000px, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 25px, 0);
+        transform: translate3d(0, 25px, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0, 5px, 0);
+        transform: translate3d(0, 5px, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes bounceInDown {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -3000px, 0);
+        transform: translate3d(0, -3000px, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 25px, 0);
+        transform: translate3d(0, 25px, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0, 5px, 0);
+        transform: translate3d(0, 5px, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bounceInDown {
+    -webkit-animation: bounceInDown 1s;
+    animation: bounceInDown 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceInLeft {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes bounceInLeft {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bounceInLeft {
+    -webkit-animation: bounceInLeft 1s;
+    animation: bounceInLeft 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceInRight {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(3000px, 0, 0);
+        transform: translate3d(3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(-25px, 0, 0);
+        transform: translate3d(-25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes bounceInRight {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(3000px, 0, 0);
+        transform: translate3d(3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(-25px, 0, 0);
+        transform: translate3d(-25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bounceInRight {
+    -webkit-animation: bounceInRight 1s;
+    animation: bounceInRight 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0);
+        transform: translate3d(20px, 0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(-2000px, 0, 0);
+        transform: translate3d(-2000px, 0, 0);
+    }
+}
+
+@keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0);
+        transform: translate3d(20px, 0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(-2000px, 0, 0);
+        transform: translate3d(-2000px, 0, 0);
+    }
+}
+
+.bounceOutLeft {
+    -webkit-animation: bounceOutLeft 1s;
+    animation: bounceOutLeft 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(-20px, 0, 0);
+        transform: translate3d(-20px, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0);
+    }
+}
+
+@keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(-20px, 0, 0);
+        transform: translate3d(-20px, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0);
+    }
+}
+
+.bounceOutRight {
+    -webkit-animation: bounceOutRight 1s;
+    animation: bounceOutRight 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceOutUp {
+    20% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0);
+    }
+
+    40%, 45% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 20px, 0);
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -2000px, 0);
+        transform: translate3d(0, -2000px, 0);
+    }
+}
+
+@keyframes bounceOutUp {
+    20% {
+        -webkit-transform: translate3d(0, -10px, 0);
+        transform: translate3d(0, -10px, 0);
+    }
+
+    40%, 45% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 20px, 0);
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -2000px, 0);
+        transform: translate3d(0, -2000px, 0);
+    }
+}
+
+.bounceOutUp {
+    -webkit-animation: bounceOutUp 1s;
+    animation: bounceOutUp 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.pulse {
+    -webkit-animation: pulse 1s infinite;
+    animation: pulse 1s infinite;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    -webkit-animation: fadeOut 0.5s;
+    animation: fadeOut 0.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.fadeOutSlow {
+    -webkit-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.flashSlow {
+    -webkit-animation: flash 1s;
+    animation: flash 1s;
+}
+
+.flashFast {
+    -webkit-animation: flash 0.2s;
+    animation: flash 0.2s;
+}
+
+.once {
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.twice {
+    -webkit-animation-iteration-count: 2;
+    animation-iteration-count: 2;
+}
+
+.thrice {
+    -webkit-animation-iteration-count: 3;
+    animation-iteration-count: 3;
+}
+
+.quartic {
+    -webkit-animation-iteration-count: 4;
+    animation-iteration-count: 4;
+}
+
+.quintic {
+    -webkit-animation-iteration-count: 5;
+    animation-iteration-count: 5;
+}
+
+.sextic {
+    -webkit-animation-iteration-count: 6;
+    animation-iteration-count: 6;
+}
+
+.septic {
+    -webkit-animation-iteration-count: 7;
+    animation-iteration-count: 7;
+}
+
+.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}

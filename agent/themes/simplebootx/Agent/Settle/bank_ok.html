@@ -1,0 +1,110 @@
+<agenttpl file="user_center_header" />
+
+<script src="__PUBLIC__/agent/js/hm.js" ></script >
+
+<script type="text/javascript" src="__PUBLIC__/agent/js/common-focus.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/agent/js/user.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/agent/js/restrict_input.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/agent/js/finance.js" ></script >
+<script src="__PUBLIC__/agent/js/withdraw-zfb.js" ></script >
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right withdrawal-application" style="height:760px;" >
+                <div class="container" style="width:960px;margin-top:30px;" >
+                    <ul class="breadcrumb" >
+                        <li ><a href="{$urls.index}" >首页</a ></li >
+                        <li ><a href="{:U('Agent/settle/index')}" >提现</a ></li >
+                        <li class="active" >提现申请</li >
+                    </ul >
+                </div >
+                <div class="application-information" >
+                    <div class="cash-balances" >
+                        <span >账户余额：</span ><i ><b >{$account_remain}</b >元</i >
+                        <input id="txcount" type="hidden" value="0" >
+                        <input id="mymoney" type="hidden" value="{$balance}" >
+                    </div >
+                    <!-- 认证信息不全 -->
+                    <!-- 认证信息全面 -->
+                    <input id="bankAccountId" type="hidden" value="319373" >
+                    <div class="cash-bank-name verification-phone" >
+                        <span >手机号码：</span ><i >{$user.mobile}</i >
+                    </div >
+
+                    <div class="cash-bank-name" >
+                        <span >银行账户：</span >
+                        <i class="alipay-name account_bank_num" >{$account.banknum}</i >
+                        <i class="modification-btn" onclick="location.href = '{:U('Agent/UserProfile/index')}'" >修改</i >
+                    </div >
+
+                    <div class="withdrawal-amount" >
+                        <span >输入提现金额：</span ><input id="amount" name="amount" maxlength="12"
+                                                     onkeyup="return calcFee();" onblur="setAmount()"
+                                                     type="text" ><i >元</i >
+                        <div id="error-amount" style="margin-bottom:0px;" ></div >
+                    </div >
+                    <div class="withdrawal-fee" >
+                        <span >提现付手续费：</span ><i style="margin-left: 0;" ><b id="withdrawFee" >0.00</b >元</i >
+                    </div >
+                    <div class="actual-withdrawal-amount" >
+                        <span >实际提现金额：</span ><i ><b id="withdrawMoney" style="margin-right:5px;" >0.00</b >元</i >
+                    </div >
+                    <div class="withdrawal-pwd" >
+                        <span >输入支付密码：</span ><input id="password" name="password" type="password" maxlength="22" >
+                        <div id="error-paypwd" style="margin-bottom:0px;" >请输入支付密码</div >
+                    </div >
+                    <div class="submit-btn" >提交</div >
+                    <div class="withdrawal-state" >
+                        <p class="p-1" >尊敬的合作伙伴：</p >
+                        <p >您好，为了给您提供更安全、更高效、更专业、更贴心的服务，创造一个公平有序的交易环境。</p >
+                        <p >即日起，我们将收取适当的提现服务费，提现服务首次免费，超出部分次数，提现服务费在申请金额中扣除。</p >
+                        <p class="p-4 blue" >提现服务费收取规则为：</p >
+                        <p class="blue" >1、每个用户在自然日中首次提现免费，提现金额无限制；</p >
+                        <p class="blue" >2、超过次数部分收费：任意提现方式须支付提现额度的1%作为提现手续费。最低2元（不足2元按2元计算）；</p >
+                        <p class="blue" >3、提现时间09:00-24:00，申请提现后24小时到账；</p >
+                        <!--<p class="blue">4、最小提现金额3元；</p>-->
+                        <p class="p-7" >感谢您的支持，有问题请及时咨询页面咨询客服，我们将会在第一 时间解答您的问题。</p >
+                        <p class="p-8" >真诚感谢您对我们工作一如既往的支持!</p >
+                        <!--<p class="p-9"><i>{:C('COMPANY_SHORTNAME')}手游平台</i></p>-->
+                    </div >
+
+                </div >
+            </div >
+        </div >
+</section >
+<!--页脚-->
+
+<script >
+    //        var withdraw_base={$agent_withdraw_base};
+    var withdraw_base = 3;
+    $(".submit-btn").live("click", function () {
+        var banknum = $(".account_bank_num").text();
+        if (banknum == '') {
+            yxalert("请先完善银行帐号");
+            return;
+        }
+        var amount = $("#amount").val();
+        var passWord = $("#password").val();
+        var account = $(".alipay-name").text();
+
+        $.post("{:U('Agent/Settle/withdraw')}", {
+            "amount" : amount,
+            "paypwd" : passWord,
+            "type"   : "bank",
+            "account": account
+        }, function (data) {
+            if (data.error === '1') {
+                yxalert(data.msg);
+            } else {
+                yxalert(data.msg);
+                redirect_delay("{:U('Agent/Settle/index')}", 1000);
+            }
+        });
+
+    });
+</script >
+<agenttpl file="user_center_footer" />

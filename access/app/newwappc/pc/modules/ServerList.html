@@ -1,0 +1,102 @@
+<div class="container module_ServerList" >
+    <div class="row"
+         style="text-align: center;background-color:#4CAF50;color:#FFFFFF;margin-top:10px;margin-bottom:10px;border-radius:5px;" >
+        <h4 >今日开服</h4 >
+    </div >
+    <div class="row" style="margin-top:5px;" >
+        <div class="col-xs-12 module_ServerListItem" ng-repeat="x in today_list" ng-click="showH5Game(x.id);"
+             style="border-bottom:1px dashed #DDDDDD;" >
+            <div class="row" >
+                <div class="col-xs-2" style="padding:0;" >
+                    <img ng-src="{{x.icon}}" class="icon_full" alt="图标" />
+                </div >
+                <div class="col-xs-7" >
+                    <div class="row" >
+                        <span style="font-size:16px;font-weight: 400;" >{{x.name}}</span >
+                    </div >
+                    <div class="row" style="font-size:12px;margin-top:10px;" >
+                            <span style="color:red;" >
+                                {{x.start_time}}
+                            </span >
+                    </div >
+                </div >
+                <div class="col-xs-3" style="text-align: center;width:80px;float:right;padding-right:0;" >
+                    <div style="width:100%;float:left;" >
+                        <img src="./static/img/asset/download.png" class="play_icon" alt="play" />
+                    </div >
+                    <div style="width:100%;float:left;font-size:12px;" >下载</div >
+                </div >
+            </div >
+        </div >
+    </div >
+
+    <div class="row"
+         style="text-align: center;background-color:#FF5722;color:#FFFFFF;margin-top:10px;margin-bottom:10px;border-radius:5px;" >
+        <h4 >即将开服</h4 >
+    </div >
+
+    <div class="row" style="margin-top:5px;" >
+        <div class="col-xs-12 module_ServerListItem" ng-repeat="x in about_list" ng-click="showH5Game(x.id);"
+             style="border-bottom:1px dashed #DDDDDD;" >
+            <div class="row" >
+                <div class="col-xs-2" style="padding:0;" >
+                    <img ng-src="{{x.icon}}" class="icon_full" alt="图标" />
+                </div >
+                <div class="col-xs-7" >
+                    <div class="row" >
+                        <span style="font-size:16px;font-weight: 400;" >{{x.name}}</span >
+                    </div >
+                    <div class="row" style="font-size:12px;margin-top:10px;" >
+                            <span style="color:red;" >
+                                {{x.start_time}}
+                            </span >
+                    </div >
+                </div >
+                <div class="col-xs-3" style="text-align: center;width:80px;float:right;padding-right:0;" >
+                    <div style="width:100%;float:left;" >
+                        <img src="./static/img/asset/download.png" class="play_icon" alt="play" />
+                    </div >
+                    <div style="width:100%;float:left;font-size:12px;" >下载</div >
+                </div >
+            </div >
+        </div >
+        <!--            <div class="col-xs-12" style="margin-top:5px;text-align: center;background-color:#eee;padding-top:10px;padding-bottom:10px;" id="loadMoreText_hot" ng-click="loadMoreHot();">
+                        查看更多
+                    </div>-->
+    </div >
+
+    <div class="row"
+         style="text-align: center;background-color:#03A9F4;color:#FFFFFF;margin-top:10px;margin-bottom:10px;border-radius:5px;" >
+        <h4 >已经开服</h4 >
+    </div >
+
+    <div class="row" style="margin-top:5px;" >
+        <div class="col-xs-12 module_ServerListItem" ng-repeat="x in already_list" ng-click="showH5Game(x.id);"
+             style="border-bottom:1px dashed #DDDDDD;" >
+            <div class="row" >
+                <div class="col-xs-2" style="padding:0;" >
+                    <img ng-src="{{x.icon}}" class="icon_full" alt="图标" />
+                </div >
+                <div class="col-xs-7" >
+                    <div class="row" >
+                        <span style="font-size:16px;font-weight: 400;" >{{x.name}}</span >
+                    </div >
+                    <div class="row" style="font-size:12px;margin-top:10px;" >
+                            <span style="color:red;" >
+                                {{x.start_time}}
+                            </span >
+                    </div >
+                </div >
+                <div class="col-xs-3" style="text-align: center;width:80px;float:right;padding-right:0;" >
+                    <div style="width:100%;float:left;" >
+                        <img src="./static/img/asset/download.png" class="play_icon" alt="play" />
+                    </div >
+                    <div style="width:100%;float:left;font-size:12px;" >下载</div >
+                </div >
+            </div >
+        </div >
+        <!--            <div class="col-xs-12" style="margin-top:5px;text-align: center;background-color:#eee;padding-top:10px;padding-bottom:10px;" id="loadMoreText_hot" ng-click="loadMoreHot();">
+                        查看更多
+                    </div>-->
+    </div >
+</div >

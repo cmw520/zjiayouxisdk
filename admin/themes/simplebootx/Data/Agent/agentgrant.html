@@ -1,0 +1,89 @@
+﻿<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <form class="well form-search" method="get" action="{:U('Data/Agent/agentgrant')}" >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+					<span class="mr20" >
+					代理账户：
+					<select class="select_2" name="agent_id" style="width: 200px;" >
+                        <foreach name="agents" key="k" item="vo" >
+                            <php >$gid_select=$k==$formget['agent_id'] ?"selected":"";</php >
+                            <option value="{$k}" {$gid_select} >{$vo}</option >
+                        </foreach >
+                    </select >&nbsp;&nbsp; &nbsp;&nbsp;
+
+					游戏：
+					<select class="select_2" name="app_id" id="selected_id" style="width: 200px;" >
+                        <foreach name="games" key="k" item="vo" >
+                            <php >$gid_select=$k==$formget['app_id'] ?"selected":"";</php >
+                            <option value="{$k}" {$gid_select} >{$vo}</option >
+                        </foreach >
+                    </select >
+					 &nbsp;&nbsp;
+					 玩家账号：
+					<input type="text" name="username"
+                           style="width: 150px;" value="{$formget.username}"
+                           placeholder="请输入玩家账号..." >
+                    </span >
+                    <br ><br >
+				时间：
+					<input type="text" name="start_time"
+                           class="js-date" value="{$formget.start_time|default=''}" placeholder="开始时间..."
+                           style="width: 100px;" autocomplete="off" >
+					- 
+					<input type="text" class="js-date" name="end_time" placeholder="时间..."
+                           value="{$formget.end_time}" style="width: 100px;"
+                           autocomplete="off" >
+                <input type="submit" name='submit' class="btn btn-primary" id='search_btn_default' value="搜索" />
+            </div >
+        </div >
+    </form >
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th >时间</th >
+                <th >代充游戏</th >
+                <th >代理账号</th >
+                <th >充值账号</th >
+                <th >代充金额</th >
+                <th >消耗平台币</th >
+                <th >代充折扣</th >
+            </tr >
+            </thead >
+            <tr >
+                <th style='color:#FF0000' >汇总</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >--</th >
+                <th style='color:#FF0000' >{$sums}</th >
+                <th style='color:#FF0000' >{$realsum}</th >
+                <th style='color:#FF0000' >--</th >
+            </tr >
+
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.create_time}</td >
+                    <td >{$vo.gamename}</td >
+                    <td >{$vo.agentname}</td >
+                    <td >{$vo.username}</td >
+                    <td >{$vo.gm_cnt}</td >
+                    <td >{$vo['money']}</td >
+                    <td >{$vo['discount']}</td >
+                </tr >
+            </foreach >
+
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    $(".form-search select").change(function () {
+        $("#search_btn_default").click();
+    });
+</script >
+</body >
+</html>

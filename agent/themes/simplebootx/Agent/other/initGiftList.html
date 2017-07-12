@@ -1,0 +1,1038 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html >
+<head >
+    <title >我的礼包中心</title >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" />
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/gift.css" />
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/agent/js/user.js" ></script >
+    <style >
+        .hd ul li {
+            text-indent: -9999px;
+        }
+    </style >
+</head >
+<body >
+<div class="main" >
+    <div class="page-title" >
+        <div class="title-content" >
+            <span >欢迎加盟手游平台，游戏充值，轻松赚钱！</span >
+            <ul >
+                <li > 欢迎您，</li >
+                <li ><span class="user-name" >lb_13539750158</span ><span class="user-id" >（ID：110017808）</span ></li >
+                <li class="mes-tip off" id="mestipoff" style="  cursor:pointer;" onclick="location='receivemail.html'" >
+                    <em ></em >消息 <i id="" >0</i ></li >
+                <li class="mes-tip on" id="mestipon" style=" display:none; cursor:pointer;"
+                    onclick="location='receivemail.html'" ><em ></em >消息 <i id="" ></i ></li >
+                <!--   -->
+                <li class="log-out" onclick="location.href='signout.html'" > 退出登录</li >
+            </ul >
+        </div >
+    </div >
+    <div class="page-header" >
+        <div class="header-content" >
+            <div class="tab" >
+                <div onclick="location='demo.html'"
+                     style="width:325px;height:103px;cursor:pointer;float:left;background-image:none" >
+                    <img src="__PUBLIC__/agent/img/{:C('COMPANY_LOGO')}" class="logo" >
+                    <span >做最具价值的手游分销平台！</span >
+                </div >
+                <ul >
+                    <li onclick="location='demo.html'" >首页</li >
+                    <li onclick="location.href='user_center.html'" >个人中心</li >
+                    <li onclick="location='initMyGameCenter.html'" >手游APP</li >
+                    <li onclick="location='toMyWelfare.html'" >我的福利社</li >
+                    <li onclick="location='taskcenterInfo.html'" >任务中心</li >
+                    <li class="on" onclick="location='aboutus.html'" >礼包中心</li >
+                    <!--   -->
+                </ul >
+            </div >
+        </div >
+    </div >
+    <!--通用栏广告位-->
+
+    <style >
+        /*logo模块*/
+        .logo {
+            float: left;
+            width: 150px;
+            height: 65px;
+            display: block;
+            margin-top: 22px;
+        }
+
+        .page-header .header-content {
+            background-image: none;
+        }
+
+        .page-header .header-content .tab span {
+            float: left;
+            margin: 65px 0 0 10px;
+            color: #333333;
+        }
+    </style >
+    <!--通用栏广告位-->
+    <div class="page-advertising" >
+        <div class="hd" >
+            <ul >
+                <li ></li >
+            </ul >
+        </div >
+        <div class="bd" >
+            <ul >
+                <li class="left" ><img src="__PUBLIC__/agent/img/1200-200+.jpg" /></li >
+            </ul >
+        </div >
+    </div >
+    <div class="page-content" >
+        <div class="hotGift clearfix" >
+            <h2 >热门礼包</h2 >
+            <div class="hotGiftBox" >
+                <ul class="hotGiftInner clearfix" >
+                    <li ><img src="http://pic.51508.com/51508/images/20160415/20825087516103531.png" height="90"
+                              width="90" alt="" /> <span >梦回轩辕</span >
+                        <p >《梦回轩辕》劳动节礼包</p > <a href="/user/giftcenter/PackageDetails/100926" >立即领取</a ></li >
+                    <li ><img src="http://pic.51508.com/51508/images/20160511/23069485266789721.png" height="90"
+                              width="90" alt="" /> <span >山口山战记</span >
+                        <p >《山口山战记》独家礼包</p > <a href="/user/giftcenter/PackageDetails/100946" >立即领取</a ></li >
+                    <li ><img src="http://pic.51508.com/51508/images/20160513/23235892121673312.png" height="90"
+                              width="90" alt="" /> <span >超凡三国</span >
+                        <p >《超凡三国》独家礼包</p > <a href="/user/giftcenter/PackageDetails/100948" >立即领取</a ></li >
+                    <li ><img src="http://pic.51508.com/51508/images/20160309/17646078714873796.png" height="90"
+                              width="90" alt="" /> <span >青丘狐传说</span >
+                        <p >《青丘狐传说》灵狐降世礼包</p > <a href="/user/giftcenter/PackageDetails/100930" >立即领取</a ></li >
+                </ul >
+            </div >
+            <!--热门礼包  end-->
+            <div class="giftApp" >
+                <a href="/user/giftcenter/toMyWelfare" class="a-01" >我的福利社</a >
+                <h3 >手游福利社APP</h3 >
+                <h4 >各种手游礼包你懂的</h4 >
+                <a href="http://app.51508.com/sdk_download/gamelisApp/gamelistApp_110017808.apk"
+                   class="a-02" >下载安卓版</a >
+                <img class="ad-img" src="__PUBLIC__/agent/img/6s.png" height="159" width="108" alt="" />
+                <div class="codeBox hide" style="" >
+                    <img src="http://pic.51508.com/51508/images/20160628/9041918686169775.png" height="110" width="110"
+                         alt="" />
+                    <p >扫描下载<span >&quot;手游福利社&quot;</span >APP</p >
+                    <p >体验属于您自已的推广平台</p >
+                </div >
+            </div >
+        </div >
+    </div >
+    <div class="moreContainer" >
+        <div class="w1200" >
+            <div class="indexContainer clearfix" >
+                <div class="indexLeft" >
+                    <div class="cTabTop clearfix" >
+                        <span class="on" >最新礼包</span >
+                        <span >独家礼包</span >
+                        <span >激活码</span >
+                        <a href="/user/giftcenter/AllGiftpacks" >查看更多礼包</a >
+                    </div >
+                    <div class="tabBox" >
+                        <!-- 最新礼包 -->
+                        <div class="tabGiftBox clearfix" >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160217/15826476103612339.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《画江湖之灵主》灵主礼包</h4 >
+                                    <p >银币*50W、绑定元宝*50、初级强...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/101122"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/upload/20160128125106_icon.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《去吧皮卡丘》六一礼包</h4 >
+                                    <p >金币*300000,4星精灵蛋*1,...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/101102"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/upload/20150929112652_160.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《口袋妖怪复刻》六一礼包</h4 >
+                                    <p >特级迷惑喷雾药剂*1 体力*88 特...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/101082"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/upload/20151113181552_160(1).png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《灵域戮仙》普通礼包</h4 >
+                                    <p >猜猜看 </p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/101062"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/upload/20160128125106_icon.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《去吧皮卡丘》普通球</h4 >
+                                    <p >金币*280000,4星精灵蛋*1,...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/101042"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160513/23216365176131292.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《巅峰战舰》新手礼包</h4 >
+                                    <p >金币*20、银币*10000、钢材*...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/101030"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160416/20908939003625842.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《剑与魔法》公会礼包</h4 >
+                                    <p >研磨剂*10 复活卷轴*10 </p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100982"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160512/23149174728587430.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《仙灵世界》专属礼包</h4 >
+                                    <p >洗宠丹*20,修炼丹*1,铜币袋*1...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100970"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160512/23149174728587430.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《仙灵世界》五一欢庆礼包</h4 >
+                                    <p >洗宠丹*20,铜币袋*1 </p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100968"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160512/23149174728587430.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《仙灵世界》特权礼包</h4 >
+                                    <p >洗宠丹*10,宝石袋*2 </p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100966"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160512/23149174728587430.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《仙灵世界》豪华起航礼包</h4 >
+                                    <p >铜币*500000 </p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100964"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160512/23149174728587430.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《仙灵世界》85元VIP礼包</h4 >
+                                    <p >大宝石袋*1/洗宠丹*50 </p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100962"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160512/23147120056286887.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《天仙变》至尊礼包</h4 >
+                                    <p >高级铜币卡*1,神铸铁碎片*1,初级...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100960"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="tabGiftItem clearfix" >
+                                <div class="indexItemImg" >
+                                    <img src="http://pic.51508.com/51508/images/20160512/23147120056286887.png"
+                                         height="120" width="120" alt="" />
+                                </div >
+                                <div class="indexItemInfo" >
+                                    <h4 style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《天仙变》特权礼包</h4 >
+                                    <p >中级强化符*8，坐骑进阶丹*5,攻击...</p >
+                                    <div class="indexItemAction" >
+                                        <a href="/user/giftcenter/PackageDetails/100958"
+                                           class="androidGet clearfix" ><i ></i ><span >领取礼包</span ></a >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                        <!-- 独家礼包	 -->
+                        <div class="tabGiftBox clearfix hide" > 暂无独家礼包
+                        </div >
+                        <!-- 激活码	 -->
+                        <div class="tabGiftBox clearfix hide" > 暂无激活码
+                        </div >
+                    </div >
+                </div >
+                <div class="indexRight" >
+                    <div class="cRank" >
+                        <div class="cRankTop" >
+                            <h2 >热门礼包榜</h2 >
+                            <div class="rankFilter" >
+                                <span class="on" >周</span >
+                                <span >月</span >
+                                <span >总</span >
+                            </div >
+                        </div >
+                        <div class="cRankContent" >
+                            <!-- 月排行开始 -->
+                            <div class="cRankBox" >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 hide" >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >1</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》个人高级礼包</p >
+                                            <span >20</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 " >
+                                        <a href="/user/giftcenter/PackageDetails/100516" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20151026101654_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100516" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》个人高级礼包</p >
+                                            </a >
+                                            <p >金币*400000，5星装备箱*1，钻石*100</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >2</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》个人特殊礼包</p >
+                                            <span >10</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100518" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20151026101654_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100518" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》个人特殊礼包</p >
+                                            </a >
+                                            <p >金币*500000，5星装备箱*2，钻石*100</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >3</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》个人中级礼包</p >
+                                            <span >10</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100520" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20151026101654_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100520" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》个人中级礼包</p >
+                                            </a >
+                                            <p >金币*300000，暴龙机*1，钻石*100 </p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >4</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》新手礼包</p >
+                                            <span >5</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100508" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20151026101654_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100508" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》新手礼包</p >
+                                            </a >
+                                            <p >金币*20000，暴龙机*1</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >5</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》究极礼包</p >
+                                            <span >5</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100514" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20151026101654_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100514" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》究极礼包</p >
+                                            </a >
+                                            <p >金币X20000，四星数码蛋X1，白银装备宝箱X4</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >6</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》数码礼包</p >
+                                            <span >5</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100512" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20151026101654_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100512" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》数码礼包</p >
+                                            </a >
+                                            <p >金币X20000，三星数码蛋X3，黄金装备宝箱X2</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >7</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》特权礼包</p >
+                                            <span >5</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100510" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20151026101654_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100510" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《究极数码暴龙》特权礼包</p >
+                                            </a >
+                                            <p >白银装备宝箱X1 三星装备宝箱X5，四星装备宝箱X1，..</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >8</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《决战沙城》新手礼包</p >
+                                            <span >0</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100522" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20150824184616_160.jpg"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100522" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《决战沙城》新手礼包</p >
+                                            </a >
+                                            <p >绑金*10W，2倍经验卷轴*2，技能秘药*15、随机技..</p >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <!-- 月排行结束 -->
+                            <!-- 周排行开始 -->
+                            <div class="cRankBox hide" >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 hide" >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >1</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《去吧皮卡丘》六一礼包</p >
+                                            <span >100</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 " >
+                                        <a href="/user/giftcenter/PackageDetails/101102" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20160128125106_icon.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/101102" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《去吧皮卡丘》六一礼包</p >
+                                            </a >
+                                            <p >金币*300000,4星精灵蛋*1,体力药剂(大)*1...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >2</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《画江湖之灵主》灵主礼包</p >
+                                            <span >69</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/101122" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160217/15826476103612339.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/101122" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《画江湖之灵主》灵主礼包</p >
+                                            </a >
+                                            <p >银币*50W、绑定元宝*50、初级强化石*10、橙焰鸣...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >3</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》新手礼包</p >
+                                            <span >40</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100656" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20150929153552_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100656" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》新手礼包</p >
+                                            </a >
+                                            <p >银两*50000 ,体力丹*2, 白银经验宝物*1</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >4</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》公会礼包</p >
+                                            <span >40</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100646" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20150929153552_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100646" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》公会礼包</p >
+                                            </a >
+                                            <p > 元宝*158、神魂*158、将魂*158</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >5</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》大大礼包</p >
+                                            <span >40</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100644" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20150929153552_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100644" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》大大礼包</p >
+                                            </a >
+                                            <p >元宝*200、银两*200000、天命石*25、体力丹...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >6</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》专属礼包</p >
+                                            <span >40</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100658" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20150929153552_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100658" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》专属礼包</p >
+                                            </a >
+                                            <p > 元宝*100、金龙宝宝*1</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >7</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《擂台抢亲》笑傲江湖</p >
+                                            <span >35</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100538" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20160127094600_《擂台抢亲》Icon-160x160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100538" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《擂台抢亲》笑傲江湖</p >
+                                            </a >
+                                            <p >招财符*5、阅历卷*10、礼品盒*10、大盘包子*5</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >8</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》情义礼包</p >
+                                            <span >35</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100650" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20150929153552_160.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100650" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《少年三国志》情义礼包</p >
+                                            </a >
+                                            <p >元宝*188、银两*150000</p >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <!-- 周排行结束	 -->
+                            <!-- 总排行开始 -->
+                            <div class="cRankBox hide" >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 hide" >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >1</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《梦回轩辕》劳动节礼包</p >
+                                            <span >200</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 " >
+                                        <a href="/user/giftcenter/PackageDetails/100926" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160415/20825087516103531.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100926" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《梦回轩辕》劳动节礼包</p >
+                                            </a >
+                                            <p >铜币51000、荣耀令牌30、喷香鸡腿3、扫荡券3、强...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >2</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《山口山战记》独家礼包</p >
+                                            <span >150</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100946" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160511/23069485266789721.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100946" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《山口山战记》独家礼包</p >
+                                            </a >
+                                            <p >金币*2000、2级经验卷轴*5、扫荡券*5、钻石*2...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i >3</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《超凡三国》独家礼包</p >
+                                            <span >150</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100948" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160513/23235892121673312.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100948" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《超凡三国》独家礼包</p >
+                                            </a >
+                                            <p >元宝*98，铜钱*38888，高级经验药水*15，高级...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >4</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《青丘狐传说》灵狐降世礼包</p >
+                                            <span >140</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100930" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160309/17646078714873796.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100930" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《青丘狐传说》灵狐降世礼包</p >
+                                            </a >
+                                            <p >100银商票3个、1级升星石2个，铸星锤1个，宠物道具...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >5</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《青丘狐传说》仙狐降世礼包</p >
+                                            <span >140</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100932" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160309/17646078714873796.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100932" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《青丘狐传说》仙狐降世礼包</p >
+                                            </a >
+                                            <p >100银商票3个、1级升星石2个，2级升星石1个，宠物...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >6</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《魔龙诀》新手礼包</p >
+                                            <span >120</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100910" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160428/21959653747088924.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100910" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《魔龙诀》新手礼包</p >
+                                            </a >
+                                            <p >九转回魂丹*5、绑定元宝*500、30W金币、传送石*...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >7</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《英雄万岁》五一狂欢礼包</p >
+                                            <span >115</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100924" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/upload/20160105163159_512.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100924" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《英雄万岁》五一狂欢礼包</p >
+                                            </a >
+                                            <p >点券*100、金币*30000、金钥匙*2</p >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="rankLine" >
+                                    <div class="rankItemBox1 " >
+                                        <div class="rankItem1 clearfix" >
+                                            <i class="after3" >8</i >
+                                            <p style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《魔龙诀》王者礼包</p >
+                                            <span >105</span >
+                                        </div >
+                                    </div >
+                                    <div class="rankItemBox2 hide" >
+                                        <a href="/user/giftcenter/PackageDetails/100914" class="rankImg" ><img
+                                                src="http://pic.51508.com/51508/images/20160428/21959653747088924.png"
+                                                height="60" width="60" alt="" /></a >
+                                        <div class="rankInfo" >
+                                            <a href="/user/giftcenter/PackageDetails/100914" class="rankTitle" ><p
+                                                    style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" >《魔龙诀》王者礼包</p >
+                                            </a >
+                                            <p >九转回魂丹*10、绑定元宝*1000、50W金币、传送...</p >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <!-- 总排行结束	 -->
+                        </div >
+                    </div >
+                    <div class="getetScroll" >
+                        <h3 class="scrollHead" >他们都在领</h3 >
+                        <div class="getScrollBox" >
+                            <ul >
+                                <li class="clearfix" >
+                                    <div class="scrollL" >
+                                        <p class="scrollName" ><em >24****44</em > <span >刚刚</span ></p >
+                                        <p class="scrollDesc" >《究极数码暴龙》个人高级礼包</p >
+                                    </div >
+                                    <a class="scrollR" href="" ><span >我也要领</span ></a ></li >
+                                <li class="clearfix" >
+                                    <div class="scrollL" >
+                                        <p class="scrollName" ><em >lb****59</em > <span >刚刚</span ></p >
+                                        <p class="scrollDesc" >《究极数码暴龙》新手礼包</p >
+                                    </div >
+                                    <a class="scrollR" href="" ><span >我也要领</span ></a ></li >
+                                <li class="clearfix" >
+                                    <div class="scrollL" >
+                                        <p class="scrollName" ><em >lb****59</em > <span >刚刚</span ></p >
+                                        <p class="scrollDesc" >《究极数码暴龙》特权礼包</p >
+                                    </div >
+                                    <a class="scrollR" href="" ><span >我也要领</span ></a ></li >
+                                <li class="clearfix" >
+                                    <div class="scrollL" >
+                                        <p class="scrollName" ><em >lb****59</em > <span >刚刚</span ></p >
+                                        <p class="scrollDesc" >《究极数码暴龙》数码礼包</p >
+                                    </div >
+                                    <a class="scrollR" href="" ><span >我也要领</span ></a ></li >
+                                <li class="clearfix" >
+                                    <div class="scrollL" >
+                                        <p class="scrollName" ><em >lb****59</em > <span >刚刚</span ></p >
+                                        <p class="scrollDesc" >《究极数码暴龙》究极礼包</p >
+                                    </div >
+                                    <a class="scrollR" href="" ><span >我也要领</span ></a ></li >
+                                <li class="clearfix" >
+                                    <div class="scrollL" >
+                                        <p class="scrollName" ><em >lb****59</em > <span >刚刚</span ></p >
+                                        <p class="scrollDesc" >《究极数码暴龙》个人特殊礼包</p >
+                                    </div >
+                                    <a class="scrollR" href="" ><span >我也要领</span ></a ></li >
+                            </ul >
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <div class="indexbottom clearfix" >
+                <div >
+                    <span >发号说明</span >
+                </div >
+                <ul >
+                    <li >1. 大部分号的领取无需任何条件，一些珍贵的礼包，需要满足登录51508平台、用户VIP等级或使用51508{:C(CURRENCY_NAME)}等条件才可获得。</li >
+                    <li >2. 请您在领取号后尽快使用，以免礼包或激活码因为使用时间的问题而失效。</li >
+                    <li >3. 领取的礼包和激活码会记录在您的个人礼包中心中，您可以随时进入个人礼包中心查阅领取记录。</li >
+                </ul >
+            </div >
+        </div >
+    </div >
+</div >
+<div class="page-footer" >
+    <div class="footer-content" >
+        <ul >
+            <li class="liebao" onclick="location='liebao.html'" >猎宝网</li >
+            <li onclick="location='aboutus.html'" >关于我们</li >
+            <li onclick="location='business.html'" >商务合作</li >
+            <li onclick="location='ParentalControls.html'" >家长监护</li >
+            <li class="help-center" onclick="location='helpcenter.html'" >帮助中心</li >
+        </ul >
+        <span class="copyright" > 版权所有：123456有限公司 网站备案/许可证号： <a style="color:#898890;" target="_blank"
+                                                                href="" > 苏B1-123456</a > <a style="color:#898890;"
+                                                                                             target="_blank"
+                                                                                             href="" >苏网文[2015]123456号</a > 联系QQ： <a
+                style="color:#898890;" href="" target="_blank" >123456</a > 联系电话：123456 </span >
+    </div >
+</div >
+<script type="text/javascript" >
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "";
+        var s  = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script >
+<script type="text/javascript" >
+
+    $('.giftApp .a-02').hover(function () {
+        $('.codeBox').removeClass('hide');
+    }, function () {
+        $('.codeBox').addClass('hide');
+    });
+
+    // 首页页签切换
+    $('.cTabTop span').click(function (event) {
+        var idx = $(this).index();
+        $(this).addClass('on').siblings('span').removeClass('on');
+        $('.tabBox .tabGiftBox').eq(idx).removeClass('hide').siblings().addClass('hide');
+    });
+    // 排行热榜悬停效果
+    $('.rankItemBox1').hover(function () {
+        $(this).parent('.rankLine').find('.rankItemBox2').removeClass('hide');
+        $(this).addClass('hide');
+        $(this).parent('.rankLine').siblings().find('.rankItemBox2').addClass('hide');
+        $(this).parent('.rankLine').siblings().find('.rankItemBox1').removeClass('hide');
+    }, function () {
+        return false;
+    });
+    // 排行热榜页签
+    $('.rankFilter span').click(function (event) {
+        var idx = $(this).index();
+        $(this).addClass('on').siblings('span').removeClass('on');
+        $('.cRankBox').eq(idx).removeClass('hide').siblings('.cRankBox').addClass('hide');
+    });
+    // 无缝滚动
+    (function (a) {
+        a.fn.scroll = function (k) {
+            function e(b, c) {
+                b.find("ul").animate({marginTop: "-=1"}, 0, function () {
+                    Math.abs(parseInt(a(this).css("margin-top"))) >= c && (a(this).find("li").slice(0, 1).appendTo(a(this)), a(this).css("margin-top", 0))
+                })
+            }
+
+            var g = a.extend({}, {speed: 40, rowHeight: 24}, k), c = [];
+            this.each(function (b) {
+                var f = g.rowHeight, h = g.speed, d = a(this);
+                c[b]  = setInterval(function () {
+                    d.find("ul").height() <= d.height() ? clearInterval(c[b]) : e(d, f)
+                }, h);
+                d.hover(function () {
+                    clearInterval(c[b])
+                }, function () {
+                    c[b] = setInterval(function () {
+                        d.find("ul").height() <= d.height() ? clearInterval(c[b]) : e(d, f)
+                    }, h)
+                })
+            })
+        }
+    })(jQuery);
+    $(function () {
+        $(".getScrollBox").scroll({
+            speed    : 40,
+            rowHeight: 83
+        });
+    });
+    $('.hotGiftInner li').hover(function () {
+        $(this).addClass('on');
+    }, function () {
+        $(this).removeClass('on');
+    });
+    $('.cAside a').hover(function () {
+        $('.codeBox').removeClass('hide');
+    }, function () {
+        $('.codeBox').addClass('hide');
+    });
+    /*百度分享*/
+    window._bd_share_config = {
+        "common": {
+            "bdText"    : "情人节玩游戏领红包 全平台苹果手游第二单半价 分享活动再领红包！@7881游戏交易",
+            "bdUrl"     : "http://www.7881.com/activity-qixi.html",
+            "bdPic"     : "images/huodong/20150707-ms/fx.jpg",
+            "bdMini"    : "2",
+            "bdMiniList": false,
+            "bdStyle"   : "0",
+            "bdSize"    : "32"
+        },
+        "share" : {}
+    };
+    /*复制*/
+    $(".copy-btn").click(function () {
+        $(".copy-success").show();
+        var i          = 2;
+        var count_down = setInterval(function () {
+            i --;
+            if (i == 0) {
+                clearInterval(count_down);
+                $(".copy-success").hide();
+            }
+        }, 1000);
+    });
+
+    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '__PUBLIC__/agent/js/share.js?cdnversion=' + ~ (- new Date() / 36e5)];
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "";
+        var s  = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+</script >
+</body >
+</html >

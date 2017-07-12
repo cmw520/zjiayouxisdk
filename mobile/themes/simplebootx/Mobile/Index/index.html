@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title ></title >
+    <meta name="format-detection" content="telephone=no" >
+    <meta name="viewport"
+          content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1,minimal-ui" >
+    <meta name="full-screen" content="yes" >
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/wap/css/gamezxs.css" >
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/games.css" >
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/banner.css" >
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/wap/css/info.css"
+          media="screen, projection" >
+    <script src="__PUBLIC__/wap/js/jquery-1.8.3.min.js" ></script >
+    <script src="__PUBLIC__/wap/js/iscroll.min.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/wap/js/banner.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/wap/js/carousel.js" ></script >
+</head >
+<body style="max-width: 640px; margin: 0px auto;" >
+<!--顶部条 start -->
+<div id="topBarRegion" >
+    <div id="topBarWrapper" >
+        <div class="container header" data-offset-top="1" >
+            <div class="user-photo"
+                 onclick="window.location.href='{:U('Account/userinfo')}'" >
+                <img class="photo" src="__PUBLIC__/wap/images/default.png" >
+            </div >
+            <div class="searchBox" >
+                <input type="text" value="{$gamename}" placeholder="请输入您要搜索的游戏..." >
+            </div >
+            <div class="user-level" ></div >
+            <a onclick="searchGame()" role="button" style=""
+               class="follow-button" data-toggle="modal"
+               data-target="#barcodeModal" ><img
+                    src="__PUBLIC__/wap/images/icon_search.png" ></a >
+        </div >
+    </div >
+</div >
+<!--顶部条 end -->
+<ul class="list" >
+    <li class="template" >
+        <div class="open" ></div >
+        <div class="num" ></div >
+        <img class="avatar" >
+        <div class="score" >
+            <div class="nickname" ></div >
+            <div class="intro" ></div >
+        </div >
+    </li >
+</ul >
+
+<div id="banner_ad" >
+    <div class="slider" >
+        <ul >
+            <volist name="lunbodata" id="vo" >
+                <li ><a href="{$vo.url}" target="_blank" ><img
+                        src="{$vo.img}" ></a >
+                </li >
+            </volist >
+        </ul >
+    </div >
+</div >
+<div id="showmygames" style="display: none; position: relative;" >
+    <table border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff"
+           width="100%" >
+        <tbody >
+        <tr >
+            <td align="center" >
+                <table border="0" cellspacing="0" cellpadding="0" width="90%" >
+                    <tbody >
+                    <tr >
+                        <td height="10" ></td >
+                    </tr >
+                    <tr height="30" >
+                        <td style="line-height: 150%" align="left" ><span
+                                style="font-size: 16px; color: #000000" id="iNickname" >我玩过的</span ></td >
+                        <td style="font-size: 12px; color: #000000" align="right"
+                            onclick="" >更多&gt;</td >
+                    </tr >
+                    </tbody >
+                </table >
+            </td >
+        </tr >
+        <tr >
+            <td height="1" bgcolor="#f6f6f6" ></td >
+        </tr >
+        <tr >
+            <td height="5" bgcolor="#ffffff" ></td >
+        </tr >
+        </tbody >
+    </table >
+    <div id="mygames" style="width: 100%; background-color: white;" ></div >
+
+</div >
+
+<div id="fix_nav"
+     style="left: 0px; color: rgb(255, 255, 255); height: 50px; width: 100%; font-size: 12px; z-index: 100; max-width: 640px; right: 0px; margin: auto; background-color: rgb(238, 238, 238);" >
+    <table width="100%" height="100%" border="0" cellspacing="0"
+           cellpadding="0" >
+        <tbody >
+        <tr height="3" id="nav_line" style="display:" >
+            <td bgcolor="red" ></td >
+            <td bgcolor="#cccccc" ></td >
+            <td bgcolor="#cccccc" ></td >
+            <td bgcolor="#cccccc" ></td >
+        </tr >
+        <tr >
+            <!--id 改为 class-->
+            <td width="20%"
+                onclick="window.location.href='{:U('Index/index')}'"
+                align="center" ><span class="menu_1_label active" >网络热榜</span ></td >
+            <td width="20%" onclick="window.location.href='{:U('Index/kfb')}'"
+                align="center" ><span class="menu_1_label" >开服表</span ></td >
+            <td width="20%" onclick="window.location.href='{:U('Index/qlb')}'"
+                align="center" valign="middle" ><span class="menu_1_label" >礼包</span ></td >
+            <td width="20%" onclick="window.location.href='{:U('Index/wybl')}'"
+                align="center" ><span class="menu_1_label" >网友爆料</span ></td >
+        </tr >
+        </tbody >
+    </table >
+
+</div >
+<div id="nav_end" style="height: 50px; display: none" ></div >
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style=""
+       bgcolor="#FFFFFF" >
+    <tbody >
+    <tr >
+        <td bgcolor="#ffffff" >
+            <div id="toptj" >
+                <table align="center" border="0" cellspacing="4" cellpadding="4"
+                       width="100%" ></table >
+                <volist name='gamedata' id='vo' >
+                    <table align="center" border="0" cellspacing="2" cellpadding="2"
+                           width="95%" >
+                        <tbody >
+                        <tr >
+                            <td width="5%" align="center" valign="top"
+                                onclick="window.location.href='{:U('Index/game_detail',array('id'=>$vo[id]))}'" ><img
+                                    src="{$vo.icon}"
+                                    style="border-radius: 7px; width: 48px; height: 48px;" >
+                            </td >
+                            <td width="85%" height="20" valign="top"
+                                onclick="window.location.href='{:U('Index/game_detail',array('id'=>$vo[id]))}'" ><span
+                                    style="font-size: 16px; color: #000000;" >{$vo.name}</span >
+                                <if condition="$vo['rebate_rate'] neq 0" >
+											<span class="ilabel"
+                                                  style="color: red; border: 1px solid red" >返利{$vo['rebate_rate']*100}%
+											</span >
+                                </if >
+                                <volist
+                                        name="vo[tag]" id='v' >
+											<span class="ilabel"
+                                                  style="color: #FF9900; border: 1px solid #FF9900" >{$tag[$v]}
+											</span >
+                                </volist >
+                                <if condition="$gifttypedata[$vo['id']] neq ''" >
+                                    <span class="ilabel"
+                                          style="color: #88D3FE; border: 1px solid #88D3FE" >礼包x{$gifttypedata[$vo['id']]}</span >
+                                </if >
+                                <br >
+                                <span style="font-size: 10px; color: #999999" >{$vo.publicity}</span ></td >
+                            <td width="10%" height="20" align="center" ><a
+                                    class="play-btn" href='{$vo.androidurl}'
+                                    style='text-decoration: none;' target="_blank" >下载</a ></td >
+                        </tr >
+                        </tbody >
+                    </table >
+                </volist >
+                <div id="morebtn" onclick="showMoreGame()" >点击显示更多</div >
+            </div >
+        </td >
+    </tr >
+    </tbody >
+</table >
+<div id="fix_footer"
+     style="border-top: 1px solid rgb(221, 221, 221); left: 0px; line-height: 80%; color: rgb(255, 255, 255); height: 50px; width: 100%; position: fixed; bottom: 0%; max-width: 640px; right: 0px; margin: auto; background-color: rgb(248, 248, 248);" >
+    <table width="100%" height="100%" border="0" >
+        <tbody >
+        <tr >
+            <td width="33%" onclick="window.location.href='{:U('Index/index')}'"
+                align="center" ><img src="__PUBLIC__/wap/images/nav_14_on.png"
+                                     height="24" style="margin-bottom: 1px;" ><br > <span
+                    id="menu_1_label" style="font-size: 10.5px; color: red" >游戏</span ></td >
+            <td width="33%" onclick="window.location.href='{:U('Index/qlb')}'"
+                align="center" ><img src="__PUBLIC__/wap/images/nav_17_off.png"
+                                     height="24" style="margin-bottom: 1px;" ><br > <span
+                    id="menu_3_label" style="font-size: 10.5px; color: #929292" >礼包</span >
+            </td >
+            <td width="33%" onclick="window.location.href='{:U('Account/userinfo')}'"
+                align="center" ><img src="__PUBLIC__/wap/images/nav_11_off.png"
+                                     height="24" style="margin-bottom: 1px;" ><br > <span
+                    id="menu_3_label" style="font-size: 10.5px; color: #929292" >我</span >
+            </td >
+        </tr >
+        </tbody >
+    </table >
+    <div id="footer_badge_message"
+         style="position: absolute; left: 83%; top: 3px; background: #FF0000; border-radius: 8px; color: #FFFFFF; padding: 2px 5px; font-family: SimHei; font-size: 12px; display: none;" ></div >
+</div >
+<div style="display: none" ></div >
+<div class="modal-backdrop fade in" style="display: none" ></div >
+<input type="hidden" id="searchGame" value="{:U('Index/index')}" >
+<form id="form1" >
+    <input type="hidden" name="gamename" class="gamename" value="" />
+</form >
+<script src="__PUBLIC__/wap/js/huosu_base.js" ></script >
+<script >
+    $(".modal-backdrop,.modal-dialog").on("click", function () {
+        $(".modal-backdrop,.modal-dialog").hide();
+    });
+    function showMoreGame() {
+        //显示更多游戏
+        sendData("1.php", {
+            "page": "2"
+        }, function () {
+            console.log("点击了加载更多..");
+        });
+    }
+    function pi(el) {
+        return parseInt(el);
+    }
+    //搜索
+    function searchGame() {
+        var name = $(".searchBox>input").val();
+        $("#form1 .gamename").val(name);
+        $("#form1").submit();
+    }
+</script >
+</body >
+</html >

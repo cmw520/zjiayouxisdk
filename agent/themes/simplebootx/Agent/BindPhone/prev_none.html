@@ -1,0 +1,127 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <style >
+                .user_info_editdiv .row {
+                    padding: 10px 20px;
+                }
+
+                .user_info_editdiv .row input {
+                    width: 200px;
+                }
+
+                .bind_phone_step1 .row:first-child {
+                    /*border-bottom:1px solid #ccc;*/
+                    margin-bottom: 20px;
+                    background-color: #6BBAF7;
+                    color: #FFFFFF;
+                }
+
+                .user_info_editdiv {
+                    width: 600px;
+                    float: left;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    margin-bottom: 30px;
+                }
+
+                .phone_verify_block .row {
+                    padding: 15px 30px;
+                }
+            </style >
+            <div class="page-right personal-information-management" style="min-height:500px;" >
+                <form class="form-horizontal" method='post' action='' role="form" onsubmit="return false;" >
+                    <input type="hidden" name="agent_id" value="{$user.id}" />
+                    <input type="hidden" name="phone_prev" value="{$user.mobile}" />
+
+                    <div class='container user_info_editdiv bind_phone_step2' >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >手机号</label >
+                            <div class='col-md-6' >
+                                <input class='form-control' type='text' name='phone' placeholder="请输入要绑定的手机号码" />
+                            </div >
+                            <div class='col-md-4' >
+                                <button class="btn btn-success send_phonecode_btn" >发送验证码</button >
+                            </div >
+                        </div >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >输入验证码</label >
+                            <div class='col-md-10' >
+                                <input type='text' class='form-control' name='code' placeholder='请输入验证码' />
+                            </div >
+                        </div >
+
+                        <div class='row' >
+                            <label class='col-md-2 control-label' ></label >
+                            <div class='col-md-10' >
+                                <button class='btn btn-success verify_phonecode_btn' >绑定手机号</button >
+                            </div >
+                        </div >
+                </form >
+            </div >
+        </div >
+    </div >
+    </div>
+    <script >
+        var user_id = {$user.id
+        }
+        ;
+        var phone = 0;
+
+        $(".verify_phonecode_btn").click(function () {
+            var code = $("input[name='code']").val();
+            $.post("{:U('Front/Api/VerifyPhoneCode')}", {"PhoneVerifyCode": code}, function (data) {
+                if (data.error === '0') {
+                    yxalert("验证通过");
+                    setTimeout(function () {
+                        layer.closeAll();
+                        if (phone == 0) {
+                            yxalert("手机号码格式不正确");
+                            return;
+                        }
+                        $.post("{:U('Front/Api/changePhone')}", {"phone": phone, "id": user_id}, function (res) {
+                            if (res.error === '0') {
+                                yxalert("绑定成功");
+                                reload_delay();
+                            } else {
+                                yxalert(data.msg);
+                            }
+                        });
+                    }, 1000);
+                } else {
+                    yxalert(data.msg);
+                }
+            });
+        });
+
+        $(".send_phonecode_btn").click(function () {
+            phone = $("input[name='phone']").val();
+            do_send_code(phone);
+        });
+
+        function do_send_code(phone) {
+
+            $.post("{:U('Agent/BindPhone/sendPhoneCode')}", {"phone": phone}, function (data) {
+                if (data.error === '0') {
+                    yxalert("验证码已发送，请尽快输入");
+                } else {
+                    yxalert(data.msg);
+                }
+            });
+        }
+
+    </script >
+</section >
+
+<agenttpl file="user_center_footer" />
+
+
+
+
+

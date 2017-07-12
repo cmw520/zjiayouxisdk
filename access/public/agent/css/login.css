@@ -1,0 +1,60 @@
+@charset "utf-8";
+.login-box{ width:400px; margin:30px auto;}
+.login-box h1{ display: block; overflow: hidden; font-size: 12px; text-align: right; line-height: 40px; font-weight:normal;}
+.login-box h1 span{ float: left; font-family:"Microsoft YaHei"; font-size: 24px; color:#34495e;}
+.login-box ul{ margin:0 auto;}
+.login-box ul li{width:100%; padding:10px 0; position: relative;}
+.login-box ul li div{display:inline-block; width:100%;}
+.login-box ul li div p{text-align: left; color:#f90; line-height: 20px;}
+.login-box ul li div input{width: 100%; border:none; height:40px; line-height: 40px; border-bottom: 1px solid #D5D5D5; font-size: 14px; color:#99a1a9;background:transparent;}
+.login-box ul li div input:focus{border-bottom-color:#3499da; color:#333;background:transparent;}
+.login-box ul li div input.error-{ background: url(images/51508ICO.png) right -126px no-repeat;}
+
+/* 输入时的提示 */
+.entry-tips{ display:none; position: absolute; top:10px; left:410px; width:240px; padding:0 5px; display:inline-block; height:28px; line-height: 28px; border:1px solid #ddd; background: #f7f7f7;}
+
+/* 验证码 */
+.login-box ul li.yzm div{display:inline-block; *display:inline; *zoom:1; width:200px;}
+.login-box ul li.yzm img{display:inline-block; margin:0 10px; _margin:0 10px; vertical-align: top;}
+.login-box ul li.yzm a{display:inline-block; vertical-align:top; padding:10px 0;}
+
+/* 手机验证 */
+.login-box ul li.yz div{display:inline-block; *display:inline; *zoom:1; width:280px; }
+.login-box ul li.yz a{display:inline-block; width:110px; text-align:center;  vertical-align: top;  background: #3499da; color:#fff; height:30px; line-height: 30px; border-radius:4px; margin:10px 0 0 5px; _margin:10px 0 0 5px;}
+.login-box ul li.yz a.graybg{ background:#666;}
+
+/* 我同意 */
+.login-box ul li.i-agreed div{width:268px; height: 40px; font-size:14px; line-height: 16px;}
+.login-box ul li.i-agreed i{display: inline-block; cursor: pointer; height:16px; line-height: 16px; padding:0 0 0 20px; color:#aaa; vertical-align: middle;  background:url(../images/51508ICO.png) 0 -26px no-repeat;}
+.login-box ul li.i-agreed i.on{background-position: 0 0;}
+.login-box ul li.i-agreed div p{font-size: 12px; display: none;}
+
+/* 红色错误提醒 */
+.error-tips{ color:#f00;}
+
+/* 登录按钮 */
+.login-but{ width:400px; margin:20px auto;}
+.login-but a{display:inline-block;width:400px; text-align:center; font-size:14px; font-weight:bold; height:48px; line-height:48px; border-radius:4px; color:#fff; background:#3499da;}
+
+/* 忘记密码 */
+.forgot-password{ text-align:right;}
+.login-box h1 a,.login-box ul li.yzm a,.forgot-password a{color:#369;}
+
+/* 注册成功 */
+.registered-successful{ width:300px; text-align:center; margin:30px auto; overflow: hidden;}
+.registered-successful h1{ height:50px; line-height: 50px; font-size:26px; font-weight:normal; color:#34495e; font-family:"Microsoft YaHei";}
+.registered-successful h1 img{display: inline-block; vertical-align:middle; margin: 0 10px 0 0; _margin: 0 10px 0 0;}
+.registered-successful p{line-height: 50px;}
+.registered-successful a{display:inline-block;width:200px; height:40px; line-height:40px; border-radius:4px; color:#fff; background:#3499da;}
+
+/*************图形验证码弹窗***************/
+.img-code-pop{width: 420px;height: 224px;background: #FFFFFF;position: absolute;display: none;z-index: 999999;}
+.img-code-pop #header{height: 47px;border-bottom: 1px solid #e4e4e4;line-height: 47px;}
+.img-code-pop #header img{float:right;margin-top: 16px;margin-right: 20px;cursor: pointer;}
+.img-code-pop #header span{margin-left: 20px;color: #666666;font-weight: bold;float:left}
+.img-code-pop #img-code-content{width: 242px;margin: 42px auto 0 auto;display: table;}
+.img-code-pop #img-code-content input,#img-code-content #code-img{float:left;border: 1px solid #e4e4e4;height: 30px;}
+.img-code-pop #img-code-content input{line-height: 30px;width: 144px;padding-left: 6px;}
+.img-code-pop #img-code-content #code-img{margin-left: 10px;cursor: pointer;}
+.img-code-pop #img-code-content #code-btn{width: 100px;height: 30px;margin: 60px auto 0 auto;color:#FFFFFF;background: #008be3;line-height: 30px;text-align: center;cursor: pointer;}
+.img-code-pop #img-code-content #code-btn:hover{background: #f44b00;}

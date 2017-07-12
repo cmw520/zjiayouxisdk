@@ -1,0 +1,30 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records" >
+
+                <div class='container' style='width:650px;margin-top:30px;min-height:500px;' >
+                    <div class='row' style='text-align: center;border-bottom:1px solid #CCCCCC;margin-bottom:20px;' >
+                        <h3 style='font-size:24px;padding:10px 0;' >{$data.post_title}</h3 >
+                        <p style='padding:10px 0;' >{$data.post_date|date="Y-m-d H:i:s",###}</p >
+                    </div >
+                    <div class='row' >
+                        {$data.post_content}
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+    </div>
+</section >
+
+<!--页脚-->
+<agenttpl file="footer" />
+<script >
+
+</script >

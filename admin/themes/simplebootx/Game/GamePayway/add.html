@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Game/GamePayway/index')}" >支付列表</a ></li >
+        <li class="active" ><a href="{:U('Game/GamePayway/edit')}" >支付设置</a ></li >
+    </ul >
+    <form method="post" class="form-horizontal js-ajax-form" action="{:U('Game/GamePayway/add_post')}" >
+        <fieldset >
+            <div class="control-group" >
+                <label class="control-label" >游戏:</label >
+                <div class="controls" >
+                    <select class="select_2" name="app_id" id="selected_id" >
+                        <foreach name="games" key="k" item="vo" >
+                            <option value="{$k}" >{$vo}</option >
+                        </foreach >
+                    </select >
+                </div >
+            </div >
+
+            <div class="control-group" >
+                <label class="control-label" >支付:</label >
+                <div class="controls" >
+                    <foreach name="payways" key="k" item="vo" >
+                        <label class="checkbox inline" >
+                            <input value="{$k}" type="checkbox" name="paytypeid[]" >{$vo}
+                        </label >
+                    </foreach >
+                </div >
+            </div >
+        </fieldset >
+        <div class="form-actions" >
+            <button type="submit" class="btn btn-primary js-ajax-submit" >{:L('SAVE')}</button >
+            <a class="btn" href="{:U('Game/GamePayway/index')}" >{:L('BACK')}</a >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

@@ -1,0 +1,58 @@
+<admintpl file="header" />
+
+<!--
+ @time 2017-01-22 18:05:04
+ @author 严旭
+-->
+<style >
+    #content, .edui-editor {
+        z-index: 1 !important;
+    }
+
+    #calroot {
+        z-index: 9999999 !important;
+    }
+</style >
+</head>
+<body >
+    <div class="wrap" >
+        <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Newapp/Feedback/index')}" >反馈列表</a ></li >
+            <li class="active" ><a href="__SELF__" >回复</a ></li >
+        </ul >
+        <form action="{:U('Newapp/Feedback/editPost')}" method="post" class="form-horizontal js-ajax-form" >
+            <input type='hidden' name='id' value='{$data.id}' />
+            <div class="row-fluid" >
+                <div class="span9" >
+                    <table class="table table-bordered" >
+                        <input type='hidden' name='id' value='{$data.id}' />
+                        <tr >
+                            <th width="80" >内容</th >
+                            <td >
+                                <script type="text/plain" id="content" name="remark"
+                                        style='min-height:300px;' >{$data.remark}</script >
+                            </td >
+                        </tr >
+                    </table >
+                </div >
+            </div >
+            <div class="form-actions" >
+                <button class="btn btn-primary js-ajax-submit" type="submit" >{:L("SAVE")}</button >
+                <a class="btn" href="{:U('Newapp/Feedback/index')}" >{:L('BACK')}</a >
+            </div >
+        </form >
+    </div >
+    <script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+    <script type="text/javascript" >
+    //编辑器路径定义
+    var editorURL = GV.DIMAUB;
+    </script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js" ></script >
+    <script >
+        var editorcontent = new baidu.editor.ui.Editor();
+        editorcontent.render('content');
+    </script >
+</body >
+</html>

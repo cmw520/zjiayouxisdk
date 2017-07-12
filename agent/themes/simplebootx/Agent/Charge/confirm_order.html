@@ -1,0 +1,34 @@
+<div class="confirmOrders" id="confirm_order" style="display:none;" >
+    <div class="coHeader" >确认订单</div >
+    <div class="coContent" >
+        <ul >
+            <li class="payFor" style="text-align:center;font-weight: bold;font-size:18px;" >给玩家充值</li >
+            <!--<li class="payW"><span class="left">支付方式：</span><span class="value">支付宝</span></li>-->
+            <!--<li class="orderNumbers" style="display:none;" ><span class="left">订单编号：</span><span class="value">{$data.orderid}</span></li>-->
+            <li class="orderPrice" ><span class="left" >订单金额：</span ><span
+                    class="value" ><i >{$data.amount}</i > 元</span ></li >
+            <li class="payPeople" ><span class="left" >支付人：</span ><span class="value" >{$user.user_login}</span ></li >
+            <li class="goodsNames" ><span class="left" >商品名称：</span ><span
+                    class="value" >{:C('COMPANY_SHORTNAME')}网游交易通充值</span ></li >
+            <li class="factorage" ><span class="left" >手续费：</span ><span class="value" ><i >0.00 </i >元</span ></li >
+            <li class="needPay" >应支付 <i >{$data.amount}</i > 元</li >
+            <form action="" method="post" id="confirm_form" style="display:none;" >
+                <input type="hidden" name="os_amount" id="os_amount" value="" />
+                <!--<input type="hidden" name="os_payway" id="os_payway" value="" />-->
+                <input type="hidden" name="os_gameid" id="os_gameid" value="" />
+                <input type="hidden" name="os_subid" id="os_subid" value="" />
+                <input type="hidden" name="os_mem_name" id="os_mem_name" value="" />
+            </form >
+        </ul >
+        <input type="submit" value="确认无误，去支付" id="mysubmit" />
+        <!--<div class="warmNotes">
+                <p class="p1">温馨提示:</p>
+                <p>1.请确认当前页面的地址域名为：tg.mgwyx.com；</p>
+                <p>2.请再次确认订单信息；</p>
+                <p>3.请在确认支付完成后关闭本页面；</p>
+                <p>4.存在任何疑问，仅需提供本页面的支付信息给官方客服即可；</p>
+                <p>5.官方客服不会向你索要银行卡，支付宝等个人支付信息；</p>
+                <p>6.官方客服电话：1634165163；客服QQ：2165163163；</p>
+            </div>-->
+    </div >
+</div >

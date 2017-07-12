@@ -1,0 +1,54 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Admin/CompanyInfo/edit')}" >公司信息管理</a ></li >
+    </ul >
+    <form action="{:U('Admin/CompanyInfo/edit_post')}" method="post" class="form-horizontal js-ajax-forms"
+          enctype="multipart/form-data" >
+        <div class="row-fluid" >
+            <div class="span9" >
+                <table class="table table-bordered" >
+                    <tr >
+                        <th width="80" >公司名称</th >
+                        <td >
+                            <input type="text" name="COMPANY_NAME" value="{$info.COMPANY_NAME}" />
+                        </td >
+                    </tr >
+                    <tr >
+                        <th width="80" >公司地址</th >
+                        <td >
+                            <input type="text" name="COMPANY_ADDR" value="{$info.COMPANY_ADDR}" />
+                        </td >
+                    </tr >
+                    <tr >
+                        <th width="80" >公司电话</th >
+                        <td >
+                            <input type="text" name="COMPANY_PHONE" value="{$info.COMPANY_PHONE}" />
+                        </td >
+                    </tr >
+                    <tr >
+                        <th width="80" >ICP备案信息</th >
+                        <td >
+                            <input type="text" name="WEB_ICP" value="{$info.WEB_ICP}" />
+                        </td >
+                    </tr >
+                    <tr >
+                        <th width="80" >版权信息</th >
+                        <td >
+                            <input type="text" name="COPYRIGHT" value="{$info.COPYRIGHT}" />
+                        </td >
+                    </tr >
+                </table >
+            </div >
+        </div >
+        <div class="form-actions" >
+            <button class="btn btn-primary js-ajax-submit" type="submit" >修改</button >
+        </div >
+    </form >
+</div >
+<script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+
+</body >
+</html>

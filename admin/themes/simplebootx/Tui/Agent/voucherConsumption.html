@@ -1,0 +1,111 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >平台币消费记录</a ></li >
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        渠道类型： 
+                        <select class="select_2" name="agent" id="selected_id" >
+                            <empty name="formget['agent']" >
+                                <option value="" selected="selected" >全部</option >
+                            </empty >
+                            <notempty name="formget['agent']" >
+                                <option value="" >全部</option >
+                            </notempty >
+                            <volist name="agents" id="vo" >
+                                <if condition="$vo.id eq $formget['agent']" >
+                                    <option value="{$vo.id}" selected="selected" >{$vo.user_login}</option >
+                                    <else />
+                                    <option value="{$vo.id}" >{$vo.user_login}</option >
+                                </if >
+                            </volist >
+                        </select >
+                        &nbsp;&nbsp;
+                        玩家账号：
+                        <input type="text" name="memname" style="width: 200px;" value="{$formget.memname}"
+                               placeholder="请输入..." >
+                        &nbsp;&nbsp; 
+                        游戏名称：
+                        <input type="text" name="gamename" style="width: 200px;" value="{$formget.gamename}"
+                               placeholder="请输入..." >
+                        &nbsp;&nbsp;
+                        <!--                        渠道名称：
+                                                <input type="text" name="nickname" style="width: 200px;" value="{$nickname}" placeholder="请输入渠道名称...">
+                                                &nbsp;&nbsp;-->
+                        <input type="submit" class="btn btn-primary" value="搜索" />
+                        <button style="float:right;" class="export_data_as_excel" >导出数据</button >
+                        <script >
+                            $(".export_data_as_excel").click(function () {
+                                var url = "{:U('Tui/Agent/export','','')}/vc";
+                                window.open(url);
+                            });
+                        </script >
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="20" >ID</th >
+                <th width="50" >订单号</th >
+                <th width="50" >时间</th >
+                <th width="50" >游戏</th >
+
+                <th width="50" >玩家帐号</th >
+                <th width="40" >充值金额</th >
+                <th width="40" >消耗{:C('CURRENCY_NAME')}</th >
+                <th width="40" >订单状态</th >
+                <th width="50" >渠道名称</th >
+
+            </tr >
+            </thead >
+            <tr >
+                <th style='color:#FF0000' >汇总</th >
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >--</th >
+
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#FF0000' >{$sumitems[0]['sum_amount']}</th >
+                <th style='color:#FF0000' >{$sumitems[0]['sum_cnt']}</th >
+                <th style='color:#0000FF' >--</th >
+                <th style='color:#0000FF' >--</th >
+
+            </tr >
+            <foreach name="items" item="vo" >
+
+                <tr >
+                    <td >{$vo.id}</td >
+
+                    <td >{$vo.order_id}</td >
+                    <td >{$vo.create_time|date='Y-m-d H:i:s',###}</td >
+                    <td >{$vo.gamename}</td >
+
+                    <td >{$vo.memname}</td >
+                    <td >{$vo.amount}</td >
+                    <td >{$vo.gm_cnt}</td >
+                    <td >
+                        <switch name='vo.status' >
+                            <case value='1' >待处理</case >
+                            <case value='2' >成功</case >
+                            <case value='3' >失败</case >
+                        </switch >
+                    </td >
+                    <td >{$vo.agentname}</td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

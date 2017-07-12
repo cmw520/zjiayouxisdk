@@ -1,0 +1,251 @@
+<!doctype html>
+<html >
+<head >
+    <meta charset="utf-8" >
+    <meta id='viewport' name='viewport'
+          content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+    <title >游戏专区</title >
+    <link href="__PUBLIC__/wap/css/stzb.css" type="text/css" rel="stylesheet" >
+    <link href="__PUBLIC__/wap/css/paging.css" type="text/css" rel="stylesheet" >
+    <script src="__PUBLIC__/wap/js/jquery-1.7.2.min.js" ></script >
+</head >
+<body >
+<div id="header" >
+    <div class="nav-list" >
+        <div id="wrapper" >
+            <div id="scroller" >
+                <ul id="thelist" >
+                    <li ><a href="{:U('Mobile/Index/index')}" >游戏大全</a ></li >
+                    <li ><a href="#" >进阶攻略</a ></li >
+                    <li ><a href="{:U('Mobile/Index/news')}" >新闻</a ></li >
+                    <li ><a href="#" >游戏专区</a ></li >
+                </ul >
+            </div >
+        </div >
+    </div >
+    <div class="transit" ></div >
+    <em class="border" ></em >
+    <a href="javascript:void(0);" class="header_gift" ></a >
+    <em ></em >
+    <a href="{:U('Mobile/Front/DownloadApp')}/app_id/{$app_id}" class="header_download" ></a >
+</div >
+<section id="alltop" ></section >
+<!-- end#header -->
+<section class="bg-banner" >
+    <div class="bannerss" >
+        <notempty name="data.banner" >
+            <img src="{$data.banner}" alt="banner" class="bannerxx" >
+        </notempty >
+        <empty name="data.banner" >
+            <div style="width:100%;height:240px;background-color:#DDDDDD;" ></div >
+        </empty >
+        <!--        <div class="safe">
+                    <img src="__PUBLIC__/wap/images/safe.png" alt="safe-icon">
+                </div>-->
+    </div >
+</section >
+<!-- end.bg-banner -->
+
+<div class="main stzb_main" >
+    <section class="download-links" >
+        <a href="#" >
+            <img src="{$data.download_btn}" alt="下载" >
+        </a >
+        <a href="#" >
+            <img src="{$data.gift_btn}" alt="礼包" >
+        </a >
+    </section >
+    <!-- end.download-links -->
+
+    <section class="game-infos" >
+        <figure class="games-infomation" >
+            <img class="games-imgs" src="/upload/{$app.icon}" alt="icon" >
+            <figcaption >
+                <h1 class="tit" >{$app.name}</h1 >
+                <p class="infos" >角色,横版,回合,西游 | {$app.size}M | 版本{$app.version}</p >
+                <p class="add-qun" >加群：{$app.qqgroup} 领取更多专属礼包</p >
+                <span class="play-people" >{$app.pv}人在玩</span >
+            </figcaption >
+        </figure >
+    </section >
+    <!-- end.game-infos -->
+
+    <section class="kf-infos-n" >
+        <header class="tit" >
+            <h3 >
+                <a href="#" >
+                    最新开服
+                </a >
+            </h3 >
+            <a class="more" href="#" >
+                查看开服
+            </a >
+        </header >
+        <ul class="kf-infos-n-con" >
+            <li >
+                <span class="point" ><i ></i ></span >
+                <span class="sv-time" >08-31 11:17</span >
+                <span class="sv-name" >服务器名称</span >
+            </li >
+        </ul >
+    </section >
+    <!-- end.kf-infos-n -->
+
+    <section class="lb-infos" >
+        <header >
+            <h3 >礼包领取</h3 >
+            <a href="#" class="gtn" >
+                <img src="__PUBLIC__/wap/img/lingqu.png" alt="" >
+            </a >
+            <input type="hidden" id="gameid" value="18833" >
+        </header >
+        <ul class="lb-infos-content" >
+            <li onclick="window.location.href = '{:U('Mobile/Index/qlb')}'" >
+                <a class="lb-infos-name" >
+                    <span >这里是礼包名称这里是礼包名称</span >
+                    <i >
+                        <img src="__PUBLIC__/wap/img/lingqu.png" alt="" >
+                    </i >
+                </a >
+            </li >
+            <li >
+                <a class="lb-infos-name" >
+                    <span >这里是礼包名称这里是礼包名称</span >
+                    <i >
+                        <img src="__PUBLIC__/wap/img/lingqu.png" alt="" >
+                    </i >
+                </a >
+            </li >
+        </ul >
+    </section >
+    <!-- end.lb-infos -->
+
+    <section class="article-list" >
+        <div class="article-list-tab" >
+            <a class="cur" >新手指引</a >
+            <a >进阶攻略</a >
+            <a >新闻</a >
+            <a >活动</a >
+            <a href="#" class="more" ></a >
+        </div >
+        <div class="article-list-content" >
+            <div >
+                <volist name='xwbs' id='cate' key='k' >
+                    <ul id="tag{$k-1}" >
+                        <volist name="cate['item']" id='vo' >
+                            <li >
+                                <a href="{:U('Mobile/Index/news')}/{$vo.id}" class="news_link" ><span >【新闻】</span >{$vo.post_title}</a >
+                                <em >{$vo.create_time|date="H:i",###}</em >
+                            </li >
+                        </volist >
+                    </ul >
+                </volist >
+
+            </div >
+        </div >
+    </section >
+    <!-- end.article-list -->
+
+    <section class="discuss-part" >
+        <header >
+            <h3 ><a href="#" >评论</a ></h3 >
+            <a class="more" href="" >{$commentCount}条</a >
+        </header >
+        <span id="message_status" ></span >
+        <div class="discuss-box" >
+            <textarea class="cust_mes" cols="90" rows="5" id="cust_mes" name="cust_mes"
+                      onfocus="if (this.value == '发表评论...'){this.value = ''; }"
+                      onblur="if (this.value == ''){this.value = '发表评论...'; }" >发表评论...</textarea >
+        </div >
+        <div class="discuss-btn" >
+            <a href="#" class="btn_stzb" >提交</a >
+        </div >
+        <div class="clr" ></div >
+        <div class="discuss-tit" >
+            <a href="#" >{$commentCount}条评论</a >
+        </div >
+        <div class="discuss-content" id="comment" >
+            <div class="discuss-reply" >
+                <volist name='comment_items' id='vo' >
+                    <span class="discuss-reply-name" ><em >{$vo.id}<sup >#</sup ></em >{$vo.mem_name}</span >
+                    <span class="discuss-reply-date" >{$vo.create_time|date="Y-m-d H:i",###}<sup ></sup ></span >
+                    <div class="discuss-reply-cont" >{$vo.content}</div >
+                </volist >
+
+            </div >
+            <div class="page-list" >
+                <div class='paging' >
+                    {$page}
+                </div >
+
+            </div >
+            <div class="clr" ></div >
+        </div >
+    </section >
+    <!-- end.discuss-part -->
+
+    <section class="nominate" >
+        <header class="tit" >
+            <h3 >
+                <a href="#" >
+                    猜你喜欢
+                </a >
+            </h3 >
+            <a class="more" href="#" >
+                更多
+            </a >
+        </header >
+        <ul class="package" >
+            <li >
+                <a href="#" >
+                    <img src="__PUBLIC__/wap/img/002564a3b302174104243c.jpg" alt="icon" >
+                    梦幻西游
+                </a >
+            </li >
+            <li >
+                <a href="#" >
+                    <img src="__PUBLIC__/wap/img/002564a3b302174104243c.jpg" alt="icon" >
+                    十万个冷笑话
+                </a >
+            </li >
+            <li >
+                <a href="#" >
+                    <img src="__PUBLIC__/wap/img/002564a3b302174104243c.jpg" alt="icon" >
+                    战舰少女
+                </a >
+            </li >
+            <li >
+                <a href="#" >
+                    <img src="__PUBLIC__/wap/img/002564a3b302174104243c.jpg" alt="icon" >
+                    时空猎人
+                </a >
+            </li >
+        </ul >
+    </section >
+    <!-- end.nominate -->
+</div >
+<style >
+    body {
+        background-image: url("__UPLOAD__mobile/zone/{$data.background}");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        /*background-size: 100% auto;*/
+    }
+</style >
+<script src="__PUBLIC__/wap/js/stzb.js" ></script >
+<script >
+    var app_id = {$app_id};
+    $(".btn_stzb ").click(function (event) {
+        event.preventDefault();
+        var comment_content = $("#cust_mes").val();
+        $.post("{:U('Mobile/Index/addComment_post')}", {"content": comment_content, "app_id": app_id}, function (data) {
+            if (data.error === '0') {
+                location.reload();
+            } else {
+                alert(data.msg);
+            }
+        });
+    });
+</script >
+<mobiletpl file="footer" />

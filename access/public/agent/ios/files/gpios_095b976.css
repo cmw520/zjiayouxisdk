@@ -1,0 +1,170 @@
+html,body{margin:0;height:100%}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;font-family:Microsoft YaHei,Helvetica Neue,Helvetica,Roboto,STHeiTi,Arial,sans-serif;line-height:20px}
+body{font-size:14px;background:#fff;color:#282828}
+body{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-touch-callout:none;word-break:break-all}
+ul,li{list-style:none}
+input,textarea{vertical-align:middle;font-size:100%}
+textarea{overflow:auto;vertical-align:middle}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,iframe{display:block}
+em,i{font-style:normal;font-size:100%}
+img{max-width:100%;vertical-align:middle;border:0 none;-ms-interpolation-mode:bicubic}
+button,input,select,textarea{margin:0;font-size:100%;vertical-align:middle;border-radius:0;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;outline:0 none}
+input[type=button]{outline:0}
+a{color:#000}
+a,a:visited,a:link{text-decoration:none}
+a:active{-webkit-tap-highlight-color:rgba(0,0,0,.2);text-decoration:none}
+body{min-width:320px;max-width:768px;margin:0 auto}
+.vertial{display:-webkit-box;display:box;-webkit-box-orient:vertical;box-orient:vertical;-webkit-box-pack:center;box-pack:center;-webkit-box-align:center;box-align:center}
+.pop .close:before,.pay-way.selected:before,.normal-tip h6 span:before,.yy-tip h6 span:before{background:url(http://app.guopan.cn/img/icon.png?v=12) no-repeat;-webkit-background-size:23px auto;background-size:23px auto}
+.row{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}
+.col{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;display:block;width:100%}
+.box{-webkit-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+.ellipsis{display:block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.ellipsis2,.ellipsis3,.ellipsis4{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;word-break:break-all}
+.ellipsis2{height:40px;-webkit-line-clamp:2}
+.ellipsis3{height:60px;-webkit-line-clamp:3}
+.ellipsis4{height:80px;-webkit-line-clamp:4}
+div{display:block;-webkit-tap-highlight-color:transparent}
+.clearfix:after,.carList:after{content:'\0020';display:block;height:0;clear:both}
+.clearfix{zoom:1}
+html,body{min-height:100%}
+.isHide{display:none}
+.header{background-color:#33b9f7;text-align:center;padding:10px 0;color:#fff}
+.tabNav{display:-webkit-box;display:box;background-color:#fff;color:#898989}
+.tabNav span{position:relative;display:block;-webkit-box-flex:1;box-flex:1;padding:10px 0;text-align:center}
+.tabNav span em{display:inline-block;position:relative}
+.tabNav span.active{color:#26a5e1}
+.tabNav span.active em:before{position:absolute;content:"";left:0;bottom:-5px;height:2px;width:100%;background-color:#26a5e1}
+.tabNav span:first-child em:after{position:absolute;content:"";right:-12px;top:-8px;width:17px;height:14px;background:url(http://app.guopan.cn/img/icon_vip.png) no-repeat;background-size:17px 14px}
+.boxItem{display:none}
+.boxItem.active{display:block}
+.banner{position:relative}
+.banner .bgImg{display:block;width:100%}
+.logo{position:absolute;top:4%;width:100%;left:0;text-align:center}
+.logo img{
+    display:inline-block;width:250px;
+border-radius: 20px;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+
+}
+.yy-logo.logo img{width:85%}
+.vip-install,.normal-install,.yy-install{position:absolute;left:0;width:100%;bottom:10%;text-align:center}
+.install{padding:7px 0}
+.install .btn{display:inline-block;padding:14px 50px;border-radius:4px;font-size:18px;background-color:#ffde62;color:#95681a;border-radius:30px}
+.vip-install .install .go-install-btn{background-color:#ffc800}
+.vip-install p,.normal-install p,.yy-install p{color:#fff;font-size:12px;color:#a1a495;padding:0 10px}
+.two-install .i-mobile{margin-right:10px}
+.vip-tip{background-color:#f5f5f5;padding:15px}
+.vip-tip h6{text-align:center}
+.vip-tip h6 span{
+    display:inline-block;
+                position:relative;
+                /*padding-left:20px;*/
+                font-size:16px;color:#e1a504}
+.vip-tip h6 span:before{
+    position:absolute;
+    content:"";
+    left:0;top:50%;
+    margin-top:-8px;
+    width:17px;
+    height:17px;
+       /*background:url(http://app.guopan.cn/img/v_ding.png) no-repeat;*/
+       background-size:17px 17px}
+.vip-tip .vip-tip-mc p{font-size:12px;color:#666;margin-top:5px}
+.installSuccess{font-size:14px!important;color:#fff!important}
+.normal-install .install .btn{background-color:#23cfe0;color:#fff}
+.normal-tip h6{text-align:center;padding:10px 0;background-color:#f5f5f5}
+.normal-tip h6 span{position:relative;padding-left:25px;display:inline-block}
+.normal-tip h6 span:before{position:absolute;content:"";width:22px;height:22px;left:0;top:0;background-position:0 -102px}
+.normal-tip h6 span a{text-decoration:underline;color:#e65c3c}
+.yy-install{bottom:5%}
+.yy-install .install .btn{background-color:#00d7b0;color:#fff}
+.yy-install .install .cydia-install-btn{background-color:#00a8ff}
+.yy-tip{background-color:#f5f5f5;padding:15px}
+.yy-tip h6{text-align:center}
+.yy-tip h6 span{display:inline-block;position:relative;padding-left:20px;font-size:16px;color:#e64d1e}
+.yy-tip h6 span:before{position:absolute;content:"";left:0;top:50%;margin-top:-8px;width:17px;height:17px;background-position:0 -128px}
+.yy-tip .yy-tip-mc p{font-size:12px;color:#666;margin-top:5px}
+.yy-tip .yy-tip-mc p span,.yy-tip .yy-tip-mc p a{color:#e64d1e}
+.yy-tip .yy-tip-mc p a{text-decoration:underline}
+.step-box{}
+.step-box .step-item{background-color:#fff;padding:15px}
+.step-box .step-item .step-img{width:100%;display:block;text-align:center}
+.step-box .step-item:nth-child(2n){background-color:#f5f5f5}
+.step-box .step-txt{padding:15px 0;text-align:center}
+.step-box .step-txt h6{font-size:17px;color:#333;margin:5px 0 10px}
+.step-box .step-txt p{font-size:14px;color:#737373}
+.pop-mask{position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);visibility:hidden;opacity:0;-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,-webkit-transform .5s}
+.pop-mask.isShow{visibility:visible;opacity:1;-webkit-transform:scale(1);transform:scale(1)}
+.pop{position:absolute;background:#fff;width:240px;left:50%;top:50%;border-radius:8px;padding:20px;color:#000;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}
+.pop .close{position:absolute;width:22px;height:22px;top:-8px;right:-8px}
+.pop .close:before{position:absolute;content:"";width:22px;height:22px;left:0;top:0;background-position:0 -75px}
+.pop.pop-pay{padding-left:22px;padding-right:22px}
+.voucher-body{position:relative}
+.icon-voucher,.icon-card{display:inline-block;width:86px;float:left}
+.icon-card{float:right}
+.pay-header{border-bottom:1px solid #e5e5e5}
+.pay-header .goods-name,.pay-header .goods-price{margin-bottom:14px}
+.pay-way{padding:10px;border-radius:6px;text-align:center;border-top:1px solid#e3e3d3;box-shadow:0 2px 3px rgba(0,0,0,.4);position:relative}
+.pay-way span{display:block;font-size:10px}
+.pay-way.selected:before{content:' ';display:block;position:absolute;z-index:5;width:20px;height:20px;background-position:0 -50px;top:-8px;right:-8px}
+.pay-way:nth-child(2){margin-left:8px;margin-right:8px}
+.pay-body h2{font-weight:700;margin:15px 0}
+.pop-footer{margin-top:15px}
+.pop-footer .btn{display:block;padding:12px 0;border-radius:4px;text-align:center;background-color:#ffde62;color:#95681a;border-radius:30px}
+.installTip{visibility:hidden;opacity:0;-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,-webkit-transform .5s}
+.installTip.isShow{visibility:visible;opacity:1;-webkit-transform:scale(1);transform:scale(1)}
+.installTip,.installMask{position:fixed;left:0;top:0;width:100%;height:100%;z-index:999}
+.installMask{background-color:rgba(0,0,0,.8)}
+.installTip-main{position:absolute;left:50%;top:50%;padding:0 0 70px;width:280px;height:300px;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:#fff;border-radius:5px;z-index:1000;-webkit-box-sizing:border-box;box-sizing:border-box}
+.installTip-head{position:relative;top:-20px;text-align:center}
+.installTip-head span{display:inline-block;background-color:#ffde62;color:#95681a;border-radius:40px;padding:8px 40px}
+.installTip-main .slider{position:absolute;top:36px;bottom:70px;left:0;width:100%}
+.installTip-btm{position:absolute;left:0;bottom:10px;width:100%;text-align:center}
+.installTip-btm .goInstall{display:inline-block;color:#3f3f3f;padding:5px 20px;border-radius:50px;border:1px solid #414141}
+.slider{overflow:hidden}
+.sliderList{position:relative;height:100%;width:1120px}
+.sliderList li{position:absolute;width:280px;height:100%;left:0;top:0;text-align:center;display:-webkit-box;display:box;-webkit-box-orient:vertical;box-orient:vertical;-webkit-box-pack:center;box-pack:center;-webkit-box-align:center;box-align:center}
+.sliderList li:nth-child(2){left:100%}
+.sliderList li:nth-child(3){left:200%}
+.sliderList li:nth-child(4){left:300%}
+.sliderList li img{max-width:100%;max-height:100%}
+.dot{position:absolute;bottom:45px;left:0;width:100%;text-align:center}
+.dot span{width:6px;height:6px;display:inline-block;margin:0 3px;border-radius:50%;background-color:#fff;border:1px solid #868686}
+.dot span.cur{background-color:#868686}
+.wxTips{padding:10px 0}
+.wxTips h6{text-align:center;font-size:14px}
+.wxBtm{margin:25px 0 0}
+.wxBtm a{display:block;background-color:#ffde62;color:#95681a;padding:10px 0;text-align:center;border-radius:50px}
+.wxBtm a:first-child{margin-right:15px;background-color:#33b9f7;color:#fff}
+.progress-head{text-align:center;color:#4990e2;font-size:12px;margin-bottom:10px}
+.progress-head span{font-size:14px}
+.progress-bar{margin-bottom:15px}
+.progress-bar .total{position:relative;height:3px;width:100%;background:#e6e6e6}
+.progress-bar .total .present{background:#4990e2;position:absolute;display:block;left:0;top:0;height:3px;width:0}
+.progress .info em{color:red;font-style:normal}
+.toast{position:fixed;z-index:11000;left:50%;top:50%;width:280px;margin-left:-140px;border-radius:20px;-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-transition-property:-webkit-transform,opacity;transition-property:transform,opacity;color:#3d4145;opacity:0;background:rgba(0,0,0,.8);border-radius:20px;color:#fff;padding:8px 15px;font-size:14px;width:auto}
+.toast.modal-in{opacity:1;-webkit-transition-duration:500ms;transition-duration:500ms;-webkit-transform:scale(1);transform:scale(1)}
+.toast.modal-out{opacity:0;z-index:10999;-webkit-transition-duration:500ms;transition-duration:500ms;-webkit-transform:scale(0.815);transform:scale(0.815)}
+.v-cover{position:fixed;z-index:10;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none}
+.v-cover.show{display:block}
+.v-cover img{width:100%}
+.loading,.loadingMask{position:fixed;z-index:11100;top:0;left:0;width:100%;height:100%}
+.loadingMask{background:rgba(0,0,0,.1)}
+.loading-modal{position:fixed;left:50%;top:50%;padding:5px;border-radius:5px;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:11101;background-color:#333}
+.loading-modal .preloader{display:block;width:40px;height:40px;-webkit-transform-origin:50%;transform-origin:50%;-webkit-animation:preloader-spin 1s steps(12,end) infinite;animation:preloader-spin 1s steps(12,end) infinite}
+.loading-modal .preloader:after{display:block;content:"";width:100%;height:100%;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-position:50%;background-size:100%;background-repeat:no-repeat}
+@-webkit-keyframes preloader-spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}@keyframes preloader-spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}.safari-wrap{text-align:center;margin-bottom:24px}
+.safari-wrap img{width:58px}
+.safari-wrap p{font-size:14px;color:#000}
+.btn-wrap .lowEdition{text-decoration:none;color:#666;word-break:break-word;-webkit-touch-callout:default;-webkit-user-select:text;background:transparent;border:0}
+.btn-wrap{height:42px;margin-top:20px}
+.btn-wrap .btn{display:block;width:100%;height:42px;line-height:42px;text-align:center;font-size:15px;color:#fff;background:#4990e2;text-decoration:none}
+.btn-wrap .curr-location{width:70%;float:left;display:block;height:42px;line-height:42px;background:#eaeaea;color:#818181;padding:0 10px;border-right:2px solid #fff;border:0;-webkit-appearance:none;outline:0;font-size:12px;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}
+#copy{width:30%;float:right;display:block;color:#fff;background:#4990e2;font-size:15px;text-align:center;height:42px;line-height:42px;text-decoration:none}
+.wording-tip{text-align:center;padding:10px}
+.wording-tip span{color:#f40;font-size:12px}

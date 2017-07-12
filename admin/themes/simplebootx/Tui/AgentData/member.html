@@ -1,0 +1,97 @@
+<admintpl file="header" />
+
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >推广用户明细</a ></li >
+        <!--<li><a href="{:U('Agent/Agent/add')}" target="_self">添加渠道</a></li>-->
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        注册游戏： 
+                        {$app_select}
+                        &nbsp;&nbsp;
+                        注册渠道：
+                        {$agent_select}
+                        玩家账号：
+                        {$member_select}
+                        <br /><br />
+                        注册时间：
+                        {$time_choose}
+                        <input type="submit" class="btn btn-primary" value="搜索" />
+
+                        <?php echo \Huosdk\UI\Pieces::export_excel(); ?>
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="get" onsubmit="return false;" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="50" >注册时间</th >
+                <th width="50" >注册渠道</th >
+                <th width="50" >玩家账号</th >
+                <th width="50" >注册游戏</th >
+                <th width="50" >最后登录时间</th >
+                <th width="50" >操作</th >
+            </tr >
+            </thead >
+            <volist name="members" id="vo" >
+                <tr class="even" >
+                    <td >{$vo.reg_time}</td >
+                    <td >{$vo.user_nicename}</td >
+                    <td >{$vo.username}</td >
+                    <td >{$vo.gamename}</td >
+                    <td >
+                        <notempty name="vo.last_login_time" >
+                            <?php echo date("Y-m-d H:i:s",$vo['last_login_time']); ?>
+                        </notempty >
+                    </td >
+                    <td >
+                        <button class="btn btn-success charge_record_btn" data-memid="{$vo.id}" >代充记录</button >
+                        <button class="btn btn-success consume_record_btn" data-memid="{$vo.id}" >消费记录</button >
+                    </td >
+                </tr >
+            </volist >
+        </table >
+        <div class="pagination" >{$page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+
+<script >
+
+    $(".charge_record_btn").click(function () {
+        var mem_id = $(this).attr("data-memid");
+        layer.open({
+            shift     : 7,
+            type      : 2,
+            title     : '代充记录',
+            shadeClose: true,
+            shade     : 0.2,
+            area      : ['850px', '60%'],
+            content   : '{:U("Tui/DataAgentForMem/index")}?mem_id=' + mem_id //iframe的url
+        });
+    });
+
+    $(".consume_record_btn").click(function () {
+        var mem_id = $(this).attr("data-memid");
+        layer.open({
+            shift     : 7,
+            type      : 2,
+            title     : '消费记录',
+            shadeClose: true,
+            shade     : 0.2,
+            area      : ['850px', '60%'],
+            content   : '{:U("Tui/DataMemConsume/index")}?mem_id=' + mem_id //iframe的url
+        });
+    });
+</script >
+
+</html>

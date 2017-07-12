@@ -1,0 +1,122 @@
+<agenttpl file="user_center_header" />
+<script src="__PUBLIC__/agent/js/subagent.js" ></script >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records lower-channel-management" >
+                <div class="hinter" ><a href="{:U('Agent/ucenter/subAgent')}" >下级渠道</a > > 创建下级渠道</div >
+                <table >
+                    <tr >
+                        <td >登录用户名</td >
+                        <td ><input class="form-control" type="text" name="user_login" /></td >
+                    </tr >
+                    <tr >
+                        <td >手机</td >
+                        <td ><input class="form-control" type="text" name="phone" /></td >
+                    </tr >
+                    <tr >
+                        <td >姓名</td >
+                        <td ><input class="form-control" type="text" name="name" /></td >
+                    </tr >
+                    <tr >
+                        <td >邮箱</td >
+                        <td ><input class="form-control" type="text" name="email" /></td >
+                    </tr >
+                    <tr >
+                        <td >密码</td >
+                        <td ><input class="form-control" type="password" name="pass" /></td >
+                    </tr >
+                    <tr >
+                        <td ></td >
+                        <td >
+                            <button class="btn btn-success" id="submit" >创 建</button >
+                        </td >
+                    </tr >
+                </table >
+            </div >
+        </div >
+    </div >
+    </div>
+</section >
+<style >
+    .page-right {
+        min-height: 600px;
+    }
+
+    .hinter {
+        font-size: 16px;
+        float: left;
+        width: 98%;
+        border-bottom: 1px solid #CCCCCC;
+        padding: 20px 1%;
+        margin: 0 0 30px 0;
+    }
+
+    table {
+        width: 500px;
+        margin: 50px 0 0 50px;
+    }
+
+    tr {
+        width: 500px;
+        margin: 20px;
+        float: left;
+    }
+
+    tr input {
+        border-left: 1px solid #CCCCCC;
+        margin: 0;
+    }
+
+    tr td {
+        float: left;
+    }
+
+    td:first-child {
+        width: 100px;
+        margin-right: 30px;
+        font-size: 15px;
+        padding: 5px 0 0 0;
+        color: orange;
+    }
+
+    td:nth-child(2) {
+        width: 350px;
+    }
+
+    #submit {
+        width: 80px;
+        height: 30px;
+    }
+
+</style >
+<script >
+    $("#submit").click(function () {
+        var name       = $("input[name='name']").val();
+        var phone      = $("input[name='phone']").val();
+        var email      = $("input[name='email']").val();
+        var pass       = $("input[name='pass']").val();
+        var user_login = $("input[name='user_login']").val();
+        $.post("{:U('Agent/Ucenter/addSub_post')}", {
+                    "user_login": user_login,
+                    "name": name,
+                    "phone": phone,
+                    "email": email,
+                    "pass": pass
+                },
+                function (data) {
+                    if (data.error === '0') {
+                        location.href = "{:U('Agent/Ucenter/subAgent')}";
+                    } else {
+                        yxalert(data.msg);
+                    }
+                });
+    });
+
+</script >
+<agenttpl file="user_center_footer" />

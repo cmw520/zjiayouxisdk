@@ -1,0 +1,25 @@
+<script >
+    var indexurl = "{:U('Front/Index/index2')}";
+</script >
+<script src="__PUBLIC__/agent/js/share.js" ></script >
+
+<div class="container" style="width:100%;padding-top:20px;padding-bottom:20px;background-color:#FFFFFF;" >
+    <div class="row" style="width:1000px;margin:0 auto;padding:0;" >
+        <div class="col-md-5" style="padding:0;" >
+            <div class="row" onclick='location.href="{$urls.front_index}";' style='cursor:pointer;' >
+                <img src="__PUBLIC__/agent/index2/logo.png" style="height:50px;float:left;" />
+                <h4 style="float:left;margin-top:20px;" >{:C('AGENT_SITE_NAME')}</h4 >
+            </div >
+        </div >
+        <div class="col-md-6 col-md-offset-1" style="text-align:right;padding-top:20px;padding:0;" >
+            <notempty name="user.user_login" >
+                <span >欢迎您：{$user.user_login} ( {$user.user_nicename} )</span >
+                <!--(ID：<b>{$user.id}</b>)-->
+                <!--<li class="center"><b></b><em></em><a href="#">消息</a><span> 25</span><b></b></li>-->
+                <a class="btn btn-link" href="{:U('Agent/money/recharge_member')}" style="margin-right:10px;" >个人中心</a >
+                <a class="btn btn-link" href="{:U('Front/Api/logout')}" style="margin-right:10px;color:red;" >退出登录</a >
+            </notempty >
+            <a class="btn btn-link" href="{:U('Front/About/notice')}" >公告中心</a >
+        </div >
+    </div >
+</div >

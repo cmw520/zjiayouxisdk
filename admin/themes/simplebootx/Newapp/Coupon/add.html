@@ -1,0 +1,185 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Newapp/Coupon/index')}" >{$admin_module_name}</a ></li >
+        <li class="active" ><a href="{:U('Newapp/Coupon/add')}" >添加</a ></li >
+    </ul >
+    <form action="{:U('Newapp/Coupon/add_post')}" method="post" class="form-horizontal js-ajax-forms"
+          enctype="multipart/form-data" >
+        <input type='hidden' name='slide_cid' value="{$categorys[0]['cid']}" />
+        <div class="row-fluid" >
+            <div class="span9" >
+                <table class="table table-bordered" >
+                    <tr >
+                        <th >标题</th >
+                        <td >
+                            <input type="text" style="width: 400px;" name="slide_name" value=""
+                                   placeholder="请输入标题" />
+                            <span class="form-required" >*</span >
+                        </td >
+                    </tr >
+                    <tr >
+                        <th >内容</th >
+                        <td ><textarea name="slide_content" style="width: 98%; height: 200px;" ></textarea ></td >
+                    </tr >
+                </table >
+            </div >
+            
+        </div >
+        <div class="form-actions" >
+            <button class="btn btn-primary js-ajax-submit" type="submit" >{:L("ADD")}</button >
+            <a class="btn" href="{:U('Newapp/Coupon/index')}" >{:L('BACK')}</a >
+        </div >
+    </form >
+</div >
+<script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+<script type="text/javascript" >
+    $("input[name='type_id']").change(function () {
+        var index = $(this).index();
+        $(".target_content_area").hide();
+        $(".target_content_area").eq(index).show();
+
+        $(".target_content_area").eq(1).children("td").children("select").attr("name", "app_id");
+        $(".target_content_area").eq(2).children("td").children("select").attr("name", "gift_id");
+        $(".target_content_area").eq(3).children("td").children("select").attr("name", "coupon_id");
+
+        $(".target_content_area").eq(index).children("td").children("select").attr("name", "target_id");
+    });
+    $(function () {
+        $(".js-ajax-close-btn").on('click', function (e) {
+            e.preventDefault();
+            Wind.use("artDialog", function () {
+                art.dialog({
+                    id        : "question",
+                    icon      : "question",
+                    fixed     : true,
+                    lock      : true,
+                    background: "#CCCCCC",
+                    opacity   : 0,
+                    content   : "您确定需要关闭当前页面嘛？",
+                    ok        : function () {
+                        setCookie("refersh_time", 1);
+                        window.close();
+                        return true;
+                    }
+                });
+            });
+        });
+        /////---------------------
+        Wind.use('validate', 'ajaxForm', 'artDialog', function () {
+            //javascript
+
+            var form = $('form.js-ajax-forms');
+            //ie处理placeholder提交问题
+            if ($.browser.msie) {
+                form.find('[placeholder]').each(function () {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                    }
+                });
+            }
+
+            var formloading = false;
+            //表单验证开始
+            form.validate({
+                //是否在获取焦点时验证
+                onfocusout   : false,
+                //是否在敲击键盘时验证
+                onkeyup      : false,
+                //当鼠标掉级时验证
+                onclick      : false,
+                //验证错误
+                showErrors   : function (errorMap, errorArr) {
+                    //errorMap {'name':'错误信息'}
+                    //errorArr [{'message':'错误信息',element:({})}]
+                    try {
+                        $(errorArr[0].element).focus();
+                        art.dialog({
+                            id        : 'error',
+                            icon      : 'error',
+                            lock      : true,
+                            fixed     : true,
+                            background: "#CCCCCC",
+                            opacity   : 0,
+                            content   : errorArr[0].message,
+                            cancelVal : '确定',
+                            cancel    : function () {
+                                $(errorArr[0].element).focus();
+                            }
+                        });
+                    } catch (err) {
+                    }
+                },
+                //验证规则
+                rules        : {
+                    'slide_name': {
+                        required: 1
+                    }
+                },
+                //验证未通过提示消息
+                messages     : {
+                    'slide_name': {
+                        required: '请输入名称'
+                    }
+                },
+                //给未通过验证的元素加效果,闪烁等
+                highlight    : false,
+                //是否在获取焦点时验证
+                onfocusout   : false,
+                //验证通过，提交表单
+                submitHandler: function (forms) {
+                    if (formloading)
+                        return;
+                    $(forms).ajaxSubmit({
+                        url         : form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                        dataType    : 'json',
+                        beforeSubmit: function (arr, $form, options) {
+                            formloading = true;
+                        },
+                        success     : function (data, statusText, xhr, $form) {
+                            formloading = false;
+                            if (data.status) {
+                                setCookie("refersh_time", 1);
+                                //添加成功
+                                Wind.use("artDialog", function () {
+                                    art.dialog({
+                                        id        : "succeed",
+                                        icon      : "succeed",
+                                        fixed     : true,
+                                        lock      : true,
+                                        background: "#CCCCCC",
+                                        opacity   : 0,
+                                        content   : data.info,
+                                        button    : [{
+                                            name    : '继续添加？',
+                                            callback: function () {
+                                                reloadPage(window);
+                                                return true;
+                                            },
+                                            focus   : true
+                                        }, {
+                                            name    : '返回列表',
+                                            callback: function () {
+                                                location.href = "{:U('Newapp/Coupon/index')}";
+                                                return true;
+                                            }
+                                        }]
+                                    });
+                                });
+                            } else {
+                                isalert(data.info);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        ////-------------------------
+    });
+</script >
+</body >
+</html>

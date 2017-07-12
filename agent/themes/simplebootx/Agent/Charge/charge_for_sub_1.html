@@ -1,0 +1,63 @@
+<div class="item-tab-con  channel-top-up" style="min-height:688px;*min-height: 770px; display: none ;" >
+    <div class="display2" >
+        <div class="channel-numbers" >
+            <span >下级渠道：</span >
+            <div id="getagentid" style="display: none;" ></div >
+            <a class="sub_popup choose-btn" href="#choose-channel" style="float:left;margin-left: 0;" >选择</a >
+            <i id="choosen_subname" style="height: 30px;line-height: 30px;color: #AAAAAA;font-size: 13px;" ></i >
+            <b id="channel-error"
+               style="display: none;width:100%;margin-left: 100px;color:#008BE3;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-repeat: no-repeat;background-position: left center;padding-left: 18px;font-size: 12px;float:left;margin-top: 4px;" >必须选择渠道号</b >
+        </div >
+        <div class="top-up-balance" style="margin-bottom: 30px;" >
+            <span >充值金额：</span >
+            <input id="cfs_amount" type="text" autocomplete="off" /><i >元</i ><i class="note" >（您可使用的{:C(CURRENCY_NAME)}金额为：<b >{$balance}</b >元）</i >
+            <b id="top-up-balance"
+               style="display: none;width:100%;margin-left: 100px;color:#008BE3;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-repeat: no-repeat;background-position: left center;padding-left: 18px;font-size: 12px;float:left;margin-top: 4px;" >充值金额不能为空</b >
+        </div >
+        <div class="pay-pwd" style="margin-bottom: 30px;" >
+            <span >支付密码：</span >
+            <input id="paypwd2" type="password" autocomplete="off" /><i class="note" >（请输入您的支付密码）</i >
+            <b id="pay-pwd2"
+               style="display: none;width:100%;margin-left: 100px;color:#008BE3;background: url(http://pic.7881.com/51508-2015/css/images/error-img.png);background-repeat: no-repeat;background-position: left center;padding-left: 18px;font-size: 12px;float:left;margin-top: 4px;" ></b >
+        </div >
+        <div class="confirm-prepaid" id="charge_for_sub" >确认充值</div >
+    </div >
+    <!-- 弹出层 -->
+    <div class="pop" id="choose-channel" >
+        <form id="queryForm1" action="/user/recharge/recharge-canal-item" method="post" >
+            <input id="currentNo_queryForm1" name="currentNo" type="hidden" value="1" />
+            <input id="pageSize_queryForm1" name="pageSize" type="hidden" value="10" />
+            <div id="pop-header" >
+                <span >请选择渠道</span >
+            </div >
+            <div id="pop-content" >
+                <div id="content-header" >
+                    <!--                    <div>
+                                            <span style="margin-left:116px">搜索：</span>
+                                            <input type="text" name="key" value="" placeholder="请输入渠道ID"/>
+                                            <div class="search-btn" onclick="$('#currentNo_queryForm1').val(1);$('#queryForm1').submit();">搜索</div>
+                                        </div>-->
+                </div >
+                <table width="100%" >
+                    <tr >
+                        <th width="40%" style="text-align: center;" >渠道ID</th >
+                        <th width="60%" style="text-align: center;" >渠道名称</th >
+                    </tr >
+                    <volist name="subagents" id="vo" >
+                        <tr class="sub_select_tr" data-agentID="{$vo.id}" data-agentName="{$vo.user_nicename}" >
+                            <td class="agentID" style="display: none;" >{$vo.id}</td >
+                            <td class="numbers" >{$vo.user_login}</td >
+                            <td class="agentname" >{$vo.user_nicename}</td >
+                        </tr >
+                    </volist >
+                </table >
+                <div class="page" >
+                    <div class="page" style="" >
+                        <!--                        <span class="game-num">共为您找到2个渠道</span>
+                                                <div class="paging"></div>-->
+                    </div >
+                </div >
+            </div >
+        </form >
+    </div >
+</div >

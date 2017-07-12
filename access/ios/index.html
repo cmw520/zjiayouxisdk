@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >
+        z+游戏苹果版
+    </title >
+    <meta name="Description" content="z+游戏苹果版，可免越狱安装，持久稳定不掉线，苹果APP商店，APP修复工具" >
+    <meta name="Keywords" content="" >
+    <meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport" >
+    <meta http-equiv="pragma" content="no-cache" >
+    <meta http-equiv="cache-control" content="no-cache" >
+    <meta http-equiv="expires" content="0" >
+    <meta content="yes" name="apple-mobile-web-app-capable" >
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" >
+    <meta content="telephone=no" name="format-detection" >
+
+    <link rel="shortcut icon" href="./favicon.ico" >
+
+    <link rel="stylesheet" href="./files/gpios_095b976.css" >
+
+</head >
+<body style='background-color:#F5F5F5;' >
+<div class="header" >
+    <h2 >z+游戏</h2 >
+</div >
+<div class="wrap" >
+    <div class="boxItem active" >
+        <div class="banner vip-banner" >
+            <img src="./files/bg7.png" class="bgImg" >
+            <div class="logo vip-logo" >
+                <img src="./files/musk5.png" />
+            </div >
+            <div class="vip-install" >
+                <div class="one-install" >
+                    <div class="install" >
+                                <span class="install-btn btn" data-eventkey="1000" >
+                                    <a href="itms-services://?action=download-manifest&url=https://ios.huosdk.com/huosdkProject.plist" >立即安装</a >
+                                </span >
+                    </div >
+                    <!--                            <p>
+                                                    V3.0 | 10.8M
+                                                </p>-->
+                </div >
+            </div >
+        </div >
+        <div class="vip-tip one-tip" >
+            <h6 >
+                        <span >
+                            苹果版本产品介绍
+                        </span >
+            </h6 >
+            <div class="vip-tip-mc" style='text-align:left;padding-left:10px;' >
+                <p >1、z+游戏苹果版本游戏demo，可免越狱安装； </p >
+                <p >2、游戏内支持支付宝、微信、网银等第三方支付； </p >
+                <p >3、搭配推广系统，苹果游戏玩转联运； </p >
+                <p >4、还有更多产品，包括IOS手游商店APP，APP修复工具 </p >
+                <p style='color:red;text-align:left;' >欢迎咨询</p >
+                <p style='color:red;text-align:left;' >咨询QQ：<span id='contact_qq' ></span >，电话：<span
+                        id='contact_phone' ></span ></p >
+            </div >
+        </div >
+    </div >
+</div >
+<div class="installTip" >
+    <div class="installMask" >
+    </div >
+    <div class="installTip-main" style="width: 300px; height: 533.6px;" >
+        <h6 class="installTip-head" >
+                    <span >
+                        安装引导
+                    </span >
+        </h6 >
+        <div class="slider" style="width: 300px;" >
+            <ul class="sliderList" style="transition: all 0.5s; transform: translate3d(0px, 0px, 0px);" >
+                <li style="width: 300px; left: 0px;" >
+                    <img src="./files/banner_1.png" >
+                </li >
+                <li style="width: 300px; left: 300px;" >
+                    <img src="./files/banner_2.png" >
+                </li >
+                <li style="width: 300px; left: 600px;" >
+                    <img src="./files/banner_3.png" >
+                </li >
+                <li style="width: 300px; left: 900px;" >
+                    <img src="./files/banner_4.png" id='banner_4' />
+                </li >
+            </ul >
+        </div >
+    </div >
+</div >
+
+<script type="text/javascript" src="./files/gpios_095b976.js" >
+</script >
+<script >
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r   = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+    $(document).ready(function () {
+        var user = GetQueryString('user');
+
+        var qq    = 0;
+        var phone = 0;
+        var bgpic = 0
+        if (user == 'yb') {
+            qq    = '183052179';
+            phone = '13686612670';
+            bgpic = 'banner_4_yb';
+        } else if (user == 'cz') {
+            qq    = '953339275';
+            phone = '18153373199';
+            bgpic = 'banner_4_cz';
+        } else if (user == 'wlq') {
+            qq    = '270110203';
+            phone = '18578754212';
+            bgpic = 'banner_4_wlq';
+        } else {
+            qq    = '1448827169';
+            phone = '18903006221';
+            bgpic = 'banner_4';
+        }
+        var banner_pic_fp = './files/' + bgpic + ".png";
+        $("#banner_4").attr("src", banner_pic_fp);
+        $("#contact_qq").text(qq);
+        $("#contact_phone").text(phone);
+    });
+
+</script >
+
+</body >
+</html >

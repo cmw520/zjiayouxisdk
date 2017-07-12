@@ -1,0 +1,40 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Content/PostCate/index')}" target="_self" >文章分类管理</a ></li >
+        <li ><a href="{:U('Content/PostCate/add')}" target="_self" >添加文章分类</a ></li >
+    </ul >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="50" >分类名</th >
+                <th width="50" >图标</th >
+                <th width="50" >编辑</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.name}</td >
+                    <td >
+                        <notempty name="vo.image" >
+                            <img src="/access/upload/category/{$vo['image']}" width="80" />
+                        </notempty >
+                    </td >
+                    <td >
+                        <a href="{:U('Content/PostCate/edit',array('id'=>$vo['id']))}" >编辑</a >
+                        &nbsp;&nbsp; | &nbsp;&nbsp;
+                        <a href="{:U('Content/PostCate/del',array('id'=>$vo['id']))}" >删除</a >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

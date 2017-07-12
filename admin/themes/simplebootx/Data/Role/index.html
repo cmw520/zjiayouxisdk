@@ -1,0 +1,81 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Data/Role/index')}" >角色信息</a ></li >
+    </ul >
+    <form class="well form-search" method="post"
+          action="{:U('Data/Role/index')}" >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+					<span class="mr20" >
+					玩家账号： 
+					<input type="text" name="username"
+                           style="width: 150px;" value="{$formget.username}"
+                           placeholder="请输入账号..." >
+						&nbsp;&nbsp;&nbsp;&nbsp; 
+						游戏名称： <select
+                            class="select_2" name="gid" id="selected_id" style="width: 200px;" >
+                        <foreach name="games" key="k" item="vo" >
+                            <php >$gid_select=$k==$formget['gid']
+                                  ?"selected":"";
+                            </php >
+                            <option value="{$k}" {$gid_select} >{$vo}</option >
+                        </foreach >
+                    </select >
+					<br ><br >
+					&nbsp;&nbsp;&nbsp;&nbsp; 
+										区服： 
+					<input type="text" name="server"
+                           style="width: 150px;" value="{$formget.server}"
+                           placeholder="请输入区服..." >
+						&nbsp;&nbsp;&nbsp;&nbsp; 
+											角色： 
+					<input type="text" name="role"
+                           style="width: 150px;" value="{$formget.role}"
+                           placeholder="请输入角色..." >
+                    <!-- 时间：<input type="text" name="start_time" class="js-date" value="{$start_time|default=''}" style="width: 100px;"  autocomplete="off">-
+                       < input type="text" name="end_time"  class="js-date" value="{$end_time|default=''}" style="width: 100px;" autocomplete="off"> &nbsp; &nbsp;
+                       --> <input type="submit" class="btn btn-warning" name='date_time'
+                                  value="搜索" />
+					</span >
+            </div >
+        </div >
+    </form >
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th >玩家账号</th >
+                <th >游戏名称</th >
+                <th >区服</th >
+                <th >角色</th >
+                <th >等级</th >
+                <th >充值总额</th >
+                <!-- <th>经验</th> -->
+                <th >更新时间</th >
+            </tr >
+            </thead >
+            <foreach name="roles" item="vo" >
+                <tr >
+                    <td >{$vo['username']}</td >
+                    <td >{$games[$vo['app_id']]}</td >
+                    <td >{$vo['server']}</td >
+                    <td >{$vo['role']}</td >
+                    <td >{$vo['level']}</td >
+                    <td >{$vo['money']}</td >
+                    <!-- <td>{$vo['experience']}</td> -->
+                    <td >{$vo.update_time|date='Y-m-d H:i:s',###}</td >
+                </tr >
+            </foreach >
+            <tfoot >
+            </tfoot >
+        </table >
+        <div class="pagination" >{$Page}</div >
+
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

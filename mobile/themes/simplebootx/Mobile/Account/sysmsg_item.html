@@ -1,0 +1,44 @@
+<mobiletpl file="header" />
+
+<section >
+    <div class='container' >
+        <div class='row sysmsg_item_title' >{$data.title}</div >
+        <div class='row sysmsg_item_time' >{$data.create_time|date="Y-m-d H:i:s",###}</div >
+        <div class='row sysmsg_item_content' >{$data.content}</div >
+    </div >
+
+</section >
+<style >
+    .container {
+        margin: 20px 5%;
+    }
+
+    .message_item .row {
+        width: 100%;
+        padding: 5px 0;
+        margin: 0;
+    }
+
+    .sysmsg_item_title {
+        font-size: 16px;
+    }
+
+    .sysmsg_item_time {
+        font-size: 12px;
+    }
+
+    .sysmsg_item_title, .sysmsg_item_time {
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .sysmsg_item_content {
+        padding: 5px 0;
+        border-top: 1px solid #CCCCCC;
+    }
+</style >
+<script >
+
+</script >
+
+<mobiletpl file="footer" />

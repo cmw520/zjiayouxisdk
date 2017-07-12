@@ -1,0 +1,50 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/charge.css" />
+<div class="account_information" >
+    <p class="account" >帐号：<i >
+        <if condition="$Think.session.user.status eq 1" >
+            试玩账号
+        </if >
+        {$Think.session.user.nickname}
+    </i ></p >
+</div >
+<section >
+    <div class="bindWay gray_title" >已绑定方式</div >
+
+    <ul class="funcList" >
+        <div class="tenGrayBox" ></div >
+        <if condition="empty($userdata['mobile'])" >
+            <li class="list phone" ><a href="{:U('Security/mobile')}" >
+                <div
+                        class="left" >
+                    <b ></b ><span >手机</span >
+                </div >
+                <div class="right" >
+                    <i ><b >{$userdata.mobile}</b ></i ><s ></s >
+                </div >
+            </a ></li >
+        </if >
+        <if condition="empty($userdata['email'])" >
+            <div class="tenGrayBox" ></div >
+            <li class="list email" ><a href="{:U('Security/email')}" >
+                <div
+                        class="left" >
+                    <b ></b ><span >邮箱</span >
+                </div >
+                <div class="right" >
+                    <i ><b >{$userdata.email}</b ></i ><s ></s >
+                </div >
+            </a ></li >
+        </if >
+    </ul >
+
+    <div class="tenGrayBox" ></div >
+</section >
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+<div class="main_model_box" ></div >
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+</html>

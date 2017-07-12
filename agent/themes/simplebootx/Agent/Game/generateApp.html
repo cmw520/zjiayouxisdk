@@ -1,0 +1,263 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .apply-for-game .page .game-num {
+        margin-left: 30px;
+    }
+
+    .table-content {
+        position: relative;
+    }
+
+    .footer {
+        transform: translateY(100px)
+    }
+
+    .apply-for-game .table-content table tr td {
+        vertical-align: middle
+    }
+
+    .search-results .table-content table tr th {
+        line-height: 46px;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records lower-channel-management apply-for-game" >
+                <form id="queryForm" action="{:U('Agent/game/generateApp')}" method="post" >
+                    <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                    <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                    <div class="input-content" >
+                        <div class="search-game search-channel" >
+                            <span style="margin-left: 172px !important" ><label for="key" >搜索游戏：</label ></span >
+                            <input type="text" id="key" name="key" placeholder="请输入游戏名称" value="{$current_key}" >
+                        </div >
+                        <div class="search-btn" >搜 索</div >
+                    </div >
+                </form >
+
+                <div class="search-results" >
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$total_count}</i >个游戏</span >
+                        <button onclick="location.href='{:U('Agent/game/inApp')}';"
+                                style="float:right;padding:3px;margin:3px 0 0 0;" >查看已加入到推广APP中的游戏
+                        </button >
+                    </div >
+                    <div class="table-content" >
+                        <!-- 游戏用户充值查询-->
+                        <table border="0" cellspacing="0" cellpadding="0" class="table-1" >
+                            <tbody >
+                            <tr >
+                                <th width="64" ><input type="checkbox" class="all-select-input" ></th >
+                                <th width="86" >游戏ID</th >
+                                <th width="120" >图标</th >
+                                <th width="200" >游戏名称</th >
+                                <th width="80" >游戏大小</th >
+                                <th width="102" >版本</th >
+                                <th width="102" >折扣</th >
+                                <!--<th width="170">更新时间</th>-->
+                            </tr >
+
+                            <volist name="games" id="vo" >
+                                <tr class="even" >
+                                    <td >
+                                        <input name="gameidnames" type="checkbox" value="{$vo.id}" >
+                                    </td >
+                                    <td >{$vo.app_id}</td >
+                                    <td ><a href="javascript:void(0);" >
+                                        <img src="{$vo.icon}" style="width:75px;height:75px"
+                                             onclick="showGameInfo('', '{$vo.id}')" ></a >
+                                    </td >
+                                    <td title="{$vo.name}" class="click-copy" >
+                                        <span class="cuttitle" onclick="" >{$vo.name}</span >
+                                    </td >
+                                    <td class="game-size" >
+                                        <if condition="$vo.size eq ''" >
+                                            --
+                                            <else />
+                                            {$vo.size}M
+                                        </if >
+                                    </td >
+                                    <td >{$vo.version}</td >
+                                    <td >
+                                        {$vo.mem_rate}
+                                        <a href="javascript:;" agent_game_id="{$vo.id}" mem_rate="{$vo.mem_rate}"
+                                           onclick="setrate(this);" >编辑</a >
+                                    </td >
+                                    <!--<td>{$vo.update_time}</td>-->
+                                    <!--<td><?php echo date("Y-m-d H:i:s",$vo['update_time']); ?> </td>-->
+                                </tr >
+                            </volist >
+
+                            </tbody >
+                        </table >
+                        <div class="cf" >
+                            <div class="fixed psBtnFixed" >
+                                <div class="psBtn" >
+                                    <div class="all-select" ><label ><input type="checkbox" class="all-select-input" >全选</label >
+                                    </div >
+                                    <div class="select-package" >加入推广APP</div >
+                                </div >
+                            </div >
+                            <div class="page" style="" >
+                                <div class="paging" >
+                                    {$Page}
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+
+            </div >
+        </div >
+    </div >
+</section >
+
+<link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+
+<script src="__PUBLIC__/agent/js/apply_game.js" ></script >
+
+<script >
+    function succHeader() {
+        $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+    }
+    succAside(2);
+
+    window.onscroll = function () {
+        if ($(window).scrollTop() > 700) {
+            $(".psBtnFixed").css({
+                position: "absolute",
+                bottom  : "-99px"
+            });
+        } else {
+            $(".psBtnFixed").css({
+                position: "fixed",
+                bottom  : "0px"
+            });
+        }
+    }
+    $(".cf .all-select-input").live("click", function () {
+        check_all(this);
+    })
+    $(".table-1 .all-select-input").live("click", function () {
+        check_all(this);
+    })
+    function check_all(x) {
+        if ($(x).prop("checked")) {
+            $(".table-1 tbody tr>td>input").each(function () {
+                $(this).prop("checked", "checked");
+            });
+            $(".cf .all-select-input").prop("checked", "checked");//选中下方全选按钮
+            $(".table-1 .all-select-input").prop("checked", "checked");//选中上方全选按钮
+        } else {
+            $(".table-1 tbody>tr>td>input").each(function () {
+                $(this).prop("checked", "");
+            });
+            $(".cf .all-select-input").prop("checked", "");//选中下方全选按钮
+            $(".table-1 .all-select-input").prop("checked", "");//选中上方全选按钮
+        }
+    }
+    function jumpPage_queryForm(x) {
+        sendData("{:U('Agent/ucenter/do_post')}", {page: x}, function (data) {
+            console.log(data);
+        })
+    }
+    /************全选按钮*************/
+    $(".table-1 tbody>tr>td>input").each(function () {
+        $(this).live("click", function () {
+            var input_count = $(".table-1 tbody tr").length;
+            var checked_1   = 0;
+            for (var i = 0; i < input_count - 1; i ++) {
+                if ($(".table-1 tbody tr>td>input").eq(i).prop("checked")) {
+                    checked_1 ++;
+                    if (checked_1 == input_count - 1) {
+                        $(".cf .all-select-input").prop("checked", "checked");
+                        $(".table-1 .all-select-input").prop("checked", "checked");
+                    }
+                } else {
+                    $(".cf .all-select-input").prop("checked", "");
+                    $(".table-1 .all-select-input").prop("checked", "");
+                    return;
+                }
+            }
+            checked_1 = 0;
+        })
+    });
+    /*****************选中申请按钮****************/
+    $(".select-package").live("click", function () {
+        var list = [];
+        for (var i = 0; i < $(".table-1 tbody>tr>td>input").length; i ++) {
+            var input = $(".table-1 tbody>tr>td>input").eq(i);
+            if (input.prop("checked")) {
+                list.push(input.val());
+            }
+        }
+        if (list.length > 0) {
+            sendData("{:U('Agent/game/generateApp_post')}", {"list": list}, applyBtn);
+
+        } else {
+            yxalert("请选择要加入到推广APP的游戏");
+        }
+
+    });
+    function applyBtn(data) {
+        if (data.error === '0') {
+            yxalert("游戏加入成功");
+            location.href = "{:U('Agent/game/inApp')}";
+        } else if (data.error === '1') {
+            yxalert(data.msg);
+        }
+
+    }
+    /*****************跳转页按钮****************/
+    function locatePage_queryForm(count) {
+        $(".paging ul li").each(function () {
+            if ($(this).html() == count) {
+                console.log($(this).html());
+                $(this).attr("class", "now-num").siblings().removeClass("now-num");
+            }
+        });
+        sendData("{:U('Agent/ucenter/do_post')}", {value: count}, function (data) {
+            console.log(data);
+        })
+    }
+
+    $(".search-btn").click(function () {
+        $("#queryForm").submit();
+    });
+
+    function setrate(e) {
+        var r             = $(e).attr("mem_rate");
+        var agent_game_id = $(e).attr("agent_game_id");
+
+        var r_new = prompt("请输入新的折扣", r);
+        if (r_new !== null && r_new !== "" && ! isNaN(r_new)) {
+            $.post("{:U('Agent/game/set_mem_rate')}", {"rate": r_new, "agent_game_id": agent_game_id}, function (data) {
+                if (data.error === '1') {
+                    yxalert(data.msg);
+                } else {
+                    location.reload();
+                }
+            });
+        }
+    }
+
+</script >
+<agenttpl file="user_center_footer" />

@@ -1,0 +1,83 @@
+<admintpl file="header" />
+</head>
+<body >
+    <div class="wrap js-check-wrap" >
+        <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Newapp/IntegralActivity/index')}" >{$admin_module_name}</a ></li >
+            <!--<li ><a href="{:U('Newapp/IntegralActivity/add')}" >添加</a ></li >-->
+            <li class="active" ><a href="__SELF__" >{$data.act_name}编辑</a ></li >
+        </ul >
+
+        <form action="{:U('Newapp/IntegralActivity/editCharge')}" method="post" class="form-horizontal js-ajax-forms" >
+            <input type='hidden' name='id' value="{$data.id}" />
+
+            <div class="row-fluid" >
+                <div class="span9" >
+                    <table class="table table-bordered" >
+                        <tr >
+                            <th >活动名称</th >
+                            <td >
+                                {$data.act_name}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th >是否限制渠道</th >
+                            <td >
+                                <input type="radio" name="limit_agent" value="1" />限制
+                                <input type="radio" name="limit_agent" value="2" checked="checked" />不限制
+                            </td >
+                        </tr >
+                        <tr >
+                            <th >充值说明</th >
+                            <td ><textarea name="act_desc"
+                                           style="width: 98%; height: 20px;" >{$data.act_desc}</textarea ></td >
+                        </tr >
+                    </table >
+                </div >
+
+            </div >
+
+
+            <div class="row-fluid" >
+                <div class="span9 " >
+                    <table class="table table-bordered " >
+                        <tr >
+                            <td >金额档</td >
+                            <td >赠送积分</td >
+                        </tr >
+                        <foreach name="chargedata" item="vo" key="k" >
+                            <tr >
+                                <td >{$vo.end_money}</td >
+                                <td >
+                                <div >
+                                    <input type="text" style="width:100px" name="gitg[]"
+                                           value="{$vo.give_integral|default=0}"
+                                           placeholder="赠送的积分" onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
+                                           onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" />
+                                    <input type="hidden" name="itgid[]" value="{$vo.id}" />
+                                    <button class="btn btn-success js-ajax-submit" type="submit" >更改</button >
+                                </div >
+                                </td >
+                           </tr >
+                        </foreach >
+                    </table >
+                </div >
+
+            </div >
+            <div class="form-actions" >
+                <button class="btn btn-primary js-ajax-submit" type="submit" >提交</button >
+                <a class="btn" href="{:U('Newapp/IntegralActivity/index')}" >返回</a >
+            </div >
+        </form >
+    </div >
+<script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+<script >
+       var limit_agent = "{$data.limit_agent}";
+
+       $("input[name='limit_agent']").removeAttr("checked");
+       $("input[name='limit_agent'][value='" + limit_agent + "']").attr("checked", "checked");
+
+</script >
+</body >
+</html>

@@ -1,0 +1,91 @@
+@import "public.css";
+@import "bottom.css";
+
+section > .prompt_list {
+    width: 100%;
+}
+
+section > .prompt_list > p.textTitle {
+    padding: 0px 20px;
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+section > .prompt_list > li {
+    height: 40px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+section > .prompt_list > li > .item {
+    margin: 0px 20px;
+    height: 100%;
+    position: relative;
+}
+
+section > .prompt_list > li > .item > .icon {
+    width: 25px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+section > .prompt_list > li > .item > .icon > img {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+section > .prompt_list > li > .item > input {
+    width: calc(70% - 30px);
+    height: 100%;
+    padding: 0px;
+    border: 0px;
+    float: left;
+    margin-left: 30px;
+    font-size: 16px;
+}
+
+section > .prompt_list > li > .item > .noBtn {
+    width: calc(100% - 30px);
+}
+
+section > .prompt_list > li > .item > button {
+    width: 30%;
+    float: left;
+    padding: 0px;
+    border: 0px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-left: 1px solid #DDDDDD;
+    outline: none;
+    font-size: 14px;
+}
+
+section > .prompt_list > li:last-child {
+    border-bottom: none;
+}
+
+section > .error_box {
+    /*display: none;*/
+    text-align: center;
+    color: #FF0000;
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+}
+
+footer {
+    text-align: center;
+}
+
+footer > span {
+    color: #AAAAAA;
+}
+
+.confim_change {
+    padding-top: 0px;
+}

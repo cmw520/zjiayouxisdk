@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <title >{:C('BRAND_NAME')}</title >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link type="image/x-icon" rel="bookmark" href="/favicon.ico" >
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+    <script type="text/javascript" src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+</head >
+<body >
+<div class="main" >
+    <!--页眉-->
+    <agenttpl file="header" />
+    <div class="page-content" >
+        <!-- *****************************************************************************************　　-->
+        <!--公告中心-->
+        <div class="notice" >
+            <div class="notice1" >
+                <div class="new1" >公告中心</div >
+                <ul class="new2" >
+                    <volist name="news" id="vo" >
+                        <li ><a href="{:U('front/about/notice')}/{$vo.id}" >
+                            <span class="blue" >{$vo.gamename}</span >
+                            {$vo.title}
+                        </a >
+                        </li >
+                    </volist >
+                </ul >
+            </div >
+            <!-- *****************************************************************************************　　-->
+            <div class="online" >
+                <div class="online1" >
+                    <div ><img src="__PUBLIC__/agent/img/2.png" ></div >
+                    <ul >
+                        <li >合作灵活 无门槛</li >
+                        <li >诚信合作长期稳定，加入无门槛。</li >
+                    </ul >
+                </div >
+                <div class="online1" >
+                    <div ><img src="__PUBLIC__/agent/img/3.png" ></div >
+                    <ul >
+                        <li >实时数据 快捷分发</li >
+                        <li >支持会长分发二级渠道，提供专属后台查看实时数据。</li >
+                    </ul >
+                </div >
+                <div class="online1" >
+                    <div ><img src="__PUBLIC__/agent/img/4.png" ></div >
+                    <ul >
+                        <li >全自动操作 无需垫资</li >
+                        <li >直接在后台按折后价格充值，无需垫资。支持首充续充</li >
+                    </ul >
+                </div >
+            </div >
+
+            <!-- *****************************************************************************************　　-->
+
+            <!-- 即将上线-->
+            <div class="online2" >
+                <div class="hotGift clearfix" >
+                    <div class="new1" >即将上线</div >
+                    <div class="hotGiftBox" >
+                        <ul class="hotGiftInner clearfix" >
+                            <volist name="about_online_games" id="vo" >
+                                <li >
+                                    <img src='{$vo.icon}' height="90" width="90" alt="" onclick="location.href = ''" />
+                                    <span >{$vo.name}</span >
+                                </li >
+                            </volist >
+                        </ul >
+                    </div >
+                </div >
+            </div >
+
+            <!-- *****************************************************************************************　　-->
+            <div class="extension1" >
+                <div class="new1" >商务经理</div >
+                <div class="extension2" >
+                    <div >
+                        <a href="http://wpa.qq.com/msgrd?v=3&uin={:C('COMPANY_QQ1')}&site=qq&menu=yes"
+                           title="小草QQ：{:C('COMPANY_QQ1')}" ><img src="__PUBLIC__/agent/img/5.png" ></a >
+                    </div >
+                    <div >
+                        <a href="http://wpa.qq.com/msgrd?v=3&uin={:C('COMPANY_QQ2')}&site=qq&menu=yes"
+                           title="沸腾QQ：{:C('COMPANY_QQ2')}" ><img src="__PUBLIC__/agent/img/6.png" ></a >
+                    </div >
+                </div >
+                <div class="extension3" ><a href="{:U('user/game/apply_game')}" ><img src="__PUBLIC__/agent/img/7.png" ></a >
+                </div >
+            </div >
+
+            <!-- 最热游戏-->
+            <div class="online3" >
+                <div class="hotGift clearfix" >
+                    <div class="new1" >最热游戏</div >
+                    <div class="hotGiftBox" >
+                        <ul class="hotGiftInner clearfix" >
+                            <volist name="hot_games" id="vo" >
+                                <li >
+                                    <img src='{$vo.icon}' height="90" width="90" alt="" onclick="location.href = ''" />
+                                    <span >{$vo.name}</span >
+                                </li >
+                            </volist >
+                        </ul >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+    <!--页脚-->
+    <div class="page-footer" >
+        <agenttpl file="footer" />
+    </div >
+</div >
+
+<style >
+    /*全局*/
+    .blue {
+        color: #0C9DE0;
+    }
+
+    body {
+        background-color: #FFFFFF
+    }
+
+    /*logo模块*/
+    /*            .logo{float:left;width:150px;height:65px;display:block;margin-top: 22px;}
+                .page-header .header-content{background-image:none;}
+                .page-header .header-content .tab span{float:left;margin:65px 0 0 10px;color:#333333;}*/
+
+    .page-header {
+        box-shadow: none;
+    }
+
+    /*公告中心*/
+    .new1 {
+        height: 38px;
+        line-height: 38px;
+        padding-left: 12px;
+        font-size: 18px;
+        font-size: 1.1428571428571428rem;
+        color: #666666;
+        font-weight: bold;
+    }
+
+    .new2 {
+        padding: 0px;
+        margin: 5px;
+    }
+
+    .new2 > li {
+        height: 35px;
+        border-bottom: dashed 1px #C1BCBC;
+    }
+
+    .new2 > li > a {
+        display: block;
+        height: 30px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+        line-height: 35px;
+        color: #666666;
+        font-size: 16px;
+    }
+
+    /*即将上线&&最热游戏*/
+    .hotGift {
+        padding-bottom: 20px;
+    }
+
+    .hotGift h2 {
+        font-size: 18px;
+        color: #666666;
+        font-weight: normal;
+        padding: 17px 0 7px;
+    }
+
+    .hotGiftBox {
+        width: 839px;
+        overflow: hidden;
+        border-right: 1px solid #EDEDED;
+        float: left;
+    }
+
+    .hotGiftInner {
+        padding-left: 1px;
+        width: 1201px;
+    }
+
+    .hotGiftInner li {
+        float: left;
+        width: 200px;
+        height: 150px;
+        background-color: #FFFFFF;
+        margin-left: -1px;
+    }
+
+    .hotGiftInner li.on {
+        border-top-color: #008BE3;
+    }
+
+    .hotGiftInner img {
+        display: block;
+        width: 90px;
+        height: 90px;
+        margin: 20px auto 0;
+        cursor: pointer;
+    }
+
+    .hotGiftInner span {
+        display: block;
+        font-size: 18px;
+        color: #333333;
+        text-align: center;
+        padding: 9px 0 12px;
+    }
+
+    .notice {
+        width: 1200px;
+        margin: 0px auto;
+        overflow: hidden;
+        margin-top: 25px;
+    }
+
+    .notice1 {
+        width: 800px;
+        float: left;
+        padding-bottom: 10px;
+        min-height: 200px;
+    }
+
+    .online {
+        width: 320px;
+        float: right;
+        overflow: hidden;
+    }
+
+    .online1 {
+        width: 100%;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .online1 > div {
+        width: 95px;
+        height: 95px;
+        float: left;
+        margin: 10px 15px 10px 5px;
+    }
+
+    .online1 > div > img {
+        width: 100%;
+        height: 100%
+    }
+
+    .online1 > ul {
+        display: block;
+        overflow: hidden;
+        width: 180px;
+        padding-top: 18px;
+    }
+
+    .online1 > ul > li:nth-child(1) {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .online1 > ul > li:nth-child(2) {
+        font-size: 14px;
+        margin-top: 12px;
+    }
+
+    .online2 {
+        width: 800px;
+        overflow: hidden;
+        float: left;
+        min-height: 200px;
+    }
+
+    .online3 {
+        width: 800px;
+        overflow: hidden;
+        float: left;
+        min-height: 200px;
+    }
+
+    .extension1 {
+        margin-top: 15px;
+        width: 320px;
+        height: 200px;
+        float: right;
+        overflow: hidden;
+    }
+
+    .extension2 {
+        margin-top: 20px;
+    }
+
+    .extension2 > div:nth-child(1) {
+        float: left;
+        margin-left: 12px;
+    }
+
+    .extension2 > div:nth-child(2) {
+        float: right
+    }
+
+    .extension3 {
+        width: 250px;
+        margin: 0px auto;
+    }
+
+    .extension3 > a > img {
+        width: 100%;
+        height: 100%;
+        margin-top: 40px;
+    }
+</style >
+
+<script >
+    function succHeader() {
+        $(".tab>ul>li").eq(0).addClass("on").siblings().removeClass("on");
+    }
+    succHeader();
+</script >
+</body >
+</html >

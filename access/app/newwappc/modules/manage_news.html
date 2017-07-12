@@ -1,0 +1,43 @@
+<div class="container inner_container" id="module_manage_news" >
+    <div class="row" style="margin-bottom:10px;" >
+        <a href="javascript:;" class="btn btn-success" ng-click="showAddNewsDialog();" >添加实物商品</a >
+        <a href="javascript:;" class="btn btn-success" ng-click="showAddNewsDialog();" >添加充值卡商品</a >
+        <a href="javascript:;" class="btn btn-success" ng-click="showAddNewsDialog();" >添加游戏币商品</a >
+        <a href="javascript:;" class="btn btn-success" ng-click="showAddNewsDialog();" >添加虚拟商品</a >
+    </div >
+    <div class="row" >
+        <table class="table table-hover table-bordered" >
+            <tr >
+                <th >标题</th >
+                <th >发布时间</th >
+                <th >操作</th >
+            </tr >
+            <tr ng-repeat="value in list" >
+                <td >{{value.title}}</td >
+                <td style="width:200px;" >{{value.time}}</td >
+                <td style="width:200px;" >
+                    <button class="btn btn-info edit_news_btn" >修改</button >
+                    <button class="btn btn-danger del_news_btn" data-id="{{value.id}}" >删除</button >
+                </td >
+            </tr >
+        </table >
+    </div >
+    <div class="row" style="margin-top:10px;margin-bottom:10px;" ng-show="false" >
+        <div class="col-md-4" style="text-align: left;" >
+            <a href="javascript:;" ng-click="page_prev();" class="btn btn-info btn-sm" >上一页</a >
+        </div >
+        <div class="col-md-4" style="text-align: center;" >
+            <span >当前页：{{current_page}} / 总页数：{{total_pages}}</span >
+        </div >
+        <div class="col-md-4" style="text-align: right;" >
+            <a href="javascript:;" ng-click="page_next();" class="btn btn-info btn-sm" >下一页</a >
+        </div >
+    </div >
+    <div class="row" style="margin-top:10px;margin-bottom:10px;" ng-show="true" >
+        <ul class="pagination" >
+            <li ><a href="javascript:;" ng-click="page_prev();" >&laquo;</a ></li >
+            <li ng-repeat="x in pagelist" ><a href="javascript:;" ng-click="gotoPage(x);" >{{x}}</a ></li >
+            <li ><a href="javascript:;" ng-click="page_next();" >&raquo;</a ></li >
+        </ul >
+    </div >
+</div >

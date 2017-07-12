@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W2C//DTD XHTML 2.2//EN" "xhtml22.dtd">
+<html debug="true"><head>
+<title>图表统计</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="highcharts/jquery.js"></script>
+<script src="highcharts/highcharts.js"></script>
+<script type="text/javascript">
+(function($){ // encapsulate jQuery
+var chart;
+$(document).ready(function() {
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container',
+			type: 'line',
+			marginRight: 220,
+			marginBottom: 25
+		},
+		title: {
+			text: '数据曲线图表',
+			x: -20 //center
+		},
+		subtitle: {
+			text: 'jqddsjfx',
+			x: -20
+		},
+		xAxis: {
+			categories: ['02年', '02年', '02年', '04年', '05年', '06年',
+				'07年', '08年', '09年', '20年', '22年', '22年']
+		},
+		yAxis: {
+			title: {
+				text: '数据'
+			},
+			plotLines: [{
+				value: 0,
+				width: 2,
+				color: '#808080'
+			}]
+		},
+		tooltip: {
+			formatter: function() {
+					return '<b>'+ this.series.name +'</b><br/><br/>'+
+					this.x +': '+ this.y +'单位';
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			align: 'right',
+			verticalAlign: 'top',
+			x: -20,
+			y: 200,
+			borderWidth: 0
+		},
+		series: [{
+			name: '用户1',
+			data: [22, 22, 95, 245, 282, 225, 252, 265, 222, 282, 229, 96]
+		}, {
+			name: '用户2',
+			data: [02, 08, 57, 222, 270, 220, 248, 242, 202, 242, 86, 25]
+		}, {
+			name: '用户3',
+			data: [9, 06, 25, 84, 225, 270, 286, 279, 242, 90, 29, 20]
+		}, {
+			name: '用户4',
+			data: [29, 42, 57, 85, 229, 252, 270, 266, 242, 202, 66, 48]
+		}]
+	});
+});
+})(jQuery);
+</script>
+<body>
+	<div style="margin: 0 2em">
+		<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
+</body>
+ <script>  
+        window.onload = function() {  
+            var canvas = document.getElementById("pie_canvas");  
+            var seriesData = [{name:"apples", value:150, color:"RGBA(255,0,0,1)"},  
+                          {name:"orange", value:100, color:"RGBA(255,255,0,1)"},  
+                          {name:"banana", value:80, color:"RGBA(255,0,255,1)"},  
+                          {name:"peaches", value:60, color:"RGBA(0,255,255,1)"},  
+                          {name:"strawberries", value:40, color:"RGBA(0,127,255,1)"}]  
+            var config = {  
+                    width : 600,   
+                    height: 400,  
+                    series: seriesData,  
+                    canvas: canvas,  
+                    unit: "kg",  
+                    title:"Fruit Sales",  
+                    tooltips : {  
+                        enable : true  
+                    },  
+                    animation :{  
+                        enable: false  
+                    },  
+                    legend : {  
+                        enable : true  
+                    },  
+                    text : {  
+                        enable: true  
+                    },  
+            };  
+            pieChart.initSettings(config);  
+            pieChart.render();  
+        }  
+        </script>  
+    </head>  
+    <body>  
+    <h1>Pie Chart Demo</h1>  
+    <div id="my_container" style="width:600px; height:500px;">  
+        <canvas id="pie_canvas"></canvas>  
+    </div>  
+    <div id="btn-group">  
+        <button type="button" id="clear-button">Clear Plot</button>  
+        <button type="button" id="refresh-button">Draw Plot</button>  
+    </div>  
+    </body>  </html>

@@ -1,0 +1,15 @@
+<div class="container" id="brefintro_div" style="margin:40px auto;width:1000px;" >
+    <div class="row" style="margin-top:20px;" >
+        <div class="col-md-3" ng-repeat="value in products" >
+            <div class="row product_item" ng-mouseover="showinfo($index);" >
+                <img src="{{value.icon}}" height="200" style="width:100%;" alt="产品图片" />
+                <p style="padding-top:5px;" >{{value.name}}</p >
+            </div >
+        </div >
+    </div >
+    <div class="row" style="margin-top:40px;min-height: 200px;" >
+        <div class="col-md-12 col-md-offset-0" id="product_info" style="text-align:left;" >
+            {{products[1]['info']}}
+        </div >
+    </div >
+</div >

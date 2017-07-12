@@ -1,0 +1,80 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Tui/About/ads')}" target="_self" >轮播图管理</a ></li >
+        <li ><a href="{:U('Tui/About/index')}" target="_self" >合作联系</a ></li >
+        <li class="active" ><a href="{:U('Tui/IndexPageHotGame/index')}" target="_self" >最热游戏</a ></li >
+        <!--<li><a href="{:U('Tui/IndexPageServerList/index')}" target="_self">开服列表</a></li>-->
+    </ul >
+
+    <form class="well form-search add_hotgame_form" method="get" action="{:U('Tui/Game/hot_post')}"
+          onsubmit='return false;' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        添加最热游戏： 
+                        <select class="select_2" name="gameid" id="selected_id" >
+                            <volist name="games" id="vo" >
+                                <option value="{$vo.id}" > {$vo.name}</option >
+                            </volist >
+                        </select >
+                        <input type="submit" class="btn btn-primary add_hotgame_btn" value="添加" />
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="50" >游戏名称</th >
+                <th width="50" >游戏图标</th >
+                <th width="60" >操作</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.name}</td >
+                    <td ><img src="{$vo.icon}" width="50" /></td >
+                    <td >
+                        <a href="javascript:;" data-id="{$vo.id}" class="delete_hotgame_btn" >删除</a >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+    <script >
+        $(".add_hotgame_btn").click(function () {
+            var url    = "{:U('Tui/IndexPageHotGame/hot_post')}";
+            var gameid = $("select[name='gameid']").val();
+            var data   = {"gameid": gameid};
+            $.post(url, data, function (res) {
+                if (res.error == 0) {
+                    yxalert(res.msg);
+                    reload_delay();
+                } else if (res.error == 1) {
+                    yxalert(res.msg);
+                }
+            });
+        });
+
+        $(".delete_hotgame_btn").click(function () {
+            var url  = "{:U('Tui/IndexPageHotGame/delete')}";
+            var data = {"id": $(this).attr("data-id")};
+            $.post(url, data, function (res) {
+                if (res.error == 0) {
+                    yxalert(res.msg);
+                    reload_delay();
+                } else if (res.error == 1) {
+                    yxalert(res.msg);
+                }
+            })
+        });
+    </script >
+</div >
+</body >
+</html>

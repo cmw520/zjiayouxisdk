@@ -1,0 +1,70 @@
+﻿<admintpl file="header" />
+</head>
+<body >
+<!--
+ @time 2017-01-22 17:57:11
+ @author 严旭
+-->
+    <div class="wrap js-check-wrap" >
+        <ul class="nav nav-tabs" >
+            <li class="active" ><a href="{:U('Newapp/Feedback/index')}" >反馈列表</a ></li >
+        </ul >
+        <form class="js-ajax-form" method="post" >
+            <div class="table-actions" >
+                
+            </div >
+
+            <table class="table table-hover table-bordered table-list" >
+                <thead >
+                    <tr >
+                        <th >玩家昵称</th >
+                        <!--<th >玩家姓名</th >-->
+                        <!-- <th >电话</th >
+                         <th >邮箱</th >-->
+                        <th >游戏</th >
+                        <th >标题</th >
+                        <th >内容</th >
+                        <th >添加时间</th >
+                        <th >状态</th >
+                        <th >操作</th >
+                    </tr >
+                </thead >
+                <volist name="items" id="vo" >
+                    <tr >
+                        <td >
+                         <empty name="vo['mem_name']" >
+                            匿名用户
+                            <else />
+                             {$vo.mem_name}
+                        </empty >
+                        </td >
+                        <!--<td >{$vo.full_name}</td >-->
+                        <!-- <td >{$vo.tel}</td >
+                         <td >{$vo.email}</td >   -->
+                        <empty name="vo['app_id']" >
+                            <td >--</td >
+                            <else />
+                             <td >{$games[$vo[app_id]]}</td >
+                        </empty >
+                        <td >{$vo.title}</td >
+                        <td >{$vo.msg}</td >
+                        <td >{$vo.create_time}</td >
+                        <td >{$vo.status_txt}</td >
+                        
+                        
+                        <td >
+                            <a href="{:U('Newapp/Feedback/edit',array('id'=>$vo['id']))}" >编辑</a >
+                        </td >
+                    </tr >
+                </volist >
+            </table >
+            <div class="pagination" >{$page}</div >
+        </form >
+    </div >
+    <script src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+
+</body >
+</html>
+
+

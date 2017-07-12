@@ -1,0 +1,31 @@
+<script id="module_news" type="text/html">
+    <div class="container inner_container">
+        <div class="row page_top_title_banner">
+            <h2>公司动态</h2>
+        </div>
+    </div>
+    <div class="container inner_container" style="margin-top:20px;">
+
+        <div class="row">   
+            <div class="col-md-3" style="min-height:200px;background-color:#0ae;">
+                <p style="font-size:32px;color:#fff;padding-top:50px;">新闻<br />//NEWS</p>
+            </div>
+            <div class="col-md-8 col-md-offset-1">
+                
+                {{each list as value i}}
+                <div class="row" style="border-bottom:1px dashed #ccc;padding:10px 0;">   
+                    <div class="col-md-2" style="min-height:30px;background-color:#0ae;color:#fff;">{{value.time}}</div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-12"><a href="index.html?id={{value.id}}#/view_news">{{value.title}}</a></div>
+                            <!--<div class="col-md-8">{{value.content}}</div>-->
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+        
+            </div>
+        </div>
+
+    </div>
+</script>

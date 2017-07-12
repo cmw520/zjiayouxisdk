@@ -1,0 +1,22 @@
+<div class="container" id="brefintro_div" style="margin:40px auto;width:1000px;" >
+    <div class="row" >
+        <div class="col-md-4" >
+            <img src="static/img/intro.png" height="260" />
+        </div >
+        <div class="col-md-8" >
+            <h2 >公司简介</h2 >
+            <p style="line-height:24px;" >
+                公司成立于2015年7月，于2015年10月开始正式坐班办公，经过近一年的发展壮大，公司从最初的2个人发展到现在拥有职能部门三个，分别为：行政部、财务部、运营部。
+                我公司以发展手机游戏行业为主要经营项目，定位为现代服务行业，公司致力于为客户提供优质服务，为员工提供机会，为社会做出贡献。
+            </p >
+        </div >
+    </div >
+    <div class="row" style="margin-top:20px;" >
+        <div class="col-md-3" ng-repeat="value in products" >
+            <div class="row product_item" onclick="location.href='#/intro'" >
+                <img src="{{value.icon}}" height="200" class="icon_full" alt="产品图片" />
+                <p style="padding-top:5px;" >{{value.name}}</p >
+            </div >
+        </div >
+    </div >
+</div >

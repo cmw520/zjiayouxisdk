@@ -1,0 +1,481 @@
+<agenttpl file="user_center_header" />
+<link rel="stylesheet" href="__PUBLIC__/agent/css/popup.css" />
+<script type="text/javascript" src="__PUBLIC__/agent/js/jquery.popup.min.js" ></script >
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .apply-for-game .page .game-num {
+        margin-left: 30px;
+    }
+
+    .table-content {
+        position: relative;
+    }
+
+    .footer {
+        transform: translateY(100px)
+    }
+
+    .apply-for-game .table-content table tr td {
+        vertical-align: middle
+    }
+
+    .search-results .table-content table tr th {
+        line-height: 46px;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file='share/side' />
+
+            <div class="page-right my-game query-records lower-channel-management apply-for-game" >
+                <form id="queryForm" action="{:U('Agent/Game/apply_game')}" method="post" >
+
+                    <div class="container" style="width:960px;margin-top:20px;margin-bottom:20px;" >
+                        <div class="row" >
+                            <div class="col-md-4 col-md-offset-4" >
+                                <div class="input-group" >
+                                    <span class="input-group-addon" >搜索游戏</span >
+                                    <input class="form-control" type="text" id="key" name="key" placeholder="请输入游戏名称"
+                                           value="{$current_key}" />
+                                </div >
+                            </div >
+                            <div class="col-md-4" >
+                                <button class="btn btn-success" >搜索</button >
+                            </div >
+                        </div >
+                    </div >
+
+                </form >
+
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$total_count}</i >个游戏</span >
+                    </div >
+                    <div class="table-content" >
+                        <!-- 游戏用户充值查询-->
+                        <table border="0" cellspacing="0" cellpadding="0" class="table-1" >
+                            <tbody >
+                            <tr >
+                                <!--                                    <th width="64"><input type="checkbox" class="all-select-input"></th>
+                                                                    <th width="86">游戏ID</th>-->
+                                <th width="120" >图标</th >
+                                <th width="200" >游戏名称</th >
+                                <!--<th width="80">游戏大小</th>-->
+                                <!--<th width="102">版本</th>-->
+                                <th width="102" >我的折扣</th >
+                                <if condition="0!= C('G_DISCONT_TYPE')" >
+                                    <th width="102" >玩家折扣类型</th >
+                                </if >
+                                <th width="170" >操作</th >
+                            </tr >
+
+                            <volist name="games" id="vo" >
+                                <tr class="even" >
+                                    <td ><a href="javascript:void(0);" >
+                                        <img src="{:sp_get_asset_upload_path($vo[icon])}"
+                                             onerrer="imgnofind('__UPLOAD__/{$vo.icon}');" style="height:72px" ></a >
+                                    </td >
+                                    <td title="{$vo.name}" class="click-copy" >
+                                        <eq name="vo[classify]" value="4" >
+                                            <span class="fa fa-apple" style="color:#00AEFF; font-size:20px" ></span >
+                                        <else />
+                                            <span class="fa fa-android" style="color:#A4CD29; font-size:20px" ></span >
+                                        </eq >
+                                        <span>{$vo.name}</span >
+                                    </td >
+                                    <td >{$vo.agent_rate}</td >
+                                    <if condition="0!= C('G_DISCONT_TYPE')" >
+                                        <td >
+                                            <switch name="vo.benefit_type" >
+                                                <case value="1" >折扣</case >
+                                                <case value="2" >返利</case >
+                                            </switch >
+                                        </td >
+                                    </if >
+                                    <td >
+                                        <button class='btn btn-success apply_item_btn' data-appid='{$vo.id}' >添加
+                                        </button >
+                                    </td >
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+                        <script >
+                            $(".apply_item_btn").click(function () {
+                                var app_id = $(this).attr("data-appid");
+                                var url    = "{:U('Agent/game/apply_game_post')}";
+
+                                var list = [];
+                                list.push(app_id);
+                                var data = {"list": list};
+                                $.post(url, data, function (res) {
+                                    if (res.error === '0') {
+                                        yxalert("游戏添加成功，已添加游戏可在【我的游戏】查看");
+                                        redirect_delay("{:U('Agent/Game/mygames')}", 2000);
+                                    } else if (res.error === '1') {
+                                        yxalert(res.msg);
+                                    }
+                                });
+                            });
+                        </script >
+                        <div class="cf" >
+                            <div class="page" style="" >
+                                <div class="paging" >{$Page}</div >
+                            </div >
+                        </div >
+                    </div >
+
+                    <a href="#agent_choose" class="default_popup" id="agent_choose_trigger"
+                       style="display:none;" >选择</a >
+
+                    <!--选择自己还是下级渠道，弹出层-->
+                    <div id="agent_choose" style="display:none;width:500px;float:left;" >
+                        <div id="agent_choose_top" >选择渠道</div >
+                        <table id="agent_choose_table" >
+                            <tr data-id="{$user.id}" >
+                                <td >自己</td >
+                            </tr >
+                            <volist name="choose_agents" id="vo" >
+                                <tr data-id="{$vo.id}" >
+                                    <td title='{$vo.user_login}' >{$vo.user_nicename}</td >
+                                </tr >
+                            </volist >
+                        </table >
+                    </div >
+                    <style >
+                        #agent_choose_top {
+                            width: 100%;
+                            float: left;
+                            padding: 10px 0;
+                            border-bottom: 1px solid orange;
+                            margin: 0 0 20px 0;
+                        }
+
+                        #agent_choose_table {
+                            width: 500px;
+                            float: left;
+                            height: 300px;
+                            overflow: scroll;
+                        }
+
+                        #agent_choose_table tr {
+                            width: 90px;
+                            float: left;
+                            padding: 10px 0;
+                            margin: 10px;
+                            height: 35px;
+                            border: 1px solid orange;
+                            border-radius: 5px;
+                        }
+
+                        #agent_choose_table tr:hover {
+                            cursor: pointer;
+                            background-color: orange;
+                            color: #FFFFFF;
+                        }
+
+                        #agent_choose_table tr td {
+                            width: 70px;
+                            float: left;
+                            height: 35px;
+                            padding: 10px;
+                            overflow: hidden;
+                            text-align: left;
+                        }
+
+                        .popup {
+                            height: 300px;
+                        }
+                    </style >
+
+                    <!-- 弹出层 -->
+                    <div style="width: 1000px;height: 642px;background: #FFFFFF;display: none;position: absolute;z-index: 9999;"
+                         id="game-pop" >
+                        <div id="game-pop-header" >
+                            <span >游戏详情</span ><img src="http://pic.7881.com/51508-2015/images/pop-closed.png"
+                                                    onclick="closebox('#game-pop')" />
+                        </div >
+                        <div class="container2" >
+                            <div class="div_scroll" >
+                                <div class="title" >
+                                    <ul >
+                                        <li style="padding-left: 0;" >我的游戏：<span id="pop-gamename" >航海王强者之路</span >
+                                        </li >
+                                        <li >游戏版本：<span id="pop-version" >1.2.3</span ></li >
+                                        <li >游戏大小：<span id="pop-gamesize" >267M</span ></li >
+                                        <li style="border-right: none;" >游戏题材：<span id="pop-gametheme" >角色扮演</span >
+                                        </li >
+                                    </ul >
+                                </div >
+                                <div class="game-introduction" >
+                                    <div class="game-introduction-title" >
+                                        <span >游戏简介</span >
+                                    </div >
+                                    <div class="game-introduction-content" >
+                                        <p id="pop-gamecontent" >
+
+                                            《航海王强者之路》是由东映动画官方授权的“ONE PIECE”题材手游。以大受欢迎的人气动画《航海王》为游戏蓝本，还原动画的精彩情节与独特的人物设定。经典动画题材结合经典手游玩法，开启双经典模式的《航海王强者之路》，即将引爆2016年超高人气《航海王》题材手游新番！
+                                        </p >
+                                        <span class="up" >收起</span >
+                                    </div >
+                                    <div class="game-screenshots" >
+                                        <span >游戏截图</span >
+                                    </div >
+                                    <div class="screenshots" >
+                                        <div class="hd" >
+                                            <ul >
+                                                <li ></li >
+                                                <li ></li >
+                                            </ul >
+                                        </div >
+                                        <div class="bd" >
+                                            <a href="javascript:void(0)" class="prev" ></a >
+                                            <a href="javascript:void(0)" class="next" ></a >
+                                            <ul id="pop-gamepic" >
+                                                <!--                                                <li class="left"><img src="http://pic.7881.com/51508-2015/images/pic1.jpg"/></li>
+                                                                                                <li><img src="http://pic.7881.com/51508-2015/images/pic1.jpg"/></li>
+                                                                                                <li><img src="http://pic.7881.com/51508-2015/images/pic1.jpg"/></li>
+                                                                                                <li><img src="http://pic.7881.com/51508-2015/images/pic1.jpg"/></li>-->
+                                            </ul >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+
+                </div >
+
+            </div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+
+<link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+
+<script src="__PUBLIC__/agent/js/apply_game.js" ></script >
+
+<script >
+    //    var choose_list = [];
+    function succHeader() {
+        $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+    }
+    //                                $(".default_popup").popup({
+    //                                    beforeOpen:bind_click
+    //                                });
+
+    window.onscroll = function () {
+        if ($(window).scrollTop() > 700) {
+            $(".psBtnFixed").css({
+                position: "absolute",
+                bottom  : "-99px"
+            });
+        } else {
+            $(".psBtnFixed").css({
+                position: "fixed",
+                bottom  : "0px"
+            });
+        }
+    }
+    $(".cf .all-select-input").live("click", function () {
+        check_all(this);
+    })
+    $(".table-1 .all-select-input").live("click", function () {
+        check_all(this);
+    })
+    function check_all(x) {
+        if ($(x).prop("checked")) {
+            $(".table-1 tbody tr>td>input").each(function () {
+                $(this).prop("checked", "checked");
+            });
+            $(".cf .all-select-input").prop("checked", "checked");//选中下方全选按钮
+            $(".table-1 .all-select-input").prop("checked", "checked");//选中上方全选按钮
+        } else {
+            $(".table-1 tbody>tr>td>input").each(function () {
+                $(this).prop("checked", "");
+            });
+            $(".cf .all-select-input").prop("checked", "");//选中下方全选按钮
+            $(".table-1 .all-select-input").prop("checked", "");//选中上方全选按钮
+        }
+    }
+    function jumpPage_queryForm(x) {
+        sendData("{:U('Agent/ucenter/do_post')}", {page: x}, function (data) {
+            console.log(data);
+        })
+    }
+    /************全选按钮*************/
+    $(".table-1 tbody>tr>td>input").each(function () {
+        $(this).live("click", function () {
+            var input_count = $(".table-1 tbody tr").length;
+            var checked_1   = 0;
+            for (var i = 0; i < input_count - 1; i ++) {
+                if ($(".table-1 tbody tr>td>input").eq(i).prop("checked")) {
+                    checked_1 ++;
+                    if (checked_1 == input_count - 1) {
+                        $(".cf .all-select-input").prop("checked", "checked");
+                        $(".table-1 .all-select-input").prop("checked", "checked");
+                    }
+                } else {
+                    $(".cf .all-select-input").prop("checked", "");
+                    $(".table-1 .all-select-input").prop("checked", "");
+                    return;
+                }
+            }
+            checked_1 = 0;
+        })
+    });
+    /*****************选中申请按钮****************/
+    $(".select-package").live("click", function () {
+        var list = [];
+        for (var i = 0; i < $(".table-1 tbody>tr>td>input").length; i ++) {
+            var input = $(".table-1 tbody>tr>td>input").eq(i);
+            if (input.prop("checked")) {
+                list.push(input.val());
+            }
+        }
+        if (list.length > 0) {
+//                                        $("#agent_choose_trigger").click();
+            sendData("{:U('Agent/game/apply_game_post')}",
+                {"list": list},
+                function (data) {
+                    if (data.error === '0') {
+                        yxalert("游戏添加成功，如已添加，请不要重复添加");
+                        location.href = "{:U('Agent/Game/mygames')}";
+                    } else if (data.error === '1') {
+                        yxalert(data.msg);
+                    }
+                });
+        } else {
+            yxalert("请选择要申请的游戏...");
+        }
+
+    });
+
+    /*****************跳转页按钮****************/
+    function locatePage_queryForm(count) {
+        $(".paging ul li").each(function () {
+            if ($(this).html() == count) {
+                console.log($(this).html());
+                $(this).attr("class", "now-num").siblings().removeClass("now-num");
+            }
+        });
+        sendData("{:U('Agent/ucenter/do_post')}", {value: count}, function (data) {
+            console.log(data);
+        })
+    }
+
+    function popupbox(popid) {
+        var pop = "#" + popid;
+        var w   = $(pop).outerWidth();
+        var h   = $(pop).outerHeight();
+        var _dl = document.documentElement.scrollTop || document.body.scrollTop;
+        var l   = Math.round((document.documentElement.clientWidth - w) / 2 + document.documentElement.scrollLeft);
+        var t   = Math.round((document.documentElement.clientHeight - h) / 2 + _dl);
+        $(pop).css({"top": - 200, "left": 0});
+        $(pop).find(".pop-box-bg").css({"width": w, "height": h});
+        var ch                 = document.documentElement.scrollHeight;
+        var cw                 = document.documentElement.scrollLeft + document.documentElement.clientWidth;
+        var cover              = document.createElement("div");
+        cover.id               = "cover";
+        cover.style.position   = "absolute";
+        cover.style.top        = "0px";
+        cover.style.left       = "0px";
+        cover.style.width      = cw + "px";
+        cover.style.height     = ch + "px";
+        cover.style.zIndex     = "9999";
+        cover.style.filter     = "alpha(opacity=0)";
+        cover.style.opacity    = "0";
+        cover.style.display    = "block";
+        cover.style.background = "#252130";
+        cover.innerHTML        = '<iframe id="if" name="if" style="position:absolute;top:-5px;left:0;border:none;width:100%;height:100%;filter:alpha(opacity=0);" ></iframe>';
+        document.body.appendChild(cover);
+        $("#cover").css({zIndex: "8888"});
+        $("#cover").animate({opacity: 0.8}, 100, function () {
+            $(pop).fadeIn(300);
+        });
+        $(window).resize(function () {
+            var ncw = document.documentElement.scrollLeft + document.documentElement.clientWidth;
+            $("#cover").width(ncw);
+        });
+    }
+    ;
+
+    //显示游戏详细信息
+    function showGameInfo(ctx, gameid) {
+
+        $.ajax({
+            url     : "{:U('Agent/game/gameinfo')}?id=" + gameid,
+            type    : 'get',
+            dataType: 'json',
+            cache   : false,
+            success : function (data) {
+//                                            yxalert(data);
+//                        if(data == "401"){
+//                                location = location;
+//                        } else if(data.gameid != null  && data.gameid != ""){
+                $("#pop-gamename").html(data.gamename);
+                $("#pop-version").html(data.version);
+//                                            $("#pop-gamesize").html(data.gamesize + "M");
+                $("#pop-gametheme").html(data.theme);
+                $("#pop-gamecontent").html(data.content);
+//                                            var pics = data.gamepic.split(", ");
+//                                            var picli = "";
+//                                            for (var i = 0; i < pics.length; i++) {
+//                                                if (i == 0) {
+//                                                    picli += "<li class=\"left\"><img src=\"" + picserver + pics[i] + "\"/></li>"
+//                                                } else {
+//                                                    picli += "<li><img src=\"" + picserver + pics[i] + "\" /></li>"
+//                                                }
+//                                            }
+//                                            $("#pop-gamepic").html(picli);
+//                                            $(".screenshots").slide({titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "left", scroll: 3, vis: 3, pnLoop: false});
+                popupbox('game-pop');
+//                        }
+            }
+        });
+    }
+    function closebox(popup) {
+        $("#cover").remove();
+        $(popup).fadeOut(100);
+    }
+
+    $(".search-btn").click(function () {
+        $("#queryForm").submit();
+    });
+
+    //function bind_click(){
+    //    $("#agent_choose_table tr").click(function(){
+    //        var id=$(this).attr("data-id");
+    //        sendData("{:U('Agent/ucenter/apply_game_post')}",
+    //        {"list": choose_list,"agent_id":id},
+    //        function(data) {
+    //            if (data.error === '0') {
+    //                yxalert("游戏申请成功，如已申请，请不要重复申请！");
+    //                location.href="{:U('Agent/game/mygames')}";
+    //            } else if (data.error === '1') {
+    //                yxalert(data.msg);
+    //            }
+    //
+    //        });
+    //    });
+    //}
+
+</script >

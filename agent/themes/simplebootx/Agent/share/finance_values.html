@@ -1,0 +1,114 @@
+<style >
+    .finance_values .col-md-4 {
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 20px 50px;
+
+    }
+
+    .finance_values .col-md-4 .row {
+        border: 1px solid;
+        padding: 20px;
+        /*height:80px;*/
+        text-align: center;
+        border-radius: 10px;
+        color: #FFFFFF;
+    }
+
+    .finance_values .col-md-4 .row p {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .finance_values .col-md-4 .row span {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .finance_values .fa-info-circle {
+        position: absolute;
+        top: 30px;
+        right: 45px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .custom_class .layui-layer-content {
+        background-color: #FFFFFF;
+        color: #333333;
+    }
+</style >
+
+<div class="container finance_values" style="width:996px;" >
+    <div class="row" >
+        <div class="col-md-4" >
+            <div class="row" style="border-color:#61B364;background-color:#61B364;" >
+                <p >{$ptb_remain}</p >
+                <span >平台币余额</span >
+                <i class="fa fa-normal fa-info-circle finance_hint_1" ></i >
+            </div >
+
+        </div >
+        <?php
+        if(C("G_WITHDRAW_EN")){ 
+        ?>
+        <div class="col-md-4" >
+            <div class="row" style="border-color:#2196F3;background-color:#2196F3;" >
+                <p >{$account_remain}</p >
+                <span >账户余额</span >
+                <i class="fa fa-normal fa-info-circle finance_hint_2" ></i >
+            </div >
+        </div >
+        <div class="col-md-4" >
+            <div class="row" style="border-color:#FD9D7E;background-color:#FD9D7E;" >
+                <p >{$account_freeze}</p >
+                <span >账户冻结金额</span >
+                <i class="fa fa-normal fa-info-circle finance_hint_3" ></i >
+            </div >
+        </div >
+        <?php } ?>
+    </div >
+
+</div >
+
+<script >
+    $(".finance_hint_1").click(function () {
+        layer.tips(
+                "1、给玩家充值需要使用平台币，给下级渠道转账也需要使用平台币；<br />" +
+                "2、平台币余额不足时，可自助充值平台币余额，也可联系平台客服人员线下充值；<br />" +
+                "3、给玩家充值时，充值的平台币会绑定某游戏，除该游戏外，其余游戏均无法使用；<br />", this, {
+                    tips      : [1, '#fff'],
+                    time      : 400000,
+                    skin      : 'custom_class',
+                    closeBtn  : 1,
+                    shade     : [0.2, '#333'],
+                    shadeClose: true
+                });
+    });
+    $(".finance_hint_2").click(function () {
+        layer.tips(
+                "1、账户金额为推广获得的收益，玩家在游戏内自然充值时，可获得收益；<br />" +
+                "2、账户余额可以提现，请完善您的结算账户信息；<br />" +
+                "3、当平台币余额不足时，可通过账户余额充值；<br />", this, {
+                    tips      : [1, '#fff'],
+                    time      : 400000,
+                    skin      : 'custom_class',
+                    closeBtn  : 1,
+                    shade     : [0.2, '#333'],
+                    shadeClose: true
+                });
+    });
+    $(".finance_hint_3").click(function () {
+        layer.tips(
+                "1、账户余额提现状态下，申请提现的资金会被冻结；<br />" +
+                "2、提现申请被拒绝的情况下，冻结资金将返还至账户余额；<br />", this, {
+                    tips      : [3, '#fff'],
+                    time      : 400000,
+                    skin      : 'custom_class',
+                    closeBtn  : 1,
+                    shade     : [0.2, '#333'],
+                    shadeClose: true
+                });
+    });
+</script >

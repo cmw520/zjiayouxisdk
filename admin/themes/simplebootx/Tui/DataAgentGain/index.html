@@ -1,0 +1,56 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >玩家充值收益</a ></li >
+        <li ><a href="{:U('Tui/DataAgentGainFromSub/index')}" target="_self" >下级渠道代充收益</a ></li >
+
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        充值游戏： 
+                        {$app_select}
+                        &nbsp;&nbsp;
+                        一级渠道：
+                        {$only_agent_select}
+                        &nbsp;&nbsp;
+                        二级渠道：
+                        {$only_subagent_select}
+                        <br /><br />
+                        玩家账号：
+                        {$member_select}
+                        订单号：
+                        {$orderid_input}
+                        注册时间：
+                        {$time_choose}
+                        <input type="submit" class="btn btn-primary" value="搜索" />
+
+                        <?php echo \Huosdk\UI\Pieces::export_excel(); ?>
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="get" onsubmit="return false;" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                {$table_header}
+            </tr >
+            </thead >
+            {$table_sum}
+            {$table_content}
+        </table >
+        <div class="pagination" >{$page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+
+<script >
+</script >
+
+</html>

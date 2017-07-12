@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >支付密码管理</title >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user.css" >
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="" >
+    <link type="image/x-icon" rel="shortcut icon" href="" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/css_reset.css" />
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+    <style >
+        html {
+            font-size: 62.5%;
+            font-family: "微软雅黑";
+        }
+
+        .modify-pay-pwd .modify-pwd-content .img-code .code-img {
+            border: none;
+        }
+    </style >
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <script src="__PUBLIC__/agent/js/xhr.js" ></script >
+    <script src="__PUBLIC__/agent/js/demo1.js" ></script >
+    <script src="__PUBLIC__/agent/js/toCipherCode.js" ></script >
+</head >
+<body >
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right fc—modify-pwd modify-pay-pwd" style="height: 760px;*height: 770px;" >
+                <div class="breadcrumb-navigation" >
+                    <ul >
+                        <li >支付密码设置<span >&gt;</span ></li >
+                        <li class="on" >设置支付密码</li >
+                    </ul >
+                </div >
+
+                <!--第一步-->
+                <div class="modify-pwd-content content-1" style="display: block;" >
+                    <input type="hidden" id="ctx" value="" >
+                    <div class="title" ></div >
+                    <div class="binding-mobile" >
+                        <span >绑定手机：</span >
+                        <ul >
+                            <li id="phoneli"
+                                style="height: 30px;line-height: 30px;color: #333333;font-weight: bold;" > {$user.mobile}
+                            </li >
+                        </ul >
+                    </div >
+                    <div class="fill-mobile-code" >
+                        <span >请填写手机验证码：</span >
+                        <ul >
+                            <li style="height: 32px;" ><input type="text" >
+                                <div class="get-mobile-code" ><b ></b >获取手机验证码</div >
+                        </ul >
+                    </div >
+                    <input id="mobilecode" type="hidden" >
+                    <div class="next-btn next-btn-1" style="display: block;" >下一步</div >
+                </div >
+
+                <!--第二步-->
+                <div class="modify-pwd-content content-2" style="display: none;" >
+                    <div class="title" ></div >
+                    <div id="friendship-remind" >
+                        <div class="friendship-remind" style="display: none;" >
+                            <ul >
+                                <li class="li-1" >启用支付密码后，将在如下环节通过支付密码对您进行身份认证，确保您的资金安全，请您确认！</li >
+                                <li >·&nbsp;&nbsp;使用余额提现时</li >
+                                <li >·&nbsp;&nbsp;余额兑换{:C(CURRENCY_NAME)}时</li >
+                                <li >·&nbsp;&nbsp;游戏玩家充值时</li >
+                            </ul >
+                        </div >
+                        <div class="confirm-btn" style="display: none;" >确认</div >
+                    </div >
+                        <span class="display" style="display: block;" >
+                            <div class="binding-mobile" >
+                                <span >绑定手机：</span >
+                                <ul >
+                                    <li id="phoneli"
+                                        style="height: 30px;line-height: 30px;color: #333333;font-weight: bold;" > {$user.mobile}
+                                    </li >
+                                </ul >
+                            </div >
+                            <div class="binding-mobile pay-pwd" >
+                                <span >请输入支付密码：</span >
+                                <ul >
+                                    <li ><input type="password" maxlength="20" ><i >数字和字母组合，长度6-20位</i ></li >
+                                </ul >
+                            </div >
+                            <div class="binding-mobile pay-pwd-again" >
+                                <span >再次请输入支付密码：</span >
+                                <ul >
+                                    <li ><input type="password" ></li >
+                                    <li class="error-note" >两次密码输入不一致</li >
+                                </ul >
+                            </div >
+                            <div class="next-btn next-btn-2" style="display: block;" >下一步</div >
+                        </span >
+                </div >
+
+                <!--第三步-->
+                <div class="modify-pwd-content content-3" style="display:none;" >
+                    <div class="title" ></div >
+                    <p class="p-1" >支付密码设置成功！</p >
+                    <p class="p-2" >
+                        您的账户安全级还能提升哦，去 <a href="security.html" >安全中心&gt;&gt;</a > 完善其它安全设置吧。
+                    </p >
+                    <p class="p-3" >
+                        您还可以马上 <a href="toEditUser.html" >完善结算信息&gt;&gt;</a >
+                    </p >
+                </div >
+            </div >
+        </div >
+    </div >
+
+    <!--图形验证码弹框-->
+    <div class="img-code-pop" id="code-pop-1" >
+        <div id="header" >
+            <span >请输入图形验证码</span ><img src="./toCipherCode_files/pop-closed.png" onclick="closebox('#code-pop-1');" >
+        </div >
+        <div id="img-code-content" >
+            <input type="text" id="imgCode" class="fill-input" >
+            <div id="code-img" >
+                <img id="identCode" src="./toCipherCode_files/getIdentCode"
+                     onclick="document.getElementById(' identCode ').src = ' /agent/info / getIdentCode?params = ' + new Date()" >
+            </div >
+            <div id="btn" >确定</div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+<script >
+
+    succAside(4);
+
+    $(".next-btn-1").click(function () {
+        $(".content-1").hide();
+        $(".content-3").hide();
+
+        $(".content-2").show();
+    });
+
+    function showok() {
+        $(".content-1").hide();
+        $(".content-2").hide();
+
+        $(".content-3").show();
+    }
+
+    $(function () {
+        $(".next-btn-2").live("click", function () {
+            var pwd = $(".pay-pwd>ul>li>input").val();
+            if ((pwd === $(".pay-pwd-again>ul>li>input").val()) && (pwd.trim() !== "")) {
+                sendData("{:U('Agent/ucenter/change_pay_pass_post')}", {"pwd": pwd}, function (data) {
+                    if (data.error === '1') {
+                        yxalert(data.msg);
+                    } else if (data.error === '0') {
+                        $(".modify-pwd-content").eq(2).css("display", "block").siblings().css("display", "none");
+                    }
+                });
+            } else {
+                showMsg(".error-note", "两次密码输入不一致或密码为空...", "red")
+            }
+        });
+    })
+</script >
+</body >
+</html >

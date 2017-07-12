@@ -1,0 +1,40 @@
+<!DOCTYPE html >
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >{:C('BRAND_NAME')}</title >
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <!--<link rel="stylesheet" href="__PUBLIC__/agent/css/css_reset.css"/>-->
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/lumen/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+
+    <script src="__PUBLIC__/agent/js/demo1.js" ></script >
+    <script src="__PUBLIC__/agent/js/xhr.js" ></script >
+
+    <style >
+        /*html{font-size: 62.5%;font-family: "微软雅黑";}*/
+    </style >
+
+    <script src="__PUBLIC__/3rd/layer/layer.js" ></script >
+    <script src="__PUBLIC__/huoshu/share.js" ></script >
+</head >
+<body >
+
+<agenttpl file="header" />
+    <switch name="user_type" >
+        <case value="agent" >
+            <agenttpl file='share/navi_agent' />
+        </case >
+        <case value="subagent" >
+            <agenttpl file='share/navi_sub' />
+        </case >
+        <default />
+            <agenttpl file='share/navi_agent' />
+    </switch >

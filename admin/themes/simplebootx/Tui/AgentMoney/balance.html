@@ -1,0 +1,106 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >渠道账户余额</a ></li >
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        渠道名称：
+                        {$agent_select}
+                        渠道等级：
+                        {$agent_level_select}
+                        <input type="submit" class="btn btn-primary" value="搜索" />                        
+                    </span >
+            </div >
+        </div >
+    </form >
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th >渠道名称</th >
+                <th >渠道等级</th >
+                <th >账户余额</th >
+
+                <!--                        <th width="50">余额详情记录</th>
+                                        <th width="50">操作</th>     -->
+
+                <th >操作</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.agent_name}</td >
+                    <td >{$vo.agent_level_txt}</td >
+                    <td >{$vo.share_remain}</td >
+                    <!--                        <td>
+                                                <a href="javascript:;" class="btn btn-success income_btn">入账记录</a>
+                                                <a href="javascript:;" class="btn btn-success consume_btn">消耗记录</a>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="btn btn-danger deduct_btn">扣回</a>
+                                            </td>-->
+
+                    <td >
+                        <a href="javascript:;" class="btn btn-success view_detail_income_btn"
+                           data-agentid="{$vo.agent_id}" >收益明细</a >
+                        &nbsp;&nbsp;
+                        <a href="javascript:;" class="btn btn-success view_detail_outcome_btn"
+                           data-agentid="{$vo.agent_id}" >支出明细</a >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$page}</div >
+    </form >
+    <script src="__PUBLIC__/js/common.js" ></script >
+    <script >
+
+        $(".give_coin_btn").click(function () {
+
+            layer.open({
+                type   : 1,
+                area   : ['350px', '400px'],
+                title  : "给渠道发平台币",
+                content: $('.give_coin_form_div'),
+                cancel : function (index) {
+                    layer.close(index);
+                }
+            });
+        });
+
+        $(".view_detail_income_btn").click(function () {
+            var agent_id = $(this).attr("data-agentid");
+            layer.open({
+                shift     : 7,
+                type      : 2,
+                maxmin    : true,
+                title     : '收入明细',
+                shadeClose: true,
+                shade     : 0.2,
+                area      : ['850px', '60%'],
+                content   : '{:U("Tui/AgentMoney/income")}?agent_id=' + agent_id //iframe的url
+            });
+        });
+
+        $(".view_detail_outcome_btn").click(function () {
+            var agent_id = $(this).attr("data-agentid");
+            layer.open({
+                shift     : 7,
+                type      : 2,
+                maxmin    : true,
+                title     : '支出明细',
+                shadeClose: true,
+                shade     : 0.2,
+                area      : ['850px', '60%'],
+                content   : '{:U("Tui/AgentMoney/outcome")}?agent_id=' + agent_id //iframe的url
+            });
+        });
+
+    </script >
+</body >
+</html>

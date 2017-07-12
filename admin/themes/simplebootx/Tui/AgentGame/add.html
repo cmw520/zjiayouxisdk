@@ -1,0 +1,83 @@
+﻿<admintpl file="header" />
+<!-- 公用样式 -->
+
+<link href="__PUBLIC__/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput.js" type="text/javascript" ></script >
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput_locale_zh.js" type="text/javascript" ></script >
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput_locale_es.js" type="text/javascript" ></script >
+
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Tui/Game/man')}" target="_self" >游戏管理</a ></li >
+        <li class="active" ><a href="{:U('Tui/Game/add')}" target="_self" >添加游戏</a ></li >
+    </ul >
+
+    <div class="wrap jj" >
+        <div class="common-form" >
+            <div id="kv-avatar-errors" class="center-block" style="width:800px;display:none" ></div >
+            <form enctype="multipart/form-data" class="form-horizontal js-ajax-form" action="{:U('Tui/Game/add_post')}"
+                  method="post" >
+                <fieldset >
+                    <div class="control-group" >
+                        <label class="control-label" >选择游戏:</label >
+                        <div class="controls" >
+                            <select name="app_id" >
+                                {$app_select_list}
+                            </select >
+                        </div >
+                    </div >
+
+                    <div class="control-group" >
+                        <label class="control-label" >优惠类型</label >
+                        <div class="controls" >
+                            <input type="radio" name="benefit_type" value="1" checked />折扣
+                            <input type="radio" name="benefit_type" value="2" />返利
+                        </div >
+                    </div >
+
+                    <!-- <div class="control-group">
+                        <label class="control-label">渠道首充:</label>
+                        <div class="controls">
+                            <input type="text"  class="input" name="agent_first" value="">
+                            填写小数，如优惠50%，填写0.5
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">渠道续充:</label>
+                        <div class="controls">
+                            <input type="text"  class="input" name="agent_refill" value="">
+                            填写小数，如优惠50%，填写0.5
+                        </div>
+                    </div> -->
+                    <div class="control-group" >
+                        <label class="control-label" >玩家首充:</label >
+                        <div class="controls" >
+                            <input type="text" class="input" name="mem_first" value="" >
+                            填写小数，如优惠50%，填写0.5
+                        </div >
+                    </div >
+                    <div class="control-group" >
+                        <label class="control-label" >玩家续充:</label >
+                        <div class="controls" >
+                            <input type="text" class="input" name="mem_refill" value="" >
+                            填写小数，如优惠50%，填写0.5
+                        </div >
+                    </div >
+
+                </fieldset >
+                <div class="form-actions" >
+                    <button type="submit"
+                            class="btn btn-primary btn_submit js-ajax-submit" >添加
+                    </button >
+                    <a class="btn" href="{:U('Tui/Game/man')}" >返回</a >
+                </div >
+            </form >
+        </div >
+    </div >
+    <script src="__PUBLIC__/js/common.js" ></script >
+
+</body >
+
+</html>

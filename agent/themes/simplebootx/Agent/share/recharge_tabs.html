@@ -1,0 +1,14 @@
+<ul >
+    <li id='recharge_member' ><a href="{:U('Agent/Money/recharge_member')}" >给玩家充值</a ></li >
+    <switch name="user_type" >
+        <case value="agent" >
+            <li id='recharge_sub' ><a href="{:U('Agent/Money/recharge_sub')}" >给下级渠道充值</a ></li >
+        </case >
+    </switch >
+    <li id='recharge_balance' ><a href="{:U('Agent/Money/recharge_balance')}" >平台币余额充值</a ></li >
+</ul >
+
+<script >
+    var current_tab = "{:I('path.1')}";
+    $("#" + current_tab).addClass("on");
+</script >

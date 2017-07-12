@@ -1,0 +1,381 @@
+<agenttpl file="user_center_header" />
+<style >
+    .modify-pay-pwd .modify-pwd-content .img-code .code-img {
+        border: none;
+    }
+
+    .li-down {
+        text-align: left !important;
+        text-indent: 8px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right personal-information-management" >
+                <!--<div style="width:100%;font-size:16px;font-weight: bold;padding:15px 0 0 35px;">个人资料管理</div>-->
+                <div class="input-content" >
+                    <div class="input-tab" >
+                        <ul >
+                            <!--<li style="font-size:16px;font-weight: bold;width:150px;"></li>-->
+                            <li class="on" >基本信息</li >
+                            <li >结算信息</li >
+                            <li ><a href="{:U('Agent/ucenter/toCipherCode')}" style="color:#333333;" >支付密码</a ></li >
+                        </ul >
+                    </div >
+                </div >
+
+                <!--基本信息-->
+                <div class="basic-information information" id="basic_info" style="height: 620px; * height: 704px;" >
+                    <ul >
+                        <li class="first" >
+                            <span >合作类型：</span ><i class="type" >个人</i >
+                        </li >
+                        <li style="margin-bottom: 30px;" >
+                            <span >用户名：</span >
+                            <i class="user-name" >{$user.user_login} (ID： {$user.id}) </i >
+                        </li >
+                        <li style="margin-bottom: 30px;" >
+                            <span >联系人：</span >
+                            <input type="text" name="name" placeholder="请填写您的真实姓名" value="{$user.user_nicename}"
+                                   class="fill-input contact" >
+                            <i style="color:red;float:right;" >* 必填</i >
+                        <li style="margin-bottom: 30px;" >
+                            <span >QQ：</span >
+                            <input type="text" name="qq" placeholder="让我们为您提供更优质的服务" value="{$user.qq}"
+                                   class="fill-input qq" >
+                            <i style="color:red;float:right;" >* 必填</i >
+                        </li >
+                        <li style="margin-bottom: 30px;" >
+                            <span >身份证号码：</span >
+                            <input type="text" name="idcard" placeholder="请填写您的身份证号码" value="{$agent_man_info.idcard}"
+                                   class="fill-input idcard" >
+                            <i style="color:red;float:right;" >* 必填</i >
+                        </li >
+                        <li class="save-btn" >
+                            保&nbsp;&nbsp;存
+                        </li >
+                    </ul >
+                    <div class="modify-success" style="display: none;" >
+                        <p class="title" style="font-size: 20px; color: #333333" >
+                            保存成功！
+                        </p >
+                        <p class="countdown-jump" style="color: #999999; line-height: 30px;" >
+                            <span >3</span >s后自动返回 &nbsp;个人资料管理页面
+                        </p >
+                    </div >
+                </div >
+
+                <!--结算信息-->
+                <div class="settlement-information no-information information"
+                     style="display: none; height: 660px; * height: 704px;" >
+                    <div id="no-information" style="display:none" >
+                        <p >
+                            对不起，您尚未开通手机绑定功能。
+                        </p >
+                        <p >
+                            为了不影响您的使用，请
+                            <a href="http://www.51508.com/agent/info/security/toEditorUser#" >点击绑定手机并设置支付密码</a >。
+                        </p >
+                    </div >
+                    <div class="menu" >
+                        <ul >
+                            <li class="on unionpay-account" >
+                                银联账户
+                            </li >
+                            <li class="alipay-account" >
+                                支付宝账户
+                            </li >
+                        </ul >
+                    </div >
+                    <div class="menu-content menu-content-1" >
+                            <span class="display" >
+                                <div class="account-opening-city target-province" style="width:274px" >
+                                    <span >开户省份：</span >
+                                    <input id="province" type="text" readonly="readonly"
+                                           style="margin-right:18px;cursor:pointer;" class="input-one"
+                                           value="{$agent_man_info.province}" >
+                                    <ul id="s1" class="ul-one"
+                                        style="height:300px;width:117px;overflow-y:auto;overflow-x:hidden;z-index:10;" >
+                                        <volist name="provinces" id="vo" >
+                                            <li class="li-down" >{$vo}</li >
+                                        </volist >
+                                    </ul >
+                                </div >
+                                <div class="account-opening-city target-city" style="width:274px" >
+                                    <span >开户城市：</span >
+                                    <input id="city" type="text" readonly="readonly" class="input-two"
+                                           style="cursor: pointer;" value="{$agent_man_info.city}" >
+                                    <ul id="s2" class="ul-two"
+                                        style="max-height: 300px; width: 117px; overflow-y: auto; overflow-x: hidden; z-index: 10; left: 136px; height: 300px;" >
+                                        <volist name="cities" id="vo" >
+                                            <li class="li-down" >{$vo}</li >
+                                        </volist >
+                                    </ul >
+                                </div >
+                                <div class="account-opening-bank opening-bank" style="width: 394px" >
+                                    <span >开户银行：</span >
+
+                                    <empty name="agent_man_info.bankname" >
+                                        <input id="bankname" value="中国银行" type="text" readonly="readonly"
+                                               style="cursor: pointer;" >
+                                    </empty >
+                                    <notempty name="agent_man_info.bankname" >
+                                        <input id="bankname" value="{$agent_man_info.bankname}" type="text"
+                                               readonly="readonly" style="cursor: pointer;" >
+                                    </notempty >
+
+                                    <ul class="ul-bank"
+                                        style="height:300px;width:254px;overflow-y:auto;overflow-x:hidden;z-index:10;" >
+                                        <li class="li-down" >中国工商银行</li >
+                                        <li class="li-down" >中国建设银行</li >
+                                        <li class="li-down" >中国农业银行</li >
+                                        <li class="li-down" >招商银行</li >
+                                        <li class="li-down" >交通银行</li >
+                                        <li class="li-down" >中国银行</li >
+                                        <li class="li-down" >中国邮政储蓄银行</li >
+                                        <li class="li-down" >中国光大银行</li >
+                                        <li class="li-down" >兴业银行</li >
+                                        <li class="li-down" >中信银行</li >
+                                        <li class="li-down" >中国民生银行</li >
+                                        <li class="li-down" >华夏银行</li >
+                                        <li class="li-down" >青岛银行</li >
+                                        <li class="li-down" >平安银行</li >
+                                        <li class="li-down" >渤海银行</li >
+                                        <li class="li-down" >浦发银行</li >
+                                        <li class="li-down" >广发银行</li >
+                                        <li class="li-down" >上海银行</li >
+                                    </ul >
+                                </div >
+                                <div class="bank-account-name" style="width: 394px" >
+                                    <span >银行账号：</span >
+                                    <input id="accountnum" type="text" value="{$agent_man_info.banknum}"
+                                           class="fill-input" value="" >
+                                    <b id="bank-account-name"
+                                       style="display: none; margin-left: 138px; color: #008BE3; background: url(http://pic.7881.com/51508-2015/css/images/error-img.png); background-repeat: no-repeat; background-position: left center; padding-left: 18px; font-size: 12px; float: left; margin-top: 4px;" >银行账户名错误</b >
+                                </div >
+                            <div class="verified-phone" >
+                                <span >已验证手机：</span ><i >{$user.mobile}</i >
+                            </div >
+                                <div class="fill-phoone-code phoone-code-one" >
+                                    <span >短信验证码：</span >
+                                    <input type="text" class="fill-input" id="bankPhonecode" >
+                                    <div id="btn_bank_msg" class="get-code get-code-one" >获取短信验证码</div >
+
+                                    <b id="phoone-code-one"
+                                       style="display: none; margin-left: 138px; color: #008BE3; background: url(http://pic.7881.com/51508-2015/css/images/error-img.png); background-repeat: no-repeat; background-position: left center; padding-left: 18px; font-size: 12px; float: left; margin-top: -24px;" >短信验证码错误</b >
+                                </div >
+                                <div class="confirm-btn one-btn" >确认</div >
+                            </span >
+                        <div class="modify-success" style="padding-top: 158px; display: none;" >
+                            <p class="title" style="font-size: 20px; color: #333333" >保存成功！</p >
+                            <p class="countdown-jump" style="color: #999999; line-height: 30px;" >
+                                <span style="float: none; color: #999999; font-size: 12px;" >3</span >s后自动返回&nbsp;个人资料管理页面
+                            </p >
+                        </div >
+                    </div >
+
+                    <div class="menu-content menu-content-2" style="display: none;" >
+                            <span class="display" >
+                                <div class="account-opening-bank account" >
+                                    <span >支付宝账号：</span >
+                                    <input id="account1" type="text" value="{$agent_man_info.zfb}" class="fill-input"
+                                           value="" >
+                                    <b id="account"
+                                       style="display: none; margin-left: 138px; color: #008BE3; background: url(http://pic.7881.com/51508-2015/css/images/error-img.png); background-repeat: no-repeat; background-position: left center; padding-left: 18px; font-size: 12px; float: left; margin-top: 4px;" >支付宝账号错误</b >
+                                </div >
+                                <div class="account-opening-web confirm-account" >
+                                    <span >确认：</span >
+                                    <input id="confirm-account1" value="{$agent_man_info.zfb}" type="text"
+                                           class="fill-input" value="" >
+                                    <b id="confirm-account"
+                                       style="display: none; margin-left: 138px; color: #008BE3; background: url(http://pic.7881.com/51508-2015/css/images/error-img.png); background-repeat: no-repeat; background-position: left center; padding-left: 18px; font-size: 12px; float: left; margin-top: 4px;" >两次输入的账号不一致</b >
+                                </div >
+                                <div class="verified-phone" >
+                                    <span >已验证手机：</span ><i >{$user.mobile}</i >
+                                </div >
+                                <div class="fill-phoone-code phoone-code-two" >
+                                    <input type="hidden" id="ctx" value="" >
+                                    <ul >
+                                        <li style="" >
+                                            <span >短信验证码：</span >
+                                            <input type="text" id="zfbPhonecode" class="fill-input" >
+                                            <div id="btn_zfb_msg" class="get-code get-code-two" >获取短信验证码</div >
+                                        </li >
+
+                                        <li >
+                                            <b id="phoone-code-two"
+                                               style="display: none; margin-left: 138px; color: #008BE3; background: url(http://pic.7881.com/51508-2015/css/images/error-img.png); background-repeat: no-repeat; background-position: left center; padding-left: 18px; font-size: 12px; float: left; margin-top: -26px;" >短信验证码错误</b >
+                                        </li >
+                                    </ul >
+                                </div >
+                                <div class="confirm-btn two-btn" >确认</div >
+                            </span >
+                        <div class="modify-success" style="padding-top: 158px; display: none;" >
+                            <p class="title" style="font-size: 20px; color: #333333" >保存成功！</p >
+                            <p class="countdown-jump" style="color: #999999; line-height: 30px;" >
+                                <span style="float: none; color: #999999; font-size: 12px;" >3</span >s后自动返回 &nbsp;个人资料管理页面
+                            </p >
+                        </div >
+                    </div >
+                </div >
+
+                <!--                    支付密码
+                                    <div class="zfcode-information information" id="zfcode_info" style="height: 620px; * height: 704px;">
+
+
+                                    </div>-->
+
+            </div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+
+<script >
+
+    succAside(5);
+    //    var phone={$user.mobile};
+
+    window.addEventListener("load", function () {
+        imgTabs($(".input-tab>ul>li"), "on", $(".information"), $(".personal-information-management>div"), 0);
+        imgTabs($(".menu>ul>li"), "on", $(".menu-content"), $(".settlement-information>div"), 1);
+        function imgTabs(list, ClassName, targetEl, targetBox, x) {
+            for (var i = 0; i < list.length; i ++) {
+                list[i].index = i;
+                $(list[i]).click(function () {
+                    $(this).addClass(ClassName).siblings().removeClass(ClassName);
+                    targetEl.eq(this.index).css("display", "block").siblings().css("display", "none");
+                    if (targetBox) {
+                        targetBox.eq(x).css("display", "block");
+                    }
+                })
+            }
+        }
+
+        $(".fill-phoone-code .get-code").each(function () {
+            $(this).click(function code() {
+                $(this).addClass("");
+                if ($(this).hasClass("get-code-one")) {
+                    _getCode($(".fill-phoone-code .get-code-one"), 60, code, 1000, $("#phoone-code-one"));
+                    sendData("{:U('Agent/ucenter/sendPhoneCode')}", {"way": "bank", "phone": phone}, function (data) {
+                        if (data.error === '0') {
+                            showMsg("#phoone-code-one", "验证码已发送，请尽快输入", "green");
+                        } else {
+                            showMsg("#phoone-code-one", data.msg, "red");
+                        }
+                    });
+                } else {
+                    _getCode($(".fill-phoone-code .get-code-two"), 60, code, 1000, $("#phoone-code-two"));
+                    sendData("{:U('Agent/ucenter/sendPhoneCode')}", {"way": "zfb", "phone": phone}, function (data) {
+                        if (data.error === '0') {
+                            showMsg("#phoone-code-two", "验证码已发送，请尽快输入", "green");
+                        } else {
+                            showMsg("#phoone-code-two", data.msg, "red");
+                        }
+                    })
+                }
+
+            });
+        })
+        /************基本信息保存****************/
+
+        /************开户信息****************/
+        $(".menu-content>.display>div").each(function () {
+            $(this).children("input").click(function () {
+                $(this).siblings("ul").css("display", "block");
+                $(this).siblings("ul").children("li").click(function () {
+                    $(this).parent().css("display", "none");
+                    $(this).parent().siblings("input").val($(this).html());
+                });
+            });
+        });
+        $(".one-btn").click(function () {
+            var province = $(".target-province>input").val();
+            var city     = $(".target-city>input").val();
+            var bank     = $(".opening-bank>input").val();
+            var bankId   = $(".bank-account-name>input").val();
+            var code     = $(".phoone-code-one>input").val();
+            if ($.trim(code) === '') {
+                showMsg("#phoone-code-one", "请输入手机验证码", "red");
+                return;
+            }
+            sendData("{:U('Agent/ucenter/up_info_post')}", {
+                        "province": province,
+                        "city": city,
+                        "bank": bank,
+                        "bankId": bankId,
+                        "code": code
+                    },
+                    function (data) {
+                        if (data.error === '0') {
+                            yxalert(data.msg);
+                            $("#phoone-code-one").hide();
+                        } else if (data.error === '1') {
+                            showMsg("#phoone-code-one", data.msg, "red");
+                        }
+                    })
+        });
+        $(".two-btn").click(function () {
+            if ($("#account1").val().trim() == "" || $("#confirm-account1").val().trim() == "") {
+                yxalert("请输入支付宝帐号");
+                return;
+            }
+            if (! ($("#confirm-account1").val() === $("#account1").val()) && ($("#account1").val().trim() !== "")) {
+                yxalert("两次帐号输入不一致");
+                return;
+            }
+            if ($("#zfbPhonecode").val().trim() == "") {
+                yxalert("请输入手机验证码");
+                return;
+            }
+            var zfb   = $("#account1").val();
+            var code  = $("#zfbPhonecode").val();
+            var phone = $(".verified-phone>i").html();
+
+            $.post("{:U('Agent/ucenter/zfb_info_post')}", {"zfb": zfb, "code": code, "phone": phone}, function (data) {
+                if (data.error === '0') {
+                    yxalert(data.msg);
+                } else if (data.error === '1') {
+                    yxalert(data.msg);
+                }
+            });
+        });
+
+        $(".settlement-information  .menu-content-1>.display>div>ul").each(function () {
+            $(this).live("click", function (event) {
+                var val = event.target.innerHTML;
+                $(this).prev().val(val);
+                if ($(this).parent().hasClass("target-province")) {
+                    sendData("{:U('Agent/ucenter/get_cities_of_province_post')}", {"province": val},
+                            function (data) {
+                                $("#s2").html(data.msg);
+                                $("#city").val("请选择城市");
+                            });
+                }
+            });
+        });
+    }, false);
+
+    $(".save-btn").click(function () {
+        var name   = $(".contact").val();
+        var qq     = $(".qq").val();
+        var idcard = $(".idcard").val();
+
+        sendData("{:U('Agent/ucenter/basic_info_post')}", {"name": name, "qq": qq, "idcard": idcard},
+                function (data) {
+                    if (data.error === '0') {
+                        yxalert(data.msg);
+//                location.reload();
+                        $(".input-tab ul li").eq(1).click();
+                    }
+
+                });
+    });
+</script >

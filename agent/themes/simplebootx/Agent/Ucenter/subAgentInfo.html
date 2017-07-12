@@ -1,0 +1,87 @@
+<agenttpl file="user_center_header" />
+<script >
+    function succHeader(headerText) {
+        window.onload = function () {
+            var main       = $("body")[0];
+            main.innerHTML = headerText + main.innerHTML;
+            $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+        }
+    }
+
+</script >
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records lower-channel-management" >
+                <form id="queryForm" action="#" method="post" >
+                    <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                    <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                    <div class="input-content" style="height: 92px;" >
+                        <div class="search-game" >
+                            <span >关键字：</span >
+                            <input name="key" value="" type="text" placeholder="渠道ID或渠道名" >
+                        </div >
+                        <div class="pack-time time" >
+                            <span >时间:</span >
+                            <div id="time-one" >
+                                <input id="stime" name="stime" type="text" class="Wdate" value=""
+                                       onclick="WdatePicker({dateFmt:'yyyy-MM-dd' , readOnly:true})" >
+                            </div >
+                        </div >
+                        <div class="search-btn" id="search-btn"
+                             onclick="$(' #currentNo_queryForm' ).val(1); $('#queryForm' ).submit();" >搜&nbsp;索
+                        </div >
+                        <div class="search-btn export-excel" onclick="exportExcel()" >导出Excel</div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >1</i >条渠道信息</span >
+
+                    </div >
+                    <div class="table-content" >
+                        <table border="0" cellspacing="0" cellpadding="0" >
+                            <tbody >
+                            <tr >
+                                <th width="126" >渠道ID</th >
+                                <th width="150" >下级渠道名</th >
+                                <th width="150" >{:C(CURRENCY_NAME)}余额</th >
+                                <th width="150" >当天支出总额</th >
+                                <th width="200" >最近交易时间</th >
+                            </tr >
+
+                            <volist name="items" id="vo" >
+                                <tr >
+                                    <td >{$vo.id}</td >
+                                    <td >{$vo.user_login}</td >
+                                    <td >0.00</td >
+                                    <td >0.00</td >
+                                    <td >{$vo.create_time}</td >
+                                </tr >
+                            </volist >
+
+                            </tbody >
+                        </table >
+
+                        <div class="page" style="" >
+                            <span class="game-num" >
+                                共为您找到1条渠道信息，第<span >1</span >/<span id="maxcountqueryForm" >1</span >页
+                            </span >
+                            <div class="paging" >
+
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />

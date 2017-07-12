@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >欢迎注册{:C('BRAND_NAME')}</title >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="#" >
+    <link type="image/x-icon" rel="shortcut icon" href="#" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/login.css" type="text/css" >
+    <style type="text/css" >
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #maincontent {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin-bottom: -100px;
+        }
+
+        #footer, .push {
+            height: 140px;
+            clear: both;
+        }
+
+        #showMsgBox {
+            position: absolute;
+            bottom: -20px;
+            left: 0%;
+            width: 100%;
+        }
+
+        #i-agreed {
+            padding: 0
+        }
+
+        .login-but {
+            margin: 8px auto;
+            padding-bottom: 20px;
+        }
+
+        .disabled {
+            background-color: #AAAAAB !important;
+        }
+
+        #footer {
+            background-color: #1E1B29;
+            padding-top: 15px;
+            box-sizing: border-box
+        }
+    </style >
+</head >
+<body >
+<div id="maincontent" >
+    <agenttpl file='share/header_piece' />
+    <!--通用栏广告位-->
+    <!--通用栏广告位-->
+    <div class="page-content" >
+        <div id="div_1" style="" class="login-box" >
+            <h1 >
+                <span >用户注册</span >已有账号？<a href="{:U('Front/Index/index2')}" >马上登录</a >
+            </h1 >
+            <ul >
+                <li class="yz" >
+                    <div >
+                        <input type="text" id="phone" name="phone" maxlength="11" placeholder="请输入手机号"
+                               style="color: rgb(51, 51, 51);" >
+                    </div >
+                    <a id="sendPhoneMesBtn" href="javascript:;" >发送手机验证码</a >
+                </li >
+                <li >
+                    <div >
+                        <input type="text" id="verificationcode" name="code" maxlength="6"
+                               style="color: rgb(51, 51, 51);" placeholder="请输入手机验证码" >
+                    </div >
+                </li >
+                <li class="i-agreed" >
+                    <div style="width:400px;" >
+                        <input type="checkbox" name="check_agree"
+                               style="width:14px;height:14px;float:left;height:16px;margin-right:10px;" />
+                        我已经阅读并接受
+                        <a href="{:U('Front/Account/userTerms')}" target="_blank" >《{:C('COMPANY_SHORTNAME')}用户协议》</a >
+                        <p >请接受《{:C('COMPANY_SHORTNAME')}用户协议》</p >
+                    </div >
+                    <div id="showMsgBox" ></div >
+                </li >
+            </ul >
+            <div class="login-but" >
+                <a id="btn-reg-f" class="disabled" href="javascript:void(0)" >下 一 步</a >
+            </div >
+        </div >
+        <!-- The two -->
+        <div id="div_2" style="display:none;" class="login-box" >
+            <h1 ><span >用户注册</span >已有账号？<a href="{:U('Front/account/login')}" >马上登录</a ></h1 >
+            <ul >
+                <li >
+                    <div >
+                        <input type="text" id="username" name="username" readonly="readonly" maxlength="20"
+                               placeholder="手机号:" class="error" >
+                    </div >
+                </li >
+                <li >
+                    <div >
+                        <input type="password" id="password" name="password" maxlength="20" placeholder="密码"
+                               class="error" >
+                    </div >
+                </li >
+                <li >
+                    <div >
+                        <input type="password" id="userpass" name="userpass" maxlength="20" placeholder="确认密码"
+                               class="error" >
+                    </div >
+                </li >
+                <li class="error-tips" >手机号已验证！请在30分钟内完善您的个人信息！</li >
+            </ul >
+            <div class="login-but" >
+                <a href="javascript:void(0)" id="commit" name="commit" >提 交</a >
+            </div >
+        </div >
+        <!-- The end -->
+        <div id="div_3" style="display:none;" class="registered-successful" >
+            <h1 ><img src="__PUBLIC__/agent/img/ico_successful.png" alt="注册成功" >注册成功！</h1 >
+            <p class="gray" >欢迎您的加入！</p >
+            <a id="back" href="{:U('Agent/ucenter/security')}" class="loading" >
+                正在跳转...
+            </a >
+        </div >
+    </div >
+</div >
+<div class="footer" >
+    <p >Copyright @ 2009 - 2015 All Rights Reserved</p >
+    <p >{:C('WEB_ICP')} </p >
+    <p >公司名称：{:C('COMPANY_NAME')} 电话：{:C('COMPANY_PHONE')}</p >
+    <p >公司地址：{:C('COMPANY_ADDR')}</p >
+</div >
+<script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/agent/js/demo1.js" ></script >
+<script >
+    window.onload = function () {
+        var getCodeBtn = $("#sendPhoneMesBtn");
+        var phoneSucc  = false;
+
+        /***************验证手机号阶段*****************/
+        getCodeBtn.click(f2);
+
+        function is_valide_phone_number(phone) {
+            var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+            return reg.test(phone);
+        }
+
+        function f2() {
+            var phone = $("#phone").val();
+            if (phone.trim() === "") {
+                showMsg("#showMsgBox", "手机号码不能为空", "red");
+                return;
+            }
+            if (! is_valide_phone_number(phone)) {
+                showMsg("#showMsgBox", "手机号码格式不正确", "red");
+                return;
+            }
+
+            sendData("{:U('Front/account/checkPhone')}", {"phone": phone}, getCodeSucc, getCodeErr, "GET", "");
+            //                if(phoneSucc){
+            //                    showMsg("#showMsgBox","已向手机号为"+phone+"发送了一条验证码...","green");
+            //                }
+            $("#btn-reg-f").removeClass("disabled");
+        }
+
+        function getCodeSucc(data) {
+            if (data.error === "0") {
+                _getCode("#sendPhoneMesBtn", 30, f2, 500, "#showMsgBox");
+                phoneSucc = true;
+                showMsg("#showMsgBox", data.msg, "green");
+            } else if (data.error === "1") {
+                phoneSucc = false;
+                showMsg("#showMsgBox", data.msg, "red");
+            }
+        }
+
+        function getCodeErr(data) {
+            alert("数据获取失败..");
+            //            alert(data);
+        }
+
+        /**************下一步按钮 被单机*************/
+        $("#btn-reg-f").click(function () {
+            var agreed = $("input[name='check_agree']").attr("checked");
+            console.log(agreed);
+            if (agreed != "checked") {
+                yxalert("请接受用户协议");
+                return;
+            }
+            if (phoneSucc) {
+                var PhoneVerifyCode = $("#verificationcode").val();
+                if (PhoneVerifyCode.trim() !== "") {
+                    sendData("{:U('Front/account/VerifyPhoneCode')}", {"PhoneVerifyCode": PhoneVerifyCode}, verificationCodeSucc, verificationCodeErr, "GET");
+                } else {
+                    showMsg("#showMsgBox", "验证码错误", "red");
+                }
+            }
+
+        });
+        function verificationCodeSucc(data) {
+            if (data.error === "1") {
+                showMsg("#showMsgBox", "验证码错误...", "red");
+                return;
+            } else if (data.error === "0") {
+                $("#div_1").hide();
+
+                var phone = $("#phone").val();
+                $("#username").val("用户名：" + phone);
+
+                $("#div_2").show();
+
+            }
+        }
+
+        function verificationCodeErr() {
+            alert("验证失败..");
+        }
+
+        /*************设置密码阶段*******************/
+        $("#commit").click(function () {
+
+            var pass1 = $("#password").val();
+            var pass2 = $("#userpass").val();
+            if ((pass1 === pass2) && (pass1.trim() !== "")) {
+                sendData("{:U('Front/account/checkPass')}", {
+                    "pass1": pass1,
+                    "pass2": pass2
+                }, sendPhoneSucc, sendPhoneErr, "GET")
+            } else {
+                showMsg(".error-tips", "两次密码输入不一致", "red");
+            }
+        });
+        function sendPhoneSucc(data) {
+            if (data.error === "0") {
+                $("#div_1").css("display", "none");
+                $("#div_2").css("display", "none");
+                $("#div_3").css("display", "block");
+                var i     = 4;
+                var timer = setInterval(function () {
+                    i --;
+                    $("#back").html("正在跳转...");
+                    if (i < 1) {
+                        clearInterval(timer);
+                        timer                = null;
+                        window.location.href = "{:U('agent/ucenter/tovip')}";
+                    }
+                }, 1200);
+            } else if (data.error === "1") {
+                showMsg(".error-tips", data.msg, "red");
+            }
+        }
+
+        function sendPhoneErr() {
+            alert("提交密码失败..");
+        }
+    }
+</script >
+<style >
+    .push {
+        display: block;
+    }
+</style >
+</body >
+</html >

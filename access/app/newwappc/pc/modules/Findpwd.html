@@ -1,0 +1,32 @@
+<div class="container module_findpwd" >
+    <div class="row module_findpwd_wrapper" >
+        <div class="col-md-12 login_container" >
+            <div class="row" >
+                <div class='col-xs-8' style='padding-left:0;' >
+                    <input type="text" name="username" class="form-control" ng-model='data.phone' placeholder="手机号" >
+                </div >
+                <div class='col-xs-4' style='padding-right:0;text-align: right;' >
+                    <button class='btn btn-success btn-sm send_phonecode_btn' ng-click='sendCode();' >发送验证码</button >
+                </div >
+            </div >
+            <div class="row" >
+                <input type="text" name="phone_code" class="form-control" ng-model='data.phone_code' placeholder="验证码" >
+            </div >
+            <div class="row" >
+                <input type="password" name="password" class="form-control" ng-model='data.password'
+                       placeholder="输入新密码" >
+            </div >
+            <div class="row" style="padding-left:0;padding-right:0;" >
+                <a href="javascript:;"
+                   class="btn btn-success"
+                   ng-click='find();'
+                   id="index_findpwd_btn"
+                   style="width:100%;" >
+                    重设密码
+                </a >
+            </div >
+        </div >
+    </div >
+</div >
+
+

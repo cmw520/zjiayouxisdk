@@ -1,0 +1,26 @@
+<div class="container inner_container" >
+    <div class="row" style="margin-top:20px;margin-bottom:20px;min-height:500px;" >
+        <div class="col-md-3" style="min-height:200px;background-color:#00AAEE;" >
+            <p style="font-size:32px;color:#FFFFFF;padding-top:50px;" >招聘<br />//RECRUIT</p >
+        </div >
+        <div class="col-md-8 col-md-offset-1" >
+
+            <div class="row" style="margin-bottom:10px;" ng-repeat="value in list" >
+                <div class="col-md-12" >
+                    <div class="row"
+                         style="background-color:#F1F1F1;padding:10px;margin-bottom:10px;border-bottom:1px solid #CCCCCC;" >
+                        <div class="col-md-6" >岗位名称：{{value.name}}</div >
+                        <div class="col-md-6" >招聘人数：{{value.num}}</div >
+                        <div class="col-md-6" >开始时间：{{value.start_time}}</div >
+                        <div class="col-md-6" >结束时间：{{value.end_time}}</div >
+                    </div >
+                    <div class="row" style="padding-left:30px;font-size:12px;"
+                         ng-bind-html="value.content | to_trusted" >
+
+                    </div >
+                </div >
+            </div >
+
+        </div >
+    </div >
+</div >

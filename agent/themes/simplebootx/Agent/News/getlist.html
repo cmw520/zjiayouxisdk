@@ -1,0 +1,45 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records" >
+
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <!--<span class="game-num">共找到<i>{$n}</i>个记录</span>-->
+                    </div >
+                    <div class="table-content registration-details" >
+                        <table class="table table-hover table-bordered" >
+                            <tr >
+                                <th >标题     </th >
+                                <th >时间       </th >
+                            </tr >
+                            <volist name='items' id='vo' >
+                                <tr >
+                                    <td ><a href="{:U('agent/news/viewItem')}/id/{$vo.id}"
+                                            style='text-decoration:none;' >{$vo.post_title}</a ></td >
+                                    <td style="width:150px;" >{$vo.post_date|date="Y-m-d H:i:s",###}</td >
+                                </tr >
+                            </volist >
+                        </table >
+                    </div >
+                    <div class="page" >
+                        <div class="paging" >{$page}</div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+    </div>
+</section >
+
+<!--页脚-->
+<agenttpl file="footer" />
+<script >
+
+</script >

@@ -1,0 +1,42 @@
+<div class="container full_tranparent module_GiftDetail" ng-cloak >
+    <div class="row white_div" style="padding:10px;border-bottom:0px solid #CCCCCC;margin-bottom:10px;" >
+        <div class="col-xs-2" style="padding:0;" >
+            <img ng-src="{{data.icon}}" class="icon_full" ng-click="goto(data.app_id)" alt="图标" />
+        </div >
+        <div class="col-xs-7" >
+            <div class="row" ><span style="font-size:16px;font-weight: 400;" >{{data.name}}</span ></div >
+            <div class="row" style="margin-top:10px;margin-bottom:10px;" >
+                <div style="width:100%;float:left;background-color:#DDDDDD;" >
+                    <div style="width:{{data.remain}}%;height:4px;background-color:#00AAEE;float:left;" ></div >
+                </div >
+            </div >
+            <div class="row" style="font-size:12px;color:#999999;" >剩余：{{data.remain}}%</div >
+        </div >
+        <div class="col-xs-3" style="text-align: center;float:right;padding-right:0;" >
+            <div style="width:100%;float:left;font-size:16px;color:#00AAEE;padding-top:15px;text-align: right;" >
+                <button class="btn btn-success" ng-click="getGiftCode();" >领号</button >
+            </div >
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >发放时间</h4 >
+        </div >
+        <div class="col-xs-12 grey_text_block" >
+            <span >{{data.start_time}}</span > 至 <span >{{data.end_time}}</span >
+        </div >
+        <div class="col-xs-12" >
+            <h4 >礼包内容</h4 >
+        </div >
+        <div class="col-xs-12 grey_text_block" ng-bind-html="data.content | to_trusted" >
+
+        </div >
+        <div class="col-xs-12" >
+            <h4 >注意事项</h4 >
+        </div >
+        <div class="col-xs-12" style="color:red;" >
+            <span >{{data.warning}}</span >
+        </div >
+    </div >
+</div >

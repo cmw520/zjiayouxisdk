@@ -1,0 +1,490 @@
+header{
+    width:100%;
+    height:40px;
+    background-color:#FAFAFA;
+    border-bottom:1px solid #E1E1E1;
+    >.header{
+        width:97%;
+        max-width:1200px;
+        margin:0 auto;
+        height:40px;
+        >.welcome{
+            float:left;
+            width:40%;
+            height:100%;
+            max-width:342px;
+            line-height:40px;
+            span{
+                font-size:1.2rem;
+                b{
+                    font-weight:normal;
+                    font-size:20px;
+                }
+            }
+        }
+        >.welcome_right{
+            font-size:1rem;
+            width:60%;
+            height:40px;
+            line-height:40px;
+            float:right;
+            >span{
+                float:right;
+            }
+            >.main{
+                float:right;
+                >ul{
+                    li{
+                        float:left;
+                        a{
+                            color:#818181;
+                        }
+                        a:hover{
+                            color:#e4393c;
+                        }
+                    }
+                    li.center{
+                        b{
+                            display:inline-block;
+                            width:1px;
+                            height:15px;
+                            background-color:#E1E1E1;
+                            transform:translateY(4px);
+                            margin:0px 8px;
+                        }
+                        em{
+                            display:inline-block;
+                            width:10px;
+                            height:8px;
+                            background:url("../img/icon_list1.png") no-repeat 0px -150px;
+                            margin-right:7px;
+                        }
+                        >span{
+                            color:#FD9651;
+                            text-align:center;
+                        }
+                    }
+                }
+                >ul:after{
+                    content:" ";
+                    display:table;
+                    clear:both;
+                }
+            }
+        }
+    }
+}
+/************����***********/
+nav{
+    padding:20px 0px 0px 0px;
+    box-shadow:0px 0px 2px 2px #DFDFDF;
+    .nav{
+        width:97%;
+        max-width:1200px;
+        margin:0 auto;
+        /*********logo**********/
+        >.nav_logo{
+            max-width:300px;
+            width:35%;
+            display:inline-block;
+            cursor:pointer;
+            float:left;
+            >a{
+                >img{
+                    width:45%;
+                }
+                >span{
+                    display:inline-block;
+                    width:50%;
+                    vertical-align:bottom;
+                    font-size:13px;
+                }
+            }
+            >a:after{
+                content:"";
+                display:table;
+                clear:both;
+            }
+
+        }
+        /*********������**********/
+        >.main_nav{
+            width:60%;
+            float:right;
+            >li{
+                float:left;
+                height:63px;
+                line-height:63px;
+                width:calc(~"100% / 3 ");
+                border-bottom:3px solid transparent;
+                text-align:center;
+                padding-bottom:15px;
+                cursor:pointer;
+                transition:all .25s linear;
+                a{
+                    color:#000;
+                    font-size:1.5rem;
+                    transition:color .15s linear;
+                }
+            }
+            >li.active{
+                a{
+                    color:#0c9de0;
+                }
+                border-bottom:3px solid #0c9de0;
+            }
+            >li:hover{
+                a{
+                    color:#0c9de0;
+                }
+                border-bottom:3px solid #0c9de0;
+            }
+        }
+    }
+    >.nav:after{
+        content:" ";
+        display:table;
+        clear:both;
+    }
+}
+/************section***********/
+section{
+    background-color:#F5F5F5;
+    padding-bottom:35px;
+    .user_center{
+        width:97%;
+        max-width:1200px;
+        margin:0 auto;
+        >.banner_1{
+            padding:20px 0px;
+            width:100%;
+            max-width:1200px;
+            img{
+                width:100%;
+                max-width:1200px;
+            }
+        }
+        >.user_center_main{
+            >div{
+                float:left;
+            }
+            >.center_left{
+                width:30%;
+                max-width:180px;
+                background-color:#fff;
+                margin-right:10px;
+                >.Withdrawals{
+                    text-align:center;
+                    border-bottom:1px solid #E8E8E8;
+                    button{
+                        width:95%;
+                        max-width:124px;
+                        padding:6px 0px;
+                        color:#fff;
+                        font-size:1.4rem;
+                        border:none;
+                        outline:none;
+                        cursor:pointer;
+                    }
+                    button:first-child{
+                        margin:20px 0px;
+                        background-color:#008be3;
+                    }
+                    button:nth-child(2){
+                        margin-bottom:20px;
+                        background-color:#22AC38;
+                    }
+                }
+                >.aside_nav{
+                    margin-left:10%;
+                    padding-top:10px;
+                    padding-bottom:25px;
+                    >ul{
+                        >h3{
+                            margin:10px 0px 15px 0px;
+                            >em{
+                                display:inline-block;
+                                width:21px;
+                                height:21px;
+                                background:url("../img/icon_list1.png") no-repeat 0px -216px;
+                                vertical-align:bottom;
+                                margin-right:8px;
+                            }
+                            >span{
+                                font-size:1.4rem;
+                                font-weight:600;
+                            }
+                        }
+                        >li{
+                            line-height:30px;
+                            padding-left:29px;
+                            a{
+                                color:#888888;
+                            }
+                        }
+                        >li.active{
+                            a{
+                                color:#008be3;
+                            }
+                        }
+                    }
+                    >ul.user_management{
+                        >h3{
+                            em{
+                                background-position:0px -249px;
+                            }
+                        }
+                    }
+                    >ul.user_agent{
+                        >h3{
+                            em{
+                                background-position:2px -49px;
+                            }
+                        }
+                    }
+                    >ul.Date_center{
+                         >h3{
+                             em{
+                                 background-position:0px -98px;
+                             }
+                         }
+                     }
+                    >ul.App_customization{
+                         >h3{
+                             em{
+                                 background-position:2px -11px;
+                                transform:translateY(2px);
+                             }
+                         }
+                     }
+                }
+            }
+            >.center_main{
+                background-color: #fff;
+                border:1px solid #E5E5E5;
+                >.search_box{
+                    text-align:center;
+                    padding:30px 0px;
+                    border-bottom:1px solid #E4E4E4;
+                    >input{
+                        width:23%;
+                        min-width:158px;
+                        height:22px;
+                        font-size:1rem;
+                    }
+                    >button{
+                        width:10%;
+                        height:28px;
+                        margin-left:7px;
+                        background-color:#008be3;
+                        border:none;
+                        color:#fff;
+                    }
+                }
+                >.search_game_list{
+                    width:95%;
+                    margin:0 auto;
+                    >p.top{
+                        height:40px;
+                        line-height:40px;
+                        >span{
+                            color:#C2C6BC;
+                        }
+                        >select{
+                            float:right;
+                            height:25px;
+                            margin-top:7px;
+                        }
+                    }
+                    >.table1{
+                        width:100%;
+                        >thead{
+                            >tr{
+                                background-color:#a0e4ff;
+                                border-top:1px solid #FFD8BF;
+                                border-bottom:2px solid #FFD6BA;
+                                color:#141212;
+                                >th{
+                                    padding-top:6px;
+                                    padding-bottom:9px;
+                                }
+                                >th.sub_box1{
+                                    width:6%;
+                                }
+                                >th.game_ID{
+                                    width:12%;
+                                }
+                                >th.game_icon{
+                                    width:10%;
+                                }
+                                >th.game_name{
+                                    width:25%;
+                                }
+                                >th.game_size{
+                                    width:10%;
+                                }
+                                >th.game_version{
+                                    width:14%;
+                                }
+                                >th.lasted_time{
+                                    width:18%;
+                                }
+                            }
+
+                        }
+                        >tbody{
+                            >tr.list_1{
+                                height:80px;
+                                border-bottom:1px solid #F8F8F8;
+                                >td{
+                                    text-align:center;
+                                    vertical-align:middle;
+                                }
+                                >td.game_icon{
+                                    width:60px;
+                                    height:60px;
+                                    img{
+                                        width:60px;
+                                        height:60px;
+                                        border-radius:11px;
+                                    }
+                                }
+                                >td.game_name{
+                                    color:#00A0E9;
+                                }
+                            }
+                        }
+                    }
+                    >.choose_application{
+                        margin-top:30px;
+                        >.choose_btn1{
+                            float:left;
+                            label{
+                                width:8%;
+                                vertical-align: middle;
+                                margin-right:18px;
+                                input{
+                                    transform:translateY(1px);
+                                    margin-right:5px;
+                                }
+                            }
+                            >button{
+                                background-color:#008be3;
+                                border:none;
+                                padding:8px 15px;
+                                color:#fff;
+                            }
+                        }
+                        >.choose_count{
+                            float:left;
+                            line-height:31px;
+                            color:#DEE0E3;
+                            margin-left:10%;
+                        }
+                        >.page_num{
+                            clear:both;
+                            display:block;
+                            text-align:right;
+                            float:right;
+                            margin-top:20px;
+                            >div{
+                                >button{
+                                    float:left;
+                                    background-color:#fff;
+                                    border:1px solid #EBEBEB;
+                                    padding:6px 10px;
+                                    margin:0px 5px;
+                                }
+                                >button:hover{
+                                    background-color:#008be3;
+                                    color:#fff;
+                                }
+                            }
+                            >.left{
+                                float:left;
+                            }
+                            >.center{
+                                float:left;
+                                >button.active{
+                                    background-color:#008be3;
+                                    color:#fff;
+                                }
+                                >button.sl{
+                                    border:none;
+                                }
+                            }
+                            >.right{
+                                float:left;
+                                >span{
+                                    float:left;
+                                    height:29px;
+                                    vertical-align: middle;
+                                    margin:0 3px;
+                                    >input{
+                                        width:30px;
+                                        padding:0;
+                                        height:25px;
+                                        border:1px solid #E7E7E7;
+                                    }
+                                }
+                                >button.Determine{
+                                    background-color:#008be3;
+                                    color:#fff;
+                                }
+                            }
+                        }
+                        >.page_num:after{
+                            content:" ";
+                            display:table;
+                            clear:both;
+                        }
+                    }
+                    >.choose_application:after{
+                        content:" ";
+                        display:table;
+                        clear:both;
+                    }
+                }
+            }
+        }
+        >.user_center_main:after{
+            content:" ";
+            display:table;
+            clear:both;
+        }
+    }
+
+}
+footer.footer{
+    background-color:#1E1B29;
+    color:#fff;
+    padding-top:25px;
+    padding-bottom:35px;
+    >ul{
+        width:60%;
+        max-width:700px;
+        margin:20px auto 30px auto;
+        li{
+            width:calc(~"(100% - 4px) / 5");
+            float:left;
+            text-align:center;
+            border-right:1px solid #696969;
+            a{
+                color:#fff;
+                font-size:1.6rem;
+            }
+        }
+        li:last-child{
+            border-right:0;
+        }
+    }
+    >ul:after{
+        content:" ";
+        display:table;
+        clear:both;
+    }
+    >p{
+        text-align:center;
+        color:#807C84;
+    }
+}

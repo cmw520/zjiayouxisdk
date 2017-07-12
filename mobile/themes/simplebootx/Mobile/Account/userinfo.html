@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html >
+<head lang="en" >
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta charset="UTF-8" >
+    <title >个人中心</title >
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/user_center.css" />
+    <style >
+        .list_item > .icon_left > a {
+            display: inline-block;
+            line-height: 40px;
+            margin-left: 4px;
+            font-size: 1.4rem;
+        }
+    </style >
+</head >
+<body style="margin:0px;" >
+<header >
+    <b onclick="window.history.back(-1)" ></b >
+    <span >个人中心</span >
+</header >
+<section >
+    <div class="margin_bottom_bg" ></div ><!--设置灰白高度-->
+                                          <!--帐号，昵称-->
+    <div class="user_accounts" >
+        <!--帐号-->
+        <div class="list_item border_bottom" >
+            <div class="icon_left" >
+                <b ><img src="__PUBLIC__/wap/images/6.png" alt="帐户" ></b >
+                <span >帐号</span >
+            </div >
+            <div class="icon_right" >
+                <s ></s >
+                <span >{$userdata.username}</span >
+            </div >
+        </div >
+        <!--昵称-->
+        <div class="list_item change_name" >
+            <div class="icon_left" >
+                <b ><img src="__PUBLIC__/wap/images/7.png" alt="昵称" ></b >
+                <span >昵称</span >
+            </div >
+            <div class="icon_right" >
+                <i ></i >
+                <span >{$userdata.nickname}</span >
+            </div >
+        </div >
+    </div >
+    <div class="list_item change_name" >
+        <a href="{:U('Pay/chargeDetail')}" >
+            <div class="list_item change_name" >
+                <div class="icon_left" >
+                    <b ><img src="__PUBLIC__/wap/images/pay.png" alt="昵称" ></b >
+                    <span >充值记录</span >
+                </div >
+                <div class="icon_right" >
+                    <i ></i >
+                    <span ></span >
+                </div >
+            </div >
+        </a >
+
+    </div >
+    <div class="margin_bottom_bg" ></div >
+                                          <!--手机，密码-->
+    <div class="phone_num" >
+        <!--手机-->
+        <div class="list_item change_phone border_bottom" >
+            <div class="icon_left" >
+                <b ><img src="__PUBLIC__/wap/images/8.png" alt="手机号" ></b >
+                <span >手机号</span >
+            </div >
+            <div class="icon_right" >
+                <i ></i >
+                <span >
+                <if condition="$userdata['mobile'] eq ''" >
+                    还未绑定手机
+                    <else />
+                    {$userdata.mobile}
+                </if >
+                </span >
+            </div >
+        </div >
+        <!--密码-->
+        <div class="list_item pwd" >
+            <div class="icon_left" >
+                <b ><img src="__PUBLIC__/wap/images/9.png" alt="密码" ></b >
+                <span >修改密码</span >
+            </div >
+            <div class="icon_right" >
+                <i ></i >
+                <span ></span >
+            </div >
+        </div >
+
+    </div >
+
+    <div class="margin_bottom_bg" ></div >
+</section >
+<div class="list_item loginout" >
+    <div class="icon_left" onclick="window.location.href='{:U('Account/loginout')}'" >
+        <b ><img src="__PUBLIC__/wap/images/loginout.png" alt="" ></b >
+        <a >退出</a >
+    </div >
+    <div class="icon_right" >
+        <i ></i >
+        <span ></span >
+    </div >
+</div >
+<!--弹出框-->
+<div class="alert_box" >
+    <!-- 更换手机号码 -->
+    <div class="alert_phone" >
+        <div class="phone1" >
+            <p class="model_title" ><span >更换手机号码</span ></p >
+            <div class="verification" >
+                <p >请先验证绑定的手机号，才可绑定新的手机号<br >已绑定的手机号:<span >{$userdata.mobile}</span ></p >
+            </div >
+            <div class="next_btn" >
+                <div class="code_input" >
+                    <b ></b ><input type="text" placeholder="请输入验证码" />
+                    <button >获取验证码</button >
+                </div >
+                <div class="phone_msg1" ></div >
+                <div class="cacle_btn" >
+                    <button class="cacle" >取消</button >
+                    <button class="next noCan" disabled >下一步</button >
+                </div >
+            </div >
+            <div class="contact" >
+                <p >若已绑定的手机号无法验证，<br >请联系客服：123456</p >
+            </div >
+        </div >
+        <div class="phone2" >
+            <p class="model_title" ><span >填写新手机</span ></p >
+            <div class="new_phone" >
+                <span ><img src="__PUBLIC__/wap/images/7.png" alt="" /></span ><input type="text"
+                                                                                      placeholder="请输入新的手机号码" />
+            </div >
+            <div class="next_btn" >
+                <div class="code_input" >
+                    <b ></b ><input type="text" placeholder="请输入验证码" />
+                    <button >获取验证码</button >
+                </div >
+                <div class="phone_msg2" ></div >
+                <div class="cacle_btn" >
+                    <button class="cacle" >取消</button >
+                    <button class="next noCan" disabled >下一步</button >
+                </div >
+            </div >
+        </div >
+        <div class="phone3" >
+            <p class="model_title" ><span >绑定成功</span ></p >
+            <div class="logo" >
+                <img src="__PUBLIC__/wap/images/logo.png" alt="" />
+            </div >
+            <h3 >绑定成功，<span >3</span >秒后返回个人中心</h3 >
+            <div class="cacle_btn" >
+                <button class="cacle" >关闭</button >
+            </div >
+        </div >
+    </div >
+    <!-- 修改密码-->
+    <div class="change_pwd" >
+        <p class="model_title" ><span >修改密码</span ></p >
+        <div class="pass_box" >
+            <div class="pass_input old_pwd" >
+                <input type="password" placeholder="请输入原密码" /><b ></b >
+            </div >
+            <div class="pass_input new_pwd" >
+                <input type="password" placeholder="请输入新密码" /><b ></b >
+            </div >
+            <div class="pass_input confirm" >
+                <input type="password" placeholder="两次填写新密码" /><b ></b >
+            </div >
+        </div >
+        <div class="error_box" ></div >
+        <div class="cacle_btn" >
+            <button class="cacle" >取消</button >
+            <button class="next" >确定</button >
+        </div >
+    </div >
+    <!-- 修改昵称-->
+    <div class="change_name" >
+        <p class="model_title" ><span >修改昵称</span ></p >
+        <div class="input_name" ><input type="text" id="usname" value="{$userdata.nickname}" /><b ></b ></div >
+        <div class="error_box" ></div >
+        <div class="cacle_btn" >
+            <button class="cacle" >取消</button >
+            <button class="next" >修改</button >
+        </div >
+    </div >
+</div >
+<!--要ajax的地址绑定-->
+<input type="hidden" id="changenick" value="{:U('Account/changenick')}" >
+<input type="hidden" id="changePhone" value="1.php" >
+<input type="hidden" id="changePwd" value="{:U('Account/changepassword')}" >
+<input type="hidden" id="getCode" value="1.php" >
+<div class="model_box" >
+</div >
+</body >
+<script src="__PUBLIC__/wap/js/jquery-1.8.3.min.js" ></script >
+<script src="__PUBLIC__/wap/js/huosu_base.js" ></script >
+<script src="__PUBLIC__/wap/js/user_center.js" ></script >
+<script >
+
+    var checkmobile = "{:U('Account/checkmobile')}";
+    var verify_mmsend = "{:U('Account/verify_mmsend')}";
+    var vurl = "{:U('Account/verifycode')}";
+</script >
+</html >

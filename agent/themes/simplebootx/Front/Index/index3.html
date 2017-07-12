@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >{:C("AGENT_SITE_NAME")}_手机游戏推广_{:C("AGENT_SITE_NAME")}</title >
+    <meta name="description" content="汇聚最热门手机游戏，是最靠谱的手游广告分成平台，我们有稳定的技术保障，精准的数据统计，高分成、高回报等优势！欢迎使用！" >
+    <meta name="keywords" content="手机游戏推广" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+
+    <script src="__PUBLIC__/agent/index2/jquery-1.11.1.min.js" charset="utf-8" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/lumen/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/3rd/swiper/swiper.min.css" />
+    <script src="__PUBLIC__/3rd/swiper/swiper.min.js" ></script >
+
+    <style >
+        body {
+            background-color: #F1F1F1;
+        }
+
+        .login_container {
+            width: 300px;
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            margin-left: 150px;
+            background-color: #FFFFFF;
+            padding-top: 10px;
+            z-index: 999;
+            border-radius: 8px;
+        }
+
+        .login_container .row {
+            padding: 5px 20px;
+        }
+
+        .hot_game_items {
+            margin: 10px 0;
+            height: 90px;
+        }
+
+        .server_item {
+            font-size: 12px;
+            /*min-height:60px;*/
+            border-bottom: 1px solid #DDDDDD;
+            padding: 12px 0;
+            /*                margin-left:5px;
+                            margin-right:5px;*/
+        }
+
+        .div_heading h4 {
+            padding: 5px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .div_heading {
+            border-bottom: 1px solid #DDDDDD;
+        }
+    </style >
+</head >
+<body >
+<agenttpl file="header_front" />
+<div class="container" style="width:1000px;padding:0;" >
+    <div class="row swiper-container" style="padding:0;" >
+        <div class="swiper-wrapper" >
+            <volist name="banners" id="vo" >
+                <div class="swiper-slide" >
+                    <!--<a href="{$vo.url}" target="_blank" >-->
+                        <img class="img" src="{$vo.icon}" onclick="window.open('{$vo.url}')" />
+                    <!--</a >-->
+                </div >
+            </volist >
+        </div >
+    </div >
+
+    <div class="container login_container" >
+        <notempty name="user.user_login" >
+            <div class="row" style="padding:20px;" >
+                <div style='text-align:center;' >
+                    <img src='__PUBLIC__/agent/img/user_head.png' height='100' style='margin-bottom:20px;' />
+                    <br />
+                    已登录
+                    <a href="{:U('Agent/money/recharge_member')}" style='text-decoration: none;' >个人中心</a >
+                </div >
+            </div >
+        </notempty >
+
+        <empty name="user.user_login" >
+            <div class="row" >
+                <input type="text" name="username" class="form-control" placeholder="用户名" >
+            </div >
+            <div class="row" >
+                <input type="password" name="password" class="form-control" placeholder="密码" >
+            </div >
+            <div class="row" >
+                <input type="text" name="checkcode" class="form-control" placeholder="验证码" >
+            </div >
+            <div class="row" >
+                {:sp_verifycode_img('length=4&font_size=20&width=250&height=40&use_noise=1&use_curve=0','style="cursor: pointer;" title="点击获取"')}
+            </div >
+            <div class="row" >
+                <a href="javascript:;" class="btn btn-success" id="index_login_btn" style="width:100%;" >登录</a >
+            </div >
+            <div class="row" >
+                <div class='login_links' style='margin-top:5px;font-size:12px;' >
+                    <a class="btn btn-link" href="{:U('Front/register/index')}" style='float:left;' >帐号注册</a >
+                    <a class="btn btn-link" href="{:U('Front/FindPwd/index')}" style='float:right;' >找回密码</a >
+                </div >
+            </div >
+        </empty >
+    </div >
+</div >
+
+<div class="container" style="width:1000px;margin-top:20px;" >
+    <div class="row" >
+        <div class="col-md-7" style="background-color:#FFFFFF;min-height:400px;" >
+            <div class="row div_heading" >
+                <div class="col-xs-6" >
+                    <h4 >最热游戏</h4 >
+                </div >
+            </div >
+            <div class="row" >
+                <volist name="hot_game" id='vo' >
+                    <div class="col-md-4 hot_game_items" >
+                        <div class="row" >
+                            <div class="col-md-6" >
+                                <php > $url = "http://www.2lyx.com/index.php/Web/Substation/index/gameid/".$vo['game_id'];</php >
+                               <img src="{$vo.icon}" width="70px;" onclick="window.open('{$url}')" />
+                            </div >
+                            <div class="col-md-6" style="font-size:12px;" >
+                                <div class="row hot_game_item_name" style="margin-bottom:10px;" ><b
+                                        style="font-size:14px;" >{$vo.name}</b ></div >
+                                <div class="row hot_game_item_ext" >上线时间</div >
+                                <div class="row hot_game_item_time" >{$vo.create_time|date="Y-m-d",###}</div >
+                            </div >
+                        </div >
+                    </div >
+                </volist >
+            </div >
+        </div >
+        <div class="col-md-4" style="background-color:#FFFFFF;min-height:400px;width:400px;float:right;" >
+            <div class="row div_heading" >
+                <div class="col-xs-6" >
+                    <h4 >开服列表</h4 >
+                </div >
+                <div class="col-xs-6" >
+                    <div style="float:right;margin-top:15px;font-size:12px;" >
+                        <a href="javascript:;" class="prev_page" >上一页</a >
+                        &nbsp;
+                        <a href="javascript:;" class="next_page" >下一页</a >
+                    </div >
+                </div >
+
+            </div >
+            <div class="row server_item" style="font-weight:bold;" >
+                <div class="col-xs-4" >
+                    游戏名称
+                </div >
+                <div class="col-xs-4" >
+                    新服名称
+                </div >
+                <div class="col-xs-4" style="text-align:center;" >
+                    开服时间
+                </div >
+            </div >
+            <div class="server_list_div" >
+
+            </div >
+            <!--                    <volist name="server_list" id='vo'>
+                                    <div class="row server_item">
+                                        <div class="col-xs-4">
+                                            <img src="{$vo.icon}" style="width:30px;" />
+                                            <span>{$vo.game_name}</span>
+
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <span>{$vo.sername}</span>
+                                        </div>
+                                        <div class="col-xs-4" style="text-align:center;">
+                                            {$vo.start_time}
+                                        </div>
+                                    </div>
+                                </volist>-->
+        </div >
+    </div >
+</div >
+
+<div class="container" style="width:1000px;background-color:#FFFFFF;margin-top:20px;" >
+    <div class="row" style="text-align:center;border-bottom:1px solid #DDDDDD;" >
+        <h3 style="font-weight:bold;" >合作联系</h3 >
+    </div >
+    <div class="row" style="margin-top:40px;margin-bottom:40px;padding:30px;" >
+        {$contact_txt}
+    </div >
+</div >
+
+<div class="container" style="width:1000px;margin-top:40px;margin-bottom:40px;text-align:center;" >
+    <div class="row" >
+        <p >{:$company_info['COMPANY_NAME']} {:$company_info['WEB_ICP']}</p >
+    </div >
+</div >
+
+<script src="__PUBLIC__/agent/js/checkCode.js" ></script >
+<script src="__PUBLIC__/agent/js/demo1.js" ></script >
+
+<script src="__PUBLIC__/3rd/layer/layer.js" ></script >
+<script src="__PUBLIC__/huoshu/share.js" ></script >
+
+<script >
+    function changeVerify() {
+        document.getElementById('verify_img').src = "{:U('Front/checkcode/index')}" +
+            "?length=4&font_size=16&width=250&height=40&use_noise=1&use_curve=0&time=" +
+            Math.random();
+    }
+
+    $("#index_login_btn").click(function () {
+        var userName  = $("input[name='username']").val();
+        var userPass  = $("input[name='password']").val();
+        var checkCode = $("input[name='checkcode']").val();
+        if (((userName) === "") || ((userPass) === "")) {
+            yxnotice("用户名或密码不能为空");
+            return;
+        }
+
+        if ($.trim(checkCode) === "") {
+            yxnotice("验证码不能为空");
+            return;
+        }
+
+        $.post("{:U('Front/account/do_login')}", {"userName": userName, "userPass": userPass, "checkCode": checkCode},
+            function (data) {
+                if (data.error === '1') {
+                    yxnotice(data.msg);
+                    changeVerify();
+                    return;
+                } else if (data.error === '0') {
+                    window.location.href = "{:U('Front/Account/index')}";
+                }
+            });
+    });
+    var swiper = new Swiper('.swiper-container', {autoplay: 3000});
+
+    var server_page = 1;
+    var max_p       = 1;
+    $(document).ready(function () {
+        get_server_list_content();
+    });
+    function get_server_list_content() {
+        $.get("{:U('Front/Index/ServerList')}?p=" + server_page, function (res) {
+            if (res.error === '0') {
+                var msg = $.parseJSON(res.msg);
+                max_p   = msg.max_p;
+                $(".server_list_div").html(msg.items);
+                console.log("server_page:" + server_page + " max_p:" + max_p);
+            }
+        });
+    }
+
+    $(".prev_page").click(function () {
+        if (server_page <= 1) {
+            return;
+        }
+        server_page -= 1;
+        get_server_list_content();
+    });
+    $(".next_page").click(function () {
+        if (server_page >= max_p) {
+            return;
+        }
+        server_page += 1;
+        get_server_list_content();
+    });
+
+</script >
+</body >
+</html >

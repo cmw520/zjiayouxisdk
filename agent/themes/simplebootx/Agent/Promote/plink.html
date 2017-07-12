@@ -1,0 +1,170 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main mygameCenter" >
+        <div class="banner_1" >
+
+        </div >
+        <style >
+            .content_blocks .row {
+                margin: 20px 0;
+            }
+
+            .content_blocks {
+                border: 1px solid #CCCCCC;
+                padding: 0 20px 20px 20px;
+                margin: 20px;
+                height: 250px;
+            }
+
+            .content_blocks_header {
+                font-size: 24px;
+                text-align: center;
+                border-bottom: 1px solid #CCCCCC;
+                padding: 10px 0;
+            }
+
+            .content_blocks_header i {
+                font-size: 30px;
+                width: 35px;
+                color: #0098F1;
+            }
+        </style >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right" >
+
+                <div class="container" style="width:960px;margin-top:30px;" >
+                    <ul class="breadcrumb" >
+                        <li ><a href="{$urls.index}" >首页</a ></li >
+                        <li class="active" >推广中心</li >
+                    </ul >
+                </div >
+
+                <div class='container' style='width:960px;' >
+                    <div class='row' >
+                        <div class='col-md-5 content_blocks' >
+                            <div class='row content_blocks_header' >
+                                <i class="fa fa-sitemap" ></i >
+                                推广注册链接
+                            </div >
+                            <div class='row' >
+                                <input type="text" class="form-control" value="{$mylink}" readonly />
+                            </div >
+                            <div class='row' >
+                                <a href="javascript:;" class="btn btn-success link_copy_btn "
+                                   data-clipboard-text="{$mylink}"
+                                   data-link="{$mylink}" >复制链接</a >
+                            </div >
+                        </div >
+<if condition="2==C('G_SYSTEM_TYPE') || 3==C('G_SYSTEM_TYPE')">
+                        <div class='col-md-5 content_blocks' >
+                            <div class='row content_blocks_header' >
+                                专属邀请码: <span id="ackeyspan"
+                                             style="color:blue" >{$Think.session.user_activation_key}</span >
+                            </div >
+                            <div class='row' >
+                                <input type="text" id="ackeyid" class="form-control"
+                                       value="{$Think.session.user_activation_key}" />
+                                <input type="hidden" id="ackeyurl" value="{:U('Promote/keymodify')}" />
+                            </div >
+                            <div class='row' >
+                                <p href="javascript:;" class="btn btn-success" id="ackeychange" >确定修改</p >
+
+                                <a href="javascript:;" id="ackeycpy" class="btn btn-success btn-default link_copy_btn"
+                                   data-clipboard-text="{$Think.session.user_activation_key}"
+                                   data-link="{$Think.session.user_activation_key}" >复制专属码</a >
+                            </div >
+                            <p style="color:red;" >渠道邀请码可以为数字、中文、英文或其组合，少于10字符</p >
+                        </div >
+</if>
+                        <div class='col-md-5 content_blocks' >
+                            <div class='row content_blocks_header' >
+                                <i class="fa fa-gamepad" ></i >
+                                游戏APP
+                            </div >
+                            <div class='row' >
+                                <notempty name="fp" >
+                                    <a class="btn btn-default link_copy_btn" data-clipboard-text="{$fp}"
+                                       href="javascript:;" >复制游戏app链接</a >
+                                    <a class="btn btn-default" href="{$fp}" target="_blank" >游戏app下载</a >
+                                    <a class='btn btn-success' id="geneappbtn" >更新游戏APP</a >
+                                    <else />
+                                    <a class='btn btn-success' id="geneappbtn" >申请游戏APP</a >
+                                </notempty >
+
+                            </div >
+                        </div >
+
+                    </div >
+
+                    <div class="row" style="border:none;color:red;font-size:14px;margin-top:20px;padding:20px;" >
+                        <h4 style="color:red;" >提示</h4 >
+                        <br />
+                        <p >1、复制推广链接，玩家在该页面注册的账号归属于您的渠道下，后续充值将获得收益；</p >
+                        <p >2、推广APP为您的专属APP，玩家在该APP下载游戏，并在游戏注册账号，归属于您的渠道下，后续充值将获得收益；</p >
+                        <p >3、为确保您的利益，在使用上述两种推广方式前，可自行测试，并查看数据的准确性。</p >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<script src="__PUBLIC__/js/clipboard.min.js" ></script >
+<script src="__PUBLIC__/huoshu/clipboard.js" ></script >
+<script >
+    $("nav .main_nav li").eq(2).addClass("active").siblings().removeClass("active");
+
+    $("#geneappbtn").click(function () {
+        $.post("{:U('Agent/Promote/dopack_remote')}", {"type": "new"}, function (data) {
+
+            yxalert(data.msg);
+            setTimeout(function () {
+                location.reload();
+            }, 1000);
+
+        });
+    });
+
+    /*************邀请码输入******************/
+    $("#ackeyid").keyup(function (event) {
+        var input_value = $(this).val().replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g, '');
+        var len         = input_value.length;
+        if (len > 10) {
+            input_value = input_value.substring(0, 10);
+        }
+
+        var str = '';
+        for (var k in input_value) {
+            var v = input_value[k];
+            str += v;
+        }
+        $(this).val(str);
+        $("#ackeycpy").attr('data-clipboard-text', str);
+        $("#ackeyspan").html(str);
+    });
+    /*************邀请码修改******************/
+    var topClick = 0;
+    var vurl     = $("#ackeyurl").val();
+    $("#ackeychange").live("click", function () {
+        if (new Date().getTime() - topClick > 3000) {
+            topClick      = new Date().getTime();
+            var form_data = {
+                accode : $("#ackeyid").val(),
+                randnum: Math.random(),
+            };
+            sendData(vurl, form_data, changesucc, '', "POST", "JSON");
+        }
+    });
+
+    function changesucc(result) {
+        if ('success' == result.state) {
+            yxalert("修改成功");
+        } else {
+            yxalert(result.info);
+        }
+    }
+
+</script >
+
+<agenttpl file="user_center_footer" />
+

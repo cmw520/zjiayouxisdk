@@ -1,0 +1,46 @@
+<html >
+<head >
+    <title >title</title >
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="/public/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/public/3rd/bootstrap/css/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/share/paging.css" />
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/inner_share.css" />
+</head >
+<body >
+<div class="container" style="margin-top:20px;" >
+    <table class="table table-hover table-bordered" >
+        <tr >
+            <th >申请时间</th >
+            <th >审核时间</th >
+            <th >结算时间</th >
+
+            <th >结算金额</th >
+            <th >状态</th >
+        </tr >
+        <volist name='items' id='vo' >
+            <tr >
+                <td >{$vo.create_time}</td >
+                <td >{$vo.check_time}</td >
+                <td >{$vo.settle_time}</td >
+
+                <td >{$vo.money}</td >
+                <td >{$vo.settle_status_txt}</td >
+            </tr >
+        </volist >
+    </table >
+</div >
+<div class="container paging" >
+    {$page}
+</div >
+
+</body >
+</html >
+
+
+
+
+
+

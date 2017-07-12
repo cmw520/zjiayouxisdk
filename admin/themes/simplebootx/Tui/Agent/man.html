@@ -1,0 +1,190 @@
+<admintpl file="header" />
+</head>
+<style >
+    .funcs {
+        padding: 0 0 10px 0;
+    }
+
+    .add_agent_form_div .row {
+        width: 300px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .add_agent_form_div input {
+        width: 280px;
+    }
+
+    .add_agent_form_btn {
+        width: 300px;
+    }
+</style >
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Tui/Agent/man')}" target="_self" >渠道列表</a ></li >
+        <!--<li><a href="{:U('Agent/Agent/add')}" target="_self">添加渠道</a></li>-->
+    </ul >
+
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+<!--                        渠道类型： 
+                        <select class="select_2" name="roleid" id="selected_id">
+                            <foreach name="roles"  key="k" item="vo">
+                                <php>$r_select=$k==$roleid ?"selected":"";</php>
+                                <option value="{$k}"{$r_select}>{$vo}</option>
+                            </foreach>
+                        </select>
+                        &nbsp;&nbsp;-->
+                        父渠道：
+                        <input type="text" name="parent_agent_name" style="width: 200px;"
+                               value="{$formget.parent_agent_name}" placeholder="请输入父渠道..." >
+                        &nbsp;&nbsp; 
+                        渠道名称：
+                        <input type="text" name="agent_name" style="width: 200px;" value="{$formget.agent_name}"
+                               placeholder="请输入渠道名称..." >
+                        帐号：
+                        <input type="text" name="user_login" style="width: 200px;" value="{$formget.user_login}"
+                               placeholder="请输入帐号..." >
+                        
+                        <br /><br />
+                        
+                        等级：
+                        {$agent_level_select}
+                        状态:
+                        <select class="select_2" name="status" >
+                            <option value="0" >选择状态</option >
+                            <option value="2" >正常</option >
+                            <option value="3" >禁用</option >
+                        </select >
+                        &nbsp;&nbsp;
+                        <input type="submit" class="btn btn-primary" value="搜索" />
+                    </span >
+            </div >
+        </div >
+    </form >
+    <div class='funcs' >
+        <a class='btn btn-success add_agent_btn' href="javascript:;" >创建一级渠道</a >
+    </div >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+
+                <th width="50" >父渠道</th >
+                <th width="50" >渠道名称</th >
+                <th width="50" >账号</th >
+                <th width="50" >等级</th >
+                <th width="50" >创建时间</th >
+                <th width="50" >状态</th >
+                <th width="60" >操作</th >
+                <!--<th width="50">备注</th>-->
+            </tr >
+            </thead >
+            <foreach name="users" item="vo" >
+                <tr >
+                    <td >{$vo.parent_agent_name}</td >
+                    <td >{$vo.agent_name}</td >
+                    <td >{$vo.user_login}</td >
+                    <td >{$vo.user_type_txt}</td >
+
+                    <td >{$vo.create_time}</td >
+                    <td >{$vo.user_status_txt}</td >
+                    <td >
+                        <a href="{:U('Tui/Agent/detail','','')}/agent_id/{$vo.id}" >详情</a >
+                        <a href="{:U('Tui/Agent/ban','','')}/agent_id/{$vo.id}" >冻结</a >
+                        <a href="{:U('Tui/Agent/unban','','')}/agent_id/{$vo.id}" >解冻</a >
+                        <!--                            <switch name="vo.user_status">
+                                                        <case value="1">
+                                                            <a href="{:U('Tui/Agent/pass',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn" data-msg="确定要设为审核通过吗？设为通过后，将发送短信通知用户" >通过</a> |
+                                                            <a href="{:U('Tui/Agent/notpass',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn"  data-msg="确定要设为审核不通过吗？" >不通过</a>
+                                                        </case>
+                                                        <case value="2">
+                                                            <a href="{:U('Tui/Agent/notpass',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn"  data-msg="确定要设为审核不通过吗？" >不通过</a>
+                                                        </case>
+                                                        <case value="3">
+                                                            <a href="{:U('Tui/Agent/pass',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn" data-msg="确定要设为审核通过吗？设为通过后，将发送短信通知用户" >通过</a>
+                                                        </case>
+                                                    </switch>-->
+                    </td >
+                    <!--<td>{$vo.remark}</td>-->
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$Page}</div >
+    </form >
+    <style >
+        .input_hint {
+            color: #333333;
+        }
+    </style >
+    <div class="add_agent_form_div container"
+         style="display:none;width:300px;padding-top:20px;padding-left:10px;padding-right:10px;" >
+        <form id='add_agent_form' method='post' onsubmit='return false;' >
+            <div class="row" >
+                <div class="col-md-4" >渠道名称 <span class="input_hint" >( 必填 ) </span ></div >
+                <div class="col-md-8" >
+                    <input type="text" name="user_nicename" />
+                </div >
+            </div >
+            <div class="row" >
+                <div class="col-md-4" >帐号 <span class="input_hint" >( 必填，建议填写手机号 )</span ></div >
+                <div class="col-md-8" >
+                    <input type="text" name="user_login" />
+                </div >
+            </div >
+            <div class="row" >
+                <div class="col-md-4" >密码 <span class="input_hint" >( 必填 )</span ></div >
+                <div class="col-md-8" >
+                    <input type="password" name="user_pass" />
+                </div >
+            </div >
+            <!--            <div class="row">
+                            <div class="col-md-4">备注 <span class="input_hint">( 选填，如联系方式、注意事项等 )</span></div>
+                            <div class="col-md-8">
+                                <input type="text" name="remark" />
+                            </div>
+                        </div>-->
+            <div class="row" >
+                <button class="btn btn-success add_agent_form_btn" >添加</button >
+            </div >
+        </form >
+    </div >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    $(".add_agent_btn").click(function () {
+        layer.open({
+            type   : 1,
+            shift  : 2,
+            area   : ['400px', '400px'],
+            title  : "添加一级渠道", //不显示标题
+            content: $('.add_agent_form_div'), //捕获的元素
+            cancel : function (index) {
+                layer.close(index);
+            }
+        });
+    });
+
+    $(".add_agent_form_btn").click(function () {
+//            var user_pass=$("input[name='user_pass']").val();
+//            var user_login=$("input[name='user_login']").val();
+//            var user_nicename=$("input[name='user_nicename']").val();
+//            
+//            var data={"user_pass":user_pass,"user_login":user_login,"user_nicename":user_nicename};
+        var url  = "{:U('Tui/Agent/addagent_post')}";
+        var data = $("#add_agent_form").serialize();
+        $.post(url, data, function (data) {
+            yxalert(data.msg);
+
+            if (data.error === '0') {
+                reload_delay();
+            }
+        });
+    });
+</script >
+</body >
+</html>

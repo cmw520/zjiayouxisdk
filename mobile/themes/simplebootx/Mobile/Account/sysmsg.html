@@ -1,0 +1,50 @@
+<mobiletpl file="header" />
+
+<section >
+    <div class='container' >
+        <volist name='items' id='vo' >
+            <div class='row message_item' >
+                <div class='row message_item_title' >
+                    <empty name='vo.read' >
+                        <a href="{:U('Mobile/Account/sysmsg_item')}/{$vo.id}" style="color:blue;" >{$vo.title}</a >
+                    </empty >
+                    <notempty name='vo.read' >
+                        <a href="{:U('Mobile/Account/sysmsg_item')}/{$vo.id}" style="color:#333333;" >{$vo.title}</a >
+                    </notempty >
+                </div >
+                <div class='row message_item_time' style='color:#CCCCCC;' >
+                    {$vo.create_time|date="Y-m-d H:i:s",###}
+                </div >
+            </div >
+        </volist >
+
+    </div >
+
+</section >
+<style >
+    .container {
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    .message_item {
+        padding: 5px;
+        margin: 3px 0;
+        border-bottom: 1px solid #CCCCCC;
+    }
+
+    .message_item .row {
+        width: 100%;
+        padding: 2px;
+        margin: 0;
+    }
+
+    .message_item_time {
+        font-size: 12px;
+    }
+</style >
+<script >
+
+</script >
+
+<mobiletpl file="footer" />

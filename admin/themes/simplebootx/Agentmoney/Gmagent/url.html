@@ -1,0 +1,25 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th >游戏</th >
+                <th >下载链接</th >
+            </tr >
+            </thead >
+            <foreach name="url" item="vo" >
+                <tr >
+                    <td >{$games[$vo["app_id"]]}</td >
+                    <td >{:DOWNSITE}{$vo.url}</td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$page}</div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

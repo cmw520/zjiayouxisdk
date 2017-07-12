@@ -1,0 +1,74 @@
+﻿<admintpl file="header" />
+</head>
+<body >
+<!--
+ @time 2017-01-23 11:20:05
+ @author 严旭
+-->
+    <div class="wrap js-check-wrap" >
+        <ul class="nav nav-tabs" >
+            <li class="active" ><a href="{:U('Newapp/IntegralActivity/index')}" >{$admin_module_name}</a ></li >
+            <!--<li ><a href="{:U('Newapp/IntegralActivity/add')}" >添加</a ></li >-->
+        </ul >
+        <form class="well form-search" method="get" id="cid-form" action="__SELF__" >
+            <div class="search_type cc mb10" >
+                <div class="mb10" >
+                    <span class="mr20" >
+                        活动名称：
+                        <input type='text' name='act_name' value='{$formget.act_name}' />
+                        <button class='btn btn-primary' >搜索</button >
+                    </span >
+                    
+                </div >
+            </div >
+        </form >
+        <form class="js-ajax-form" method="post" >
+            <div class="table-actions" >
+                
+            </div >
+
+            <table class="table table-hover table-bordered table-list" >
+                <thead >
+                    <tr >
+                        <th >活动代号</th >
+                        <th >活动名称</th >
+                        <th >可获得积分</th >
+                        <th >活动开始时间</th >
+                        <th >活动结束时间</th >
+                        <th >是否限制渠道</th >
+                        <th >限制次数</th >
+                        <th >操作</th >
+                    </tr >
+                </thead >
+                <volist name="items" id="vo" >
+                    <tr >
+                        <td >{$vo.act_code}</td >
+                        <td >{$vo.act_name}</td >
+                        <td >{$vo.give_integral}</td >
+                        <td >{$vo.start_time}</td >
+                        <td >{$vo.end_time}</td >
+                        <td >{$vo.limit_agent_txt}</td >
+                        <td >{$vo.limit_cnt}</td >
+                        <td >
+                            <neq name="vo['act_code']" value="sign" >
+                                 <a href="{:U('Newapp/IntegralActivity/edit',array('id'=>$vo['id']))}" >编辑</a >
+                                <else />
+                                 <a href="{:U('Newapp/SignReword/index')}" >编辑</a >
+                            </neq >
+
+                            <!-- |
+                             <a href="{:U('Newapp/IntegralActivity/delete',array('id'=>$vo['id']))}"
+                                class="js-ajax-delete" >删除</a >-->
+                        </td >
+                    </tr >
+                </volist >
+            </table >
+            <div class="pagination" >{$page}</div >
+        </form >
+    </div >
+    <script src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+
+</body >
+</html>
+

@@ -1,0 +1,87 @@
+<agenttpl file="user_center_header" />
+<style type="text/css" >
+    .cuttitle {
+        display: inline-block;;
+        *display: inline;
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .apply-for-game .page .game-num {
+        margin-left: 30px;
+    }
+
+    .table-content {
+        position: relative;
+    }
+
+    .footer {
+        transform: translateY(100px)
+    }
+
+    .apply-for-game .table-content table tr td {
+        vertical-align: middle
+    }
+
+    .search-results .table-content table tr th {
+        line-height: 46px;
+        font-size: 12px;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right" >
+                <div class="need_info_notice" >
+                    <p style="color:#00AAEE;" >完善资料并审核通过后才能申请游戏、提现、充值</p >
+                    <p >
+                        <button onclick="location.href='{:U('Agent/ucenter/tovip')}'"
+                                href="{:U('Agent/ucenter/tovip')}" >查看资料和审核进度</buttton>
+                    <p >
+                </div >
+                <style >
+                    .need_info_notice {
+                        width: 100%;
+                        padding: 100px 0;
+                        text-align: center;
+                        font-size: 20px;
+                        height: 300px;
+                        font-family: Serif;
+                    }
+
+                    .need_info_notice p {
+                        font-size: 20px;
+                        margin: 30px 0;
+                    }
+
+                    .need_info_notice button {
+
+                        padding: 5px;
+                        font-size: 20px;
+                        margin: 0 0 0 20px;
+                        height: 35px;
+                        line-height: 20px;
+                    }
+                </style >
+            </div >
+        </div >
+    </div >
+</section >
+
+<link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+
+<agenttpl file="user_center_footer" />
+
+
+
+
+

@@ -1,0 +1,237 @@
+﻿<admintpl file="header" />
+<link href="/public/css/select2.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/js/select2.min.js" ></script >
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap jj" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Gmagent/chargeSub')}" >给玩家充值平台币</a ></li >
+    </ul >
+    <div class="common-form" >
+        <form id="theform" method="post" class="form-horizontal" action="{:U('Gmagent/chargeMember_post')}" >
+            <fieldset >
+                <div class="control-group" >
+                    <label class="control-label" >您的当前余额:</label >
+                    <div class="controls" >{$balance}</div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >请选择玩家账号:</label >
+                    <div class="controls" >
+                        <select class="select_2 js-example-basic-single" name="mid" id="select_member" >
+                            <option value="-1" >全部</option >
+                            <volist name="members" id="vo" key="k" >
+                                <option value="{$vo.id}" >{$vo.username}</option >
+                            </volist >
+                        </select >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >请选择游戏:</label >
+                    <div class="controls" >
+                        <select class="select_2 js-example-basic-single" name="gid" id="select_game" >
+                            <option value="-1" >全部</option >
+                            <volist name="games" id="vo" key="k" >
+                                <option data-rate="{$vo.agent_rate}" value="{$vo.app_id}" >{$vo.gamename}</option >
+                            </volist >
+                        </select >
+                    </div >
+                </div >
+
+                <div class="control-group" >
+                    <label class="control-label" >充值金额:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="amount" id="amount" value="" autocomplete="off" >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >折扣:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="rate" disabled="disabled" value="" >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >支付金额:</label >
+                    <div class="controls" >
+                        <input type="text" class="input" name="realpay" disabled="disabled" value="" >
+                        <span id="ch_num" ></span >
+                    </div >
+                </div >
+                <div class="control-group" >
+                    <label class="control-label" >支付密码:</label >
+                    <div class="controls" >
+                        <input type="password" class="input" name="paypwd" id="paypwd" value="" autocomplete="off" >
+                    </div >
+                </div >
+                <div id="notice" ></div >
+            </fieldset >
+            <div class="form-actions" >
+                <button type="submit" class="btn btn-primary btn_submit" >确认</button >
+            </div >
+        </form >
+    </div >
+</div >
+<style >
+    #ch_num {
+        font-size: 18px;
+        margin: 0 0 0 5px;
+        color: red;
+    }
+
+    #notice {
+        /*display:none;*/
+        width: 100%;
+        height: 20px;
+        float: left;
+        margin-left: 200px;
+    }
+
+    input:disabled {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #CCCCCC;
+        color: blue;
+    }
+
+</style >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    $(".js-example-basic-single").select2();
+
+    function precision2(rate) {
+        return Math.round(100 * rate) / 100;
+    }
+
+    function show_notice(msg, color) {
+        $("#notice").text(msg);
+        $("#notice").css("color", color);
+    }
+
+    var balance_now = {$balance};
+    //            var amount=$("#amount").val();
+
+    var mid     = - 1;
+    var gid     = - 1;
+    var rate    = - 1;
+    var realpay = - 1;
+    var amount  = - 1;
+
+    function updateAll() {
+        amount = $("input[name='amount']").val();
+        if (amount < 0) {
+            show_notice("充值金额必须大于0", "red");
+            return;
+        } else {
+            show_notice("", "red");
+        }
+        rate = $("#select_game").find("option:selected").attr("data-rate");
+
+        realpay = precision2(amount * rate);
+        rate    = precision2(rate);
+        gid     = $("#select_game").val();
+        mid     = $("#select_member").val();
+    }
+
+    function setRealpay() {
+        amount = $("input[name='amount']").val();
+        if (amount < 0) {
+            show_notice("充值金额必须大于0", "red");
+            return;
+        } else {
+            show_notice("", "red");
+        }
+        rate = $("#select_game").find("option:selected").attr("data-rate");
+
+        realpay = precision2(amount * rate);
+        rate    = precision2(rate);
+        $("input[name='realpay']").val(realpay);
+
+        txt = jqNumToMoney(realpay);
+        $("#ch_num").text(txt);
+    }
+
+    $("#amount").keyup(function () {
+        setRealpay();
+        amount = $("input[name='amount']").val();
+    });
+
+    $("#select_game").change(function () {
+        gid  = $("#select_game").val();
+        rate = $("#select_game").find("option:selected").attr("data-rate");
+        rate = precision2(rate);
+        $("input[name='rate']").val(rate);
+        setRealpay();
+
+    });
+
+    $("#select_member").change(function () {
+        mid = $("#select_member").val();
+    });
+
+    $(".btn_submit").click(function (e) {
+        e.preventDefault();
+        updateAll();
+        show_notice("", "red");
+        if ((mid == - 1) || (gid == - 1) || (rate == - 1) || (realpay == - 1) || (amount == - 1)) {
+//        yxalert("所有参数不能为空");
+            show_notice("所有参数不能为空", "red");
+            return;
+//        alert(mid+" "+gid+" "+rate+" "+realpay+" "+amount+" ");
+        }
+
+        if (amount <= 0) {
+            show_notice("充值金额必须大于0", "red");
+            return;
+        }
+
+        if (realpay > balance_now) {
+//        yxalert("余额不足，请充值");
+            show_notice("余额不足，请充值", "red");
+            return;
+        }
+
+        var paypwd = $("#paypwd").val();
+        if ($.trim(paypwd) === '') {
+//        yxalert("请填写支付密码");
+            show_notice("请填写支付密码", "red");
+            return;
+        }
+        show_notice("", "green");
+        $("#theform").submit();
+    });
+
+    //		$("#username").change(function(){
+    //                    var name=$("#username").val();
+    //
+    //                    $.post("{:U('Agentmoney/Gmagent/getBalance_post')}",{"name":name},function(data){
+    //                        $("#balance").val(data.msg);
+    //                    });
+    //                });
+
+    function jqNumToMoney(n) {
+        if (isNaN(n)) {
+            return '--';
+        }
+        var fraction = ['角', '分'];
+        var digit    = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
+        var unit     = [['元', '万', '亿'], ['', '拾', '佰', '仟']];
+        var head     = n < 0 ? '欠' : '';
+        n            = Math.abs(n);
+        var s        = '';
+        for (var i = 0; i < fraction.length; i ++) {
+            s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
+        }
+        s = s || '整';
+        n = Math.floor(n);
+        for (var i = 0; i < unit[0].length && n > 0; i ++) {
+            var p = '';
+            for (var j = 0; j < unit[1].length && n > 0; j ++) {
+                p = digit[n % 10] + unit[1][j] + p;
+                n = Math.floor(n / 10);
+            }
+            s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s;
+        }
+        return head + s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整');
+    }
+
+</script >
+</body >
+</html>

@@ -1,0 +1,46 @@
+<script src="__PUBLIC__/select2/js/select2.min.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/select2/js/i18n/zh-CN.js" ></script >
+<script >
+    $(document).ready(function () {
+        $("select").select2({
+            language: "zh-CN"
+        });
+    });
+</script >
+
+<style >
+    .charge_for_sub_div .row {
+        margin: 20px 0;
+    }
+</style >
+
+<div class="container charge_for_sub_div" style="width:300px;float:left;margin-left:40px;margin-top:30px;" >
+    <div class="row" >
+        <div class="input-group" >
+            <span class="input-group-addon" >下级渠道</span >
+            <select class="form-control" >
+                <volist name="subagents" id="vo" >
+                    <option value="{$vo.user_login}" >{$vo.user_login}</option >
+                </volist >
+            </select >
+        </div >
+    </div >
+    <div class="row" >
+        <div class="input-group" >
+            <span class="input-group-addon" >充值金额</span >
+            <input class="form-control" id="cfs_amount" type="text" autocomplete="off" />
+        </div >
+    </div >
+    <div class="row" >
+        <div class="input-group" >
+            <span class="input-group-addon" >支付密码</span >
+            <input class="form-control" id="paypwd2" type="password" autocomplete="off" />
+        </div >
+    </div >
+    <div class="row" >
+        <div class="col-md-3 col-md-offset-3" >
+            <button class="btn btn-success confirm-prepaid" id="charge_for_sub" >确认充值</button >
+        </div >
+
+    </div >
+</div >

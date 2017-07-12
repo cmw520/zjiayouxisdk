@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1" />
+    <meta charset="UTF-8" >
+    <title >充值失败</title >
+
+</head >
+<body >
+<header class="header" >
+    <ul class="main_layout" >
+        <li class="back_btn" ><img src="img/arrow_l.png" alt="" /></li >
+        <li class="text" >充值失败</li >
+        <li class="close_btn" ><img src="img/closebtn.png" alt="" /></li >
+    </ul >
+</header >
+
+<div class="show_infoimg" >
+    <div class="top" >
+        <img src="icon/icon_err.png" alt="" />
+        <p >交易失败</p >
+    </div >
+</div >
+<div class="recharge_money" >
+    <p >充值金额:<i >78.5</i >元</p >
+    <p >订单号:<span >Y20160854124015412DES</span ></p >
+
+</div >
+<div class="confim_change" >
+    <button >确认</button >
+</div >
+<footer >
+    <p class="time" >
+        <notempty name="contactdata['qqgroup']" >
+            客服QQ群：<a
+                onclick="huosdk_openqqgroup('{$contactdata['qqgroup']}','{$contactdata['qqgroupkey']}');" >{$contactdata['qqgroup']}</a >
+        </notempty >
+        <notempty name="contactdata['qqgroup']" >
+            {$contactdata['qq']}
+        </notempty >
+    </p >
+</footer >
+<div class="main_model_box" ></div >
+</body >
+<script src="js/jquery.js" ></script >
+<script src="js/public.js" ></script >
+<script src="js/recharge.js" ></script >
+</html >

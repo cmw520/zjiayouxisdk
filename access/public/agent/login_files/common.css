@@ -1,0 +1,150 @@
+﻿@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,dl,dt,dd,ul,ol,li,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif,"微软雅黑";}
+body{background: #f5f5f5;color:#404040;font-family: "微软雅黑";}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+em,i,b{font-style:normal;font-weight:400;}
+fieldset,img{border:0;}
+ul,ol,li{list-style:none;}
+button,input,select,textarea{font-size:100%;outline:none}
+textarea{resize:none;}
+table{border-collapse:collapse;border-spacing:0;}
+a:link, a:visited{text-decoration:none;outline:none;}
+a:hover{color:#06c;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{zoom:1;}
+.clear{clear:both;display:block;height:0;overflow:hidden;font-size:0;}
+.hide{display:none;}
+img.err-product{background:url(http://pic.7881.com/7881/common/images/loading.gif) no-repeat 50% 50%;}
+.wrapper{width:990px;min-width:990px;margin:0 auto;}
+.l{float:left;}
+.r{float:right;}
+.mt10{margin-top:10px!important;}
+.mb10{margin-bottom:10px!important;}
+.ml10{margin-left:10px!important;}
+.w1190{width:1190px;margin:0 auto 10px;min-width:1190px;}
+.w990{width:990px;margin:0 auto;min-width:990px;}
+.w980{width:980px;margin:0 auto;min-width:980px;}
+/*************页眉***************/
+.page-title{width: 100%;height: 40px;background: #fafafa;border-bottom: 1px solid #d9d9d9;}
+.page-title .title-content{width: 1200px;height: 100%;margin: 0 auto;line-height: 40px;color: #666666;}
+.page-title .title-content ul{float:right;}
+.page-title .title-content ul li{float:left;height: 40px;line-height: 40px;font-size: 12px;}
+.page-title .title-content ul li.log-out{margin-left: 4px;cursor: pointer;}
+.page-title .title-content ul li.log-out:hover{color:#3366cc}
+.page-title .title-content ul li.mes-tip { height: 18px; line-height: 18px; margin: 0 6px; padding:0 10px; margin-top: 12px; border-right: #dddddd 1px solid; border-left: #dddddd 1px solid;}
+.page-title .title-content ul li.mes-tip em { display: inline-block; *display: inline; *zoom:1; width: 10px; height: 8px; margin-top: -2px; margin-right: 6px; vertical-align: middle; background: url(http://pic.7881.com/51508-2015/css/images/message-icon.png) no-repeat;}
+.page-title .title-content ul li.mes-tip.off em { background-position:-12px 0;}
+.page-title .title-content ul li.mes-tip i { color: #ff6600;}
+.page-title .title-content ul li.mes-tip.off i { color: #666;}
+/*************header***************/
+.page-header{width: 100%;height: 100px;background:#FFFFFF;box-shadow:0px 2px 4px #dcdcdc;-moz-box-shadow:0px 2px 4px #dcdcdc;-webkit-box-shadow:0px 2px 4px #dcdcdc;}
+.page-header .header-content{width: 1200px;height: 100px;margin: 0 auto;background-position: left center;background-repeat: no-repeat;}
+.page-header .header-content .tab ul{float: right;}
+.page-header .header-content .tab ul li{float: left;height: 97px;width: 124px;text-align: center;font-size: 18px;color:#494949;line-height: 100px;cursor: pointer;margin-left: 4px;}
+.page-header .header-content .tab ul li:hover{color:#008be3}
+.page-header .header-content .tab ul li.on{color:#008be3;border-bottom:4px solid #008be3;}
+.page-header .header-content .tab span{float:left;margin:62px 0 0 165px;color:#333333;}
+
+/*************通用栏广告位***************/
+.page-advertising{width: 1200px;height: 120px;margin: 20px auto 20px auto;position: relative;}
+.page-advertising .bd ul li{width: 1200px;height: 120px;}
+.page-advertising .bd ul li img{width: 1200px;height: 120px;}
+.hd ul{float:right;overflow: hidden;}
+.hd{position: absolute;right: 8px;top:100px;z-index: 1000;}
+.hd ul li{float:left;height:10px;width: 10px;border-radius:50%;background: #008be3;margin-left: 6px;}
+.hd ul li.on{background: #FFFFFF;border: 1px solid #008be3;height:9px;width: 9px;}
+
+/*************左侧导航栏***************/
+.page-content{width: 1200px;margin: 0 auto;display: table;}
+.page-left{float: left;width: 190px;*height: 770px;background: #FFFFFF;-moz-box-shadow:2px 2px 4px #dcdcdc;-webkit-box-shadow:2px 2px 4px #dcdcdc;box-shadow:2px 2px 4px #dcdcdc;}
+.page-left .left-content{width: 162px;margin-left: 28px; padding-bottom: 10px;}
+.page-left .left-content ul li{color: #666666;cursor: pointer;}
+.page-left .left-content ul li span{font-size: 15px;font-weight: bold;margin-bottom: 22px;}
+.page-left .left-content ul li.resource-pack{margin-top: 32px;}
+.page-left .left-content ul li.user-management,.page-left .left-content ul li.channel-management,.page-left .left-content ul li.data-management,.page-left .left-content ul li.top-up-management{margin-top: 20px;}
+.page-left .left-content ul li.resource-pack span{background: url(http://pic.7881.com/51508-2015/css/images/resource-pack.png);background-position: left center;background-repeat: no-repeat;padding-left: 28px;}
+.page-left .left-content ul li ul li{margin-left: 28px;margin-bottom: 14px;}
+.page-left .left-content ul li ul li:hover{color:#008be3}
+.page-left .left-content ul li ul li.first{margin-top: 18px;}
+.page-left .left-content ul li ul li.on{font-weight: bold;color:#008be3}
+.page-left .left-content ul li.user-management span{background: url(http://pic.7881.com/51508-2015/css/images/user-management.png);background-position: left center;background-repeat: no-repeat;padding-left: 28px;}
+.page-left .left-content ul li.channel-management span{background: url(http://pic.7881.com/51508-2015/css/images/channel-management.png);background-position: left center;background-repeat: no-repeat;padding-left: 28px;}
+.page-left .left-content ul li.data-management span{background: url(http://pic.7881.com/51508-2015/css/images/data-management.png);background-position: left center;background-repeat: no-repeat;padding-left: 28px;}
+.page-left .left-content ul li.top-up-management span{background: url(http://pic.7881.com/51508-2015/css/images/top-up-management.png);background-position: left center;background-repeat: no-repeat;padding-left: 28px;}
+
+.page-left .left-content ul li.app-game-list span{background: url("http://pic.7881.com/51508-2015/css/images/app-game-list.png"); background-position: left center; background-repeat: no-repeat;    padding-left:28px; background-size:23px ; display:inline-block;* display: inline-block; *zoom: 1; height:23px; line-height: 23px; margin-bottom: 0;}
+
+/*************右侧主体区域***************/
+.page-right{float:right;width: 998px;border: 1px solid #e4e4e4;display: table;background: #ffffff;}
+.search-results .table-content table{color:#333333}
+.search-results .table-content table tr{border-bottom: 1px solid #f7f7f7;}
+.search-results .table-content table tr.even{background: #fefefe;}
+.search-results .table-content table tr:hover{background-color: #f7f7f7;}
+.search-results{width: 100%;min-height: 600px;}
+.search-results .results-header{width: 938px;height: 42px;margin: 0 auto;line-height: 42px;}
+.search-results .results-header span{color:#aaaaaa;}
+.search-results .results-header span i{margin: 0 8px;}
+.search-results .results-header .each-page-num div{background:url(http://pic.7881.com/51508-2015/css/images/input-arrow-down.png);background-repeat: no-repeat;background-position:66px center;cursor:pointer;}
+.search-results .results-header .each-page-num div.up{background:url(http://pic.7881.com/51508-2015/css/images/input-arrow-up.png);background-repeat: no-repeat;background-position:66px center;cursor:pointer;}
+.search-results .results-header .each-page-num{width: 80px;padding-left: 6px;height: 30px;border: 1px solid #e4e4e4;line-height: 28px;*line-height: 28px;float: right;margin-top: 5px;}
+.search-results .results-header .each-page-num{position:relative;*margin-top: -37px;}
+.search-results .results-header .each-page-num ul{display: none;position: absolute;left: -1px;top:30px;border:1px solid #e4e4e4;width: 86px;background: #FFFFFF;}
+.search-results .results-header .each-page-num ul li{height: 30px;text-align: center;cursor: pointer;}
+.search-results .results-header .each-page-num ul li:hover{background: #a0e4ff;}
+.search-results .table-content table tr th{height:46px;border-bottom: 2px solid #008be3;border-top: 1px solid #008be3;background: #a0e4ff;text-align: center;}
+.search-results .table-content table tr th.game-name-th{padding-left: 20px;}
+.search-results .table-content table tr td{height: 50px;text-align: center;}
+.search-results .table-content table tr td.game-size{text-align: right;padding-right: 24px;}
+.search-results .table-content table{width: 938px;margin: 0 auto;}
+
+/*************图形验证码弹窗***************/
+.img-code-pop{width: 420px;height: 224px;background: #FFFFFF;position: absolute;display: none;z-index: 999999;}
+.img-code-pop #header{height: 47px;border-bottom: 1px solid #e4e4e4;line-height: 47px;}
+.img-code-pop #header img{float:right;margin-top: 16px;margin-right: 20px;cursor: pointer;}
+.img-code-pop #header span{margin-left: 20px;color: #666666;font-weight: bold;float:left}
+.img-code-pop #img-code-content{width: 242px;margin: 42px auto 0 auto;display: table;}
+.img-code-pop #img-code-content input,#img-code-content #code-img{float:left;border: 1px solid #e4e4e4;height: 30px;}
+.img-code-pop #img-code-content input{line-height: 30px;width: 144px;padding-left: 6px;}
+.img-code-pop #img-code-content #code-img{width: 76px;margin-left: 10px;cursor: pointer;}
+.img-code-pop #img-code-content #btn{width: 100px;height: 30px;margin: 60px auto 0 auto;color:#FFFFFF;background: #008be3;line-height: 30px;text-align: center;cursor: pointer;}
+.img-code-pop #img-code-content #btn:hover{background: #f44b00;}
+
+/*************分页***************/
+.page{width: 100%;height: 98px;background: #FFFFFF;}
+.page .game-num{margin-left: 30px;color:#aaaaaa;margin-top: 40px;float:left}
+.page .paging{float:right;height: 28px;float:right;margin-top: 34px;margin-right:20px;}
+.paging ul li{float:left;height: 26px;border:1px solid #e4e4e4;margin-right: 10px;line-height: 26px;padding: 0 10px;cursor: pointer;color: #666666;}
+.paging ul li.point{cursor:inherit;border: none;}
+.paging ul li input{vertical-align: middle;width: 22px;border: 1px solid #e4e4e4;height: 26px;margin: 0 6px;padding-left: 4px;}
+.paging ul li.input-page{border: none;margin-right: -2px;}
+.paging ul li.end-page{margin-right: -2px;}
+.paging ul li.confirm,.paging ul li.now-num{background: #008be3;color: #FFFFFF;border: 1px solid #008be3;}
+.paging ul li.confirm:hover{background-color: #f44b00;}
+.page .previous-page{background: url(http://pic.7881.com/51508-2015/css/images/page-left.png);background-repeat: no-repeat;background-position: center;width: 10px;}
+.page .next-page{background: url(http://pic.7881.com/51508-2015/css/images/page-right.png);background-repeat: no-repeat;background-position: center;width: 10px;}
+
+/*************页脚***************/
+.page-footer{width: 100%;height: 140px;background: #1e1b29;margin-top: 40px;}
+.page-footer .footer-content{height: 140px;width: 1200px;margin:0 auto ;color: #ebebec; background:#1e1b29!important;font-size: 14px;text-align: center;}
+.page-footer .footer-content ul li{COLOR:#EBEBEC;font-size:15px;width: 124px;height: 18px;float:left;margin-top: 46px;border-right: 2px solid #312e3d;text-align: center;line-height: 14px;cursor: pointer;}
+.page-footer .footer-content ul li:hover{color:#008be3}
+.page-footer .footer-content ul {margin: 0 auto;height: 40px;}
+.page-footer .footer-content ul li.liebao{margin-left: 354px;}
+.page-footer .footer-content ul li.help-center{border-right: none;}
+.copyright{float:left;margin-top: 24px;*margin-top: 42px;color: #898890;font-size: 12px;width: 100%;text-align: center;}
+.copyright a{color: #898890;  text-decoration: none;}
+/*************弹出层***************/
+.layui-layer { border-radius: 4px!important;}
+.layui-layer-title { font-size: 16px!important; color: #666!important; height: 46px!important; line-height: 46px!important; border-radius: 4px 4px 0 0!important;}
+.pop-btn-box { text-align: center; margin-top: 26px; padding-bottom: 20px;}
+.pop-btn-box a { display: inline-block;  *display: inline; *zoom:1; width:150px; height: 38px; line-height: 38px; margin: 0 6px; font-size: 16px; border-radius: 3px; text-align: center;}
+.pop-btn-box a.btn-01 { background: #008be3; color: #fff; border: #008be3 1px solid; position: static!important;}
+.pop-btn-box a.btn-02 { background: #fbfbfb; color: #008be3; border: #ededed 1px solid; position: static!important;}
+
+/************8玩顶部**************/
+.top-8wan{height: 40px; line-height: 40px; background: #fafafa; border-bottom: 2px solid #dadada; font-family: simsun;}
+.top-8wan .w1200{ width: 1200px; margin: 0 auto;}
+.top-8wan .w1200 p a{ color: #666;}
+.top-8wan .w1200 p a:hover{color:#008be3;}
+.top-8wan .w1200 p i{color:#008be3;}

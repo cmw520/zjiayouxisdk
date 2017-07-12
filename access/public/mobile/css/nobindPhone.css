@@ -1,0 +1,145 @@
+@import "public.css";
+@import "bottom.css";
+
+.notBind > .title {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.notBind > .title > span {
+    color: #FF0000;
+}
+
+.notBind > .img {
+    width: 65px;
+    height: 90px;
+    margin: 40px auto;
+}
+
+.notBind > .img > img {
+    width: 100%;
+}
+
+.notBind > .email {
+    width: 130px;
+    height: 90px;
+    margin: 40px auto;
+}
+
+.notBind > .email > img {
+    width: 100%;
+}
+
+footer > .getCode {
+    padding: 13px 20px;
+}
+
+footer > .getCode > div {
+    border: 1px solid #AAAAAA;
+    height: 40px;
+}
+
+footer > .getCode > div > input {
+    width: 60%;
+    height: 100%;
+    padding: 0px;
+    border: none;
+    float: left;
+    text-indent: 15px;
+}
+
+footer > .getCode > div > button {
+    width: 40%;
+    height: 100%;
+    border: none;
+    background-color: #FFFFFF;
+    border-left: 1px solid #DDDDDD;
+}
+
+footer > .error_box {
+    display: none;
+    text-align: center;
+    color: #FF0000;
+    font-size: 14px;
+}
+
+footer > .tishi {
+    text-align: center;
+}
+
+footer > .tishi > span {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #AEAEAE;
+}
+
+footer > .tishi > span > a {
+    color: #0DC5FA;
+}
+
+/*已绑定的手机*/
+.show_phone > .phone {
+    width: 65px;
+    height: 90px;
+    margin: 40px auto;
+}
+
+.show_phone > .phone > img {
+    width: 100%;
+}
+
+.show_phone > .email {
+    width: 143px;
+    height: 90px;
+    margin: 40px auto;
+    margin-bottom: 50px;
+}
+
+.show_phone > .email > img {
+    width: 100%;
+}
+
+.show_phone > .binded {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 375px) {
+    .notBind > .title > span {
+        font-size: 16px;
+    }
+
+    footer > .getCode > div {
+        height: 50px;
+    }
+
+    footer > .getCode > div > input {
+        font-size: 16px;
+    }
+
+    footer > .getCode > div > button {
+        font-size: 16px;
+    }
+
+    footer > .error_box {
+        font-size: 16px;
+        display: none;
+    }
+
+    footer > .confim_change > button {
+        font-size: 16px;
+        height: 50px;
+    }
+
+    footer > .tishi > span {
+        font-size: 16px;
+    }
+
+    .show_phone > .binded {
+        font-size: 16px;
+    }
+
+    .show_phone > .confim_change > button {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,240 @@
+<style >
+    .center_left {
+        min-height: 200px;
+        /*padding-left:40px;*/
+    }
+
+    .top_funcs_div {
+        width: 100%;
+        background-color: #555555;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .top_funcs_div .row {
+        width: 1200px;
+        margin: 0 auto;
+
+    }
+
+    .top_funcs_div > .row > .col-md-2 {
+        width: 14.2%;
+    }
+
+    .top_funcs_div .row div {
+        /*                width:16.6%;
+                        float:left;*/
+        text-align: center;
+        font-size: 16px;
+        color: #FFFFFF;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+
+    .top_funcs_div .row div:hover {
+        background-color: #00AAEE;
+        color: #FFFFFF;
+    }
+
+    .top_funcs_div .row .active_func {
+        background-color: #00AAEE;
+        color: #FFFFFF;
+    }
+
+    .top_funcs_div .row span {
+        margin-left: 5px;
+    }
+
+    .center_left button {
+        width: 50%;
+    }
+
+    .center_left .row {
+        text-align: center;
+        border-bottom: 1px solid #F1F1F1;
+        margin: 0px 0 0px 0px;
+    }
+
+    .center_left .row[data-customestyle="no-bottom-border"] {
+
+        border-bottom: none;
+    }
+
+    .center_left .row a {
+        width: 180px;
+        float: left;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 10px;
+        font-size: 14px;
+    }
+
+    .center_left .row a:hover {
+        background-color: #00AAEE;
+        color: #FFFFFF;
+    }
+</style >
+
+<div class="container top_funcs_div" >
+    <div class="row" >
+        <div class="col-md-2" >
+            <em class="fa fa-newspaper-o normal" ></em ><span >首页</span >
+            <div style="display:none;" class="nav_sub_items" >
+                <div class='row' ><a href="{:U('Agent/news/getlist')}/type/4" class="" ><span >新闻公告</span ></a ></div >
+                 <!--<div class='row' ><a href="{:U('Agent/news/getlist')}/type/5" class="" >点位通知</a ></div >-->
+                <!--<div class='row' ><a href="{:U('Agent/news/getlist')}/type/6" class="" >游戏公告</a ></div >-->
+            </div >
+        </div >
+        <div class="col-md-2" >
+            <em class="fa fa-file normal" ></em ><span >资源管理</span >
+            <div style="display:none;" class="nav_sub_items" >
+                <div class='row' data-customestyle="no-bottom-border" style="padding:10px 0;" >
+                    <button class="btn btn-warning"
+                            onclick="location.href = '{:U('Agent/money/recharge_member')}'" >充值</button >
+                </div >
+
+                <?php
+                if(C("G_WITHDRAW_EN")){ 
+                ?>
+                <div class='row' data-customestyle="no-bottom-border" style="padding:10px 0;" >
+                    <button class="btn btn-info" onclick="location.href = '{:U('Agent/settle/index')}'" >提现</button >
+                </div >
+                <?php } ?>
+                <div class='row' id="Game_apply_game" ><a href="{:U('Agent/Game/apply_game')}" ><span >申请游戏</span ></a ></div >
+                <div class='row' id="Game_mygames" ><a href="{:U('Agent/Game/mygames')}" >我的游戏</a ></div >
+                <div class='row' id="Benefit_set" ><a href="{:U('Agent/Benefit/set')}" >我的优惠</a ></div >
+                <div class='row' id="Benefit_set_sub" ><a href="{:U('Agent/Benefit/set_sub')}" >子渠道优惠</a ></div >
+            </div >
+        </div >
+		
+		<div class="col-md-2" ><em class="fa fa-money normal" ></em ><span >{:C('CURRENCY_NAME')}管理</span >
+            <div style="display:none;" class="nav_sub_items" >
+                <div class='row' id="DataAgentForMem_all" ><a
+                        href="{:U('Agent/DataAgentForMem/all')}" ><span >给玩家充值记录</span ></a ></div >
+                <div class='row' id="DataPtbAgentForSub_index" ><a
+                        href="{:U('Agent/DataPtbAgentForSub/index')}" >子渠道发币记录</a ></div >
+                <div class='row' id="DataPtbAgentChargeRecords_index" ><a
+                        href="{:U('Agent/DataPtbAgentChargeRecords/index')}" >{:C('CURRENCY_NAME')}入账记录</a ></div >
+            </div >
+        </div >
+        
+        <div class="col-md-2" ><em class="fa fa-bar-chart normal" ></em ><span >数据中心</span >
+            <div style="display:none;" class="nav_sub_items" >
+                <div class='row' id="DataMemAccount_index" ><a
+                        href="{:U('Agent/DataMemAccount/index')}" ><span >玩家帐号明细</span ></a ></div >
+                <div class='row' id="DataMemCharge_index" ><a
+                        href="{:U('Agent/DataMemCharge/index')}" >玩家充值明细</a ></div >
+                <div class='row' id="DataReport_index" ><a href="{:U('Agent/DataReport/index')}" >统计报表</a ></div >
+            </div >
+        </div >
+        <div class="col-md-2" ><em class="fa fa-group normal" ></em ><span >渠道管理</span >
+            <div style="display:none;" class="nav_sub_items" >
+                <div class='row' id="Ucenter_subAgent" ><a
+                        href="{:U('Agent/Ucenter/subAgent')}" ><span >渠道列表</span ></a ></div >
+            </div >
+        </div >
+		
+		<div class="col-md-2" >
+            <em class="fa fa-sitemap normal" ></em ><span >推广中心</span >
+            <div style="display:none;" class="nav_sub_items" >
+                <div class='row' id="promote_plink" ><a
+                        href="{:U('Agent/promote/plink')}" ><span >推广链接</span ></a ></div >
+            </div >
+        </div >
+		
+        
+        <div class="col-md-2" ><em class="fa fa-gears normal" ></em ><span >账户管理</span >
+            <div style="display:none;" class="nav_sub_items" >
+                <div class='row' id="Ucenter_security" ><a
+                        href="{:U('Agent/Ucenter/security')}" ><span >安全中心</span ></a ></div >
+            </div >
+        </div >
+    </div >
+</div >
+
+<script >
+//    $(".top_funcs_div .row .col-md-2").hover(function(){
+//         set_side_nav(this);
+//    });
+$(".top_funcs_div .row .col-md-2").click(function () {
+    set_side_nav(this);
+
+});
+function set_side_nav(e) {
+
+    highlight_tab(e);
+    $(".center_left a.page_async_link").click(function (e) {
+        e.preventDefault();
+        var url = $(this).attr("href");
+        $.get(url, function (res) {
+//                    var right_content=$(res).find(".page-right");
+            var right_content = res;
+            $(".page-right").html(right_content);
+        });
+    });
+
+    //var first_link=$(".center_left .row").children("a").eq(0);
+    $(".center_left").children(".row").eq(0).children("a").children("span").click();
+    $(".center_left").children(".row").eq(0).children("button").click();
+    //$(".platName").click();
+    //console.log(first_link);
+    //setTimeout(function(){
+    //	$(".center_left .row").children("a").eq(0).click();
+    //
+    //},1000);
+}
+
+function highlight_tab(e) {
+    $(e).siblings().removeClass("active_func");
+    $(e).addClass("active_func");
+    var html = $(e).children(".nav_sub_items").html();
+    $(".center_left").html(html);
+}
+$(document).ready(function () {
+    var uri_base = "/agent.php";
+    var arr      = {
+        "/Agent/news/getlist/type/4": "0",
+        "/Agent/news/getlist/type/5": "0",
+        "/Agent/news/getlist/type/6": "0",
+
+        "/Agent/Game/apply_game": "1",
+        "/Agent/Game/mygames"   : "1",
+        "/Agent/Benefit/set"    : "1",
+        "/Agent/Benefit/set_sub": "1",
+
+        "/Agent/DataAgentForMem/all"            : "2",
+        "/Agent/DataPtbAgentForSub/index"       : "2",
+        "/Agent/DataPtbAgentChargeRecords/index": "2",
+
+        "/Agent/DataMemAccount/index": "3",
+        "/Agent/DataMemCharge/index" : "3",
+        "/Agent/DataReport/index"    : "3",
+
+        "/Agent/Ucenter/subAgent": "4",
+
+        "/Agent/promote/plink": "5",
+
+        "/Agent/Ucenter/security"    : "6",
+        "/Agent/UserProfile/index"   : "6",
+        "/Agent/ucenter/toEditPass"  : "6",
+        "/Agent/BindPhone/prev_none" : "6",
+        "/Agent/ucenter/toCipherCode": "6",
+
+    };
+
+    var path        = location.pathname;
+    var current_uri = path.replace(uri_base, "");
+    console.log(current_uri);
+    var num = arr[current_uri];
+    if (! arr[current_uri]) {
+        num = 1;
+    }
+    console.log(num);
+    var now_tab = $(".top_funcs_div .row .col-md-2").eq(num);
+    highlight_tab(now_tab);
+});
+$(".center_left").change(function () {
+
+});
+
+</script >

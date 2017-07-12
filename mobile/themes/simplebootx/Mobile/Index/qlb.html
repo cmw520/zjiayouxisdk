@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" >
+    <meta name="format-detection" content="telephone=no" >
+    <title >游戏礼包</title >
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1,minimal-ui" >
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/banner.css" >
+    <style type="text/css" >
+        /** 正在加载中 **/
+        .loading {
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            display: none;
+        }
+
+        .loading img {
+            vertical-align: middle;
+        }
+
+        .package_name {
+            display: block;
+            font-size: 12px;
+            color: #000000;
+            width: 195px;
+            overflow: hidden;
+            height: 14px
+        }
+
+        .gameicon {
+            border-radius: 7px;
+            width: 45px;
+            height: 45px;
+        }
+
+        .d-play {
+            position: absolute;
+            top: 142px;
+            left: 210px;
+            right: 0;
+            line-height: 26px;
+            background-color: #FCA218;
+            border-radius: 3px;
+            margin: 5px 15px 5px 5px;
+            width: 100px;
+            text-align: center;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+
+        .content {
+            position: relative;
+            width: 380px;
+        }
+
+        .box {
+            float: left;
+            width: 120px;
+            height: 200px;
+            margin-left: 5px;
+        }
+
+        .tab {
+            padding: 0 10px;
+            margin: 10px 0;
+        }
+
+        .ui-btns > .ui-btn {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            display: block;
+            border-radius: 0;
+            margin-right: -1px;
+        }
+
+        .ui-btns {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+
+        }
+
+        .ui-btn {
+            vertical-align: top;
+            text-decoration: none;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            border-style: solid;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 12px;
+            padding: 0 12px;
+            line-height: 30px;
+            min-width: 44px;
+            height: 30px;
+            border-width: 1px;
+            color: #90929A;
+            border-color: #C2C3CB;
+            background: transparent;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        .ui-btns > .ui-btn:first-child {
+            border-radius: 3px 0 0 3px;
+        }
+
+        .ui-btns > .ui-btn:last-child {
+            border-radius: 0 3px 3px 0;
+        }
+
+        .container.game .tab .ui-btn {
+            font-size: 12px;
+            height: 1.875rem;
+            line-height: 1.875rem;
+        }
+
+        .ui-btn[data-ui~=active][data-ui~=active] {
+            color: #FFFFFF;
+            border-color: #ADAEB9;
+            background: #ADAEB9;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        .progress-bar {
+            height: 3px;
+            width: 120px;
+            border: 1px solid #EAEDED;
+            border-radius: 5px;
+        }
+
+        .g-progress {
+            display: inline-block;
+        }
+
+        .progress-bar .progress-active {
+            background-color: #FCA218;
+            height: 5px;
+            border-radius: 5px;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
+
+        .g-rest {
+            display: inline-block;
+            vertical-align: sub;
+            margin-left: 10px;
+            color: #FCA218;
+            font-size: 12px;
+        }
+
+        .play-btn {
+            border: 1px solid #FCA218;
+            color: #FCA218;
+            margin-left: 3px;
+            font-size: 10px;
+            border-radius: 2px;
+            padding: 5px;
+            vertical-align: middle;
+            text-align: center;
+            display: inline-block;
+            width: 30px;
+        }
+
+        .tao-btn {
+            border: 1px solid #A7A7A7;
+            color: #A7A7A7;
+            margin-left: 3px;
+            font-size: 10px;
+            border-radius: 2px;
+            padding: 5px;
+            vertical-align: middle;
+            text-align: center;
+            display: inline-block;
+            width: 30px;
+        }
+
+        .noopen-btn {
+            border: 0px solid #A7A7A7;
+            color: #A7A7A7;
+            margin-left: 3px;
+            font-size: 10px;
+            border-radius: 2px;
+            padding: 5px;
+            vertical-align: middle;
+            text-align: center;
+            display: inline-block;
+            width: 40px;
+        }
+
+        .desc {
+            color: #999999;
+            width: 90%;
+            text-overflow: ellipsis;
+            height: 14px;
+            overflow: hidden;
+            font-size: 12px;
+            padding-top: 3px;
+
+        }
+
+        .getBox {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            z-index: 9999999;
+        }
+
+        .getBox > .msg_box {
+            width: 80%;
+            margin: 0px auto;
+            background-color: #FFFFFF;
+            margin-top: 40%;
+            box-sizing: border-box;
+            padding: 16px;
+            border-radius: 5px;
+        }
+
+        .getBox > .msg_box > .top > h3 {
+            margin-bottom: 16px;
+        }
+
+        .getBox > .msg_box > .top > p {
+            margin-bottom: 16px;
+            line-height: 16px;
+        }
+
+        .getBox > .msg_box > p {
+            margin-bottom: 16px;
+        }
+
+        .getBox > .msg_box > p > i {
+            color: #FF0000;
+            font-size: 14px;
+        }
+
+        .getBox > .msg_box > button {
+            float: right;
+            padding: 5px 10px;
+            background: none;
+            border: none;
+            color: #3AB839;
+        }
+
+        .getBox > .msg_box:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .getBox > .copy_box {
+            display: none;
+            background-color: #FFFFFF;
+            margin: 0px 20px;
+            margin-top: 60%;
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+    </style >
+    <style type="text/css" >
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .server .title {
+            height: 37px;
+            line-height: 37px;
+            width: 100%;
+            font-size: 15px;
+            color: #737373;
+            border-bottom: 2px solid rgb(232, 231, 231);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        ol, ul, li, dd, dl, dt {
+            list-style: none;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            color: #4C4C4C;
+        }
+
+        .server ul {
+            list-style: none;
+            padding: 0;
+            zoom: 1;
+        }
+
+        .server li {
+            position: relative;
+            padding: 8px 5px;
+            height: 48px;
+            background: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .server .mypos {
+            line-height: 60px;
+            cursor: pointer;
+            text-align: center;
+            text-shadow: 0 1px 1px #FFFFFF;
+            font-weight: bold;
+            color: #DF2D5F;
+        }
+
+        .gameicon {
+            width: 48px;
+            height: 48px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #FFFFFF;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        .gameinfo {
+            height: 48px;
+            width: 28%;
+            margin-top: 5px;
+            overflow: hidden;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .gamename {
+            color: #000000;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .gameicon {
+            font-size: 16px;
+            overflow: hidden;
+        }
+
+        .gamedesc {
+            font-size: 12px;
+            color: #BBBBBB;
+            overflow: hidden;
+        }
+
+        .gameicon a {
+            color: #FF4545;
+            text-decoration: none;
+        }
+
+        .servinfo {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: #777777;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .servtime {
+            color: rgb(231, 104, 75);
+        }
+
+        .servername {
+            font-size: 14px;
+        }
+
+        .serverdetail {
+            display: inline-block;
+            width: 30%;
+            text-align: -webkit-left;
+            vertical-align: top;
+            margin-top: 4px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .gamebtn {
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            color: #FF6600;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .gameka {
+            color: rgb(252, 162, 24);
+
+        }
+
+        .gamestart {
+            background-color: #FF6600;
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 2px;
+            font-weight: bold;
+        }
+
+        .packbtn {
+            width: 30%;
+        }
+
+        #serverlist {
+            display: none;
+            font-size: 14px;
+        }
+
+        .headlist {
+            height: 40px;
+            background-color: white;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: 99;
+        }
+
+        .headli {
+            float: left;
+            width: 33%;
+            vertical-align: middle;
+            text-align: center;
+            /* height: 2px; */
+            padding: 10px 0px 3px 0px;
+
+            border-bottom: 2px solid rgb(232, 231, 231);
+        }
+
+        .headli.on {
+            border-bottom: 2px solid red;
+            color: red;
+            font-weight: bold;
+        }
+    </style >
+    <script src="__PUBLIC__/wap/js/jquery-1.8.3.min.js" ></script >
+</head >
+<body style="margin: 0px auto; max-width: 640px;" >
+
+<script type="text/javascript" src="__PUBLIC__/wap/js/banner.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/wap/js/carousel.js" ></script >
+<div id="banner_ad" >
+    <div class="slider" >
+        <ul >
+            <volist name="lunbodata" id="vo" >
+                <li >
+                    <a href="{$vo.url}" target="_blank" >
+                        <img src="{$vo.img}" >
+                    </a >
+                </li >
+            </volist >
+        </ul >
+    </div >
+</div >
+<div id="fix_nav" >
+    <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"
+           style="background-color:rgb(238, 238, 238);" >
+        <tbody >
+        <tr height="3" id="nav_line" >
+            <td bgcolor="#cccccc" ></td >
+            <td bgcolor="#cccccc" ></td >
+            <td bgcolor="red" ></td >
+            <td bgcolor="#cccccc" ></td >
+        </tr >
+        <tr >
+            <!--id 改为 class-->
+            <td width="20%" onclick="window.location.href='{:U('Index/index')}'" align="center" >
+                <span class="menu_1_label" >网络热榜</span >
+            </td >
+            <td width="20%" onclick="window.location.href='{:U('Index/kfb')}'" align="center" >
+                <span class="menu_1_label" >开服表</span >
+            </td >
+            <td width="20%" class="active" onclick="window.location.href='{:U('Index/qlb')}'" align="center"
+                valign="middle" >
+                <span class="menu_1_label" >礼包</span >
+            </td >
+            <td width="20%" onclick="window.location.href='{:U('Index/wybl')}'" align="center" >
+                <span class="menu_1_label" >网友爆料</span >
+            </td >
+        </tr >
+        </tbody >
+    </table >
+</div >
+<div id="packageList" >
+    <volist name="giftdata" id="vo" >
+
+        <div >
+            <table border="0" cellspacing="0" cellpadding="0" width="95%" align="center" >
+                <tbody >
+                <tr >
+                    <td bgcolor="#ffffff" height="5" ></td >
+                </tr >
+                </tbody >
+            </table >
+            <table border="0" cellspacing="2" cellpadding="2" width="98%" align="center" >
+                <tbody >
+                <tr >
+                    <td width="10%"
+                        onclick="window.location.href='{:U('Index/game_detail',array('id'=>$vo[app_id]))}'" ><img
+                            src="{$vo.icon}" class="gameicon" ></td >
+                    <td width="75%"
+                        onclick="window.location.href='{:U('Index/game_detail',array('id'=>$vo[app_id]))}'" >
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%" align="center" >
+                            <tbody >
+                            <tr >
+                                <td onclick="window.location.href='{:U('Index/game_detail',array('id'=>$vo[app_id]))}'" >
+                                    <span class="package_name" >{$vo.name}：{$vo.title}</span ></td >
+                            </tr >
+                            <tr >
+                                <td >
+                                    <div class="desc" >{$vo.content}</div >
+                                </td >
+                            </tr >
+                            <tr >
+                                <td height="20" >
+                                    <div class="progress-bar g-progress" >
+                                        <div class="progress-active"
+                                             style="width: {$vo['remain']*100/$vo['total']|number_format=2}%;" ></div >
+                                    </div >
+                                    <span class="g-rest" >剩余{$vo['remain']*100/$vo['total']|number_format=2}%</span >
+                                </td >
+                            </tr >
+                            </tbody >
+                        </table >
+                    </td >
+                    <td width="15%" ><a class="play-btn" onclick="showCode({$vo['id']})" >领号</a ></td >
+                </tr >
+                </tbody >
+            </table >
+            <table border="0" cellspacing="0" cellpadding="0" width="95%" align="center" >
+                <tbody >
+                <tr >
+                    <td bgcolor="#ffffff" height="5" ></td >
+                </tr >
+                <tr >
+                    <td bgcolor="#eeeeee" height="1" ></td >
+                </tr >
+                </tbody >
+            </table >
+        </div >
+</div >
+</volist>
+<input id="website" type="hidden" value="{:U('Index/pcajax')}" >
+<div class="loading" >
+    <img src="__PUBLIC__/wap/images/loading.gif" >
+    正在努力加载 ..
+</div >
+
+<div style="height:50px;width:100%;" ></div >
+<div id="fix_footer"
+     style="border-top: 1px solid rgb(221, 221, 221); left: 0px; line-height: 80%; color: rgb(255, 255, 255); height: 50px; width: 100%; position: fixed; bottom: 0%; max-width: 640px; right: 0px; margin: auto; background-color: rgb(248, 248, 248);" >
+    <table width="100%" height="100%" border="0" >
+        <tbody >
+        <tr >
+            <td width="33%" onclick="window.location.href='{:U('Index/index')}'" align="center" >
+                <img style="filter:invert" src="__PUBLIC__/wap/images/nav_14_off.png" height="24" ><br >
+                <span id="menu_1_label" style="font-size:10.5px;color:#929292" >游戏</span >
+            </td >
+            <td width="33%" onclick="window.location.href='{:U('Index/qlb')}'" align="center" >
+                <img src="__PUBLIC__/wap/images/nav_17_on.png" height="24" ><br >
+                <span id="menu_3_label" style="font-size:10.5px;color:red" >礼包</span >
+            </td >
+            <td width="33%" onclick="window.location.href='{:U('Account/userinfo')}'" onclick="" align="center" >
+                <img src="__PUBLIC__/wap/images/nav_11_off.png" height="24" ><br >
+                <span id="menu_3_label" style="font-size:10.5px;color:#929292" >我</span >
+            </td >
+        </tr >
+        </tbody >
+    </table >
+    <div id="footer_badge_message"
+         style="position: absolute; left: 83%; top:3px; background: #FF0000; border-radius: 8px; color: #FFFFFF; padding: 2px 5px; font-family: SimHei; font-size: 12px; display: none;" ></div >
+</div >
+<div class="getBox" style="" >
+    <div class="msg_box" style="margin-top: 200px;" >
+        <div class="top" >
+            <h3 >领取成功</h3 >
+            <p >礼包领取成功，请领取号码后尽快激活使用，24小时后失效！</p >
+        </div >
+        <p >激活码：<i id="activeCode" ></i ></p >
+        <button class="close_btn" onclick="closeBox()" >关闭</button >
+    </div >
+</div >
+<script src="__PUBLIC__/wap/js/huosu_base.js" ></script >
+<script >
+    function showCode(infoid) {
+        var web    = $('#website').val();
+        var image  = $('#public').val();
+        var giftid = infoid;
+        $.ajax({
+            type   : 'POST',
+            url    : web,
+            data   : {giftid: giftid},
+            error  : function (d, t) {
+                alert('网络错误');
+            },
+            success: function (data) {
+                var resJson = $.parseJSON($.trim(data));
+                var code    = resJson.a;
+                if (code.length > 2) {
+                    $("#activeCode").html(code);
+                    $(".getBox").fadeIn();
+
+                } else if (code == 2) {
+                    alert('请先登录');
+                } else if (code == 3) {
+                    alert('亲，该礼包已被领取完了');
+                } else if (code == 1) {
+                    alert('该礼包您已领取');
+                }
+            }
+        });
+
+    }
+    function closeBox() {
+        $(".getBox").fadeOut();
+        window.location.reload();
+    }
+    function pi(el) {
+        return parseInt(el);
+    }
+    function setBannner() {
+        var proportion = pi($("#banner_ad .slider>ul>li>a>img:first-child").css("width")) / pi($("#banner_ad .slider>ul>li>a>img:first-child").css("height"));
+        $("#banner_ad .slider>ul>li").each(function () {
+            $(this).css({
+                "width" : $("body").css("width"),
+                "height": Math.floor(pi($("body").css("width")) / proportion) + "px"
+            });
+        });
+        $("#banner_ad").css("height", Math.floor(pi($("body").css("width")) / proportion) + "px");
+        $("#banner_ad .slider").css({
+            "width" : $("body").css("width"),
+            "height": Math.floor(pi($("body").css("width")) / proportion) + "px"
+        });
+        $("#banner_ad .slider>ul").css("width", pi($("#banner_ad .slider>ul>li").length) * pi($("body").css("width")));
+        $(".slider").yxMobileSlider({
+            width : pi($("body").css("width")),
+            height: Math.floor(pi($("body").css("width")) / proportion),
+            during: 5000
+        });
+    }
+    setBannner();
+    //滚动加载
+    function loadData() {
+        var totalheight = 0;     //定义一个总的高度变量
+        totalheight     = parseFloat($(window).height()) + parseFloat($(window).scrollTop());     //浏览器的高度加上滚动条的高度
+        if ($(document).height() <= totalheight)     //当文档的高度小于或者等于总的高度的时候，下载动态加载数据
+        {
+            //加载数据
+            sendData("1.php", {"page": 2}, function () {
+                console.log("正在努力加载数据中...");
+            })
+        }
+    }
+    $(document).scroll(function () {
+        loadData();
+    });
+</script >
+</body >
+</html >

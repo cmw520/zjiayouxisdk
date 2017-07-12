@@ -1,0 +1,99 @@
+<style >
+    #header {
+        height: 80px;
+        background-color: #FFFFFF;
+    }
+
+    #header .main {
+        margin-top: 0;
+    }
+
+    #header .item {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        text-align: left;
+        cursor: default;
+    }
+
+    #header .logo {
+        width: 100%;
+        height: 63px;
+        max-width: 188px;
+    }
+
+    #header .line {
+        height: 80px;
+        width: 1px;
+        margin-right: -1px;
+    }
+
+    #header .platName {
+        font-size: 20px;
+        height: 24px;
+        line-height: 24px;
+        margin-top: 3px;
+    }
+
+    #header .platUrl {
+        font-size: 16px;
+        height: 22px;
+        line-height: 22px;
+    }
+
+    #header .main {
+        width: 1200px;
+        margin: 0 auto 0 auto;
+    }
+
+    #header .main:after {
+        display: table;
+        content: " ";
+        clear: both;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+
+    #header .header_tabs a {
+        text-decoration: none;
+        /*color:#333;*/
+        /*font-size:14px;*/
+    }
+
+    #header .header_tabs a:hover {
+
+    }
+
+    #header .login_links a {
+        text-decoration: none;
+        color: green;
+    }
+</style >
+
+<header id="header" >
+    <div class="main" >
+        <span class="line item" ></span >
+        <img src="__PUBLIC__/agent/index2/logo.png" class="logo item" onclick='gotoindex();' style="cursor:pointer;" />
+        <div class="item" onclick='gotoindex();' style="cursor:pointer;" >
+            <p class="platName" ></p >
+            <p class="platUrl" >{:C('SDKSITE')}</p >
+        </div >
+        <div class="header_tabs" style="float:right;margin-top:30px;" >
+            <notempty name="user.user_login" >
+                <span class="label label-success"
+                      style="margin-right:20px;" >欢迎您：{$user.user_login} ( {$user.user_nicename} )</span >
+                <!--(ID：<b>{$user.id}</b>)-->
+                <!--<li class="center"><b></b><em></em><a href="#">消息</a><span> 25</span><b></b></li>-->
+                <a class="btn btn-link" href="{:U('Agent/money/recharge_member')}" style="margin-right:10px;" >个人中心</a >
+                <a class="btn btn-link" href="{:U('Front/Api/logout')}" style="margin-right:10px;color:red;" >退出登录</a >
+            </notempty >
+            <!--<a class="btn btn-link" href="/agent.php/Front/About/notice" >公告中心</a >-->
+        </div >
+    </div >
+</header >
+
+<script >
+    var indexurl = "{:U('Front/Index/index2')}";
+</script >
+<script src="__PUBLIC__/agent/js/share.js" ></script >

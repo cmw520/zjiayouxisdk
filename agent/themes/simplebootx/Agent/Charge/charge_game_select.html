@@ -1,0 +1,44 @@
+<div class="pop" id="pop1"
+     style="width: 1000px; height: 694px; position: absolute; display: none; z-index: 9999; background: rgb(255, 255, 255);" >
+    <form id="queryForm" action="{:U('agent/money/recharge')}" method="post" >
+        <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+        <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+        <div id="pop-header" >
+            <span >请选择游戏</span >
+        </div >
+        <div id="pop-content" >
+            <div id="content-header" >
+                <div >
+                    <span >搜索：</span ><input type="text" name="gamename" value="" >
+                    <div class="search-btn" >搜索</div >
+                </div >
+            </div >
+            <table width="900px" style="text-align:center;" >
+                <tbody >
+                <tr >
+                    <th width="280" >游戏ID</th >
+                    <th width="320" class="game-name" ><span >游戏名称</span ></th >
+                    <th width="150" >游戏图标</th >
+                    <!--  <th width="194">游戏类型</th>
+                    <th width="176">游戏来源</th>-->
+                </tr >
+                <volist name="games" id="vo" >
+                    <tr class="tr" discount="{$vo.agent_rate}" >
+                        <td class="game-id" width="280" ><span class="id" >{$vo.app_id}</span ></td >
+                        <td class="game-name" width="320" ><span class="name" >{$vo.gamename}</span ></td >
+                        <td width="150" style="margin-right: 20px" ><img src="{$vo.icon}" width="50" /></td >
+                    </tr >
+                </volist >
+                </tbody >
+            </table >
+            <div class="page" >
+                <div class="page" style="" >
+                    <span class="game-num" >
+                        共为您找到 {$total_count} 个游戏
+                    </span >
+                    <div class="paging" >{$Page}</div >
+                </div >
+            </div >
+        </div >
+    </form >
+</div >

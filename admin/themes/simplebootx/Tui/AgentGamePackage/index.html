@@ -1,0 +1,125 @@
+<admintpl file="header" />
+
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="#" target="_self" >渠道分包链接</a ></li >
+        <!--<li><a href="{:U('Agent/Agent/add')}" target="_self">添加渠道</a></li>-->
+    </ul >
+    <form class="well form-search" method="get" action='__SELF__' >
+        <div class="search_type cc mb10" >
+            <div class="mb10" >
+                    <span class="mr20" >
+                        游戏： 
+                        {$app_select}
+                        &nbsp;&nbsp;
+                        渠道名称:
+                        {$agent_select}
+                        <input type="submit" class="btn btn-primary" value="搜索" />
+                        
+                    </span >
+            </div >
+        </div >
+    </form >
+
+    <form class="js-ajax-form" action="" method="post" >
+        <table class="table table-hover table-bordered table-list" >
+            <thead >
+            <tr >
+                <th width="50" >分包时间</th >
+                <th width="50" >渠道名称</th >
+                <th width="50" >游戏</th >
+                <th width="50" >分包链接</th >
+                <th width="50" >操作</th >
+            </tr >
+            </thead >
+            <foreach name="items" item="vo" >
+                <tr >
+                    <td >{$vo.create_time|date="Y-m-d H:i:s",###}</td >
+                    <td >{$vo.agent_name}</td >
+                    <td >{$vo.game_name}</td >
+                    <td >
+                        {$vo.package_status_txt}
+
+                    </td >
+                    <td >
+                        <notempty name="vo.url" >
+                            <a class="btn btn-xs btn-success link_copy_btn" href="javascript:;"
+                               data-clipboard-text="{$vo.package_fp}" >复制链接</a >
+                            &nbsp;&nbsp;
+                            &nbsp;&nbsp;
+                        </notempty >
+                        <a class="btn btn-xs btn-info update_agurl_btn" href="javascript:;"
+                           data-agid="{$vo.id}" >更新</a >
+                        &nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                        <a class="btn btn-xs btn-danger delete_agurl_btn" href="javascript:;"
+                           data-agid="{$vo.id}" >删除</a >
+                    </td >
+                </tr >
+            </foreach >
+        </table >
+        <div class="pagination" >{$page}</div >
+    </form >
+    <div style="display:none;width:300px;text-align:center;font-size:20px;padding:20px;"
+         id="domessage" >审核并生成子包中，请稍等...
+    </div >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script src="__PUBLIC__/js/jquery.blockUI.min.js" ></script >
+
+<script src="__PUBLIC__/js/clipboard.min.js" ></script >
+<script src="__PUBLIC__/huoshu/clipboard.js" ></script >
+<script >
+
+    $(document).ajaxStop($.unblockUI);
+
+    function setpass(id) {
+        $.blockUI({message: $('#domessage')});
+        $.post("{:U('Tui/Game/pass')}", {"id": id}, function (data) {
+            if (data.status == '0') {
+                alert(data.info);
+            }
+            location.reload();
+        });
+    }
+
+    function setnotpass(id) {
+        $.post("{:U('Tui/Game/notpass')}", {"id": id}, function (data) {
+            if (data.error === '0') {
+                location.reload();
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+
+    $(".delete_agurl_btn").click(function () {
+        var agid = $(this).attr("data-agid");
+        var url  = "{:U('Tui/AgentGamePackage/delete')}";
+        $.post(url, {"agid": agid}, function (res) {
+            if (res.error === '0') {
+                yxalert(res.msg);
+                reload_delay();
+            } else if (res.error === '1') {
+                yxalert(res.msg);
+            }
+        });
+    });
+
+    $(".update_agurl_btn").click(function () {
+        var agid = $(this).attr("data-agid");
+        var url  = "{:U('Tui/AgentGamePackage/update')}";
+        $.post(url, {"agid": agid}, function (res) {
+            if (res.error === '0') {
+                yxalert(res.msg);
+                reload_delay();
+            } else if (res.error === '1') {
+                yxalert(res.msg);
+            }
+        });
+    });
+</script >
+</body >
+</html>

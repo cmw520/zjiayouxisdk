@@ -1,0 +1,230 @@
+#title_name {
+    position: absolute;
+    width: 90%;
+    height: auto;
+    color: #000000;
+    float: left;
+    font-size: 16px;
+    font-weight: 10px;
+    text-align: center;
+    font-family: "����";
+    padding-top: 5px;
+    padding-left: 5%;
+    padding-right: 5%;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+#title_date {
+    position: absolute;
+    width: 98%;
+    height: 20px;
+    color: #CCCCCC;
+    float: right;
+    font-size: 12px;
+    text-align: right;
+    font-family: "����";
+}
+
+#title_author {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    color: #CCCCCC;
+    font-size: 12px;
+    text-align: center;
+    font-family: "����";
+}
+
+#title_gamevisited {
+    position: absolute;
+    width: 98%;
+    height: 20px;
+    color: #CCCCCC;
+    font-size: 12px;
+    text-align: left;
+    font-family: "����";
+}
+
+.title_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    float: left;
+    top: 19px;
+    background-color: #CCCCCC;
+}
+
+.iframe_tail {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 20px;
+    background-color: #FFFFFF;
+    color: #CCCCCC;
+    font-size: 10px;
+    text-align: center;
+    font-famild: "����";
+    padding-top: 4px;
+}
+
+#main_title {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    float: left;
+    overflow: hidden;
+}
+
+.main_title_min {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    float: left;
+    top: 34px;
+}
+
+#main_ad {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    float: left;
+    background-color: #F0F0F0;
+}
+
+#ad_img {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 10px;
+    top: 10px;
+    border-radius: 10px;
+    background-color: #29AAE1;
+    background: #FFFFFF url(../img/null.jpg) center no-repeat;
+    background-size: cover;
+}
+
+#ad_name {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 10px;
+    text-align: left;
+    font-family: "microsoft YaHei";
+    top: 15px;
+    word-break: break-all;
+    word-wrap: break-word;
+    left: 80px;
+    z-index: 1000;
+}
+
+#ad_star {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 10px;
+    text-align: left;
+    font-family: "����";
+    top: 25px;
+    word-break: break-all;
+    word-wrap: break-word;
+    left: 80px;
+    z-index: 1000;
+}
+
+#ad_type {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 10px;
+    text-align: left;
+    font-family: "����";
+    top: 40px;
+    word-break: break-all;
+    word-wrap: break-word;
+    left: 75px;
+    z-index: 1000;
+}
+
+#ad_visited {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 10px;
+    text-align: left;
+    font-family: "����";
+    top: 55px;
+    word-break: break-all;
+    word-wrap: break-word;
+    left: 80px;
+    z-index: 1000;
+}
+
+#ad_button {
+    position: absolute;
+    width: 90px;
+    height: 24px;
+    float: right;
+    right: 10px;
+    top: 20px;
+    background-color: #29AAE1;
+    border: 1px solid #000000;
+    border-radius: 6px;
+}
+
+#ad_button_text {
+    position: absolute;
+    width: 60px;
+    height: 16px;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    font-family: "����";
+    top: 4px;
+    left: 15px;
+}
+
+#ad_button_cube {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3000;
+}
+
+.ad_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #CCCCCC;
+    top: 5px;
+}
+
+.ad_cube {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    top: 5px;
+    left: 0px;
+    background-color: #FFFFFF;
+}
+
+.a1 {
+    float: left;
+    width: 38px;
+}
+
+.a2 {
+    float: left;
+    width: calc(100% - 38px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

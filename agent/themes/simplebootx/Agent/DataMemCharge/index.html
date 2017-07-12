@@ -1,0 +1,209 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <style >
+                #queryForm .row {
+                    margin: 10px 0;
+                    width: 960px;
+                }
+
+                #queryForm .row input {
+                    /*width:150px;*/
+                }
+
+                #queryForm .row:first-child input {
+                    width: 120px;
+                }
+
+                #queryForm .row select {
+                    width: 120px;
+                }
+
+                .custom_class .layui-layer-content {
+                    background-color: #FFFFFF;
+                    color: #333333;
+                }
+
+                #payway_tips {
+                    cursor: pointer;
+                    font-size: 18px;
+                    margin-left: 20px;
+                }
+
+                #pay_tips {
+                    cursor: pointer;
+                    font-size: 18px;
+                    margin-left: 20px;
+                }
+            </style >
+
+            <div class="page-right my-game query-records" >
+                <form class="form-inline" role="form" id="queryForm" action="{:U('Agent/DataMemCharge/index')}"
+                      method="get" >
+                    <div class="input-content" style="height:120px;" >
+                        <div class="container " style="width:960px;" >
+                            <div class="row" >
+                                <div class="col-xs-3" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >玩家账号</span >
+                                        <input type="text" class="form-control" name="mem_name"
+                                               value="{$formget.mem_name}" />
+                                    </div >
+                                </div >
+                                <div class="col-xs-3" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >充值游戏    </span >
+                                        <input type="text" class="form-control" name="game_name"
+                                               value="{$formget.game_name}" />
+                                    </div >
+                                </div >
+                                <div class="col-xs-3" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >渠道名称</span >
+                                        <input type="text" class="form-control" name="agent_name"
+                                               value="{$formget.agent_name}" />
+                                    </div >
+                                </div >
+                                <div class="col-xs-3" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >订单号</span >
+                                        <input type="text" class="form-control" name="order_id"
+                                               value="{$formget.order_id}" />
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="row" >
+                                <div class="col-xs-3" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >充值方式</span >
+                                        <select name='payway' class='form-control' >
+                                            <php >$pw0_select="0"==$formget['payway'] ?"selected":"";</php >
+                                                <option value='0' {$pw0_select} >全部</option >
+                                            <php >$pw1_select="1"==$formget['payway'] ?"selected":"";</php >
+                                                <option value='1' {$pw1_select} >自然</option >
+                                            <php >$pw2_select="2"==$formget['payway'] ?"selected":"";</php >
+                                                <option value='2' {$pw2_select} >非自然</option >
+                                        </select >
+                                    </div >
+                                </div >
+                                <div class="col-xs-6" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >充值时间    </span >
+                                        <input class="form-control" id="stime" name="start_time" type="text"
+                                               value="{$formget.start_time}" style="width:120px;"
+                                               placeholder="开始时间"
+                                               onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd'})" >
+                                        <input class="form-control" id="etime" name="end_time" type="text"
+                                               value="{$formget.end_time}" style="width:120px;"
+                                               placeholder="结束时间"
+                                               onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd'})" >
+                                    </div >
+
+                                </div >
+
+                                <div class='col-xs-2' >
+                                    <button class="btn btn-success" id="search-btn" >搜&nbsp;索</button >
+                                </div >
+                                <div class='col-xs-1' >
+                                    <input type="submit" name="submit" value="导出数据" class="btn btn-success" />
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$n}</i >个记录</span >
+                        <i class="fa fa-info-circle" id="payway_tips" ></i >
+                    </div >
+                    <div class="table-content registration-details" >
+                        <table class="table table-hover table-bordered" >
+                            <tbody >
+                            <tr >
+                                <th >渠道名称</th >
+                                <th >充值时间</th >
+                                <th >订单号</th >
+                                <th >玩家账号</th >
+
+                                <th >充值游戏</th >
+                                <th >充值金额</th >
+                                <th >实收金额<i class="fa fa-info-circle" id="pay_tips" ></i ></th >
+                                <th >充值方式</th >
+                            </tr >
+                            <!--
+                            加入汇总
+                            2016-12-17 16:22:45
+                            严旭
+                            -->
+                            <tr style="color:red;" >
+                                <td >汇总</td >
+                                <td >--</td >
+                                <td >--</td >
+                                <td >--</td >
+                                <td >--</td >
+                                <td >{$items_sum[0]['sum_amount']}</td >
+                                <td >{$items_sum[0]['real_amount']}</td >
+                                <td >--</td >
+                            </tr >
+                            <volist name='items' id='vo' >
+                                <tr >
+                                    <td >{$vo.agent_name}</td >
+                                    <td >{$vo.create_time|date="Y-m-d H:i:s",###}</td >
+                                    <td >{$vo.order_id}</td >
+                                    <td >{$vo.mem_name}</td >
+                                    <td >{$vo.game_name}</td >
+                                    <td >{$vo.amount}</td >
+                                    <td >{$vo.real_amount}</td >
+                                    <td >{$vo.payway_txt}</td >
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$page}</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+
+<!--页脚-->
+<agenttpl file="footer" />
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+<script >
+    $("#payway_tips").click(function () {
+        layer.tips(
+            "自然充值数据：是玩家在游戏内直接通过支付宝、微信、银行卡等方式用现金充值到游戏的充值数据,不包括代充充值方式的数据；<br />" +
+            "非自然充值数据：除上述第三方充值方式的充值数据，例如：平台币、游戏币等；",
+            this, {
+                tips      : [2, '#fff'],
+                time      : 400000,
+                skin      : 'custom_class',
+                closeBtn  : 1,
+                shade     : [0.2, '#333'],
+                shadeClose: true
+            });
+    });
+
+    $("#pay_tips").click(function () {
+        layer.tips(
+            "实收金额：玩家充值订单中通过支付宝、微信、银行卡等方式用现金充值到游戏的数据,不包括游戏币充值部分;",
+            this, {
+                tips      : [2, '#fff'],
+                time      : 400000,
+                skin      : 'custom_class',
+                closeBtn  : 1,
+                shade     : [0.2, '#333'],
+                shadeClose: true
+            });
+    });
+</script >
+

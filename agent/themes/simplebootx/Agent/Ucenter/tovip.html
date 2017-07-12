@@ -1,0 +1,301 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right fc—modify-pwd modify-pay-pwd" style="height: 760px;*height: 770px;" >
+
+                <div class="breadcrumb-navigation" >
+                    <ul >
+                        <li >会员资质审核</li >
+                    </ul >
+                </div >
+                <div class="modify-pwd-content content-1" style="display: none;" >
+                    <div class="title-1" >
+                        <img src="__PUBLIC__/agent/img/checkstep1.png" >
+                        <div class="title-info1" >
+                            <eq name="basic_info_complete" value="true" >
+                                <p style="color:green;" >基本信息：已填写完成</p >
+                                <else />
+                                <p >基本信息：<span >填写未完成</span ></p >
+                                <a href="{:U('Agent/ucenter/toEditUser')}" >继续完善</a >
+                            </eq >
+                        </div >
+                        <div class="title-info2" >
+                            <eq name="js_info_complete" value="true" >
+                                <p style="color:green;" >结算信息：已填写完成</p >
+                                <else />
+                                <p >结算信息：<span >填写未完成</span ></p >
+                                <a href="{:U('Agent/ucenter/toEditUser')}" >继续完善</a >
+                            </eq >
+                        </div >
+                        <div class="title-info3" >
+                            <p >您已完善的资料可同步带入，无须重复操作；</p >
+                        </div >
+                    </div >
+
+                    <div class="next-btn" style="display: none;" >下一步</div >
+                </div >
+                <div class="modify-pwd-content content-2" style="display:block;" >
+                    <div class="title-1" >
+                        <img src="__PUBLIC__/agent/img/checkstep1.png" >
+                        <div class="title-info1" >
+                            <eq name="basic_info_complete" value="true" >
+                                <p style="color:green;" >基本信息：填写完成</p >
+                                <a href="toEditUser" >查看</a >
+                                <else />
+                                <p >基本信息：<span >填写未完成</span ></p >
+                                <a href="{:U('Agent/ucenter/toEditUser')}" >继续完善</a >
+                            </eq >
+                        </div >
+                        <div class="title-info2" >
+                            <eq name="js_info_complete" value="true" >
+                                <p style="color:green;" >结算信息：填写完成</p >
+                                <a href="{:U('Agent/ucenter/toEditUser')}" >查看</a >
+                                <else />
+                                <p >结算信息：<span >填写未完成</span ></p >
+                                <a href="{:U('Agent/ucenter/toEditUser')}" >继续完善</a >
+                            </eq >
+                        </div >
+                        <div class="title-info2" >
+                            <eq name="paypwd_info_complete" value="true" >
+                                <p style="color:green;" >支付密码：填写完成</p >
+                                <a href="{:U('Agent/ucenter/toCipherCode')}" >查看</a >
+                                <else />
+                                <p >支付密码：<span >未设置</span ></p >
+                                <a href="{:U('Agent/ucenter/toCipherCode')}" >继续完善</a >
+                            </eq >
+
+                        </div >
+
+                        <div class="title2-info1" >
+                            <p >我们承诺会对您提交的所有资料进行有效管理，不会泄漏关于您的任何信息，请放心使用！</p >
+                            <span >（我司只为方便用户使用提供该功能，不对由此可能发生的任何纠纷产生连带责任）</span >
+                            <ul >
+                                <li >· 基本资料保密管理</li >
+                                <li >· 结算信息保密管理</li >
+                                <li >· 支付密码保密管理</li >
+                            </ul >
+                        </div >
+                    </div >
+                    <!--<div style="width:200px;padding:5px;background-color:red;">填写信息后请等待审核结果</div>-->
+                    <!--<div class="next-btn">下一步</div>-->
+                </div >
+
+                <!--                    <div class="modify-pwd-content content-3" style="display:none;">
+                                        <div class="title-2">
+                                            <img src="__PUBLIC__/agent/img/checkstep2.png">
+                                            <div class="title2-info1">
+                                                <p>我们承诺会对您提交的所有资料进行有效管理，不会泄漏关于您的任何信息，请放心使用！</p>
+                                                <span>（我司只为方便用户使用提供该功能，不对由此可能发生的任何纠纷产生连带责任）</span>
+                                                <ul>
+                                                    <li>· 基本资料保密管理</li>
+                                                    <li>· 结算信息保密管理</li>
+                                                    <li>· 支付密码保密管理</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="next-btn">上一步</div>
+                                        <div class="next-btn" style="width:200px;">填写信息后请等待审核结果</div>
+                                    </div>-->
+
+                <!--                    <div class="modify-pwd-content content-4" style="display:none;">
+                                        <div class="title-2">
+                                            <img src="__PUBLIC__/agent/img/checkstep2.png">
+
+                                            <div class="title3-info1">
+                                                <span class="title3-info1span">身份证：</span>
+                                                <div class="idcard-num">
+                                                    <input maxlength="18" name="idcard" id="idcard" value="{$agent_man_info.idcard}">
+                                                    <input maxlength="18" type="hidden" name="levelid" id="levelid">
+                                                    <div class="idcard-num-error">
+                                                        <span> X 身份证输入错误，请重新输入</span>
+                                                    </div>
+                                                </div>
+                                                <p>请输入18位身份证号</p>
+                                            </div>
+
+                                            <div class="title3-info2">
+                                                <p>身份证照片上传：</p>
+                                                <ul>
+                                                    <li class="uploading2">
+                                                         隐藏域，保存文件名
+                                                        <input type="hidden" id="gameIconHidden1" name="gameIcon">
+                                                        <input type="file" id="btn_file" name="imageFile" style="display:none">
+                                                        <img id="idcardurl1" onclick="F_Open_dialog('', '#btn_file')" width="98" height="98" src="__PUBLIC__/agent/img/uploading-img.png">
+                                                        <br><span>上传图片</span>
+                                                        <a><img class="delete-img" onclick="delImg('#gameIconHidden1', '#idcardurl1')" src="__PUBLIC__/agent/img/delete-img.png"></a>
+                                                    </li>
+
+                                                    <li class="uploading2">
+                                                         隐藏域，保存文件名
+                                                        <input type="hidden" id="gameIconHidden2" name="gameIcon">
+                                                        <input type="file" id="btn_file2" name="imageFile" style="display:none">
+                                                        <img id="idcardurl2" onclick="F_Open_dialog(2, '#btn_file2')" width="98" height="98" src="__PUBLIC__/agent/img/uploading-img.png">
+                                                        <a><img class="delete-img" onclick="delImg('#gameIconHidden2', '#idcardurl2')" src="__PUBLIC__/agent/img/delete-img.png"></a>
+                                                    </li>
+
+                                                    <li class="uploading2-error">
+                                                         隐藏域，保存文件名
+                                                        <input type="hidden" id="gameIconHidden3" name="gameIcon">
+                                                        <input type="file" id="btn_file3" name="imageFile" style="display:none">
+                                                        <img id="idcardurl3" onclick="F_Open_dialog(3, '#btn_file3')" width="98" height="98" src="__PUBLIC__/agent/img/uploading-img.png">
+                                                        <a><img class="delete-img" onclick="delImg('#gameIconHidden3', '#idcardurl3')" src="__PUBLIC__/agent/img/delete-img.png"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="title3-info3">
+                                                <p>上传图片需本人手持身份证的清晰半身照一张（审核使用），图片格式需为jpg或png</p>
+                                                <div class="title3-info3-error">
+                                                    <p> X 照片格式上传错误，请重新上传</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="next-btn next-btn3">下一步</div>
+                                    </div>-->
+
+                <div class="modify-pwd-content content-5" style="display:none;" >
+                    <div class="title-4" >
+                        <img src="__PUBLIC__/agent/img/checkstep3.png" >
+                        <div class="title4-info1" >
+                            <img src="__PUBLIC__/agent/img/wait-btn.png" >
+                            <p ><span class="wait-style" >审核中</span ></p >
+                            <p >请您耐心等待，审核通过后将自动为你转为会员身份;</p >
+                        </div >
+                    </div >
+                </div >
+
+                <div class="modify-pwd-content content-6" style="display:none;" >
+                    <div class="title-4" >
+                        <img src="__PUBLIC__/agent/img/checkstep3.png" >
+                        <div class="title4-info1" >
+                            <img src="__PUBLIC__/agent/img/pass-btn.png" >
+                            <p ><span class="wait-style" >恭喜您，审核通过！</span ></p >
+                            <p class="mywelfare" >请您耐心等待，审核通过后将自动为你转为会员身份</p >
+                            <p class="welfare-link" >您还可去查看<a href="#" >&nbsp;我的福利社&gt;</a ></p >
+                        </div >
+                    </div >
+                </div >
+
+                <div class="modify-pwd-content content-7" style="display:none;" >
+                    <div class="title-4" >
+                        <img src="__PUBLIC__/agent/img/checkstep3.png" >
+                        <div class="title4-info1" >
+                            <img src="__PUBLIC__/agent/img/fail-btn.png" >
+                            <p ><span class="wait-style" >抱歉，您的审核未通过！</span ></p >
+                            <p >可能由于您的身份证信息未能通过审核，请确认后<a href="javascript:doResubmit()" >&nbsp;重新提交</a >;</p >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+
+<script src="__PUBLIC__/agent/js/tovip.js" ></script >
+<script >
+    function succHeader() {
+        $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+    }
+
+    <
+    switch name = "all_complete" >
+            <
+        case value = "info" >
+                $(".page-right>div").eq(2).css("display", 'block').siblings().css("display", "none")
+            ;
+        </
+        case>
+        <
+        case value = "pass" >
+                $(".page-right>div").eq(4).css("display", 'block').siblings().css("display", "none")
+            ;
+        </
+        case>
+        <
+        case value = "notpass" >
+                $(".page-right>div").eq(5).css("display", 'block').siblings().css("display", "none")
+            ;
+        </
+        case>
+        </
+            switch
+                >
+
+                /**********增加图片事件**************/
+                function fileImg(el) {
+                    function getObjectURL(file) {
+                        var url = null;
+                        if (window.createObjectURL != undefined) { // basic
+                            url = window.createObjectURL(file);
+                        } else if (window.URL != undefined) { // mozilla(firefox)
+                            url = window.URL.createObjectURL(file);
+                        } else if (window.webkitURL != undefined) { // webkit or chrome
+                            url = window.webkitURL.createObjectURL(file);
+                        }
+                        return url;
+                    }
+
+                    $(el).live("change", function () {
+                        var objUrl = getObjectURL(this.files[0]);
+                        if (objUrl) {
+                            $(this).next("img").attr("src", objUrl);
+                        }
+                    })
+                }
+
+                /*********增加图片按钮**********/
+                function F_Open_dialog(x, el) {
+                    $("#btn_file" + x).click();
+                    fileImg(el);
+                }
+
+                /*********图片删除按钮**********/
+                function delImg(input, img) {
+                    $(input).val("");
+                    $(img).attr("src", "img/uploading-img.png")
+                }
+
+                    $(function () {
+                        $(".content-2 .next-btn").live("click", function () {
+                            for (var i = 0; i < $(".content-2 .title-1>div>a").length; i ++) {
+                                var aText = $(".content-2 .title-1>div>a")[i];
+//            if(aText.innerHTML!=="继续完善"){
+////                yxalert(1);
+//                return ;
+//            }
+                            }
+                            $(".page-right>div").eq(3).css("display", 'block').siblings().css("display", "none");
+                        });
+//    $(".content-3 .next-btn").live("click",function(){
+//        $(".page-right>div").eq(4).css("display",'block').siblings().css("display","none");
+//    });
+                        $(".content-4 .next-btn3").die().live("click", function () {
+                            var idCard = $("#idcard").val();
+                            if (idCard.trim() !== "") {
+                                sendData("{:U('Agent/ucenter/IDcard_post')}", {"idCard": idCard}, function (data) {
+
+                                    if (data.error === '0') {
+                                        yxalert(data.msg);
+                                    } else if (data.error === '1') {
+                                        yxalert(data.msg);
+                                    }
+                                    $(".page-right>div").eq(5).css("display", 'block').siblings().css("display", "none");
+                                })
+                            } else {
+                                showMsg(".title3-info3-error", "请填写身份证号...", "red")
+                            }
+
+                        });
+                        $(".content-5 .next-btn").live("click", function () {
+                            $(".page-right>div").eq(6).css("display", 'block').siblings().css("display", "none");
+                        });
+                    })
+</script >

@@ -1,0 +1,70 @@
+<div class="container inner_container module_my_account" ng-show="login" style="padding-top:20px;" >
+    <moduletabs >
+        <modulepane title="账户信息" >
+            <div class="row" style="margin-top:30px;" >
+                <div class="col-md-3" >
+                    <img src="{{data.icon}}" style="width:200px;height:200px;border:1px solid #00AAEE;" alt="用户头像" />
+                </div >
+                <div class="col-md-7" >
+                    <div class="row" style="margin-bottom:20px;" >
+                        昵称： {{data.name}}
+                    </div >
+                    <div class="row" style="margin-bottom:20px;" >
+                        积分余额: {{data.balance}}
+                    </div >
+                    <div class="row" style="margin-bottom:20px;" >
+                        真实姓名：
+                        <span ng-bind="data.realname" ></span >
+                        <a class="btn btn-info btn-xs" href="javascript:;" ng-click="modify_realname();" >修改</a >
+                    </div >
+                    <div class="row" style="margin-bottom:20px;" >
+                        我的手机号：
+                        <span ng-bind="data.phone" ></span >
+                        <a class="btn btn-info btn-xs" href="javascript:;" ng-click="modify_phone();" >修改</a >
+                    </div >
+                    <div class="row" style="margin-bottom:20px;" >
+                        我的收货地址：
+                        <span ng-bind="data.addr" ></span >
+                        <a class="btn btn-info btn-xs" href="javascript:;" ng-click="modify_addr();" >修改</a >
+                    </div >
+                    <div class="row" style="margin-bottom:20px;" >
+                        <button class="btn btn-danger btn-sm" ng-click="logout();" >退出登录</button >
+                    </div >
+                </div >
+            </div >
+        </modulepane >
+        <modulepane title="我的订单" >
+            <div ng-controller="moduleMyordersController" >
+                <modulemyorders ></modulemyorders >
+            </div >
+        </modulepane >
+        <modulepane title="我的卡包" >
+            <div class="container inner_container" style="margin:20px 0 0 0;padding:0;" >
+                <div class="row table-responsive" style="padding:0;margin:0;font-size:12px;" >
+                    <table class="table table-hover table-bordered" >
+                        <tr >
+                            <th >充值卡名称</th >
+                            <th >卡号</th >
+                            <th >密码</th >
+                            <th >获得时间</th >
+                        </tr >
+                        <tr ng-repeat="x in cardcodes" >
+                            <td >{{x.name}}</td >
+                            <td >{{x.code}}</td >
+                            <td >
+                                <span ng-show="x.used == '1'" >{{x.pass}}</span >
+                                <button ng-show="x.used == '0'" class="btn btn-xs btn-info"
+                                        ng-click="viewCodePass(x.id);" >查看
+                                </button >
+                            </td >
+                            <td >{{x.update_time}}</td >
+                        </tr >
+                    </table >
+                </div >
+
+            </div >
+
+        </modulepane >
+    </moduletabs >
+
+</div >

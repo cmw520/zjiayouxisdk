@@ -1,0 +1,35 @@
+<mobiletpl file="header" />
+
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/changepwd.css" />
+<div class="changepwd_box" >
+    <form action="{:U('Password/uppwd_post')}" method="post" id="ajaxform" >
+        <ul >
+            <li ><p ><span >原密码</span ></p ><input type="password" name="old_pwd" id="old_pwd" placeholder="请输入原密码" />
+            </li >
+            <li ><p ><span >新密码</span ></p ><input type="password" name="new_pwd" id="new_pwd" placeholder="请输入新密码" />
+            </li >
+            <li ><p ><span >确认密码</span ></p ><input type="password" name="confirm_pwd" id="confirm_pwd"
+                                                    placeholder="请输入确认密码" /></li >
+        </ul >
+
+        <!-- <input type="hidden" id="passwd_url" value="{:U('Password/checkpwd')}" /> -->
+        <input type="hidden" id="uppwdtoken" name="uppwdtoken" value="{$uppwdtoken}" />
+        <!-- <input type="submit" value="提交" /> -->
+    </form >
+</div >
+<div class="error_msg" ></div >
+<footer >
+    <div class="confim_change" >
+        <button >提交</button >
+    </div >
+</footer >
+
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+<div class="main_model_box" ></div >
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/changepwd.js" ></script >
+</html>

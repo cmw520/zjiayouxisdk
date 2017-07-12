@@ -1,0 +1,35 @@
+<div class="container module_login_full_background" >
+    <div class="row module_login_full_background_wrapper" >
+        <div class="col-md-7 left_content" >
+            <h1 >积分商城</h1 >
+            <p >多样商品，快来兑换</p >
+        </div >
+        <div class="col-md-3 login_container" >
+            <div class="row" >
+                <input type="text" name="username" class="form-control" ng-model='data.username' placeholder="用户名" >
+            </div >
+            <div class="row" >
+                <input type="password" name="password" class="form-control" ng-model='data.password' placeholder="密码" >
+            </div >
+            <div class="row" ><input type="text" name="checkcode" class="form-control" placeholder="验证码"
+                                     ng-model='data.code' /></div >
+            <div class="row" >
+                <img class="verify_img" id="verify_img"
+                     src="/checkcode/index?length=4&font_size=20&width=248&height=42&use_noise=1&use_curve=0"
+                     ng-click="change_captcha();"
+                     style="cursor: pointer;"
+                     title="点击获取" >
+            </div >
+            <div class="row" >
+                <a href="javascript:;" class="btn btn-success" ng-click='login();' id="index_login_btn"
+                   style="width:100%;" >登录</a >
+            </div >
+            <!--            <div class="row">
+                            <div class="login_links" style="margin-top:5px;font-size:12px;">
+                                <a class="btn btn-link" href="/projects/tianqu/access/agent.php/Front/register/index" style="float:left;">帐号注册</a>
+                                <a class="btn btn-link" href="/projects/tianqu/access/agent.php/Front/FindPwd/index" style="float:right;">找回密码</a>
+                            </div>
+                        </div> -->
+        </div >
+    </div >
+</div >

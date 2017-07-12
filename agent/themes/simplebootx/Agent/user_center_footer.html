@@ -1,0 +1,22 @@
+<!--<div class="page-footer">
+    <div class="footer-content">
+        <ul>
+            <li class="liebao" onclick="location = '{:U('front/index/index')}'">{:C('COMPANY_SHORTNAME')}</li>
+            <li onclick="location = '{:U('front/about/aboutus')}'">关于我们</li>
+            <li onclick="location = '{:U('front/about/business')}'">商务合作</li>
+            <li class="help-center" onclick="location = '{:U('front/Account/login')}'">推广平台</li>
+        </ul>
+        <span class="copyright">
+            <p><span>版权所有：{:C('COMPANY_NAME')} 网站备案/许可证号： {:C('WEB_ICP')} 联系电话：{:C('COMPANY_PHONE')}</span></p>
+        </span>
+    </div>
+</div>-->
+
+<div class="container" style="width:1000px;margin-top:40px;margin-bottom:40px;text-align:center;" >
+    <p >{:$company_info['COPYRIGHT']}</p >
+    <p >{:$company_info['WEB_ICP']}</p >
+    <p >公司名称：{:$company_info['COMPANY_NAME']} 电话：{:$company_info['COMPANY_PHONE']}</p >
+    <p >公司地址：{:$company_info['COMPANY_ADDR']}</p >
+</div >
+</body>
+</html>

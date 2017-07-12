@@ -1,0 +1,271 @@
+<agenttpl file="user_center_header" />
+
+<link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+
+<script src="__PUBLIC__/3rd/layer/layer.js" ></script >
+<script src="__PUBLIC__/huoshu/share.js" ></script >
+<style >
+    tr, th {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: left !important;
+    }
+
+    td {
+        height: auto !important;
+        text-align: left !important;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records lower-channel-management apply-for-game" >
+                <form id="queryForm" action="__SELF__" method="get" >
+
+                    <div class="container" style="width:960px;margin-top:20px;margin-bottom:20px;" >
+                        <div class="row" >
+                            <div class="col-md-4 col-md-offset-4" >
+                                <div class="input-group" >
+                                    <span class="input-group-addon" >搜索游戏</span >
+                                    <input class="form-control" type="text" id="key" name="gamename"
+                                           placeholder="请输入游戏名称" value="{$formget.gamename}" />
+                                </div >
+                            </div >
+                            <div class="col-md-4" >
+                                <button class="btn btn-success" >搜索</button >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <!--<span class="game-num">共找到<i>{$total_count}</i>个游戏</span>-->
+                    </div >
+                    <div class="table-content" >
+                        <!-- 游戏用户充值查询-->
+                        <table class="table table-hover" >
+                            <thead >
+                            <tr >
+                                <!--<th>ID</th>-->
+                                <!--                                    <th>渠道帐号</th>
+                                                                    <th>渠道归属</th> -->
+                                <th >游戏名称</th >
+                                <!--<th>平台折扣</th>-->
+
+                                <th >平台折扣</th >
+                                <?php if(C("G_DISCONT_TYPE")){ ?>
+                                <th >玩家优惠类型</th >
+                                <th >玩家首充</th >
+                                <th >玩家续充</th >
+                                <th >操作</th >
+                                <?php } ?>
+                            </tr >
+                            </thead >
+                            <foreach name="items" item="vo" >
+                                <tr >
+                                    <!--<td>{$vo.id}</td>-->
+                                    <!--                                    <td>{$vo.agent_name}</td>
+                                                                        <td>{$vo.belong_to_agent_name}</td>-->
+                                    <td >{$vo.game_name}</td >
+
+                                    <!--<td>{$vo.platform_rate}</td>-->
+                                    <td >{$vo.agent_rate_txt}</td >
+                                    <?php if(C("G_DISCONT_TYPE")){ ?>
+                                    <td >
+                                        <empty name="vo.benefit_type_txt" >
+                                            无
+                                        </empty >
+                                        <notempty name="vo.benefit_type_txt" >
+                                            {$vo.benefit_type_txt}
+                                        </notempty >
+                                    </td >
+                                    <td >
+                                        <empty name="vo.benefit_first" >
+                                            无
+                                        </empty >
+                                        <notempty name="vo.benefit_first" >
+                                            {$vo.benefit_first_txt}
+                                        </notempty >
+                                    </td >
+                                    <td >
+                                        <empty name="vo.benefit_refill" >
+                                            无
+                                        </empty >
+                                        <notempty name="vo.benefit_refill" >
+                                            {$vo.benefit_refill_txt}
+                                        </notempty >
+                                    </td >
+                                    <td >
+                                        <notempty name="vo.benefit_type_txt" >
+                                            <a class="btn btn-success"
+                                               href="javascript:;" onclick="edit(this);"
+                                               data-agid="{$vo.id}"
+                                               data-type='{$vo.user_type}'
+                                               data-benefit-type="{$vo.benefit_type}"
+                                               data-mem-first="{$vo.benefit_first}"
+                                               data-mem-refill="{$vo.benefit_refill}"
+                                               data-agent-rate="{$vo.agent_rate}"
+                                            >修改</a >
+                                        </notempty >
+                                    </td >
+                                    <?php } ?>
+                                </tr >
+                            </foreach >
+                        </table >
+                    </div >
+                    <div class='container' style='width:100%;text-align:center;margin:20px 0;' >
+                        <div class='paging' >{$page}</div >
+                    </div >
+                </div >
+
+                <div class='popup_agent container' style='width:350px;display:none;padding:20px;' >
+                    <form class="form-horizontal" role="form" method='post' onsubmit="return false;" >
+                        <input type="hidden" name="agent_agid" />
+                        <input type="hidden" name="agent_benefit_type" />
+                        <div class="form-group" >
+                            <label for="mem_first" class="col-md-4 control-label" >玩家首充</label >
+                            <div class="col-md-8" >
+                                <input type="text" class="form-control" name='agent_mem_first' id="mem_first"
+                                       placeholder="请输入" >
+                            </div >
+                        </div >
+                        <div class="form-group" >
+                            <label for="mem_first" class="col-md-4 control-label" >玩家续充</label >
+                            <div class="col-md-8" >
+                                <input type="text" class="form-control" name='agent_mem_refill' id="mem_refill"
+                                       placeholder="请输入" >
+                            </div >
+                        </div >
+                        <div class="form-group" >
+                            <div class="col-md-offset-4 col-md-8" >
+                                <input type='submit' name='submit' value='保存' class='btn btn-success btn_agent_rate' />
+                            </div >
+                        </div >
+                    </form >
+                </div >
+
+                <div class='popup_sub container' style='width:350px;display:none;padding:20px;' >
+                    <form class="form-horizontal" role="form" method='post' onsubmit="return false;" >
+                        <input type="hidden" name="sub_agid" />
+                        <input type="hidden" name="sub_benefit_type" />
+                        <!--                            <div class="form-group">
+                                                        <label for="mem_first" class="col-md-4 control-label">渠道折扣</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" name='sub_agent_rate' id="agent_rate" placeholder="请输入">
+                                                        </div>
+                                                    </div>-->
+                        <div class="form-group" >
+                            <label for="mem_first" class="col-md-4 control-label" >玩家首充</label >
+                            <div class="col-md-8" >
+                                <input type="text" class="form-control" name='sub_mem_first' id="mem_first"
+                                       placeholder="请输入" >
+                            </div >
+                        </div >
+                        <div class="form-group" >
+                            <label for="mem_first" class="col-md-4 control-label" >玩家续充</label >
+                            <div class="col-md-8" >
+                                <input type="text" class="form-control" name='sub_mem_refill' id="mem_refill"
+                                       placeholder="请输入" >
+                            </div >
+                        </div >
+                        <div class="form-group" >
+                            <div class="col-md-offset-4 col-md-8" >
+                                <input type='submit' name='submit' value='保存' class='btn btn-success btn_sub_rate' />
+                            </div >
+                        </div >
+                    </form >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+
+<script src="__PUBLIC__/agent/js/apply_game.js" ></script >
+
+<script >
+    function show_popup(selector, title) {
+        layer.open({
+            type   : 1,
+            shift  : 7,
+            area   : '390px',
+            title  : title,
+            content: $(selector),
+            cancel : function (index) {
+                layer.close(index);
+            }
+        });
+    }
+    ;
+
+    function edit(e) {
+        var type = $(e).attr("data-type");
+        var agid = $(e).attr("data-agid");
+        if (type == 6) {
+            $("input[name='agent_mem_first']").val($(e).attr("data-mem-first"));
+            $("input[name='agent_mem_refill']").val($(e).attr("data-mem-refill"));
+            $("input[name='agent_benefit_type']").val($(e).attr("data-benefit-type"));
+
+            $("input[name='agent_agid']").val(agid);
+            show_popup(".popup_agent", "编辑一级渠道优惠");
+        } else if (type == 7) {
+            $("input[name='sub_mem_first']").val($(e).attr("data-mem-first"));
+            $("input[name='sub_mem_refill']").val($(e).attr("data-mem-refill"));
+            $("input[name='sub_agent_rate']").val($(e).attr("data-agent-rate"));
+            $("input[name='sub_benefit_type']").val($(e).attr("data-benefit-type"));
+
+            $("input[name='sub_agid']").val(agid);
+            show_popup(".popup_sub", "编辑二级渠道优惠");
+        }
+    }
+
+    $(".btn_agent_rate").click(function () {
+        var mem_first    = $("input[name='agent_mem_first']").val();
+        var mem_refill   = $("input[name='agent_mem_refill']").val();
+        var benefit_type = $("input[name='agent_benefit_type']").val();
+
+        var agid = $("input[name='agent_agid']").val();
+
+        var url  = "{:U('Agent/Benefit/set_agent_post')}";
+        var data = {"mem_first": mem_first, "mem_refill": mem_refill, "agid": agid, "benefit_type": benefit_type};
+        $.post(url, data, function (response) {
+            yxalert(response.msg);
+            if (response.error === '0') {
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+            }
+        });
+    });
+    $(".btn_sub_rate").click(function () {
+
+//    var agent_rate=$("input[name='sub_agent_rate']").val();
+        var mem_first    = $("input[name='sub_mem_first']").val();
+        var mem_refill   = $("input[name='sub_mem_refill']").val();
+        var benefit_type = $("input[name='sub_benefit_type']").val();
+
+        var agid = $("input[name='sub_agid']").val();
+
+        var url  = "{:U('Agent/Benefit/AgentSetSelf_post')}";
+        var data = {"mem_first": mem_first, "mem_refill": mem_refill, "agid": agid, "benefit_type": benefit_type};
+        $.post(url, data, function (response) {
+
+            yxalert(response.msg);
+
+            if (response.error === '0') {
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+            }
+        });
+
+    });
+
+</script >

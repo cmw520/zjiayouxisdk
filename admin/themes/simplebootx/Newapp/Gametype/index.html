@@ -1,0 +1,71 @@
+﻿<admintpl file="header" />
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Newapp/Gametype/index')}" >游戏类型</a ></li >
+        <!--<li><a href="{:U('Newapp/Gametype/add')}">添加游戏类型</a></li>-->
+    </ul >
+
+    <button class="btn btn-success" onclick="location.href='{:U('Newapp/Gametype/add')}'"
+            style="margin:10px 0;" >添加游戏类型
+    </button >
+
+    <form class="js-ajax-form" action="{:U('Gametype/listorders')}" method="post" >
+	        <div class="table-actions" >
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" >{:L('SORT')}</button >
+        </div >
+        <table class="table table-hover table-bordered table-list" id="menus-table" >
+            <thead >
+            <tr >
+                <th width="60" >{:L('SORT')}</th >
+                <th width="50" >序号</th >
+                <th width="50" >类型名称</th >
+                <th width="50" >图片</th >
+                <th width="50" >{:L('STATUS')}</th >
+                <th width="200" >{:L('ACTIONS')}</th >
+            </tr >
+            </thead >
+            <tbody >
+            {$categorys}
+            </tbody >
+            <!--            <foreach name="gtypes" item="vo" >
+                            <tr >
+                                <td >{$vo.id}</td >
+                                <td >{$vo.name}</td >
+                                &lt;!&ndash; <td><img src={$vo.image}  alt="图片为空" /></td> &ndash;&gt;
+                                <td >
+                                    {$gtstatus[$vo['status']]}
+                                <td >
+                                    <a href="{:U('Newapp/Gametype/edit',array('id'=>$vo['id']))}" >编辑</a > |
+                                    <a href="{:U('Newapp/Gametype/delete',array('id'=>$vo['id']))}" class="js-ajax-delete" >删除</a >
+                            </tr >
+                        </foreach >-->
+        </table >
+        <div class="table-actions" >
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" >{:L('SORT')}</button >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js?t={:time()}" ></script >
+<script >
+    $(document).ready(function () {
+        Wind.css('treeTable');
+        Wind.use('treeTable', function () {
+            $("#menus-table").treeTable({
+                indent: 20
+            });
+        });
+    });
+
+    setInterval(function () {
+        var refersh_time = getCookie('refersh_time_admin_menu_index');
+        if (refersh_time == 1) {
+            reloadPage(window);
+        }
+    }, 1000);
+    setCookie('refersh_time_admin_menu_index', 0);
+</script >
+</body >
+</html>

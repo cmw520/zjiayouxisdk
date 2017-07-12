@@ -1,0 +1,21 @@
+<div class="container module_TodayNewsAll" >
+    <!--    <div class="row" style="padding-bottom:5px;border-bottom:1px solid #eee;margin-bottom:5px;">
+            <div class="col-xs-12" style="font-size:18px;text-align:center;margin-bottom:10px;">
+                资讯
+            </div>
+        </div>-->
+    <div class="row module_TodayNewsAll_item" ng-repeat="x in list" ng-click="showDetail(x.id)" >
+        <div class="col-xs-2" style="padding-left:0;" >
+            <span class="label label-info label-large" style="font-size:14px;font-weight: normal;" >攻略</span >
+        </div >
+        <div class="col-xs-10"
+             style="padding:0 0 0 5px;white-space: nowrap;overflow-x: hidden;text-overflow:ellipsis; " >
+            {{x.title}}
+        </div >
+    </div >
+    <div class="row"
+         style="text-align: center;background-color:#EEEEEE;padding-top:5px;padding-bottom:5px;margin-top:10px;"
+         ng-click="showMore();" >
+        <span id="LoadMoreText" >加载更多</span >
+    </div >
+</div >

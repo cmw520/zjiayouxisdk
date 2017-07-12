@@ -1,0 +1,35 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Content/Comment/index')}" target="_self" >评论管理</a ></li >
+        <li class="active" ><a href="#" target="_self" >回复评论</a ></li >
+    </ul >
+    <form method="post" class="form-horizontal js-ajax-form" action="{:U('Content/Comment/reply_post')}"
+          enctype="multipart/form-data" >
+        <fieldset >
+            <div class="control-group" >
+                <label class="control-label" >评论内容:</label >
+                <div class="controls" >
+                    {$data.content}
+                </div >
+            </div >
+
+            <div class="control-group" >
+                <label class="control-label" >回复内容:</label >
+                <div class="controls" >
+                    <textarea name="content" style='width:500px;height:300px;resize:none;' ></textarea >
+                </div >
+            </div >
+            <input type='hidden' name='cid' value='{$data.id}' />
+        </fieldset >
+        <div class="form-actions" >
+            <button type="submit" class="btn btn-primary" >{:L('ADD')}</button >
+            <a class="btn" href="{:U('Content/Comment/index')}" >{:L('BACK')}</a >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

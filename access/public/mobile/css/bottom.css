@@ -1,0 +1,32 @@
+.footer {
+    color: #5F5F5F;
+    height: 40px;
+    line-height: 40px;
+}
+
+.footer > p {
+    width: 95%;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    font-family: "微软雅黑", "microsoft YaHei";
+}
+
+.footer > p > a {
+    font-family: "微软雅黑", "microsoft YaHei";
+    color: #13AEEF;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.footer > p > a > span {
+    color: #000000;
+}
+
+.footer > p > .QQ {
+    float: left;
+}
+
+.footer > p > .QQgroup {
+    float: right;
+}

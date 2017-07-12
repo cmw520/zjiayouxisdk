@@ -1,0 +1,91 @@
+<!--
+ @time 2017-1-20 12:10:41
+ @author 严旭
+-->
+<admintpl file="header" />
+</head>
+<body >
+    <div class="wrap" >
+        <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Newapp/Message/index')}" >消息列表</a ></li >
+            <li class="active" ><a href="{:U('Newapp/Message/add')}" >添加</a ></li >
+        </ul >
+        <form action="{:U('Newapp/Message/addPost')}" method="post" class="form-horizontal js-ajax-form" >
+            <div class="row-fluid" >
+                <div class="span9" >
+                    <table class="table table-bordered add_message_div" >
+                        <tr >
+                            <th width="80" >消息类型</th >
+                            <td >
+                                <input type="radio" name="memtype" value="1" checked="checked" />全体
+                                <input type="radio" name="memtype" value="2" />个体
+                            </td >
+                        </tr >
+                        <tr class="mem_id_input_div" style="display:none;" >
+                            <th width="80" >收件玩家</th >
+                            <td >
+                                <input type="text" name="mem_name" placeholder="请输入玩家帐号" />
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >标题</th >
+                            <td >
+                                <input type="text" name="title" />
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >内容</th >
+                            <td >
+                                <!--<textarea name="message" style="width:500px;height:200px;"></textarea>-->
+                                <script type="text/plain" id="content" name="message" ></script >
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >相关游戏</th >
+                            <td >
+                                {$app_select}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >内容类别</th >
+                            <td >
+                                <!--<input type="radio" name="type" value="1" checked="checked" />活动消息-->
+                                <input type="radio" name="type" value="2" checked />系统消息
+                                <input type="radio" name="type" value="3" />卡卷消息
+                                <input type="radio" name="type" value="4" />优惠活动
+                            </td >
+                        </tr >
+                    </table >
+                </div >
+            </div >
+            <div class="form-actions" >
+                <button class="btn btn-primary js-ajax-submit" type="submit" >{:L("ADD")}</button >
+                <a class="btn" href="{:U('Newapp/Message/index')}" >{:L('BACK')}</a >
+            </div >
+        </form >
+    </div >
+    <script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+    <script type="text/javascript" >
+    //编辑器路径定义
+    var editorURL = GV.DIMAUB;
+    </script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js" ></script >
+    <script >
+        var editorcontent = new baidu.editor.ui.Editor();
+        editorcontent.render('content');
+    </script >
+    <script >
+        $(".add_message_div input[name='memtype']").change(function () {
+            var v = $(this).val();
+            if (v == 2) {
+                $(".mem_id_input_div").show();
+            } else {
+                $(".mem_id_input_div").hide();
+            }
+        });
+    </script >
+
+</body >
+</html>

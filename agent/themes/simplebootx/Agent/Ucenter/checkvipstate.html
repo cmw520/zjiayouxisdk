@@ -1,0 +1,135 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right my-game query-records individual-account" >
+                <p class="titlebar-p" >成长体系</p >
+                <ul class="rightarea" >
+                    <li class="rightarea-left" >
+                        <img src="__PUBLIC__/agent/img/cztx_icon.png" >
+                    </li >
+                    <li class="rightarea-middle" >
+                        <p >{:C('COMPANY_SHORTNAME')}会员系统内测啦！</p >
+                        <span >（限时申请会员身份）<br ></span >
+                        <a onclick="apply()" >立即申请成为会员</a >
+                    </li >
+                    <li class="rightarea-right" >
+                        <span class="rightarea1" >我的成长体系</span >
+                        <div class="page-right-line" ></div >
+                        <p >当前等级：<span > 普通用户 </span ></p >
+                        <div class="page-right-line" ></div >
+                        <p >成长值：<span >-</span ></p >
+                        <div class="page-right-line" ></div >
+                        <p >距离升级还需：<span >-</span ></p >
+                    </li >
+                </ul >
+
+                <p class="titlebar-p" >会员特权</p >
+                <ul class="page-rightvip" >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon1.png" >
+                        <p >专属图标</p >
+                        <span >点亮专属VIP图标</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon2.png" >
+                        <p >手游礼包</p >
+                        <span >更多礼包 更多精彩</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon3.png" >
+                        <p >抢先体验</p >
+                        <span >稀缺游戏激活码</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon4.png" >
+                        <p >会员专属福利</p >
+                        <span >会员充值返利折扣</span ></a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon5.png" >
+                        <p >成长值积分奖励</p >
+                        <span >向高级会员进发</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon6.png" >
+                        <p >专属任务</p >
+                        <span >周期性会员任务得好礼</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon7.png" >
+                        <p >手游福利社</p >
+                        <span >您的会员专属平台</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/vip-icon8.png" >
+                        <p >活动抽奖</p >
+                        <span >限时缤纷好礼</span >
+                    </a >
+                    </li >
+                </ul >
+
+                <p class="titlebar-p" >服务特权</p >
+                <ul class="page-rightserve" >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/serve-icon1.png" >
+                        <p >{:C('COMPANY_SHORTNAME')}热线</p >
+                        <span >专属语音服务通道</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/serve-icon2.png" >
+                        <p >限时处理</p >
+                        <span >更快更高效</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/serve-icon3.png" >
+                        <p >线下活动</p >
+                        <span >全年活动丰富多彩</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/serve-icon4.png" >
+                        <p >定制服务</p >
+                        <span >实时获取服务动态</span >
+                    </a >
+                    </li >
+                    <li ><a href="#" >
+                        <img src="__PUBLIC__/agent/img/serve-icon5.png" >
+                        <p >被盗找回</p >
+                        <span >专属服务团队 减免损失</span >
+                    </a >
+                    </li >
+                </ul >
+
+            </div >
+        </div >
+    </div >
+</section >
+<!--页脚-->
+<agenttpl file="user_center_footer" />
+
+<script >
+    function succHeader() {
+        $("nav .main_nav li").eq(1).addClass("active").siblings().removeClass("active");
+    }
+    function apply() {
+//    sendData("{:U('Agent/ucenter/do_post')}",{},function(data){
+//        yxalert("申请请求已提交....");
+//    })
+        location.href = "{:U('Agent/ucenter/tovip')}";
+    }
+</script >
+

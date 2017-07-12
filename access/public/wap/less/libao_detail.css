@@ -1,0 +1,376 @@
+html,
+body {
+    font-size: 62.5%;
+    background-color: #FFFFFF;
+}
+
+.eight_gray {
+    height: 8px;
+    background-color: #E0E4E5;
+}
+
+.tabs_left {
+    text-indent: 5px;
+    border-left: 2px solid #DB8C37;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #000000;
+}
+
+#header {
+    height: 40px;
+    border-bottom: 1px solid #C6C6C6;
+}
+
+#header > .row2 > .back_btn {
+    height: 40px;
+    background: none;
+    top: -2px;
+}
+
+#header > .row2 > .back_btn > span {
+    margin-left: 10px;
+    background: url("../img/icon_list1.png") no-repeat 6px -408px;
+}
+
+#header > .row2 > .logo {
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: url("../img/icon_list1.png") no-repeat 19px -169px;
+}
+
+.package > .pack_name {
+    height: 60px;
+    margin: 0px 10px;
+    padding: 10px 0px;
+}
+
+.package > .pack_name > .img_icon {
+    height: 100%;
+    width: calc(100% - 55px);
+    float: left;
+}
+
+.package > .pack_name > .img_icon > img {
+    height: 100%;
+    float: left;
+}
+
+.package > .pack_name > .img_icon > p {
+    float: left;
+    margin-left: 5px;
+}
+
+.package > .pack_name > .geted {
+    width: 55px;
+    height: 60px;
+    float: right;
+}
+
+.package > .pack_name > .geted > button {
+    padding: 0px;
+    height: 25px;
+    width: 100%;
+    margin-top: 17px;
+    float: right;
+    background-color: #FEFEFE;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    color: #D7D7D7;
+}
+
+.package > .pack_name:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.package > .action_code {
+    margin: 0px 10px;
+}
+
+.package > .action_code > .code {
+    background-color: #F3F2EE;
+    width: calc(100% - 60px);
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 10px;
+}
+
+.package > .action_code > .code > p > i {
+    color: #D49061;
+    font-weight: 600;
+}
+
+.package > .action_code > .copy {
+    width: 55px;
+    float: right;
+}
+
+.package > .action_code > .copy > button {
+    outline: none;
+    width: 100%;
+    height: 25px;
+    background-color: #FEFEFE;
+    border: 1px solid #D49061;
+    border-radius: 4px;
+    color: #D49061;
+}
+
+.package > .action_code:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.package > .more {
+    height: 30px;
+    line-height: 30px;
+}
+
+.package > .more > ul {
+    margin: 0px 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.package > .more > ul > li {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.main > div {
+    padding: 0px 10px;
+    padding-bottom: 5px;
+}
+
+.main > .libao_content {
+    box-sizing: border-box;
+    border-bottom: 1px solid #AAAAAA;
+}
+
+.main > .libao_content > div {
+    font-size: 10px;
+    transform: scale(0.95);
+}
+
+.main > .exchange_time {
+    border-bottom: 1px solid #AAAAAA;
+}
+
+.main > .exchange_time > div {
+    transform: scale(0.94);
+}
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    border-top: 1px solid #DDDDDD;
+    padding: 12px 0px;
+    background-color: #FAFAF9;
+}
+
+.footer > button {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+    border: none;
+    height: 40px;
+    background-color: #F57B28;
+    color: #FFFFFF;
+}
+
+.footer > button > b {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    background: url("../img/96E0B2F126345E0E6FFB8A5001457688.png") 0px -308px;
+}
+
+@media screen and (min-width: 400px) {
+    #header {
+        height: 50px;
+        border-bottom: 1px solid #C6C6C6;
+    }
+
+    #header > .row2 > .back_btn {
+        height: 50px;
+        background: none;
+    }
+
+    #header > .row2 > .back_btn > span {
+        margin-left: 10px;
+        background: url("../img/icon_list1.png") no-repeat 6px -404px;
+    }
+
+    #header > .row2 > .logo {
+        top: 5px;
+        background: url("../img/icon_list1.png") no-repeat 19px -169px;
+    }
+
+    .package > .pack_name {
+        height: 60px;
+        margin: 0px 10px;
+        padding: 10px 0px;
+    }
+
+    .package > .pack_name > .img_icon {
+        height: 100%;
+        width: calc(100% - 70px);
+        float: left;
+    }
+
+    .package > .pack_name > .img_icon > img {
+        height: 100%;
+        float: left;
+    }
+
+    .package > .pack_name > .img_icon > p {
+        float: left;
+        margin-left: 5px;
+        font-size: 19px;
+    }
+
+    .package > .pack_name > .geted {
+        width: 70px;
+        height: 60px;
+        float: right;
+    }
+
+    .package > .pack_name > .geted > button {
+        padding: 0px;
+        height: 25px;
+        width: 100%;
+        margin-top: 17px;
+        float: right;
+        background-color: #FEFEFE;
+        border: 1px solid #D7D7D7;
+        border-radius: 4px;
+        color: #D7D7D7;
+    }
+
+    .package > .pack_name:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .package > .action_code {
+        margin: 0px 10px;
+    }
+
+    .package > .action_code > .code {
+        background-color: #F3F2EE;
+        width: calc(100% - 75px);
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        text-indent: 10px;
+    }
+
+    .package > .action_code > .code > p > i {
+        color: #D49061;
+        font-weight: 600;
+    }
+
+    .package > .action_code > .copy {
+        width: 70px;
+        float: right;
+    }
+
+    .package > .action_code > .copy > button {
+        outline: none;
+        width: 100%;
+        height: 25px;
+        background-color: #FEFEFE;
+        border: 1px solid #D49061;
+        border-radius: 4px;
+        color: #D49061;
+        margin-top: 8px;
+    }
+
+    .package > .more {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .package > .more > ul {
+        margin: 0px 10px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .package > .more > ul > li {
+        float: left;
+        width: 50%;
+        text-align: center;
+    }
+
+    .main > div {
+        padding: 0px 10px;
+        padding-bottom: 5px;
+    }
+
+    .main > div > h3 {
+        font-size: 1.4rem;
+    }
+
+    .main > .libao_content {
+        box-sizing: border-box;
+        border-bottom: 1px solid #AAAAAA;
+    }
+
+    .main > .libao_content > div {
+        transform: scale(1);
+        font-size: 1.3rem;
+    }
+
+    .main > .exchange_time {
+        border-bottom: 1px solid #AAAAAA;
+    }
+
+    .main > .exchange_time > div {
+        transform: scale(1);
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0px;
+        border-top: 1px solid #DDDDDD;
+        padding: 12px 0px;
+        background-color: #FAFAF9;
+    }
+
+    .footer > button {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        border-radius: 6px;
+        border: none;
+        height: 40px;
+        background-color: #F57B28;
+        color: #FFFFFF;
+    }
+
+    .footer > button > b {
+        display: inline-block;
+        vertical-align: middle;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        background: url("../img/96E0B2F126345E0E6FFB8A5001457688.png") 0px -308px;
+    }
+}

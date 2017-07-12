@@ -1,0 +1,121 @@
+<agenttpl file="user_center_header" />
+        <style type="text/css">
+            .cuttitle{display:inline-block;;*display:inline;width:130px;overflow:hidden;white-space:nowrap;-o-text-overflow:ellipsis;text-overflow:ellipsis;cursor:pointer;}
+             .search-results .table-content table tr{border-bottom:1px dotted  #ddd;}
+            .search-results .table-content table tr th{vertical-align:middle;font-size:12px;text-align:left;text-indent:30px;font-size:20px;font-weight:bold;}
+            .search-results .table-content table tr td{vertical-align:middle;font-size:12px;}
+ 			.search-results .table-content table tr td:first-child{text-align:left;text-indent:30px;font-size:16px;}
+		        
+</style>
+        <script src="/public/js/clipboard.min.js"></script>
+    
+    <section>
+        <div class="user_center main">
+            <div class="banner_1">
+                <img src="__PUBLIC__img/1200-200+.jpg" alt=""/>
+            </div>
+            <div class="user_center_main page-content">
+                <agenttpl file="share/side" />
+                <div class="page-right my-game">
+                    <div class="search-results">
+                        <div class="table-content">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <th colspan=2>公告</th>
+                                        <!--<th width="250">操作</th>-->
+                                    </tr>
+                                <volist name="news" id="vo">
+                                    <tr class="even">
+                                        <td class="watchsize"><a href="{:U('Agent/Zx/get_content')}" data-id="{$vo.id}">{$vo.title}</a></td>
+                                        <td width='100px'>{$vo.create_time|date="Y-m-d", ###}</td>
+                                    </tr>
+                                </volist>
+                                <!-- <script src="/public/js/jquery.blockUI.min.js"></script>
+                                <script src="/public/huoshu/clipboard.js"></script> -->
+                                </tbody>
+                            </table>
+                            <div class="page" style="">
+                                <div class="paging">{$Page}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="alertBox">
+	<div id="sizeBox">
+		<b class="closeBtn"><img src="__PUBLIC__img/delete-img.png" /></b>
+	</div>
+</div>
+<style>
+.alertBox{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color:rgba(0,0,0,.3);
+	display:none;
+}
+#sizeBox{
+	width:800px;
+	height:auto;
+	min-height:300px;
+	background-color:#fff;
+	position:absolute;
+	top:50px;
+	left:50%;
+	margin-left:-400px;
+	z-index:999;
+	display:none;
+	padding:20px;
+}	
+#sizeBox.noteData{
+	text-align:center;
+	line-height:300px;
+}
+#sizeBox .closeBtn{
+	width:20px;
+	height:20px;
+border-radius:10px;
+position:absolute;
+right:10px;
+top:10px;
+cursor:pointer;
+}
+#sizeBox .closeBtn>img{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+</style>
+
+<script src="__PUBLIC__js/autoPage.js"></script>
+<script src="__PUBLIC__My97DatePicker/WdatePicker.js"></script>
+<agenttpl file="user_center_footer" />
+  <script src="__PUBLIC__js/demo1.js"></script>
+<script>
+$(".search-results").delegate(".watchsize>a","click",function(e){
+	e.preventDefault();
+	
+	sendData($(this).attr("href"),{"id":$(this).attr("data-id")},function (result){
+		if(result.status==1){
+			$("#sizeBox").removeClass("noteData").html($("#sizeBox").html()+result.content);
+		}else{
+			$("#sizeBox").addClass("noteData").html($("#sizeBox").html()+"暂无数据。。。。");
+		}
+		$(".alertBox").css("height",$("html").css("height")).fadeIn();
+		$("#sizeBox").fadeIn();
+	});
+})
+$("#sizeBox").delegate(".closeBtn","click",function(){
+	$("#sizeBox").fadeOut();
+	$(".alertBox").fadeOut();
+	$("#sizeBox").html('<b class="closeBtn"><img src="__PUBLIC__img/delete-img.png" /></b>');
+});
+
+</script>

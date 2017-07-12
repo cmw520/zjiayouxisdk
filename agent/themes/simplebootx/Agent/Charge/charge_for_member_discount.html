@@ -1,0 +1,143 @@
+<!--<div class="item-tab-con  game-user-up" style="background: rgb(255, 255, 255);min-height:700px;" >
+
+    
+</div>-->
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/3rd/xcconfirm/xcConfirm.css" />
+<script src="__PUBLIC__/3rd/xcconfirm/xcConfirm.js" type="text/javascript" charset="utf-8" ></script >
+
+<style >
+    .charge_member_form .row {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .col-md-2 {
+        font-size: 16px;
+    }
+
+    .charge_member_form input[type='number'] {
+        width: 200px;
+
+    }
+
+    .charge_member_form input[type='text'] {
+        width: 200px;
+
+    }
+
+    .charge_member_form input[type='password'] {
+        width: 200px;
+
+    }
+</style >
+<div class="container charge_member_form" style="width:600px;float:left;margin-left:50px;margin-top:50px;" >
+    <form method="post" id="charge_form" action="{:U('Agent/ChargeMember/charge')}" class="form-inline">
+        <div class="row" >
+            <div class="input-group" >
+                <span class="input-group-addon" >游戏名称</span >
+                <select class="form-control" id="choose_game" name="app_id" style="width:200px;" >
+                    {$game_select_txt}
+                </select >
+            </div >
+        </div >
+        <div class="row" >
+            <div class="input-group" >
+                <span class="input-group-addon" >玩家账号</span >
+                <select class="form-control" name="mem_id" style="width:200px;" >
+                    {$member_select_txt}
+                </select >
+            </div >
+        </div >
+        <div class="row" >
+            <div class="input-group" >
+                <span class="input-group-addon" >充值金额</span >
+                <input type="number" name="amount" id="amount" min="1" value="100" class="form-control"
+                       autocomplete="off" />
+                <span class="input-group-addon">游戏币</span>
+            </div >
+        </div >
+
+        <div class="row" >
+            <div class="input-group" id='benefit_type_name' >
+                <span class="input-group-addon" >充值折扣</span >
+                <input class="form-control" type="text" disabled="disabled" id="rate" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="input-group" >
+                <span class="input-group-addon" >支付金额</span >
+                <input class="form-control" type="text" disabled="disabled" id="pay_amount" />
+                <span class="input-group-addon">平台币</span>
+            </div >
+        </div >
+        <div class="row" >
+            <div class="input-group" >
+                <span class="input-group-addon" >支付密码</span >
+                <input id="paypwd" name="paypwd" class="form-control" type="password" autocomplete="off" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-2" >
+
+            </div >
+            <div class="col-md-10" >
+                <button class="btn btn-success btn_charge" style="margin-top:30px;" >立即支付</button >
+            </div >
+        </div >
+    </form >
+</div >
+
+<a href="#confirm_order" id="order_confirm_btn" class="default_popup" style="display:none;" >确认订单</a >
+<script >
+    var agent_rate = 0;
+    var amount = 0;
+    var pay_amount = 0;
+    var getcoin = 0;
+
+    agent_rate = $("#choose_game").find("option:selected").attr("data-agent-rate");
+    $("#rate").val(agent_rate);
+
+    update_view_discount();
+
+    $("#amount").keyup(function () {
+        update_view_discount();
+    });
+    $("#amount").change(function () {
+        update_view_discount();
+    });
+
+    $("#choose_game").change(function () {
+        var ag_id  = $(this).find("option:selected").attr("data-agid");
+        var app_id = $(this).val();
+
+        agent_rate = $(this).find("option:selected").attr("data-agent-rate");
+        $("#rate").val(agent_rate);
+
+        update_view_discount();
+    });
+
+    function update_view_discount() {
+        amount     = $("#amount").val();
+        amount     = parseFloat(amount).toFixed(2);
+        agent_rate = $("select[name='app_id']").find("option:selected").attr("data-agent-rate");
+        agent_rate = parseFloat(agent_rate);
+        pay_amount = (amount * agent_rate).toFixed(2);
+        $("#pay_amount").val(pay_amount);
+//        $("#benefit_type_name").text("折扣");
+    }
+
+    $("#charge_form").submit(function (e) {
+        e.preventDefault();
+        $.post("{:U('Agent/ChargeMember/charge')}", $("#charge_form").serialize(), function (data) {
+            if (data.error === '0') {
+                yxalert(data.msg);
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            } else {
+                yxalert(data.msg);
+            }
+        });
+    });
+</script >

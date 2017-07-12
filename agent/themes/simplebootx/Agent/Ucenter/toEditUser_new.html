@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >个人资料管理</title >
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="" >
+    <link type="image/x-icon" rel="shortcut icon" href="" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/css_reset.css" />
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+    <style >
+        html {
+            font-size: 62.5%;
+            font-family: "微软雅黑";
+        }
+
+        .modify-pay-pwd .modify-pwd-content .img-code .code-img {
+            border: none;
+        }
+
+        .li-down {
+            text-align: left !important;
+            text-indent: 8px;
+        }
+
+        .myinfo {
+            width: 700px;
+            padding: 20px;
+            float: left;
+        }
+
+        .myinfos {
+            min-height: 500px;
+        }
+
+        .myinfo_title {
+            margin: 10px 0;
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        .myinfo_content {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .myinfo_content span {
+
+        }
+
+        .myinfo_content_item {
+            width: 100%;
+            float: left;
+            padding: 10px 0;
+        }
+
+        .myinfo_content_item_name {
+            width: 100px;
+            float: left;
+            color: orange;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .myinfo_content_item_value {
+            width: 400px;
+            float: left;
+        }
+    </style >
+</head >
+<body >
+<agenttpl file="user_center_header" />
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right" >
+                <!--<div style="width:100%;font-size:16px;font-weight: bold;padding:15px 0 0 35px;">个人资料管理</div>-->
+                <div class="myinfos" >
+                    <!--基本信息-->
+                    <div class="myinfo" >
+                        <div class="myinfo_title" >基本信息</div >
+                        <div class="myinfo_content" >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >合作类型：</span >
+                                <span class="myinfo_content_item_value" >个人</span >
+                            </div >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >用户名：</span >
+                                <span class="myinfo_content_item_value" >{$user.user_login} (ID： {$user.id})</span >
+                            </div >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >联系人：</span >
+                                <span class="myinfo_content_item_value" >{$user.user_nicename}</span >
+                            </div >
+                            <br /><br />
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >QQ：</span >
+                                <span class="myinfo_content_item_value" >{$user.qq}</span >
+                            </div >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >身份证号码：</span >
+                                <span class="myinfo_content_item_value" >{$agent_man_info.idcard}  </span >
+                            </div >
+                        </div >
+                    </div >
+                    <!--结算信息-->
+                    <div class="myinfo" >
+                        <div class="myinfo_title" >结算信息</div >
+                        <div class="myinfo_content" >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >开户省份：</span >
+                                <span class="myinfo_content_item_value" >{$agent_man_info.province}</span >
+                            </div >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >开户城市：</span >
+                                <span class="myinfo_content_item_value" >{$agent_man_info.city}     </span >
+                            </div >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >开户银行：</span >
+                                <span class="myinfo_content_item_value" >{$agent_man_info.bankname}</span >
+                            </div >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >银行账号：</span >
+                                <span class="myinfo_content_item_value" >{$agent_man_info.banknum}  </span >
+                            </div >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >支付宝账号：</span >
+                                <span class="myinfo_content_item_value" >{$agent_man_info.zfb}</span >
+                            </div >
+                        </div >
+                    </div >
+                    <div class="myinfo" >
+                        <div class="myinfo_title" >支付密码</div >
+                        <div class="myinfo_content" >
+                            <div class="myinfo_content_item" >
+                                <span class="myinfo_content_item_name" >支付密码 </span >
+                                <span class="myinfo_content_item_value" >已设置</span >
+                            </div >
+                        </div >
+                    </div >
+                    <div class="myinfo" >
+                        <div class="verified-phone" >
+                            <span >已验证手机：</span ><i >{$user.mobile}</i >
+                        </div >
+                        <div class="fill-phoone-code phoone-code-one" >
+                            <span >短信验证码：</span >
+                            <input type="text" class="fill-input" id="bankPhonecode" >
+                            <div id="btn_bank_msg" class="get-code get-code-one" >获取短信验证码</div >
+
+                            <b id="phoone-code-one"
+                               style="display: none; margin-left: 138px; color: #008BE3; background: url(http://pic.7881.com/51508-2015/css/images/error-img.png); background-repeat: no-repeat; background-position: left center; padding-left: 18px; font-size: 12px; float: left; margin-top: -24px;" >短信验证码错误</b >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+
+</body >
+<script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/agent/js/xhr.js" ></script >
+<script src="__PUBLIC__/agent/js/demo1.js" ></script >
+
+<script >
+
+    succAside(5);
+    var phone = {$user.mobile
+    }
+    ;
+
+    //    $("input").css("border", "none");
+    //    $("input").attr("disabled", "disabled");
+
+</script >
+
+</html >

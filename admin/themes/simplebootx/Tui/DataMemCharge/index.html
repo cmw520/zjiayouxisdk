@@ -1,0 +1,124 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <style >
+                #queryForm .row {
+                    margin: 10px 0;
+                    width: 960px;
+                }
+
+                #queryForm .row input {
+                    /*width:150px;*/
+                }
+
+                #queryForm .row:first-child input {
+                    width: 120px;
+                }
+            </style >
+
+            <div class="page-right my-game query-records" >
+                <form class="form-inline" role="form" id="queryForm" action="{:U('Tui/DataMemCharge/index')}"
+                      method="get" >
+                    <div class="input-content" style="height:120px;" >
+                        <div class="container " style="width:960px;" >
+                            <div class="row" >
+                                <div class="col-xs-3" >
+                                    玩家账号
+                                    <input type="text" class="form-control" name="mem_name"
+                                           value="{$formget.mem_name}" />
+                                </div >
+                                <div class="col-xs-3" >
+                                    充值游戏
+                                    <input type="text" class="form-control" name="game_name"
+                                           value="{$formget.game_name}" />
+                                </div >
+                                <div class="col-xs-3" >
+                                    渠道名称
+                                    <input type="text" class="form-control" name="agent_name"
+                                           value="{$formget.agent_name}" />
+                                </div >
+                                <div class="col-xs-3" >
+                                    订单号
+                                    <input type="text" class="form-control" name="order_id"
+                                           value="{$formget.order_id}" />
+                                </div >
+                            </div >
+                            <div class="row" >
+                                <div class="col-xs-6" >
+                                    充值时间
+                                    <input class="form-control" id="stime" name="start_time" type="text"
+                                           value="{$formget.start_time}" style="width:120px;"
+                                           onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd'})" >
+                                    <input class="form-control" id="etime" name="end_time" type="text"
+                                           value="{$formget.end_time}" style="width:120px;"
+                                           onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd'})" >
+
+                                </div >
+                                <div class="col-xs-4" >
+                                    充值方式
+                                    <select name='payway' class='form-control' >
+                                        <option value='0' >全部</option >
+                                        <option value='1' >自然</option >
+                                        <option value='2' >非自然</option >
+                                    </select >
+                                </div >
+                                <div class='col-xs-2' >
+                                    <button class="btn btn-success" id="search-btn" >搜&nbsp;索</button >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$n}</i >个记录</span >
+                    </div >
+                    <div class="table-content registration-details" >
+                        <table border="0" cellspacing="0" cellpadding="0" >
+                            <tbody >
+                            <tr >
+                                <th >渠道名称</th >
+                                <th >充值时间</th >
+                                <th >订单号</th >
+                                <th >玩家账号</th >
+
+                                <th >充值游戏</th >
+                                <th >充值金额</th >
+                                <th >充值方式</th >
+                            </tr >
+                            <volist name='items' id='vo' >
+                                <tr >
+                                    <td >{$vo.agent_name}</td >
+                                    <td >{$vo.create_time|date="Y-m-d H:i:s",###}</td >
+                                    <td >{$vo.order_id}</td >
+                                    <td >{$vo.mem_name}</td >
+                                    <td >{$vo.game_name}</td >
+                                    <td >{$vo.amount}</td >
+                                    <td >{$vo.payway_txt}</td >
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+                        <div class="page" style="" >
+                            <div class="paging" >{$page}</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+
+<!--页脚-->
+<agenttpl file="footer" />
+<script src="__PUBLIC__My97DatePicker/WdatePicker.js" ></script >
+<script >
+
+</script >
+

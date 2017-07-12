@@ -1,0 +1,65 @@
+<div class="container full_tranparent module_AppDetail" ng-cloak >
+    <div class="row white_div" style="padding:10px;border-bottom:0px solid #CCCCCC;margin-bottom:10px;" >
+        <div class="col-xs-2" style="padding:0;" >
+            <img ng-src="{{data.icon}}" class="icon_full" alt="图标" />
+        </div >
+        <div class="col-xs-7" style="padding-right:0;" >
+            <div class="row" ><span style="font-size:16px;font-weight: 400;" >{{data.name}}</span ></div >
+            <div class="row" style="margin-top:5px;margin-bottom:10px;color:#333333;font-size:12px;" >
+                <span class="label label-warning" >角色</span >
+                <span class="label label-warning" >扮演</span >
+            </div >
+            <div class="row" style="font-size:12px;color:#999999;" >
+                人气：13241234
+            </div >
+        </div >
+        <div class="col-xs-3" style="text-align: center;float:right;padding-right:0;" >
+            <div style="width:100%;float:left;font-size:16px;color:#00AAEE;padding-top:15px;text-align: right;" >
+                <button class="btn btn-success" ng-click="getGiftCode();" >充值</button >
+            </div >
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >游戏介绍</h4 >
+        </div >
+        <div class="col-xs-12 grey_text_block" ng-bind-html="data.description | to_trusted" >
+
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >游戏截图</h4 >
+        </div >
+        <div class="col-xs-12" style="height:210px;overflow: hidden;width:95%;" >
+            <div style="width:1000px;float:left;overflow: scroll;" >
+                <img ng-repeat="x in data.shots" ng-src="{{x.image}}" alt="" class="app_shot_item" />
+            </div >
+
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >礼包</h4 >
+        </div >
+        <div class="col-xs-12" >
+
+        </div >
+    </div >
+    <div class="row white_div"
+         style="padding-bottom:20px;border-top:0px solid #CCCCCC;border-bottom:0px solid #CCCCCC;" >
+        <div class="col-xs-12" >
+            <h4 >资讯</h4 >
+        </div >
+        <div class="col-xs-12" >
+
+        </div >
+    </div >
+    <div class="row" style="text-align: center;margin-top:20px;margin-bottom:20px;" >
+        <a class="btn btn-success" style="width:90%;" href="{{data.download_url}}" >下载游戏</a >
+    </div >
+</div >
+

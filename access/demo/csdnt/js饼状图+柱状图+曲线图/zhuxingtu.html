@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+<html debug="true"><head>
+<title>图表统计</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="highcharts/jquery.js"></script>
+<script src="highcharts/highcharts.js"></script>
+<script type="text/javascript">
+(function($){ // encapsulate jQuery
+var chart;
+$(document).ready(function() {
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container',
+			type: 'column'
+		},
+		title: {
+			text: '数据柱形图表'
+		},
+		subtitle: {
+			text: 'jqddsjfx'
+		},
+		xAxis: {
+			categories: [
+				'01年',
+				'02年',
+				'03年',
+				'04年',
+				'05年',
+				'06年',
+				'07年',
+				'08年',
+				'09年',
+				'10年',
+				'11年',
+				'12年'
+			]
+		},
+		yAxis: {
+			min: 0,
+			title: {
+				text: '数据'
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			backgroundColor: '#FFFFFF',
+			align: 'left',
+			verticalAlign: 'top',
+			x: 100,
+			y: 70,
+			floating: true,
+			shadow: true
+		},
+		tooltip: {
+			formatter: function() {
+				return ''+
+					this.x +': '+ this.y +' 单位';
+			}
+		},
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0
+			}
+		},
+			series: [{
+			name: '用户1',
+			data: [499, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544]
+
+		}, {
+			name: '用户2',
+			data: [836, 788, 985, 934, 1060, 845, 1050, 1043, 912, 835, 1066, 923]
+
+		}, {
+			name: '用户3',
+			data: [489, 388, 393, 414, 470, 483, 590, 596, 524, 652, 593, 512]
+
+		}, {
+			name: '用户4',
+			data: [424, 332, 345, 397, 526, 755, 574, 604, 476, 391, 468, 511]
+
+		}]
+	});
+});
+
+})(jQuery);
+</script>
+<body>
+	<div style="margin: 0 1em">
+		<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
+</body></html>

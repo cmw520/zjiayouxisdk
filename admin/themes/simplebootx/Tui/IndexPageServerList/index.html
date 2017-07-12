@@ -1,0 +1,147 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Tui/About/ads')}" target="_self" >轮播图管理</a ></li >
+        <li ><a href="{:U('Tui/About/index')}" target="_self" >合作联系</a ></li >
+        <li ><a href="{:U('Tui/IndexPageHotGame/index')}" target="_self" >最热游戏</a ></li >
+        <li class="active" ><a href="{:U('Tui/IndexPageServerList/index')}" target="_self" >开服列表</a ></li >
+    </ul >
+    <!--        <div class="container" >
+                <div class="row" style="margin:20px 0;">-->
+    <div >
+        <button class="btn btn-success add_server_btn" style="margin:20px 0;" >+添加新服列表</button >
+    </div >
+    <!--            </div>
+            </div>-->
+    <table class="table table-hover table-bordered" >
+        <tr >
+            <th >游戏名称</th >
+            <th >新服名称</th >
+            <th >开服时间</th >
+            <th >操作</th >
+        </tr >
+        <volist name='items' id='vo' key="k" >
+            <tr >
+                <td >{$vo.item.game_name}</td >
+                <td >{$vo.item.server_name}</td >
+                <td >{$vo.item.start_time}</td >
+                <td >
+                    <!--<a href="javascript:;" class="edit_item_btn">编辑</a>-->
+                    <a href="javascript:;" class="del_item_btn" data-k="{$k}" >删除</a >
+                </td >
+            </tr >
+        </volist >
+    </table >
+</div >
+
+<style >
+    .funcs {
+        padding: 0 0 10px 0;
+    }
+
+    .pop_up_form_div {
+        width: 300px;
+        padding: 20px 20px 40px 20px;
+    }
+
+    .pop_up_form_div .row {
+        width: 300px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pop_up_form_div input {
+        width: 280px;
+    }
+
+    .pop_up_form_submit_btn {
+        width: 300px;
+    }
+
+    input[disabled='disabled'] {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #CCCCCC;
+    }
+
+    #calroot {
+        z-index: 9999999999;
+    }
+</style >
+
+<div class="pop_up_form_div container" style="display:none;" >
+    <form id="add_server_form" onsubmit="return false;" >
+        <div class="row" >
+            <div class="col-md-4" >游戏名称</div >
+            <div class="col-md-8" >
+                <input type="text" name="game_name" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >新服名称</div >
+            <div class="col-md-8" >
+                <input type="text" name="server_name" />
+            </div >
+        </div >
+        <div class="row" >
+            <div class="col-md-4" >开服时间</div >
+            <div class="col-md-8" >
+                <input type="text" name="start_time" class="js-datetime" />
+            </div >
+        </div >
+        <div class="row" >
+            <button class="btn btn-success pop_up_form_submit_btn" >确认</button >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    //    $().focus(function(){
+    //        $("#calroot").css("z-index","9999999");
+    //    })
+
+    $(".add_server_btn").click(function () {
+
+        layer.open({
+            type   : 1,
+            shift  : 2,
+            area   : '350px',
+            title  : "添加新服列表",
+            content: $('.pop_up_form_div'),
+            cancel : function (index) {
+                layer.close(index);
+            }
+        });
+    });
+
+    $(".pop_up_form_submit_btn").click(function () {
+        var data = $("#add_server_form").serialize();
+        var url  = "{:U('Tui/IndexPageServerList/add')}";
+        $.post(url, data, function (res) {
+            if (res.error == 0) {
+                yxalert(res.msg);
+                reload_delay();
+            } else if (res.error == 1) {
+                yxalert(res.msg);
+            }
+        });
+    });
+
+    $(".del_item_btn").click(function () {
+        var k    = $(this).attr("data-k");
+        var url  = "{:U('Tui/IndexPageServerList/delete')}";
+        var data = {"k": k};
+//            alert(k);
+        $.post(url, data, function (res) {
+            if (res.error == 0) {
+                yxalert(res.msg);
+                reload_delay();
+            } else if (res.error == 1) {
+                yxalert(res.msg);
+            }
+        });
+    });
+</script >
+</body >
+</html>

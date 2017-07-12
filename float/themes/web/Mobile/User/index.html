@@ -1,0 +1,127 @@
+<mobiletpl file="header" />
+<style >
+    .red_dot {
+        float: left;
+        background-color: red;
+        height: 10px;
+        width: 10px;
+        border-radius: 5px;
+        margin-top: 12px;
+    }
+</style >
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/user.css" />
+<section >
+    <div class="tenGrayBox" style="height: 0px;" ></div >
+    <div class="user_header" >
+        <div class="img" >
+            <!-- <span>个人信息</span> -->
+            <p ><b ></b >帐号：
+                <span >
+                <if condition="$Think.session.user.status eq 1" > 试玩账号</if >
+					{$Think.session.user.username}
+				</span >
+            </p >
+        </div >
+        <a class="change" onclick="huosdk_changeaccount('logout');" >切换账号</a >
+    </div >
+    <div class="tenGrayBox" ></div >
+    <ul class="funcList" >
+        <li class="list qb" >
+            <a href="#" >
+                <div class="left" ><b ></b ><span >{:C('CURRENCY_NAME')}：</span ><i >{$gmremain|default=0}</i ></div >
+                <div class="right" ><i ></i ><!-- <s></s> --></div >
+            </a >
+        </li >
+        <!-- <li class="list qb"><a href="{:U('Mobile/Wallet/charge')}"><div  class="left"><b></b><span>{:C('CURRENCY_NAME')}：</span><i>{$memptb.amount|default=0}元</i></div><div class="right"><i>充值</i><s></s></div></a></li> -->
+        <!-- <li class="list phone"><a href="{:U('Mobile/Security/mobile')}"><div  class="left"><b style="background-position: 0px -24px;"></b><span>手机</span></div><div class="right"><i>{$mobileflag}</i><s></s></div></a></li>
+                 -->
+        <li class="list safe" >
+            <a href="{:U('Mobile/Security/index')}" >
+                <div class="left" ><b ></b ><span >密保</span ></div >
+                <div class="right" ><i >手机/邮箱</i ><s ></s ></div >
+            </a >
+        </li >
+        <li class="list pwd" >
+            <a href="{:U('Mobile/Password/uppwd')}" >
+                <div class="left" ><b ></b ><span >修改密码</span ></div >
+                <div class="right" ><i >修改</i ><s ></s ></div >
+            </a >
+        </li >
+        <!-- <li class="list "><a href="{:U('User/Float/forgetPwd')}"><div  class="left"><b class="forgetPwd"></b><span>忘记密码</span></div><div class="right"><s></s></div></a></li>  -->
+    </ul >
+    <div class="tenGrayBox" ></div >
+    <ul class="funcList" >
+        <li class="list lb" >
+            <a href="{:U('Mobile/Gift/index')}" >
+                <div class="left" ><b ></b ><span >我的礼包</span ></div >
+                <div class="right" ><i ><b >{$giftnumber|default=0}</b >个</i ><s ></s ></div >
+            </a >
+        </li >
+        <!-- <li class="list xfmx"><a href="{:U('Mobile/Message/mymsg')}"><div class="left"><b style="background-position: 0px -307px;"></b><span>我的消息</span></div><div class="right"><s></s></div></a></li>
+                -->
+        <!-- 		<li class="list czmx"><a
+                    href="{:U('Mobile/Wallet/charge_detail')}"><div class="left">
+                            <b
+                                style='background: url("/public/mobile/images/icon_recharges.png"); background-size: contain;'></b><span>充值明细</span>
+                        </div>
+                        <div class="right">
+                            <s></s>
+                        </div></a></li> -->
+        <li class="list xfmx" >
+            <a href="{:U('Mobile/Wallet/pay_detail')}" >
+                <div class="left" ><b
+                        style='background: url("/public/mobile/images/icon_xfmx.png"); background-size: contain;' ></b ><span >消费明细</span >
+                </div >
+                <div class="right" ><s ></s ></div >
+            </a >
+        </li >
+        <if condition="$Think.session.device.from eq 4" >
+            <if condition="$Think.session.user.agent_id eq 0" >
+                <li class="list sc" >
+                    <a href="{:U('Mobile/Code/index')}" >
+                        <div class="left" >
+                            <b style='background: url("/public/mobile/images/icon_xfmx.png"); background-size: contain;' > </b >
+                            <span style="float:left;" >邀请码</span >
+                            <i class='red_dot' ></i >
+                        </div >
+
+                        <div class="right" style="color:red" >请输入邀请码<s ></s ></div >
+                    </a >
+                </li >
+                <else />
+                <li class="list sc" >
+                    <a href="#" >
+                        <div class="left" ><b
+                                style='background: url("/public/mobile/images/icon_xfmx.png"); background-size: contain;' > </b ><span >邀请码</span >
+                        </div >
+                        <div class="right" style="color:red" >{$accode}</div >
+                    </a >
+                </li >
+            </if >
+        </if >
+        <!-- <li class="list sc"><a href="{:U('Mobile/Collection/myCollection')}"><div  class="left"><b></b><span>我的收藏</span></div><div class="right"><i>{$myCollercionCount|default=0}款</i><s></s></div></a></li>
+            <li class="list wgdyx"><a href="{:U('Mobile/Game/myPlayed')}"><div  class="left"><b></b><span>玩过的游戏</span></div><div class="right"><s></s></div></a></li>
+         -->
+    </ul >
+    <div class="tenGrayBox" ></div >
+    <ul class="funcList" >
+        <li class="list lxkf" style="height: 50px; line-height: 50px;" >
+            <a href="{:U('Mobile/Help/index')}" >
+                <div class="left" ><b ></b ><span >联系客服</span ></div >
+                <div class="right" ><s ></s ></div >
+            </a >
+        </li >
+    </ul >
+</section >
+<div class="main_model_box" ></div >
+<!-- 		<footer class="footer">
+			<a onclick="huosdk_changeaccount('logout');">退出账号</a>
+		</footer> -->
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+</html>

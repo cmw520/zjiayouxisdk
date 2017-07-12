@@ -1,0 +1,153 @@
+<agenttpl file="user_center_header" />
+<link rel="stylesheet" href="__PUBLIC__/agent/css/popup.css" />
+<script src="__PUBLIC__/agent/js/hm.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/agent/js/jquery.popup.min.js" ></script >
+<style >
+    .dui_choose_btn {
+        cursor: pointer;
+        height: 30px;
+        width: 98px;
+        border: 1px solid #E4E4E4;
+        color: #333333;
+        background: #F1F1F1;
+        margin: 0;
+        float: left;
+        line-height: 30px;
+        text-align: center;
+        margin-right: 10px;
+    }
+
+    .item-tab-con.individual-top-up .top-up-account {
+        line-height: 24px;
+    }
+
+    #display4 .choose-results {
+        margin-left: 206px;
+        margin-top: -4px;
+        height: 30px;
+        display: table;
+        line-height: 30px;
+    }
+</style >
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/select2/css/select2.min.css" />
+<script src="__PUBLIC__/select2/js/select2.min.js" ></script >
+<script type="text/javascript" src="__PUBLIC__/select2/js/i18n/zh-CN.js" ></script >
+<script >
+    $(document).ready(function () {
+        $("select").select2({
+            language: "zh-CN"
+        });
+    });
+</script >
+
+<style >
+    .charge_for_sub_div .row {
+        margin: 20px 0;
+    }
+</style >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records individual-account" >
+                <agenttpl file="share/finance_values" />
+                <div class="search-results" >
+                    <div class="input-tab" >
+                        <agenttpl file='share/recharge_tabs' />
+                    </div >
+                    <div class="item-tab-all" >
+
+                        <!--充值界面开始-->
+                        <div class="container charge_for_sub_div"
+                             style="width:300px;float:left;margin-left:40px;margin-top:30px;" >
+                            <form method="post" action="" id="charge_for_sub_form" >
+                                <div class="row" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >下级渠道</span >
+                                        <select class="form-control" name="agent_user_login" >
+                                            <volist name="subagents" id="vo" >
+                                                <option value="{$vo.user_login}" >{$vo.user_login}</option >
+                                            </volist >
+                                        </select >
+                                    </div >
+                                </div >
+                                <div class="row" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >充值金额</span >
+                                        <input class="form-control" name="amount" type="text" autocomplete="off" />
+                                        <!--<span id="sub_agent_ptb_balance"></span>-->
+                                    </div >
+                                </div >
+                                <div class="row" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >支付密码</span >
+                                        <input class="form-control" name="paypwd" type="password" autocomplete="off" />
+                                    </div >
+                                </div >
+                                <div class="row" >
+                                    <div class="col-md-3 col-md-offset-3" >
+                                        <button class="btn btn-success confirm-prepaid" id="charge_for_sub" >确认充值
+                                        </button >
+                                    </div >
+                                </div >
+                            </form >
+                        </div >
+                        <!--充值界面开结束-->
+                    </div >
+                </div >
+            </div >
+        </div >
+</section >
+
+<script >
+    var url_check_member_account_post = "{:U('Agent/ucenter/check_member_account_post')}";
+    var url_charge_for_member_post = "{:U('Agent/money/charge_for_member_post')}";
+    var url_order_member_post = "{:U('Agent/money/order_member_post')}";
+    var url_order_balance_post = "{:U('Agent/money/order_balance_post')}";
+    var url_charge_for_sub_post = "{:U('Agent/money/charge_for_sub_post')}";
+    var url_check_paypwd_post = "{:U('Agent/money/check_paypwd_post')}";
+    var now_balance = {$balance};
+    //    $(".channel-top-up").show();
+
+    var action = "{:U('Agent/money/charge_for_sub_post')}";
+    $("#charge_for_sub_form").submit(function (e) {
+        e.preventDefault();
+        $.post(action, $(this).serialize(), function (res) {
+            if (res.error === '0') {
+                yxalert("充值成功");
+                reload_delay();
+            } else if (res.error === '1') {
+                yxalert(res.msg);
+            }
+        });
+    });
+
+    //    $("select[name='agent_user_login']").change(function(){
+    //        var subagent=$(this).val();
+    //
+    //        var url="{:U('Agent/AgentPtbBalance/get')}";
+    //        $.post(url,{"subagent":subagent},function(res){
+    //            if(res.error=='0'){
+    //                $("#sub_agent_ptb_balance").text("下级渠道当前可用余额"+res.msg+"元");
+    //            }else if(res.error==1){
+    //
+    //            }
+    //        });
+    //    });
+</script >
+
+<!--<script type="text/javascript" src="__PUBLIC__/agent/js/recharge_for_sub.js"></script>-->
+
+<!--<notempty name = "show_game_chooser" >
+   <script> 
+       $('.choose-btn').click();
+   </script>
+</notempty>-->
+
+<agenttpl file="user_center_footer" />
+

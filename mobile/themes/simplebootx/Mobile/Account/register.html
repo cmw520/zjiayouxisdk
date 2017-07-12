@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%;min-height:100%;height:auto;" >
+<head >
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1,minimal-ui" >
+    <meta charset="UTF-8" >
+    <title >注册用户</title >
+    <style >
+        html {
+            background: url("__PUBLIC__/wap/images/zx_bg.png");
+            background-size: 100% 100%;
+        }
+
+        .game9gbindphone {
+            position: fixed;
+            z-index: 9998;
+            left: 3vw;
+            top: 20vh;
+            width: 94vw;
+            color: #000000;
+        }
+
+        .game9gbindphonebox {
+            position: relative;
+            margin: 6vw;
+            padding: 6vw;
+            background: #FFFFFF;
+            border-radius: 3vw;
+        }
+
+        .game9gbindphonetext {
+            margin: 2vw 0;
+            padding: 0 3vw;
+            width: 64vw;
+            height: 12vw;
+            font-size: 5vw;
+            border: 0;
+            color: #999999;
+            background: #F7F7F7;
+            border-radius: 1vw;
+        }
+
+        .game9gbindphonebtn {
+            width: 100%;
+            height: 12vw;
+            line-height: 12vw;
+            text-align: center;
+            font-size: 5vw;
+            border: 0;
+            color: #FFFFFF;
+            background: #60D536;
+            border-radius: 1vw;
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px #F7F7F7 inset;
+        }
+
+        .error_box {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+        }
+    </style >
+</head >
+<body >
+<div id="game9gloginuser" class="game9gbindphone" >
+    <div class="game9gbindphonebox" >
+        <input class="game9gbindphonetext" id="username" placeholder="输入帐号" >
+        <input type="password" class="game9gbindphonetext" id="password" placeholder="输入密码" >
+        <div class="error_box" ></div >
+        <div class="game9gbindphonebtn" >注册新用户</div >
+    </div >
+</div >
+<input type="hidden" id="register" value="{:U('Account/register_post')}" >
+</body >
+<script src="__PUBLIC__/wap/js/jquery-1.8.3.min.js" ></script >
+<script src="__PUBLIC__/wap/js/huosu_base.js" ></script >
+<script >
+    $(function () {
+        $("input").each(function () {
+            $(this).focus(function () {
+                $(".error_box").html('');
+            });
+        });
+        $(".game9gbindphonebtn").click(function () {
+            var username = $("#username").val().trim();
+            var password = $("#password").val().trim();
+            if (username) {
+                if (password) {
+                    sendData($("#register").val(), {"username": username, "password": password}, function (data) {
+                        if (data.code == 1) {
+                            alert("注册成功");
+                            window.location.href = '{:U('
+                            Index / index
+                            ')}';
+                        } else {
+                            alert(data.msg);
+                        }
+                    })
+                } else {
+                    showMsg(".error_box", "密码不能为空")
+                }
+            } else {
+                showMsg(".error_box", "用户名不能为空")
+            }
+        });
+    })
+</script >
+</html >

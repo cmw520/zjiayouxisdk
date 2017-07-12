@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html >
+<head lang="en" >
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" >
+    <meta charset="UTF-8" >
+    <title >单机</title >
+    <link rel="Shortcut Icon" href="__PUBLIC__/wap/img/ooopic_1467870829.ico" >
+    <link rel="stylesheet" href="__PUBLIC__/wap/less/style.css" />
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/search_box.css" />
+    <script src="__PUBLIC__/wap/js/jquery-1.7.2.min.js" ></script >
+    <style >
+        #search-input {
+            width: 75%;
+            float: left;
+            border: 1px solid #CCCCCC;
+            height: 20px;
+            padding: 1%;
+            margin: 5px auto;
+        }
+    </style >
+</head >
+<body >
+<header id="header" >
+    <div class="row1" >
+        <div class="back_btn" style='width:4%;float:left;margin:0 4% 0 1%;' >
+            <span ></span >
+        </div >
+        <form method="get" action="{:U('Mobile/Index/search')}" >
+            <input type='text' name='keyword' value="{$formget.keyword}" id='search-input' placeholder="请输入游戏名称" />
+        </form >
+        <div class="icon_search" style='width:4%;float:right;margin:0 1% 0 2%;' >
+            <span onclick="do_search();" ></span >
+        </div >
+    </div >
+</header >
+<div class="search_box" >
+    <div class="search_container" >
+        <button >搜索</button >
+    </div >
+</div >
+<section >
+    <div id="game_list_down" >
+        <volist name="items" id="vo" key="k" >
+            <div class="game_list_down" >
+                <div class="serialNumber " >
+                    <span >{$k}</span >
+                </div >
+                <div class="game_list " onclick="javascript:window.location.href = '{:U('Mobile/Index/game')}'" >
+                    <div class="list_left" >
+                        <a href="#" ><img src="/upload/{$vo.icon}" alt="" /></a >
+                    </div >
+                    <div class="list_main" >
+                        <h4 >{$vo.name}</h4 >
+                        <ul >
+                            <li >{$vo.type_name} |</li >
+                            <li >运营 |</li >
+                            <li >{$vo.size}</li >
+                        </ul >
+                        <p >来创造属于你的世界吧！</p >
+                    </div >
+                </div >
+                <div class="delete " >
+                    <button onclick="javascript:window.location.href = '{:U('Mobile/Front/DownloadApp')}/app_id/{$vo.id}'" >下载</button >
+                </div >
+            </div >
+        </volist >
+    </div >
+</section >
+</body >
+
+<script src="__PUBLIC__/wap/js/main.js" ></script >
+<!--<script src="__PUBLIC__/wap/js/search_box.js"></script>-->
+<script >
+    function do_search() {
+//            e.preventDefalt();
+        $("form").submit();
+    }
+
+</script >
+</html >

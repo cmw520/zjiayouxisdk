@@ -1,0 +1,234 @@
+<agenttpl file="user_center_header" />
+<script src="__PUBLIC__/agent/js/subagent.js" ></script >
+
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records lower-channel-management" >
+                <style >
+                    #queryForm .row .col-md-4 {
+                        text-align: center;
+                    }
+                </style >
+                <form id="queryForm" action="__SELF__" method="get" >
+                    <div class="container" style="width:960px;margin-top:20px;margin-bottom:20px;" >
+                        <div class="row" >
+                            <div class="col-md-2" >
+                                <a class=" add_subagent_btn btn btn-success" href="javascript:;" >+添加下级渠道</a >
+                            </div >
+                            <div class="col-md-3" >
+                                <div class="input-group" >
+                                    <span class="input-group-addon" >渠道帐号</span >
+                                    <input class="form-control" name="user_login" type="text" placeholder=""
+                                           value="{$formget.user_login}" />
+                                </div >
+                            </div >
+                            <div class="col-md-3" >
+                                <div class="input-group" >
+                                    <span class="input-group-addon" >渠道名称</span >
+                                    <input class="form-control" name="user_nicename" type="text" placeholder=""
+                                           value="{$formget.user_nicename}" />
+                                </div >
+                            </div >
+                            <div class="col-md-4" >
+                                <button class="btn btn-success" >搜索</button >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$count}</i >个渠道</span >
+
+                    </div >
+                    <div class="table-content" >
+                        <table class="table table-hover" >
+                            <tbody >
+                            <tr >
+                                <!--<th width="80">渠道ID</th>-->
+                                <th width="130" >创建时间</th >
+                                <th width="110" >渠道帐号</th >
+                                <th width="110" >渠道名称</th >
+                                <!--<th width="100">{:C(CURRENCY_NAME)}余额（元）</th>-->
+
+                                <!--<th width="80">状态</th>-->
+                                <!--<th width="80">操作</th>-->
+                            </tr >
+
+                            <volist name="items" id="vo" >
+                                <tr class="even" >
+                                    <!--<td>{$vo.id}</td>-->
+                                    <td >{$vo.create_time}</td >
+                                    <td >{$vo.user_login}</td >
+                                    <td >{$vo.user_nicename}</td >
+                                    <!--<td>0.00</td>-->
+
+                                    <!--                                        <td>
+                                                                                <switch name="vo.user_status">
+                                                                                    <case value="2">正常</case>
+                                                                                    <case value="3">禁用</case>
+                                                                                </switch>
+                                                                            </td>-->
+                                    <!--                                        <td>
+                                                                                <a href="{:U('Agent/ucenter/editSub')}/{$vo.id}" target="_self" class="edit_a" style="cursor:pointer;color:#00a0e9;">修改</a>
+                                                                                &nbsp;&nbsp;
+                                                                                <a href="javascript:;" onclick="delsub('{$vo.id}','{$vo.user_nicename}');" class="del_a" style="cursor:pointer;">删除</a>
+                                                                            </td>-->
+
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+
+                        <div class="page" style="" >
+                            <span class="game-num" >
+                                共为您找到 {$count} 个渠道
+                            </span >
+                            <div class="paging" >
+                                {$page}
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+    </div>
+    <style >
+        .pop_up_form_div {
+            width: 380px;
+            padding: 20px 20px 40px 20px;
+        }
+
+        .pop_up_form_div .row {
+            width: 350px;
+            margin: 20px 0;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .pop_up_form_div input[type='text'], .pop_up_form_div input[type='password'] {
+            /*width:280px;*/
+        }
+
+        .pop_up_form_submit_btn {
+            width: 350px;
+        }
+
+        input[disabled='disabled'] {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        .pop_up_form_div .input-group-addon {
+            width: 100px;
+            font-size: 14px;
+        }
+
+        .pop_up_form_div .input-group {
+            width: 350px;
+        }
+    </style >
+
+    <div class="pop_up_form_div container" id='add_subagent' style="display:none;" >
+        <div class="row" >
+            <div class="input-group " >
+                <span class="input-group-addon" >渠道名称</span >
+                <input class="form-control" type="text" name="name" />
+            </div >
+        </div >
+
+        <div class="row" >
+            <div class="input-group " >
+                <span class="input-group-addon" >渠道帐号</span >
+                <input class="form-control" type="text" name="user_login" />
+            </div >
+        </div >
+        <!--            <div class="row">
+                        <div class="input-group ">
+                            <span class="input-group-addon">手机</span>
+                            <input class="form-control" type="text" name="phone" />
+                        </div>
+                    </div>-->
+
+        <!--            <div class="row">
+                        <div class="input-group ">
+                            <span class="input-group-addon">邮箱</span>
+                            <input class="form-control" type="text" name="email" />
+                        </div>
+                    </div>-->
+        <div class="row" >
+            <div class="input-group " >
+                <span class="input-group-addon" >登录密码</span >
+                <input class="form-control" type="password" name="pass" />
+            </div >
+        </div >
+        <div class="row" >
+            <button class="btn btn-success pop_up_form_submit_btn" id='popup_submit_btn' >添加</button >
+        </div >
+    </div >
+</section >
+
+<style >
+    .del_a {
+        color: red;
+    }
+
+    .del_a:hover {
+        color: red;
+    }
+</style >
+<script >
+    //function delsub(subid,uname){
+    //
+    //    var con=confirm("真的要删除下级渠道 【"+uname+"】 吗？");
+    //
+    //    if(!con){
+    //       return;
+    //    }
+    //    $.post("{:U('Agent/ucenter/delSub')}",{"subid":subid},function(data){
+    //        if(data.error==='0'){
+    //            location.reload();
+    //        }else{
+    //            yxalert(data.msg);
+    //        }
+    //    });
+    //}
+
+    $(".add_subagent_btn").click(function () {
+        layer.open({
+            type   : 1,
+            shift  : 2,
+            area   : '400px',
+            title  : "添加下级渠道",
+            content: $('#add_subagent'),
+            cancel : function (index) {
+                layer.close(index);
+            }
+        });
+    });
+
+    $("#popup_submit_btn").click(function () {
+        var name = $("#add_subagent input[name='name']").val();
+//        var phone=$("input[name='phone']").val();
+//        var email=$("input[name='email']").val();
+        var pass       = $("#add_subagent input[name='pass']").val();
+        var user_login = $("#add_subagent input[name='user_login']").val();
+        $.post("{:U('Agent/Ucenter/addSub_post')}", {"user_login": user_login, "name": name, "pass": pass},
+                function (data) {
+                    if (data.error === '0') {
+                        yxalert(data.msg);
+                        reload_delay();
+                    } else {
+                        yxalert(data.msg);
+                    }
+                });
+    });
+</script >
+
+<agenttpl file="user_center_footer" />

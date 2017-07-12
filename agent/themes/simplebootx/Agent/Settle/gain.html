@@ -1,0 +1,83 @@
+<agenttpl file="user_center_header" />
+<!--主题内容区域-->
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game query-records individual-account" >
+                <agenttpl file="share/finance_values_settle" />
+                <div class="search-results" >
+                    <div class="input-tab" >
+                        <ul >
+                            <li ><a href="{:U('Agent/Settle/index')}" >提现记录</a ></li >
+                            <li class="on" ><a href="{:U('Agent/Settle/gain')}" >玩家充值收益明细</a ></li >
+                        </ul >
+                    </div >
+                    <div class="item-tab-all" >
+                        <div class="item-tab-con" >
+                            <iframe id="iframe5" src="{:U('Agent/DataMemRechargeRecords/getList')}" frameborder="0"
+                                    width="100%" height="1000px" >
+                                抱歉！您的浏览器不支持，请升级您的浏览器以便正常访问。
+                            </iframe >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <!--余额提现弹窗-->
+        <div id="balance-withdrawal-pop" >
+            <div id="balance-withdrawal-pop-header" >
+                <span >请选择提取方式</span >
+                <img src="__PUBLIC__/agent/img/pop-closed.png" style="cursor:pointer;"
+                     onclick="closebox('#balance-withdrawal-pop')" >
+            </div >
+            <div id="balance-withdrawal-pop-content" >
+                <div class="to-aliPay" onclick="selectWithdraw('zfb')" ></div >
+                <div class="to-bank-card" onclick="selectWithdraw('bank')" ></div >
+            </div >
+        </div >
+</section >
+<!--页脚-->
+<agenttpl file="user_center_footer" />
+
+<div id="cover"
+     style="position: absolute;top: 0px; left: 0px;width:100%;  height: 1624px; z-index: 8888; opacity: 0.8; display: none; background: rgb(37, 33, 48);" >
+    <iframe id="if" name="if"
+            style="position:absolute;top:-5px;left:0;border:none;width:100%;height:100%;filter:alpha(opacity=0);" ></iframe >
+</div >
+</div>
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;" >
+</div >
+
+<script >
+    function popupbox(id) {
+        if ($(id).css("display") === "none") {
+            $(id).css("display", "block")
+            $("#cover").css("display", "block");
+        } else {
+            $(id).css("display", "none");
+            $("#cover").css("display", "none");
+        }
+    }
+    function closebox(id) {
+        $(id).css("display", "none");
+        $("#cover").css("display", "none");
+    }
+    function selectWithdraw(ways) {
+        if (ways === "zfb") {
+            window.location.href = "{:U('Agent/settle/zfb')}"
+        } else if (ways === "bank") {
+            window.location.href = "{:U('Agent/settle/bank')}"
+        }
+    }
+</script >
+<script type="text/javascript" >
+    //	$(".search-results").children(".input-tab").find("li").click(function(){
+    //		$(this).addClass("on").siblings("li").removeClass("on");
+    //		var flag= $(this).index();
+    //		$(this).parent().parent().parent().find(".item-tab-con").eq(flag).show().siblings(".item-tab-con").hide();
+    //	})
+</script >

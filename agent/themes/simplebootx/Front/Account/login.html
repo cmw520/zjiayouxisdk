@@ -1,0 +1,106 @@
+<!DOCTYPE >
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >{:C('BRAND_NAME')}登录</title >
+    <link rel="stylesheet" type="text/css" media="all" href="__PUBLIC__/agent/css/style.css" >
+</head >
+<body >
+<div id="top_bar" >
+    <div id="top_bar_box" class="wrap_w clearfix" >
+        <div class="nav_logo" >
+			<a href="{:U('front/index/index')}" >
+			    <img src="__PUBLIC__/agent/img/logo.png" alt="" >
+			    <span >做最具价值的手游平台！</span >
+			</a >
+        </div >
+    </div >
+</div >
+<div class="banner" style="background:url({$ads_image}) no-repeat;background-size:100% 100%;" >
+    <div class="wrap_w clearfix" >
+        <div id="login_box" >
+            <h2 >渠道后台登录</h2 >
+           <form method="post" id="form1" name="" >
+                <ol >
+                    <li class="user" >
+                        <input name="username" id="username" class="txtinput" type="text" placeholder="手机/邮箱/用户名" >
+                    </li >
+                    <li class="pass" >
+                        <input name="password" id="password" class="txtinput" type="password" placeholder="密码" >
+                    </li >
+                    <li class="btn" ><input type="button" id="sub" value="立即登录" ></li >
+                    <li class="error-msg" ></li >
+                </ol >
+                <div > <a class="forgot-password" href="{:U('Front/FindPwd/index')}" >忘记密码？</a >没有帐号，<a
+                        href="{:U('Front/register/index')}" >立即注册</a ></div >
+               
+            </form >
+        </div >
+    </div >
+</div >
+<div class="n-cue" id="AF-dialog" >手机/邮箱/用户名不能为空</div >
+<!-- <div class="copyright">
+    <div class="links">
+        <a href="#">关于我们</a>|<a href="#">新闻中心</a>|<a href="#">联系我们</a></div>
+    <div class="kf"><span><span>客服电话：4000274365</span><span>客服QQ：4000274365</span><span>客服邮箱：kefu@anfan.com</span><span>服务时间：周一到周日9:00-24:00</span></span>
+    </div>
+    <p>Copyright © 2010-2015 安锋游戏 All Rights Reserved.</p>
+</div> -->
+
+<div class="copyright" >
+	<p >{$Copyright}</p >
+	<p >{$WEB_ICP}  </p >
+	<p >公司名称：{$COMPANY_NAME}  电话：{$COMPANY_PHONE}</p >
+	<p >公司地址：{$COMPANY_ADDR}</p >
+</div >
+        
+        
+</body >
+<style >
+	#login_box .forgot-password {
+        float: left;
+    }
+</style >
+<script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/agent/js/demo1.js" ></script >
+<script >
+    $("#sub").click(function (event) {
+        event.preventDefault();
+        var username  = $("#username").val().trim();
+        var password  = $("#password").val().trim();
+        var checkCode = '';
+        if (! /^\w{5,20}$/.test(username)) {
+            showError("用户名为5-20个数字、字母、下划线");
+        }
+        if (! /^\w{6,20}$/.test(password)) {
+            showError("密码为6-20个数字、字母、下划线");
+        }
+
+        sendData("{:U('Front/account/do_login')}", {"userName": username, "userPass": password}, function (data) {
+            if (data.error === '1') {
+                showMsg($(".error-msg"), data.msg, "red");
+                return;
+            } else if (data.error === '0') {
+                window.location.href = "{:U('Front/Account/index')}";
+            }
+        });
+    });
+    function showError(text) {
+        $("#AF-dialog").html(text).css("left", boxCenter() + "px").fadeIn().fadeOut(3000);
+    }
+    function boxCenter() {
+        var boxWidth = parseInt($("#AF-dialog").css("width")) + parseInt($("#AF-dialog").css("padding-left")) + parseInt($("#AF-dialog").css("padding-right")) + parseInt($("#AF-dialog").css("border")) * 2;
+        return (window.innerWidth - boxWidth) / 2;
+    }
+
+    function pi(num) {
+        return parseInt(num);
+    }
+    function getHeight(el) {
+        var height = pi($(el).css("height")) + pi($(el).css("margin-top")) + pi($(el).css("margin-bottom")) + pi($(el).css("padding-top")) + pi($(el).css("padding-bottom")) + pi($(el).css("border-top")) + pi($(el).css("border-bottom"));
+        return height;
+    }
+    $(".banner").css("height", window.innerHeight - getHeight("#top_bar") - getHeight(".copyright") + "px");
+    $("#login_box").css("margin-top", (getHeight(".banner") - getHeight("#login_box")) / 2 + "px");
+   </script >
+</html >

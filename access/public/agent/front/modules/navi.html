@@ -1,0 +1,10 @@
+<div class="container top_navi">
+    <div class="row top_navi_content">
+        <div class="col-md-4">
+            <a href="#/home"><img src="static/img/logo.png" height="60" /></a>
+        </div>
+        <div class="col-md-8 top_navi_links">
+            <a ng-repeat="x in list" href="{{x.link}}" class="navi_tab">{{x.name}}</a>        
+        </div>
+    </div>
+</div>

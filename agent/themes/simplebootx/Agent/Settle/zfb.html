@@ -1,0 +1,80 @@
+<style >
+    html {
+        font-size: 62.5%;
+        font-family: "微软雅黑";
+    }
+</style >
+
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <div class="page-right withdrawal-application" style="height:760px;" >
+                <div class="breadcrumb-navigation" >
+                    <ul >
+                        <li style="cursor:pointer;" onclick="location.href = 'apply_game.html'" >个人账户<span >&gt;</span >
+                        </li >
+                        <li class="on" >用户提现申请</li >
+                    </ul >
+                </div >
+                <div class="application-information" >
+                    <div class="cash-balances" >
+                        <span >账户余额：</span ><i ><b >00.00</b >元</i >
+                        <input id="txcount" type="hidden" value="0" >
+                        <input id="mymoney" type="hidden" value="0.00" >
+                    </div >
+                    <!-- 认证信息不全 -->
+                    <!-- 实名未认证 -->
+                    <div class="cash-bank-name verification-phone" >
+                        <span >实名认证：</span ><i >您还未进行实名认证，去 <a href="#"
+                                                               onclick="location.href = '{:U('Agent/ucenter/toEditUser')}'" >认证</a ></i >
+                    </div >
+                    <!-- 支付宝未绑定 -->
+                    <div class="cash-bank-name verification-phone" >
+                        <span >支付宝账号：</span ><i >您还未添加支付宝账号，去 <a href="#"
+                                                                 onclick="location.href = '{:U('Agent/ucenter/toEditUser')}'" >添加</a ></i >
+                    </div >
+                    <!-- 认证信息全面 -->
+                </div >
+            </div >
+        </div >
+        <!--弹窗-->
+        <div id="withdrawal-pop" >
+            <div id="withdrawal-pop-header" >
+                <span >提现申请</span ><img src="__PUBLIC__/agent/img/pop-closed.png" alt=""
+                                        onclick="closebox('#withdrawal-pop')" />
+            </div >
+            <div id="withdrawal-pop-content" >
+                <div style="margin-top: 40px;" >
+                    <span >账户余额：</span ><i class="red" ><b ></b >元</i >
+                </div >
+                <div >
+                    <span >手机号码：</span ><i ></i >
+                </div >
+                <div >
+                    <span >支付宝账号：</span ><i ></i >
+                </div >
+                <div >
+                    <span >填写提现金额：</span ><i ><b ></b >元</i >
+                </div >
+                <div >
+                    <span >提现付手续费：</span ><i ><b ></b >元</i >
+                </div >
+                <div >
+                    <span >实际提现金额：</span ><i class="red" ><b ></b >元</i >
+                </div >
+                <div class="btn-content" >
+                    <div class="confirm-btn" onclick="withdrawConfirm('', '#withdrawal-pop')" >确定</div >
+                    <div class="cancel-btn" onclick="closebox('#withdrawal-pop')" >取消</div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<!--页脚-->
+<agenttpl file="user_center_footer" />

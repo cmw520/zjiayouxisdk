@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+<html debug="true"><head>
+<title>图表统计</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="highcharts/jquery.js"></script>
+<script src="highcharts/highcharts.js"></script>
+<script type="text/javascript">
+(function($){ // encapsulate jQuery
+var chart;
+$(document).ready(function() {
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container',
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false
+		},
+		title: {
+			text: '数据饼状图表'
+		},
+		tooltip: {
+			formatter: function() {
+				return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
+			}
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: true,
+					color: '#000000',
+					connectorColor: '#000000',
+					formatter: function() {
+						return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
+					}
+				}
+			}
+		},
+		series: [{
+			type: 'pie',
+			name: 'pie',
+			data: [
+				['圆通快递',   55.0],
+				['中通快递',       26.8],
+				{
+					name: 'EMS',
+					y: 12.8,
+					sliced: true,
+					selected: true
+				},
+				['申通快递',    8.5]
+			]
+		}]
+	});
+});
+})(jQuery);
+</script>
+<body>
+	<div style="margin: 0 1em">
+		<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
+</body></html>

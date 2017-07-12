@@ -1,0 +1,82 @@
+<admintpl file="header" />
+<link href="__PUBLIC__/3rd/jqueryUI/jquery-ui.min.css" rel="stylesheet" >
+<script src="__PUBLIC__/3rd/jqueryUI/jquery-ui.min.js" ></script >
+</head>
+<body class="J_scroll_fixed" >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li class="active" ><a href="{:U('Tui/About/ads')}" target="_self" >轮播图管理</a ></li >
+        <li ><a href="{:U('Tui/About/index')}" target="_self" >合作联系</a ></li >
+        <!--<li ><a href="{:U('Tui/IndexPageHotGame/index')}" target="_self" >最热游戏</a ></li >-->
+        <!--<li><a href="{:U('Tui/IndexPageServerList/index')}" target="_self">开服列表</a></li>-->
+    </ul >
+    <div id="dialog" style="width:100%;float:left;margin:20px 0;" >
+        <div class="item" >
+            <table class="table table-hover table-bordered table-list" >
+                <tr >
+                    <th width="50" >序号</th >
+                    <th width="200" >链接</th >
+                    <th width="50" >图片</th >
+                    <th width="50" >操作</th >
+                </tr >
+                <volist name="data" id="vo" key="k" >
+                    <tr >
+                        <td >{$k}</td >
+                        <td >{$vo.url}</td >
+                        <td ><img src="{$vo.icon}" width="100" /></td >
+                        <td ><a href='javascript:;' onclick="edit(this);" data-id="{$vo.id}"
+                                data-url="{$vo.url}" >编辑</a ></td >
+                    </tr >
+                </volist >
+            </table >
+        </div >
+        <div id="edit_form" style="display:none;" >
+            <form method="post" action="{:U('Tui/About/ads_post')}" enctype="multipart/form-data" >
+                链接：<br />
+                <input type="text" name="url" /><br />
+                图片：<span style="color:red;" >(尺寸1000*380)</span ><br />
+                <input type="file" name="img" />
+                <input type="hidden" name="id" />
+            </form >
+        </div >
+    </div >
+</div >
+<style >
+    /*        tr,th{
+                width:40%;float:left;
+            }*/
+</style >
+<script src="__PUBLIC__/js/common.js" ></script >
+<script >
+    var dialog, form;
+
+    dialog = $("#edit_form").dialog({
+        autoOpen: false,
+        height  : 300,
+        width   : 350,
+        modal   : true,
+        buttons : {
+            "修改": editItem,
+            "取消": function () {
+                dialog.dialog("close");
+            }
+        },
+        close   : function () {
+            form[0].reset();
+        }
+    });
+    form   = dialog.find("form");
+    function editItem() {
+        form[0].submit();
+    }
+    function edit(e) {
+        var url = $(e).attr("data-url");
+        var id  = $(e).attr("data-id");
+        $("input[name='url']").val(url);
+        $("input[name='id']").val(id);
+        dialog.dialog("open");
+    }
+
+</script >
+</body >
+</html>

@@ -1,0 +1,57 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+                <div class="top_hint" >
+                    绑定手机
+                </div >
+                <div class="main_content" >
+                    现在手机：{$phone_now}
+                    <button class="btn btn-warning" id="verifyPhone" >发送验证码</button >
+                    <br />
+                    验证码&nbsp;&nbsp;：<input type="text" name="PhoneVerifyCode" /> <br />
+                    更换手机：<input type="text" name="phone" /> <br />
+                    <button class="btn btn-success" id="submit" >修改</button >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<style >
+
+</style >
+<script >
+    $("#verifyPhone").click(function () {
+        var phone = "{$phone_now}";
+        $.post("{:U('Front/Api/sendPhoneCode')}", {"phone": phone}, function (data) {
+            if (data.error === '0') {
+                yxalert(data.msg);
+//                $("input[name='phone']").removeAttr("disabled");
+            } else if (data.error === '1') {
+                yxalert(data.msg);
+            }
+        });
+    });
+    $("#submit").click(function () {
+        var phone = $("input[name='phone']").val();
+        var PhoneVerifyCode = $("input[name='PhoneVerifyCode']").val();
+        $.post("{:U('Agent/SubAccount/bindPhone_post')}", {
+            "phone"          : phone,
+            "PhoneVerifyCode": PhoneVerifyCode
+        }, function (data) {
+            if (data.error === '0') {
+                yxalert(data.msg);
+                location.reload();
+            } else if (data.error === '1') {
+                yxalert(data.msg);
+                $("input[name='phone']").focus();
+            }
+        });
+    });
+</script >
+<agenttpl file="user_center_footer" />

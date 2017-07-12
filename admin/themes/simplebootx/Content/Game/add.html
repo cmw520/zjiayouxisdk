@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body >
+<div class="wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Content/Game/index')}" target="_self" >游戏信息管理</a ></li >
+        <li class="active" ><a href="{:U('Content/Game/add')}" target="_self" >添加CPS游戏</a ></li >
+    </ul >
+    <form method="post" class="form-horizontal js-ajax-form" action="{:U('Content/Game/add_post')}"
+          enctype="multipart/form-data" >
+        <fieldset >
+            <div class="control-group" >
+                <label class="control-label" >名称:</label >
+                <div class="controls" >
+                    <input type="text" name="name" value="{$data['name']}" />
+                </div >
+            </div >
+
+            <div class="control-group" >
+                <label class="control-label" >图标:</label >
+                <div class="controls" >
+                    <input type="file" name="image" />
+                </div >
+            </div >
+
+            <div class="control-group" >
+                <label class="control-label" >下载包地址:</label >
+                <div class="controls" >
+                    <input type="text" name="app_path" />
+                </div >
+            </div >
+        </fieldset >
+        <div class="form-actions" >
+            <button type="submit" class="btn btn-primary" >{:L('ADD')}</button >
+            <a class="btn" href="{:U('Content/Game/index')}" >{:L('BACK')}</a >
+        </div >
+    </form >
+</div >
+<script src="__PUBLIC__/js/common.js" ></script >
+</body >
+</html>

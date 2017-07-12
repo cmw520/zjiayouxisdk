@@ -1,0 +1,41 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/myCollection.css" />
+
+<div class="game_box" >
+    <ul class="box" >
+        <volist name="myCollection" id="vo" >
+            <li class="item" >
+                <div class="left" >
+                    <div class="img" >
+                        <img src="{$vo.icon}" alt="" />
+                    </div >
+                    <div class="text" >
+                        <h3 >{$vo.name}</h3 >
+                        <p >{$vo.type} 人气:<i >{$vo.clicknum}</i ></p >
+                    </div >
+                </div >
+                <div class="right" >
+                    <a target="_top"
+                       href="{:U('User/Game/game',array('appid'=>$vo['app_id'],'agent'=>$agent))}" >继续玩</a >
+                </div >
+            </li >
+        </volist >
+    </ul >
+</div >
+<div class="loading_more" >
+    <ul class="loadBtn loadBtn2" >
+        <li class="line" ><b ></b ></li >
+        <li class="text" >加载更多</li >
+        <li class="line" ><b ></b ></li >
+    </ul >
+</div >
+
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+
+<div class="main_model_box" ></div >
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<!--<script src="js/recharge.js"></script>-->
+</html>

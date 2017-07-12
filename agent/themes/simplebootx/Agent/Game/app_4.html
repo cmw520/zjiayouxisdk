@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <title >app</title >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head >
+<body >
+<div class="wrapper" >
+    <volist name="games" id="vo" >
+        <empty name="vo.url" >
+            <a href="#" class="game_item-game" >
+        </empty >
+        <notempty name="vo.url" >
+            <a href="{:DOWNSITE}{$vo.url}" target="_blank" class="game_item-game" >
+        </notempty >
+
+        <div class="game_item-top" >
+            <div class="title" >
+                <span >{$vo.name}</span >
+                <i class="f-flag" ><?php echo round($vo['mem_rate']*10,1); ?>折</i >
+            </div >
+            <p class="g-icon" ><img src="{$vo.icon}" ></p >
+            <p class="g-dec" ><span class="fz12" >{$vo.gametype}</span ></p >
+        </div >
+        <div class="game_item-bottom" >
+            <span ></span >
+        </div >
+        </a>
+
+</div >
+</volist>
+</div>
+<style >
+    body {
+        width: 100%;
+        background-color: #FFFFFF;
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrapper {
+        width: 100%;
+        padding: 0;
+        margin: 20px auto 0 auto;
+    }
+
+    .game_item-game {
+        border: 1px solid #EAEAEA;
+        border-radius: 5px;
+        float: left;
+        height: 92px;
+        margin-left: 2%;
+        position: relative;
+        width: 46%;
+        margin-bottom: 10px;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    .game_item-game:nth-child(2n) {
+        margin-left: 3%;
+    }
+
+    .game_item-top {
+        border-bottom: 1px solid #EAEAEA;
+        height: 60px;
+        padding: 5px 0px 0px 5px;
+    }
+
+    .game_item-top .title span {
+        float: left;
+        max-width: 10em;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333333;
+    }
+
+    .g-icon {
+        left: 5px;
+        position: absolute;
+        top: 15px;
+    }
+
+    .g-icon, .g-icon img {
+        width: 55px;
+        height: 55px;
+        border-radius: 15px;
+    }
+
+    .game_item-top .title {
+        width: 100%;
+        line-height: 20px;
+        position: relative;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .game_item-top .title i {
+        color: #FFFFFF;
+        display: inline-block;
+        font-size: 10px;
+        height: 22px;
+        line-height: 19px;
+        position: absolute;
+        right: -3px;
+        text-indent: 25px;
+        width: 50px;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    .game_item-bottom {
+        background: #F8F8F8;
+        border-radius: 0 0 5px 5px;
+        line-height: 25px;
+        height: 25px;
+        overflow: hidden;
+        padding: 0 5px;
+    }
+
+    .game_item-bottom span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        max-width: 14em;
+    }
+
+    .f-flag {
+        background: url("__PUBLIC__/images/free_flag.png") no-repeat;
+        background-size: cover;
+
+    }
+
+    .game_item-title {
+        position: relative;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    .game_item-title span {
+        font-size: 17px;
+        font-weight: bold;
+        margin: 0 3px;
+    }
+
+    .game_item-title .more {
+        position: absolute;
+        right: 10px;
+        color: #949494;
+        font-size: 12px;
+    }
+
+    .g-dec {
+        margin-left: 65px;
+        padding-top: 15px;
+        font-size: 12px;
+        line-height: 19px;
+    }
+
+    .fz12 {
+        /*margin-left:-60px;*/
+        color: #666666;
+
+    }
+</style >
+<script ></script >
+</body >
+</html >

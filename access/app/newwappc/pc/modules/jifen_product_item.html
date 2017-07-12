@@ -1,0 +1,40 @@
+<div class="container inner_container module_jifen_product_item_detail" >
+    <div class="row" >
+        <div class="col-md-6 jifen_product_item_pic" >
+            <img src="{{data.icon}}" style="width:100%;height:auto;" alt="商品图片" />
+        </div >
+        <div class="col-md-5 jifen_product_item_right" >
+            <div class="row" >
+                <h2 >{{data.name}}</h2 >
+            </div >
+            <!--            <div class="row">
+                            <p>{{data.info}}</p>
+                        </div>-->
+            <div class="row" style="margin-bottom:50px;margin-top:50px;" >
+                <span >价格：{{data.price}} </span >
+            </div >
+            <div class="row" style="margin-bottom:50px;margin-top:50px;" >
+                <span >购买数量<br /></span >
+                <button style="margin-right:0;" ng-click="decNum();" >-</button >
+                <input type="text" style="width:100px;margin:0;" value="{{num}}" />
+                <button style="margin-left:0;" ng-click="incNum();" >+</button >
+                <span >还剩{{data.remain}}件</span >
+            </div >
+            <div class="row" >
+                <a href="javascript:;" class="btn btn-success btn-lg" ng-click="buyit();"
+                   style="width:150px;text-align:center;" >兑换</a >
+            </div >
+        </div >
+    </div >
+
+    <div class="row " style="margin-top:20px;" >
+        <moduletabs >
+            <modulepane title="商品详情" >
+                <div class="module_jifen_product_item_detail_info" ng-bind-html="data.detail | to_trusted" ></div >
+            </modulepane >
+            <!--            <modulepane title="商家信息">
+                          <div class="module_jifen_product_item_detail_info">This is the content of the second tab.</div>
+                        </modulepane>-->
+        </moduletabs >
+    </div >
+</div >

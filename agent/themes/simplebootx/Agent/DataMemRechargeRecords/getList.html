@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <title >title</title >
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/lumen/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/share/paging.css" />
+    <style >
+        #queryForm input {
+            width: 150px;
+        }
+
+        table {
+            font-size: 14px;
+        }
+    </style >
+</head >
+<body >
+<div class="container" style="margin-top:20px;" >
+    <form id="queryForm" action="__SELF__" method="get" >
+        <div class="row" >
+            <div class="col-md-4" >
+                <div class="input-group" >
+                    <span class="input-group-addon" >游戏</span >
+                    <input type="text" class="form-control" name="game_name" value="{$formget.game_name}" maxlength="25"
+                           placeholder="请输入游戏名称" >
+                </div >
+            </div >
+            <div class="col-md-4" >
+                <div class="input-group" >
+                    <span class="input-group-addon" >玩家</span >
+                    <input type="text" class="form-control" name="mem_name" value="{$formget.mem_name}" maxlength="20"
+                           placeholder="请输入玩家帐号" >
+                </div >
+            </div >
+            <div class="col-md-4" >
+                <div class="input-group" >
+                    <span class="input-group-addon" >订单号</span >
+                    <input type="text" class="form-control" name="orderid" value="{$formget.orderid}"
+                           placeholder="请输入订单号" >
+                </div >
+            </div >
+        </div >
+        <div class="row" style="margin-top:20px;" >
+            <div class="col-md-8" >
+                <div class="input-group" >
+                    <span class="input-group-addon" >时间</span >
+                    <input id="stime" class="form-control" name="start_time"
+                           placeholder="开始时间"
+                           type="text" value="{$formget.start_time}" onClick="WdatePicker()" />
+                    <input id="etime" class="form-control" name="end_time"
+                           placeholder="结束时间"
+                           type="text" value="{$formget.end_time}" onClick="WdatePicker()" />
+                </div >
+            </div >
+            <div class="col-md-4" >
+                <button class="btn btn-success" >搜 &nbsp;索</button >
+            </div >
+        </div >
+    </form >
+</div >
+<div class="container" style="margin-top:20px;" >
+    <table class="table table-hover table-bordered" >
+        <tbody >
+        <tr >
+            <th >时间</th >
+            <th >订单号</th >
+            <th >玩家账号</th >
+            <th >游戏</th >
+            <th >充值方式</th >
+
+            <th >金额</th >
+            <th >实付</th >
+            <th >返利</th >
+            <!--<th>支付状态</th>-->
+
+            <th >渠道收益</th >
+
+        </tr >
+        <tr style='color:red;' >
+            <td >汇总</td >
+            <td >--</td >
+            <td >--</td >
+            <td >--</td >
+            <td >--</td >
+
+            <td >{$sum_items['sum_amount']}</td >
+            <td >{$sum_items['sum_real_amount']}</td >
+            <td >{$sum_items['sum_rebate_cnt']}</td >
+
+            <td >{$sum_items['sum_agent_gain']}</td >
+
+        </tr >
+        <volist name="items" id="vo" >
+            <tr class='items_tr' >
+                <td ><?php echo date("Y-m-d H:i:s",$vo['create_time']); ?></td >
+                <td data-orderid='{$vo.order_id}' >查看</td >
+                <td >{$vo.mem_name}</td >
+                <td >{$vo.game_name}</td >
+                <td >{$vo.payway_txt}</td >
+
+                <td class="total-revenue" >{$vo.amount}</td >
+                <td >{$vo.real_amount}</td >
+                <td >{$vo.rebate_cnt}</td >
+
+                <td >{$vo.agent_gain}</td >
+            </tr >
+        </volist >
+        </tbody >
+    </table >
+</div >
+<div class="container paging" >
+    {$page}
+</div >
+</body >
+
+<script src="__PUBLIC__/3rd/layer/layer.js" ></script >
+<script src="__PUBLIC__/huoshu/share.js" ></script >
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+<script >
+    $(".search-btn").live("click", function () {
+        $("#queryForm").submit();
+    });
+
+    $(".items_tr td:nth-child(2)").click(function () {
+        var orderid = $(this).attr("data-orderid");
+        layer.tips(orderid, $(this), {
+            tips      : [1, '#333'],
+            time      : 40000,
+            closeBtn  : 1,
+            shade     : [0.1, '#fff'],
+            shadeClose: true
+        });
+    });
+    $(".items_tr td:nth-child(2)").each(function () {
+//            var order_id = $(this).text();
+//            $(this).attr("date-orderid", order_id);
+        $(this).css("cursor", "pointer");
+//            $(this).text("查看");
+    });
+</script >
+</html >

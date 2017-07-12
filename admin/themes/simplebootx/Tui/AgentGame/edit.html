@@ -1,0 +1,79 @@
+﻿<admintpl file="header" />
+<!-- 公用样式 -->
+
+<link href="__PUBLIC__/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput.js" type="text/javascript" ></script >
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput_locale_zh.js" type="text/javascript" ></script >
+<script src="__PUBLIC__/bootstrap-fileinput/js/fileinput_locale_es.js" type="text/javascript" ></script >
+
+</head>
+<body >
+<div class="wrap js-check-wrap" >
+    <ul class="nav nav-tabs" >
+        <li ><a href="{:U('Tui/AgentGameBenefit/man')}" target="_self" >渠道游戏管理</a ></li >
+        <li class="active" ><a href="#" target="_self" >修改优惠信息</a ></li >
+    </ul >
+
+    <div class="wrap jj" >
+        <div class="common-form" >
+            <div id="kv-avatar-errors" class="center-block" style="width:800px;display:none" ></div >
+            <form enctype="multipart/form-data" class="form-horizontal js-ajax-form"
+                  action="{:U('Tui/AgentGame/edit_post')}" method="post" >
+                <fieldset >
+                    <input type='hidden' name='agent_game_id' value='{$data.ag_id}' />
+
+                    <div class="control-group" >
+                        <label class="control-label" >游戏名称:</label >
+                        <div class="controls" >
+                            {$data.name}
+                        </div >
+                    </div >
+
+                    <div class="control-group" >
+                        <label class="control-label" >渠道折扣:</label >
+                        <div class="controls" >
+                            <input type="text" class="input" name="agent_rate" value="{$data.agent_rate}" >
+                            填写小数，如优惠50%，填写0.5
+                        </div >
+                    </div >
+
+                    <?php if(C("G_DISCONT_TYPE")){ ?>
+                    <input type='hidden' name='benefit_type' value='{$data.benefit_type}' />
+                    <div class="control-group" >
+                        <label class="control-label" >玩家优惠类型</label >
+                        <div class="controls" >
+                            {$data.benefit_type_txt}
+                        </div >
+                    </div >
+
+                    <div class="control-group" >
+                        <label class="control-label" >玩家首充:</label >
+                        <div class="controls" >
+                            <input type="text" class="input" name="benefit_first" value="{$data.benefit_first}" >
+                            填写小数，如优惠50%，填写0.5
+                        </div >
+                    </div >
+                    <div class="control-group" >
+                        <label class="control-label" >玩家续充:</label >
+                        <div class="controls" >
+                            <input type="text" class="input" name="benefit_refill" value="{$data.benefit_refill}" >
+                            填写小数，如优惠50%，填写0.5
+                        </div >
+                    </div >
+                    <?php } ?>
+
+                </fieldset >
+                <div class="form-actions" >
+                    <button type="submit"
+                            class="btn btn-primary btn_submit js-ajax-submit" >修改
+                    </button >
+                    <a class="btn" href="{:U('Tui/AgentGameBenefit/man')}" >返回</a >
+                </div >
+            </form >
+        </div >
+    </div >
+    <script src="__PUBLIC__/js/common.js" ></script >
+
+</body >
+
+</html>

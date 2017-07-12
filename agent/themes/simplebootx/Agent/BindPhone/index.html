@@ -1,0 +1,181 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+
+            <style >
+                .user_info_editdiv .row {
+                    padding: 10px 20px;
+                }
+
+                .user_info_editdiv .row input {
+                    width: 200px;
+                }
+
+                .user_info_editdiv {
+                    width: 600px;
+                    float: left;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    margin-bottom: 30px;
+                }
+
+                .phone_verify_block .row {
+                    padding: 15px 30px;
+                }
+            </style >
+            <div class="page-right personal-information-management" style="min-height:500px;" >
+                <div class="container" style="width:960px;margin-top:30px;" >
+                    <ul class="breadcrumb" >
+                        <li ><a href="{$urls.index}" >首页</a ></li >
+                        <li ><a href="{:U('Agent/Ucenter/security')}" >安全中心</a ></li >
+                        <li class="active" >绑定手机</li >
+                    </ul >
+                </div >
+                <form class="form-horizontal" method='post' action='' role="form" onsubmit="return false;" >
+                    <input type="hidden" name="agent_id" value="{$user.id}" />
+                    <input type="hidden" name="phone_prev" value="{$user.mobile}" />
+                    <div class='container user_info_editdiv bind_phone_step1' >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >当前手机号</label >
+                            <div class='col-md-6' >
+                                <notempty name="user.mobile" >
+                                    {$user.mobile}
+                                </notempty >
+                                <empty name="user.mobile" >
+                                    暂无
+                                </empty >
+                            </div >
+                            <div class='col-md-4' >
+                                <notempty name="user.mobile" >
+                                    <button class="btn btn-success send_phonecode_btn_prev" >发送验证码</button >
+                                </notempty >
+                            </div >
+                        </div >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >输入验证码</label >
+                            <div class='col-md-6' >
+                                <input type='text' class='form-control' name='code_prev' placeholder='请输入验证码' />
+                            </div >
+                            <div class='col-md-4' >
+                                <button class="btn btn-success verify_phonecode_btn_prev" >验证</button >
+                            </div >
+                        </div >
+                    </div >
+
+                    <div class='container user_info_editdiv bind_phone_step2' style="display:none;" >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >新手机号</label >
+                            <div class='col-md-6' >
+                                <input class='form-control' type='text' name='phone' placeholder="请输入要绑定的新手机号码" />
+                            </div >
+                            <div class='col-md-4' >
+                                <button class="btn btn-success send_phonecode_btn" >发送验证码</button >
+                            </div >
+                        </div >
+                        <div class='row' >
+                            <label class='col-md-2 control-label' >输入验证码</label >
+                            <div class='col-md-10' >
+                                <input type='text' class='form-control' name='code' placeholder='请输入验证码' />
+                            </div >
+                        </div >
+
+                        <div class='row' >
+                            <label class='col-md-2 control-label' ></label >
+                            <div class='col-md-10' >
+                                <button class='btn btn-success verify_phonecode_btn' >绑定新手机号</button >
+                            </div >
+                        </div >
+                </form >
+            </div >
+        </div >
+    </div >
+    </div>
+    <script >
+        var user_id = {$user.id
+        }
+        ;
+        var phone = 0;
+        var phone_prev = 0;
+
+        $(".verify_phonecode_btn").click(function () {
+            var code = $("input[name='code']").val();
+            $.post("{:U('Front/Api/VerifyPhoneCode')}", {"PhoneVerifyCode": code}, function (data) {
+                if (data.error === '0') {
+                    yxalert("验证通过");
+                    setTimeout(function () {
+                        layer.closeAll();
+                        if (phone == 0) {
+                            yxalert("手机号码格式不正确");
+                            return;
+                        }
+                        $.post("{:U('Front/Api/changePhone')}", {"phone": phone, "id": user_id}, function (res) {
+                            if (res.error === '0') {
+                                yxalert("绑定成功");
+                                reload_delay();
+                            } else {
+                                yxalert(data.msg);
+                            }
+                        });
+                    }, 1000);
+                } else {
+                    yxalert(data.msg);
+                }
+            });
+        });
+
+        $(".verify_phonecode_btn_prev").click(function () {
+            var code = $("input[name='code_prev']").val();
+            $.post("{:U('Front/Api/VerifyPhoneCode')}", {"PhoneVerifyCode": code}, function (data) {
+                if (data.error === '0') {
+                    yxalert("当前手机号验证通过");
+                    setTimeout(function () {
+                        layer.closeAll();
+                        $(".bind_phone_step1").hide();
+                        $(".bind_phone_step2").show();
+                    }, 1000);
+                } else {
+                    yxalert(data.msg);
+                }
+            });
+        });
+
+        $(".send_phonecode_btn").click(function () {
+            phone = $("input[name='phone']").val();
+            if (phone == phone_prev) {
+                yxalert("新旧手机号码不能相同");
+                return;
+            }
+            do_send_code(phone);
+        });
+
+        $(".send_phonecode_btn_prev").click(function () {
+            phone_prev = $("input[name='phone_prev']").val();
+
+            do_send_code(phone_prev);
+        });
+
+        function do_send_code(phone) {
+
+            $.post("{:U('Front/Api/sendPhoneCode')}", {"phone": phone}, function (data) {
+                if (data.error === '0') {
+                    yxalert("验证码已发送，请尽快输入");
+                } else {
+                    yxalert(data.msg);
+                }
+            });
+        }
+
+    </script >
+</section >
+
+<agenttpl file="user_center_footer" />
+
+
+
+
+

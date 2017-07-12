@@ -1,0 +1,91 @@
+﻿<admintpl file="header" />
+</head>
+<body >
+<!--
+ @time 2017-01-20 21:10:59
+ @author 严旭
+-->
+    <div class="wrap js-check-wrap" >
+        <ul class="nav nav-tabs" >
+            <li class="active" ><a href="{:U('Newapp/Goods/index')}" >商品列表</a ></li >
+            <li ><a href="{:U('Newapp/Goods/add')}" >添加</a ></li >
+        </ul >
+        <form class="well form-search" method="get" id="cid-form" action="__SELF__" >
+            <div class="search_type cc mb10" >
+                <div class="mb10" >
+                    <span class="mr20" >
+                        商品名称：
+                        <input type='text' name='goods_name' value='{$formget.goods_name}' />
+                        <button class='btn btn-primary' >搜索</button >
+                    </span >
+                    
+                </div >
+            </div >
+        </form >
+        <form class="js-ajax-form" method="post" >
+            <div class="table-actions" >
+                
+            </div >
+
+            <table class="table table-hover table-bordered table-list" >
+                <thead >
+                    <tr >
+                        <th >ID</th >
+                        <th >商品名称</th >
+                        <th >展示图</th >
+                        <th >市场价格</th >
+                        <th >积分价格</th >
+                        <th >库存</th >
+                        <th >剩余</th >
+                        <th >类型</th >
+                        <th >状态</th >
+                        <th >上架时间</th >
+                        <th >最近更新时间</th >
+                        <th >操作</th >
+                    </tr >
+                </thead >
+                <volist name="items" id="vo" >
+                    <tr >
+                        <td >{$vo.goods_id}</td >
+                        <td >{$vo.goods_name}</td >
+                        <td ><img src="{$vo.original_img}" style="height:80px;" alt="" /></td >
+                        <td >{$vo.market_price}</td >
+                        <td >{$vo.integral}</td >
+                        <td >{$vo.store_count}</td >
+                        <td >{$vo.remain_count}</td >
+                        <td >{$vo.is_real_txt}</td >
+                        <td >{$vo.on_sale_txt}</td >
+                        <td >{$vo.on_time}</td >
+                        <td >{$vo.last_update}</td >
+                        <td >
+                            <switch name='vo.is_on_sale' >
+                                <case value='2' >
+                                    <a href="{:U('Newapp/Goods/setOnSale',array('id'=>$vo['goods_id'],'is_on_sale'=>'1'))}"
+                                       class='js-ajax-dialog-btn' >下架</a >
+                                </case >
+                                <case value='1' >
+                                    <a href="{:U('Newapp/Goods/setOnSale',array('id'=>$vo['goods_id'],'is_on_sale'=>'2'))}"
+                                       class='js-ajax-dialog-btn' >上架</a >
+                                </case >
+                            </switch >
+                            
+                            
+                            |
+                            <a href="{:U('Newapp/Goods/edit',array('id'=>$vo['goods_id']))}" >编辑</a >
+                            |                           
+                            <a href="{:U('Newapp/Goods/delete',array('id'=>$vo['goods_id']))}"
+                               class="js-ajax-delete" >删除</a >
+                        
+                        </td >
+                    </tr >
+                </volist >
+            </table >
+            <div class="pagination" >{$page}</div >
+        </form >
+    </div >
+    <script src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+
+</body >
+</html>
+

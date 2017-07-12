@@ -1,0 +1,768 @@
+/*@media screen and (max-width: 999px) {*/
+.top_navi_bar_dark {
+    width: 90%;
+    margin: 0 5%;
+    text-align: center;
+}
+
+.jifen_product_item_pic {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.jifen_product_item_right {
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.slides_block img {
+    height: auto;
+    width: 100%;
+
+}
+
+.swiper-pagination-bullet {
+    width: 10%;
+    height: 3px;
+    background-color: #FFFFFF;
+    border-radius: 0 !important;
+    margin-bottom: -10px !important;
+}
+
+.top_navi_links {
+    width: 100%;
+    /*background-color:#666;*/
+}
+
+.top_navi_links a {
+    width: 33.3%;
+}
+
+.top_navi_logo {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.module_login_full_background .left_content {
+    text-align: center;
+}
+
+/*}*/
+
+/*@media screen and (min-width: 1000px) {
+    .inner_container{
+    width:1000px;
+    }
+    .top_navi_content{
+    width:1000px;
+    }
+    .top_navi_bar_dark{
+        width:1000px;
+        margin:0 auto;
+    }
+    .slides_block img{
+        height:auto;
+        width:100%;
+    }
+    .top_navi_links{
+        width:300px;
+    }
+    .top_navi_links a{
+        width:100px;
+    }
+    .module_login_full_background_wrapper{
+        width:1000px;
+    }
+    .module_login_full_background .login_container{
+        width:280px;
+        float:right;
+        margin-right:20px;
+    }
+    .module_login_full_background .left_content{
+        padding-top:100px;
+    }
+}*/
+
+.jifen_product_item_pic {
+    background-color: #F1F1F1;
+    float: left;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid #00AAEE;
+}
+
+.jifen_product_item_right {
+    float: right;
+}
+
+/*公共*/
+html, body {
+    /*height:100%;*/
+}
+
+body {
+    font-family: "Microsoft Yahei";
+    background-color: #EEEEEE;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+#yxframe_content {
+    min-height: 500px;
+}
+
+.full_container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.inner_container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.page_top_title_banner {
+    text-align: center;
+    background-color: #00AAEE;
+    color: #FFFFFF;
+    padding: 5px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*导航模块*/
+
+.top_navi {
+    padding: 0px 0 0 0;
+    border-bottom: 1px solid #CCCCCC;
+    width: 100%;
+}
+
+.top_navi_content {
+    /*width:1000px;*/
+    margin: 0 auto;
+}
+
+.top_navi_links {
+    text-align: right;
+    float: right;
+
+    padding: 0;
+}
+
+.top_navi_links a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    float: left;
+    border-bottom: 2px solid #FFFFFF;
+    color: #333333;
+    font-size: 16px;
+
+    text-align: center;
+    margin: 0;
+}
+
+.top_navi_links a:hover {
+    border-bottom: 2px solid #00AAEE;
+    color: #00AAEE;
+}
+
+/*页面底部模块*/
+
+.footer_block {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background-color: #333333;
+    /*    position:fixed;
+        bottom:0px;*/
+}
+
+.footer_block a {
+    color: #DDDDDD;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.footer_block a:hover {
+    color: #FFFFFF;
+
+}
+
+.footer_bottom_txt {
+    color: #FFFFFF;
+    padding-top: 20px;
+}
+
+/*首页轮播图*/
+.slides_block img {
+    /*width:100%;*/
+    /*width:1920px;*/
+    /*height:400px;*/
+    /*position:relative;
+    left:50%;
+    margin-left:-960px;*/
+}
+
+/*.slides_block{
+    height:400px;
+}
+.slides_block .swiper-container{
+    height:400px;
+}
+.slides_block img{
+    position:absolute;
+    width:1920px;
+    height:400px;
+    left:50%;
+    margin-left:960px;
+}*/
+
+/*联系我们页面*/
+#contact_page_block .contact_page_block_title {
+    text-align: left;
+    border-bottom: 1px solid #00AAEE;
+    margin-bottom: 20px;
+}
+
+#contact_page_block .contact_page_block_title h3 {
+    font-size: 24px;
+    color: #00AAEE;
+
+}
+
+/*公司简介模块*/
+
+.product_item {
+    text-align: center;
+    border: 1px solid #CCCCCC;
+    margin: 5px;
+    padding: 0;
+    box-shadow: 0px 0px 2px 1px #CCCCCC;
+    overflow: hidden;
+    height: 240px;
+    cursor: pointer;
+}
+
+.product_item {
+    transition: transform .1s ease-in 0s;
+    -webkit-transition: -webkit-transform .1s ease-in 0s;
+}
+
+.product_item:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/*    .product_item img{
+         transition: transform .3s ease-in 0s;
+        -webkit-transition: -webkit-transform .3s ease-in 0s;
+    }
+    .product_item img:hover{
+        -webkit-transform:scale(1.1);
+        -moz-transform:scale(1.1);
+        -o-transform:scale(1.1);
+        transform:scale(1.1);
+    }*/
+
+/*发展历程模块*/
+
+.timeline-time {
+    text-align: center;
+    background-color: #EEA236;
+    color: #FFFFFF;
+}
+
+/*积分商品模块*/
+.module_jifen_products_item {
+    padding: 30px;
+}
+
+.module_jifen_products_item .row {
+    border: 1px solid #CCCCCC;
+    box-shadow: 0px 0px 2px 1px #CCCCCC;
+    cursor: pointer;
+    transition: transform .1s ease-in 0s;
+    -webkit-transition: -webkit-transform .1s ease-in 0s;
+}
+
+.module_jifen_products_item .row:hover {
+
+    box-shadow: 0px 0px 10px 1px #CCCCCC;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/*商品详情页*/
+.module_jifen_product_item_detail {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.module_jifen_product_item_detail_info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 200px;
+}
+
+/*顶部功能栏*/
+#top_func_bar {
+    background-color: #00AAEE;
+    color: #FFFFFF;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+#top_func_bar a {
+    text-decoration: none;
+    width: 100px;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#top_func_bar a:hover {
+    background-color: #FFFFFF;
+    color: #00AAEE;
+}
+
+.top_func_bar_active {
+    background-color: #FFFFFF;
+    color: #00AAEE !important;
+}
+
+.module_my_orders table tr {
+    font-size: 12px;
+}
+
+.module_login_full_background {
+    width: 100%;
+    margin-top: 0px;
+    /*margin-bottom:20px;*/
+    /*min-height:500px;*/
+    /*background-color:#0ae;*/
+    background-image: url('../img/slides/3.jpg');
+}
+
+.module_login_full_background .login_container {
+
+    background-color: #FFFFFF;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.module_login_full_background .login_container .row {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.module_login_full_background .left_content {
+    color: #FFFFFF;
+    /*padding-top:100px;*/
+}
+
+.module_login_full_background .left_content h1 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.module_login_full_background .left_content p {
+    font-size: 24px;
+}
+
+.module_login_full_background_wrapper {
+    margin: 20px auto;
+}
+
+.module_login_full {
+    width: 100%;
+    margin-top: 0px;
+    /*margin-bottom:20px;*/
+    /*min-height:500px;*/
+    /*background-color:#0ae;*/
+    /*background-image:url('../img/slides/3.jpg');*/
+}
+
+.module_login_full .login_container {
+    /*background-color:#fff;*/
+    /*padding:15px 30px;*/
+    /*border-radius:5px;*/
+    margin-top: 50px;
+}
+
+.module_login_full .login_container .row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.module_login_full .login_container .row input,
+.module_login_full .login_container .row a {
+    border-radius: 0px !important;
+}
+
+.module_login_full_wrapper {
+    /*margin:20px auto;*/
+}
+
+.fixed_header {
+    position: fixed;
+    top: 0;
+    /*height:50px;*/
+    width: 100%;
+    z-index: 9999;
+    box-shadow: 0px 1px 8px #666666;
+
+}
+
+.top_padding_for_fixed {
+    margin-top: 50px;
+}
+
+/*.module_header{
+    background-color:#0ae;
+    padding:10px 0;
+    color:#fff;
+    
+    
+}
+.module_header a{
+    color:#fff;
+}
+.module_header .search_icon{
+    height:30px;margin-right:10px;
+}
+.module_header .user_icon{
+    height:30px;
+}
+
+.module_headerBack{
+    background-color:#0ae;
+    padding:10px 0;
+    color:#fff;
+}
+.module_headerBack a{
+    color:#fff;
+}
+
+
+
+.module_headerSearch{
+    padding-left:0;
+    padding-right:0;
+}
+.module_headerSearch .top_head{
+    background-color:#0ae;
+    padding:10px 0;
+    color:#fff;
+    margin:0;
+}
+.module_headerSearch .search_result .col-xs-12{
+    border-bottom:1px solid #ddd;
+}*/
+
+.module_NaviTabs {
+    background-color: #FFFFFF;
+}
+
+.module_NaviTabs .col-xs-3 {
+    text-align: center;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_NaviTabs a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.module_NaviTabs img {
+    width: 40px;
+}
+
+.module_KeyRecommendApp {
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_KeyRecommendAppItem {
+    padding: 5px;
+}
+
+.module_KeyRecommendAppItem > .row {
+    margin-bottom: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    /*box-shadow: 0px 0px 2px 1px #ccc;*/
+}
+
+.module_KeyRecommendAppItem .app_icon img {
+    width: 100%;
+}
+
+.star_img img {
+    height: 14px;
+}
+
+.module_NewRecommendApp {
+    background-color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.module_NewRecommendAppItem {
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_NewRecommendAppItem .app_icon img {
+    width: 100%;
+}
+
+.module_CateListGroupItem {
+    background-color: #FFFFFF;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    padding: 0;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.module_GiftCodes {
+    background-color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_GiftCodesItem {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.module_ServerList {
+    background-color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_ServerListItem {
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_AppRank {
+    background-color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_AppRankItem {
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.AppRank_tab_active {
+    color: #00AAEE;
+    border-bottom: 2px solid #00AAEE;
+}
+
+.AppRank_rowtab {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.module_AccountCenter {
+
+    padding: 0;
+}
+
+.module_AccountCenter .top_pannel {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+.module_AccountCenter .funcs {
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    /*    padding-top:20px;
+        padding-bottom:20px;*/
+}
+
+.module_AccountCenter .funcs .funcsItem {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EEEEEE;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.module_CardCodeList {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.module_CardCodeListItem {
+    padding: 10px;
+    border-bottom: 1px dashed #CCCCCC;
+}
+
+.module_TextBlock {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.module_TextBlock .row {
+    padding: 20px;
+
+}
+
+.full_white {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.full_tranparent {
+    padding: 0;
+}
+
+.white_div {
+    background-color: #FFFFFF;
+}
+
+.grey_text_block {
+    color: #999999;
+    font-size: 12px;
+}
+
+.module_starRate .star_icon {
+    height: 14px;
+}
+
+.app_icon, .icon_full {
+    width: 100%;
+}
+
+.play_icon {
+    height: 30px;
+    width: auto;
+}
+
+.icon_left_arrow {
+    height: 30px;
+}
+
+.icon_3rd_login_methods {
+    width: 50px;
+}
+
+.icon_user_head {
+    width: 100px;
+    border: 4px solid #FFFFFF;
+    height: 100px;
+}
+
+.icon_right_arrow {
+    height: 18px;
+    margin-top: -3px;
+}
+
+.icon_common {
+    height: 30px;
+}
+
+.module_register .row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.module_findpwd .row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.catelist_right_arrow {
+    height: 14px;
+    margin-top: -3px;
+}
+
+.app_shot_item {
+    height: 200px;
+    float: left;
+    margin-right: 3px;
+}
+
+.module_header_links {
+    background-color: #EEEEEE;
+
+}
+
+.module_header_links a {
+    width: 12.5%;
+    float: left;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.module_header_links a.active {
+    background-color: red;
+}
+
+.module_header_icons {
+    text-align: center;
+}
+
+.module_header_icons img {
+    width: 60%;
+}
+
+.gray_splitter {
+    color: #DDDDDD;
+}

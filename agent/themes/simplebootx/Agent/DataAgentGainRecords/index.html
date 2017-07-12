@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title ></title >
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link type="image/x-icon" rel="bookmark" href="" >
+    <link type="image/x-icon" rel="shortcut icon" href="" >
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/css_reset.css" />
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+    <style type="text/css" >
+        .cuttitle {
+            display: inline-block;;
+            *display: inline;
+            width: 130px;
+            overflow: hidden;
+            white-space: nowrap;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+
+        html {
+            font-size: 62.5%;
+            font-family: "微软雅黑";
+        }
+
+        .search-results .table-content table tr th {
+            vertical-align: middle;
+            font-size: 12px;
+        }
+
+        .search-results .table-content table tr td {
+            vertical-align: middle;
+            font-size: 12px;
+        }
+    </style >
+
+    <script src="__PUBLIC__/3rd/layer/layer.js" ></script >
+    <script src="__PUBLIC__/huoshu/share.js" ></script >
+
+</head >
+<body >
+<div class="page-right my-game" >
+    <form id="queryForm" action="{:U('Agent/DataAgentGainRecords/index')}" method="get" >
+        <div class="input-content" style="height:80px;" >
+            <div class="search-game" >
+                <span >游戏:</span >
+                <input type="text" name="gamename" id="gamename" value="{$formget.gamename}" maxlength="25"
+                       placeholder="请输入游戏名称" >
+            </div >
+            <div class="choose-channel" >
+                <span >玩家：</span >
+                <input type="text" name="memname" id="memname" value="{$formget.memname}" maxlength="20"
+                       placeholder="" >
+            </div >
+            <div class="search-btn" style="margin-top:30px;" >搜 &nbsp;索</div >
+        </div >
+    </form >
+    <div class="search-results" >
+
+        <div class="results-header" >
+            <span class="game-num" >共找到<i >{$num_of_records}</i >个记录</span >
+        </div >
+        <div class="table-content" >
+            <table border="1" cellspacing="0" cellpadding="0" >
+                <tbody >
+                <tr >{$table_header}</tr >
+                {$table_sum}
+                {$table_content}
+                </tbody >
+            </table >
+            <div class="page" style="" >
+                <div class="paging" >{$Page}</div >
+            </div >
+        </div >
+    </div >
+</div >
+</body >
+<script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/agent/js/xhr.js" ></script >
+<script src="__PUBLIC__/agent/js/demo1.js" ></script >
+<script src="__PUBLIC__/agent/js/autoPage.js" ></script >
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+<script src="__PUBLIC__/agent/js/mygames.js" ></script >
+<script >
+    $(".search-btn").live("click", function () {
+        $("#queryForm").submit();
+    });
+
+    $("tbody tr td:nth-child(2)").click(function () {
+        var orderid = $(this).attr("date-orderid");
+        layer.tips(orderid, $(this), {
+            tips      : [1, '#333'],
+            time      : 40000,
+            closeBtn  : 1,
+            shade     : [0.1, '#fff'],
+            shadeClose: true
+        });
+    });
+    $("tbody tr td:nth-child(2)").each(function () {
+        var order_id = $(this).text();
+        $(this).attr("date-orderid", order_id);
+        $(this).css("cursor", "pointer");
+        $(this).text("查看");
+    });
+    //                            $("tbody tr td:nth-child(2)").text("查看");
+</script >
+</html >

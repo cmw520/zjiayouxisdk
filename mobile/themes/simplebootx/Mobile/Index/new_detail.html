@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" >
+    <title >游戏</title >
+    <style type="text/css" >
+        .swiper-slide {
+            position: relative;
+            width: 100%;
+            line-height: 300px;
+            color: #FFFFFF;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        #iframe_id {
+            position: relative;
+            float: left;
+            width: 96%;
+            height: auto;
+            border: #000000 solid 0px;
+            left: 2%;
+            top: 5px;
+
+        }
+
+        #ad_star img {
+            width: 4%;
+        }
+
+        .public {
+            background: #FFFFFF;
+            width: 100%;
+            border-top: 1px solid #E0E0E0;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 10px;
+        }
+
+        .tit {
+            border-bottom: 1px solid #E6E6E6;
+            height: 37px;
+            line-height: 37px;
+            width: 100%;
+            font-size: 15px;
+            color: #737373;
+            position: relative;
+        }
+
+        .tit .tit_ico {
+            border-bottom: 3px solid #00B3FF;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 35px;
+            padding: 0 15px 0 30px;
+        }
+
+        ol, ul, li, dd, dl, dt {
+            list-style: none;
+        }
+
+        .morelist2 {
+            clear: both;
+            text-align: center;
+            color: #999999;
+            line-height: 35px;
+            height: 35px;
+            border-top: 1px dashed #E0E0E0;
+        }
+
+        .morelist2 a {
+            display: block;
+            color: #999999;
+        }
+
+        .tit .tit_ico {
+            border-bottom: 3px solid #00B3FF;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 35px;
+            padding: 0 15px 0 30px;
+        }
+
+        .list_four {
+            padding: 5px 0;
+        }
+
+        .list_four li {
+            float: left;
+            width: 25%;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .list_four li a {
+            display: block;
+            color: #333333;
+            font-size: 14px;
+        }
+
+        .list_four li a img {
+            width: 62px;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+
+        .public a {
+            cursor: pointer;
+            text-decoration: none;
+            color: #4C4C4C;
+            font-size: 14px;
+        }
+
+    </style >
+    <link href="__PUBLIC__/wap/css/index.css" type="text/css" rel="stylesheet" >
+    <link href="__PUBLIC__/wap/css/swiper.min.css" type="text/css" rel="stylesheet" >
+    <link href="__PUBLIC__/wap/css/ad.css" type="text/css" rel="stylesheet" >
+    <style >
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+            font-family: "microsoft YaHei";
+        }
+
+        #ad_button {
+            position: absolute;
+            width: 90px;
+            height: 24px;
+            float: right;
+            right: 10px;
+            top: 20px;
+            background-color: #29AAE1;
+            /* border: 1px solid #000; */
+            border-radius: 6px;
+            color: white;
+            padding: 5px;
+            border: none;
+        }
+
+        #ad_button_text {
+            position: absolute;
+            width: 70px;
+            height: 16px;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            font-family: "����";
+            top: 4px;
+            left: 10px;
+            padding: 5px;
+            /* font-weight: bold; */
+        }
+
+        #ad_button_cube {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3000;
+            left: 0px;
+            top: 0px;
+        }
+
+        #main_id {
+            height: auto;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+        }
+    </style >
+</head >
+<body >
+<div class="main" id="main_id" >
+    <div id="main_ad" >
+        <div class="ad_cube" ></div >
+        <div class="ad_line" ></div >
+        <div id="ad_img"
+             style="background:url('{$news.icon}') center center / cover no-repeat rgb(255, 255, 255);" ></div >
+        <div id="ad_name" >{$news.name}</div >
+        <!--  <div id="ad_star"><img src="__PUBLIC__/wap/images/start.png"><img src="__PUBLIC__/wap/images/start.png"><img
+                 src="__PUBLIC__/wap/images/start.png"><img src="__PUBLIC__/wap/images/start.png"><img
+                 src="__PUBLIC__/wap/images/start.png"></div> -->
+        <div id="ad_type" >
+            <foreach name="news['type']" item="v" key='k' >
+				<span class="ilabel"
+                      style="color: #FF9900;margin-left:5px; border: 1px solid #FF9900;font-size:10px;padding:3px 2px;margin-bottom:3px;display:inline-block;" >{$v}
+				</span >
+            </foreach >
+        </div >
+        <div id="ad_visited" ></div >
+        <div id="ad_button" >
+            <div id="ad_button_text" >下载游戏</div >
+            <div id="ad_button_cube"
+                 onclick="window.location.href='{$news.androidurl}'" ></div >
+        </div >
+        <div class="ad_line" style="top:75px;" ></div >
+    </div >
+
+    <div id="main_title" >
+        <div id="title_name" >{$news.title}</div >
+        <div class="main_title_min" >
+            <div id="title_date" ></div >
+            <div id="title_author" >{$news.create_time|date="Y-m-d H:i",###}</div >
+            <div id="title_gamevisited" ></div >
+            <div class="title_line" ></div >
+        </div >
+    </div >
+    {$news.content}
+</div >
+<div style="  clear: both;" ></div >
+<div style="padding-top:20px;" class="public " >
+    <div class="tit" ><p class="tit_ico game_label" >相关文章</p ></div >
+    <ul class="list_text" style="margin: 5px 10px 0;" >
+        <volist name="aboutNews" id="vo" >
+            <li style="line-height: 20px;height: 20px;overflow: hidden;padding: 10px 0;border-bottom: 1px dashed #EBEBEB;" >
+                <a style="color:#00B3FF;" href="{:U('Index/new_detail',array('id'=>$vo[id]))}"
+                   class="a1" >[{$newstype[$vo['type']]}]</a >
+                <a href="{:U('Index/new_detail',array('id'=>$vo[id]))}" class="a2" >{$vo.title}</a ></li >
+        </volist >
+    </ul >
+    <div class="morelist2" ><a href="{:U('Index/wybl')}" >浏览更多新闻</a ></div >
+    <div class="tit" ><p class="tit_ico about_game" >相关游戏</p ></div >
+    <div class="list_four clearfix" >
+        <ul >
+            <volist name="similars" id="vo" >
+                <li >
+                    <a href="{:U('Index/game_detail',array('id'=>$vo['id']))}" >
+                        <img src="{$vo.icon}" >
+                        <p >{$vo.gamename}</p >
+                    </a >
+                </li >
+            </volist >
+        </ul >
+    </div >
+</div >
+</body >
+</html >

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<!--
+主线PC应用首页
+严旭
+2017-01-07 10:31:12
+-->
+
+<html >
+<head >
+    <title >主线WAP</title >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,user-scalable=no" >
+    <!--<link rel="stylesheet" href="./static/3rd/bootstrap/css/bootstrap-responsive.min.css"/>-->
+
+    <script src="./static/3rd/artTemplate/template.js" ></script >
+    <script src="./static/3rd/jquery/jquery-1.10.2.min.js" ></script >
+
+    <script src="./static/3rd/bootstrap/js/bootstrap.min.js" ></script >
+    <link rel="stylesheet" href="./static/3rd/bootstrap/css/bootstrap.min.css" />
+
+    <script src="./static/3rd/swiper/swiper.min.js" ></script >
+    <link rel="stylesheet" href="./static/3rd/swiper/swiper.min.css" />
+
+    <script src="./static/3rd/angular/angular.min.js" ></script >
+    <script src="./static/3rd/angular/angular-route.min.js" ></script >
+    <script src="./static/3rd/angular/angular-sanitize.js" ></script >
+    <!--<script src="./static/yx/main.js"></script>-->
+
+    <script src="./static/3rd/layer/layer.js" ></script >
+
+    <link rel="stylesheet" href="./static/yx/main.css" />
+</head >
+<body >
+
+<div ng-app='app' style="height:100%;" >
+
+    <script type="text/ng-template" id='modules/HeaderSearch.html' >
+        <div class="container module_headerSearch" >
+            <div class="row top_head fixed_header" >
+                <div class="col-xs-2" >
+                    <a href="javascript:;" onclick="yxspa.funcs.goback();" style="font-size:18px;" >
+                        <img src='./static/img/asset/arrow.png' class="icon_common" alt='返回' />
+                    </a >
+                </div >
+                <div class="col-xs-8" >
+                    <input type="text" name="app_name" ng-model="data.key"
+                           style="width:100%;color:#333333;border:none;padding:5px;border-radius:5px;"
+                           placeholder="请输入搜索关键字" />
+                </div >
+                <div class="col-xs-2" style="text-align:right;" >
+                    <a href="javascript:;" ng-click="search();" ><img src='./static/img/asset/search.png'
+                                                                      class="icon_common" alt='搜索' /></a >
+                </div >
+            </div >
+            <div class="row search_result top_padding_for_fixed" style="background-color:#FFFFFF;" >
+                <div class="col-xs-12" ng-repeat="x in list" style="padding-top:10px;padding-bottom:10px;color:#333333;"
+                     ng-click="showH5Game(x.id);" style="border-bottom:1px dashed #DDDDDD;" >
+                    <div class="row" >
+                        <div class="col-xs-2" style="padding:0;" >
+                            <img ng-src="{{x.icon}}" class="icon_full" alt="图标" />
+                        </div >
+                        <div class="col-xs-7" >
+                            <div class="row" >
+                                <span style="font-size:16px;font-weight: 400;" >{{x.name}}</span >
+                            </div >
+                            <div class="row" style="margin-top:5px;margin-bottom:5px;" >
+                                <span class="label label-warning" style="font-weight:400!important;margin-right:3px;"
+                                      ng-repeat="x2 in x.catesArr" >{{x2.name}}</span >
+                            </div >
+                            <div class="row" style="font-size:12px;color:#999999;" >
+                        <span style="" >
+                            {{x.cates}}
+                        </span >
+                                <span style="margin-left:10px;" >
+                            人气：{{x.clicknum}}
+                        </span >
+                            </div >
+                        </div >
+                        <div class="col-xs-3"
+                             style="text-align: center;width:80px;float:right;padding-right:0;padding-top:10px;" >
+                            <div style="width:100%;float:left;" >
+                                <img src="./static/img/asset/play.png" class="play_icon" alt="play" />
+                            </div >
+                            <div style="width:100%;float:left;font-size:12px;" >开始玩</div >
+                        </div >
+                    </div >
+                </div >
+                <div class="col-xs-12" ng-show="show_load_more===1;" ng-click="loadMore();" id="loadMoreText"
+                     style="text-align: center;background-color:#EEEEEE;padding:10px 0;font-size:14px;" >
+                    加载更多
+                </div >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/HeaderBack.html' >
+        <div class="container module_headerBack" >
+            <div class="row" >
+                <div class="col-xs-6" >
+                    <a href="javascript:;" onclick="yxspa.funcs.goback();" style="font-size:18px;" >
+                        <img src='./static/img/asset/arrow.png' class="icon_left_arrow" alt='返回' />
+                        <span >{{title}}</span >
+                    </a >
+                </div >
+                <div class="col-xs-6" style="text-align:right;margin-top:5px;" >
+                    <a href="" ></a >
+                    <a href="" ></a >
+                </div >
+            </div >
+        </div >
+    </script >
+
+    <script type="text/ng-template" id='modules/NaviTabs.html' >
+        <div class="container module_NaviTabs" >
+            <div class="row" >
+                <div class="col-xs-3" style="text-align: center;" ng-repeat="x in list" ng-click="goto(x.url);" >
+                    <div class="row" style="height:45px;" >
+                        <img ng-src="{{x.icon}}" alt="图标" />
+
+                    </div >
+                    <div class="row" >
+
+                        <a href="{{x.url}}" >{{x.name}}</a >
+
+                    </div >
+                </div >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/StarRate.html' >
+        <div class="module_starRate" >
+            <img ng-repeat="x in list" ng-src="./static/img/asset/star.png" class="star_icon" alt="start" />
+        </div >
+    </script >
+    <!--
+    <script type="text/ng-template" id='modules/HeaderBack.html'>
+
+    </script>
+    -->
+    <script type="text/ng-template" id='modules/NewRecommendApp.html' >
+        <div class="container module_NewRecommendApp" ng-cloak >
+            <div class="row" style="text-align:center;" >
+                <span style="font-size:18px;" >新游推荐</span >
+            </div >
+            <div class="row" style="margin-top:5px;" >
+                <div class="col-xs-12 module_NewRecommendAppItem" ng-repeat="x in list" ng-click="showH5Game(x.id);"
+                     style="border-bottom:1px dashed #DDDDDD;" >
+                    <div class="row" >
+                        <div class="col-xs-2" style="padding:0;" >
+                            <img ng-src="{{x.icon}}" class="app_icon" alt="图标" />
+                        </div >
+                        <div class="col-xs-7" >
+                            <div class="row" >
+                                <span style="font-size:16px;font-weight: 400;" >{{x.name}}</span >
+                            </div >
+                            <div class="row" style="margin-top:5px;margin-bottom:5px;" >
+                                <span class="label label-warning" style="font-weight:400!important;margin-right:3px;"
+                                      ng-repeat="x2 in x.catesArr" >{{x2.name}}</span >
+                            </div >
+                            <div class="row" style="font-size:12px;color:#999999;" >
+                            <span style="" >
+                                {{x.cates}}
+                            </span >
+                                <span style="margin-left:10px;" >
+                                人气：{{x.clicknum}}
+                            </span >
+                            </div >
+                        </div >
+                        <div class="col-xs-3"
+                             style="text-align: center;width:80px;float:right;padding-right:0;padding-top:10px;" >
+                            <div style="width:100%;float:left;" >
+                                <img src="./static/img/asset/play.png" class="play_icon" alt="play" />
+                            </div >
+                            <div style="width:100%;float:left;font-size:12px;" >开始玩</div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <div class="row" ng-click="loadMore();"
+                 style="margin-top:5px;text-align: center;background-color:#EEEEEE;padding-top:10px;padding-bottom:10px;" >
+                <span id="loadMoreText" >查看更多新游</span >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/KeyRecommendApp.html' >
+        <div class="container module_KeyRecommendApp" ng-cloak >
+            <div class="row" style="text-align:center;" >
+                <span style="font-size:18px;" >精品推荐</span >
+            </div >
+            <div class="row" style="margin-top:5px;" >
+                <div class="col-xs-6 module_KeyRecommendAppItem" ng-repeat="x in list" ng-click="showH5Game(x.id);" >
+                    <div class="row" >
+                        <div class="col-xs-12" style="padding:0;" >
+                            <div class="row" style="margin-bottom:10px;" >
+                                <span style="font-size:16px;font-weight:400;height:20px;overflow:hidden;" >{{x.name}}</span >
+                                <span style="position:absolute;top:0;right:-13px;"
+                                      class="label label-success" >{{x.cates}}</span >
+                            </div >
+                            <div class="row" >
+                                <div class="col-xs-4" style="padding:0;" >
+                                    <img ng-src="{{x.icon}}" class="app_icon" alt="图标" />
+                                </div >
+                                <div class="col-xs-8" style="padding:0;padding-left:10px;" >
+                                    <div class="row grey_text_block" style="height:14px;overflow: hidden;" >
+                                        {{x.cates}}
+                                    </div >
+                                    <div class="row " style="font-size:12px;margin-top:2px;margin-bottom:3px;" >
+                                        <div ng-controller="moduleStarRateController" >
+                                            <module-star-rate ></module-star-rate >
+                                        </div >
+                                    </div >
+                                    <div class="row grey_text_block" >
+                                        人气：{{x.clicknum}}
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/CateListGroup.html' >
+        <div class="container module_CateListGroup" style="background-color:#EEEEEE;" >
+            <div class="row module_CateListGroupItem" ng-repeat="x in list" ng-click="goto(x.id,x.name);" >
+                <div class="col-xs-12" style="padding:0;" >
+                    <div class="row" style="padding:10px 0;" >
+                        <div class="col-xs-1" >
+                            <img ng-src="{{x.icon}}" class="icon_common" alt="图标" />
+                        </div >
+                        <div class="col-xs-7" style="margin-top:4px;" >
+                            <span style="margin-left:15px;font-size:16px;" >{{x.name}}</span >
+                        </div >
+
+                        <div class="col-xs-4" style="padding-top:9px;font-size:12px;color:#999999;text-align: right;" >
+                            {{x.num}} 款
+                            <img src="./static/img/asset/arrow-right.png" class="catelist_right_arrow" alt="icon" />
+                        </div >
+                    </div >
+                    <div class="row" style="height:20px;width:100%;padding:0;margin:0;background-color:#EEEEEE;"
+                         ng-show="($index) % 4 ==0;" >
+
+                    </div >
+                </div >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/CardCodeList.html' >
+        <div class="container module_CardCodeList" >
+            <div class="row module_CardCodeListItem" ng-repeat="x in list" >
+                <div class="col-xs-2" style="padding:0;" >
+                    <img ng-src="{{x.icon}}" class="icon_full" alt="图片" />
+                </div >
+                <div class="col-xs-8" >
+                    <div class="row" >
+                        {{x.name}}
+                    </div >
+                    <div class="row" style="background-color:#F1F1F1;color:red;margin-top:10px;" >
+                        <span style="padding:5px;width:90%;float:left;" >{{x.code}}</span >
+                    </div >
+                </div >
+                <div class="col-xs-2" >
+                    <button class="btn btn-success btn-sm" style="margin-top:15px;"
+                            onclick="huosdk.copyString('code is here');" >复制
+                    </button >
+                </div >
+            </div >
+            <div class="row" ng-click="loadMore();"
+                 style="text-align: center;background-color:#EEEEEE;padding:10px 0;font-size:14px;" >
+                <span id="loadMoreText" >加载更多</span >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/AppRank.html' >
+        <div class="container module_AppRank" >
+            <div class="row" style="text-align:center;" >
+                <div class="col-xs-6 AppRank_tab_active AppRank_rowtab" ng-click="show(1);" id="new_tab" >
+                    <span style="font-size:16px;" >最新</span >
+                </div >
+                <div class="col-xs-6 AppRank_rowtab" ng-click="show(2);" id="hot_tab" >
+                    <span style="font-size:16px;" >最热</span >
+                </div >
+            </div >
+            <div class="row tab_row_1" ng-show="tab==1;" style="margin-top:5px;" >
+                <div class="col-xs-12 module_AppRankItem" ng-repeat="x in newlist" ng-click="showH5Game(x.id);"
+                     style="border-bottom:1px dashed #DDDDDD;" >
+                    <div class="row" >
+                        <div class="col-xs-2" style="padding:0;" >
+                            <img ng-src="{{x.icon}}" class="icon_full" alt="图标" />
+                        </div >
+                        <div class="col-xs-7" >
+                            <div class="row" >
+                                <span style="font-size:16px;font-weight: 400;" >{{x.name}}</span >
+                            </div >
+                            <div class="row" style="margin-top:5px;margin-bottom:5px;" >
+                                <span class="label label-warning" style="font-weight:400!important;margin-right:3px;"
+                                      ng-repeat="x2 in x.catesArr" >{{x2.name}}</span >
+                            </div >
+                            <div class="row" style="font-size:12px;color:#999999;" >
+                            <span style="" >
+                                {{x.cates}}
+                            </span >
+                                <span style="margin-left:10px;" >
+                                人气：{{x.clicknum}}
+                            </span >
+                            </div >
+                        </div >
+                        <div class="col-xs-3" style="text-align: center;width:80px;float:right;padding-right:0;" >
+                            <div style="width:100%;float:left;" >
+                                <img src="./static/img/asset/play.png" class="play_icon" alt="play" />
+                            </div >
+                            <div style="width:100%;float:left;font-size:12px;" >开始玩</div >
+                        </div >
+                    </div >
+                </div >
+                <div class="col-xs-12"
+                     style="margin-top:5px;text-align: center;background-color:#EEEEEE;padding-top:10px;padding-bottom:10px;"
+                     ng-click="loadMoreNew();" id="loadMoreText_new" >
+                    查看更多
+                </div >
+            </div >
+            <div class="row tab_row_2" ng-show="tab==2;" style="margin-top:5px;" >
+                <div class="col-xs-12 module_AppRankItem" ng-repeat="x in hotlist" ng-click="showH5Game(x.id);"
+                     style="border-bottom:1px dashed #DDDDDD;" >
+                    <div class="row" >
+                        <div class="col-xs-2" style="padding:0;" >
+                            <img ng-src="{{x.icon}}" class="icon_full" alt="图标" />
+                        </div >
+                        <div class="col-xs-7" >
+                            <div class="row" >
+                                <span style="font-size:16px;font-weight: 400;" >{{x.name}}</span >
+                            </div >
+                            <div class="row" style="margin-top:5px;margin-bottom:5px;" >
+                                <span class="label label-warning" style="font-weight:400!important;margin-right:3px;"
+                                      ng-repeat="x2 in x.catesArr" >{{x2.name}}</span >
+                            </div >
+                            <div class="row" style="font-size:12px;color:#999999;" >
+                            <span style="" >
+                                {{x.cates}}
+                            </span >
+                                <span style="margin-left:10px;" >
+                                人气：{{x.clicknum}}
+                            </span >
+                            </div >
+                        </div >
+                        <div class="col-xs-3" style="text-align: center;width:80px;float:right;padding-right:0;" >
+                            <div style="width:100%;float:left;" >
+                                <img src="./static/img/asset/play.png" class="play_icon" alt="play" />
+                            </div >
+                            <div style="width:100%;float:left;font-size:12px;" >开始玩</div >
+                        </div >
+                    </div >
+                </div >
+                <div class="col-xs-12"
+                     style="margin-top:5px;text-align: center;background-color:#EEEEEE;padding-top:10px;padding-bottom:10px;"
+                     id="loadMoreText_hot" ng-click="loadMoreHot();" >
+                    查看更多
+                </div >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/AccountCenter.html' >
+        <div class="container module_AccountCenter" ng-show="login" >
+            <div class="row top_pannel" style="background-color:#00AAEE;padding-top:20px;padding-bottom:20px;" >
+                <div class="col-xs-12" >
+                    <div class="row" >
+                        <img ng-src="{{data.icon}}" class="img-circle icon_user_head" alt="用户头像" />
+                    </div >
+                    <div class="row" style="margin-top:10px;" >
+                        <span style="font-size:20px;color:#FFFFFF;" >{{data.username}}</span >
+                    </div >
+                </div >
+            </div >
+            <div class="row funcs" style="padding:0;" >
+                <div class="col-xs-12" style="padding:0;" >
+                    <div class="row funcsItem" onclick="yxspa.funcs.goto('#/cardbox');" >
+                        <div class="col-xs-2" >
+                            <img src="./static/img/asset/gift.png" class="icon_common" alt="图标" />
+                        </div >
+                        <div class="col-xs-6" >
+                            <span style="font-size:16px;line-height: 30px;" >我的卡箱</span >
+                        </div >
+                        <div class="col-xs-4" style="text-align: right;" >
+                            <span style="font-size:14px;line-height: 30px;color:#999999;" >{{data.gift_count}}个</span >
+                            <img src="./static/img/asset/arrow-right.png" class="icon_right_arrow" alt="icon" />
+                        </div >
+                    </div >
+                    <div class="row funcsItem" onclick="yxspa.funcs.goto('#/cs');" >
+                        <div class="col-xs-2" >
+                            <img src="./static/img/asset/cs.png" class="icon_common" alt="图标" />
+                        </div >
+                        <div class="col-xs-6" >
+                            <span style="font-size:16px;line-height: 30px;" >联系客服</span >
+                        </div >
+                        <div class="col-xs-4" style="text-align: right;" >
+                            <span style="font-size:14px;line-height: 30px;color:#999999;" >9:00-18:00</span >
+                            <img src="./static/img/asset/arrow-right.png" class="icon_right_arrow" alt="icon" />
+                        </div >
+                    </div >
+                    <div class="row funcsItem" onclick="yxspa.funcs.goto('#/about');" >
+                        <div class="col-xs-2" >
+                            <img src="./static/img/asset/about.png" class="icon_common" alt="图标" />
+                        </div >
+                        <div class="col-xs-6" >
+                            <span style="font-size:16px;line-height: 30px;" >关于我们</span >
+                        </div >
+                        <div class="col-xs-4" style="text-align: right;" >
+                            <span style="font-size:14px;line-height: 30px;color:#999999;" ></span >
+                            <img src="./static/img/asset/arrow-right.png" class="icon_right_arrow" alt="icon" />
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <div class="row logout_btn"
+                 style="padding:10px 0 10px 0;margin-top:30px;text-align: center;background-color:#FFFFFF;" >
+                <button class="btn btn-danger" style="width:50%;" ng-click="logout();" >退出当前帐号</button >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/Register.html' >
+        <div class="container module_register" >
+            <div class="row module_register_wrapper" >
+                <div class="col-md-12 login_container" >
+                    <div class="row" >
+                        <div class='col-xs-8' style='padding-left:0;' >
+                            <input type="text" name="username" class="form-control" ng-model='data.phone'
+                                   placeholder="手机号" >
+                        </div >
+                        <div class='col-xs-4' style='padding-right:0;text-align: right;' >
+                            <button class='btn btn-success btn-sm send_phonecode_btn' ng-click='sendCode();' >发送验证码
+                            </button >
+                        </div >
+                    </div >
+                    <div class="row" >
+                        <input type="text" name="phone_code" class="form-control" ng-model='data.phone_code'
+                               placeholder="验证码" >
+                    </div >
+                    <div class="row" >
+                        <input type="password" name="password" class="form-control" ng-model='data.password'
+                               placeholder="密码" >
+                    </div >
+
+                    <div class="row" >
+                        <input type='checkbox' name='agree'
+                               style='width:20px;height:20px;margin-top:0px;margin-right:5px;float:left;'
+                               ng-model='data.agree' />
+                        同意用户协议
+                    </div >
+                    <div class="row" style="padding-left:0;padding-right:0;" >
+                        <div class="col-xs-6" style="padding-left:0;" >
+                            <button class="btn btn-info" ng-disabled='!data.agree' ng-click='reg("male");'
+                                    style="width:100%;" >男生注册
+                            </button >
+                        </div >
+                        <div class="col-xs-6" style="padding-right:0;" >
+                            <button class="btn btn-danger" ng-disabled='!data.agree' ng-click='reg("female");'
+                                    style="width:100%;" >女生注册
+                            </button >
+                        </div >
+                        <!--<a href="javascript:;" class="btn btn-success" ng-disabled='!data.agree' ng-click='reg();' id="index_reg_btn" style="width:100%;">注 册</a>-->
+                    </div >
+
+                </div >
+            </div >
+        </div >
+    </script >
+    <script type="text/ng-template" id='modules/login_full.html' >
+        <div class="container module_login_full" >
+            <div class="row module_login_full_wrapper" >
+                <div class="col-md-12 login_container" >
+                    <div class="row" >
+                        <input type="text" name="username" class="form-control" ng-model='data.username'
+                               placeholder="用户名" >
+                    </div >
+                    <div class="row" >
+                        <input type="password" name="password" class="form-control" ng-model='data.password'
+                               placeholder="密码" >
+                    </div >
+                    <div class="row" >
+                        <a href="javascript:;" class="btn btn-success" ng-click='login();' id="index_login_btn"
+                           style="width:100%;" >登录</a >
+                    </div >
+                    <div class="row" >
+                        <div class="login_links" style="margin-top:5px;font-size:12px;" >
+                            <a class="btn btn-link" href="#/register" style="float:left;" >帐号注册</a >
+                            <a class="btn btn-link" href="#/findpwd" style="float:right;" >找回密码</a >
+                        </div >
+                    </div >
+                    <div class="row" style="text-align: center;padding:0;" >
+                        <div class="col-md-12"
+                             style="text-align: center;border-bottom:1px solid #CCCCCC;margin-bottom:10px;" >
+                            其他登录方式
+                        </div >
+                        <div class="col-xs-6" ng-click="login3rd('wx');" >
+                            <div class="row" >
+                                <img src="./static/img/asset/weixin.png" class="icon_3rd_login_methods" alt="" />
+                            </div >
+                            <div class="row" >
+                                微信
+                            </div >
+                        </div >
+                        <div class="col-xs-6" >
+                            <div class="row" ng-click="login3rd('qq');" >
+                                <img src="./static/img/asset/qq.png" class="icon_3rd_login_methods" alt="" />
+                            </div >
+                            <div class="row" >
+                                QQ
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </script >
+
+    <script type="text/ng-template" id='pages/home.html' >
+        <div ng-controller="moduleHeaderController" >
+            <module-header ></module-header >
+        </div >
+
+    </script >
+    <script type="text/ng-template" id='pages/gift.html' >
+        <div ng-controller="moduleHeaderBackController" ng-init="title='礼包'" class="fixed_header" >
+            <module-header-back ></module-header-back >
+        </div >
+        <div ng-controller="moduleGiftCodesController" class="top_padding_for_fixed" >
+            <module-gift-codes ></module-gift-codes >
+        </div >
+    </script >
+    <script type="text/ng-template" id='pages/login.html' >
+        <div ng-controller="moduleHeaderBackController" ng-init="title='登录'" class="fixed_header" >
+            <module-header-back ></module-header-back >
+        </div >
+        <div ng-controller="moduleLoinFullController" class="top_padding_for_fixed" >
+            <module-login-full ></module-login-full >
+        </div >
+    </script >
+    <script type="text/ng-template" id='pages/register.html' >
+        <div ng-controller="moduleHeaderBackController" ng-init="title='注册'" class="fixed_header" >
+            <module-header-back ></module-header-back >
+        </div >
+        <div ng-controller="moduleRegisterController" class="top_padding_for_fixed" >
+            <module-register ></module-register >
+        </div >
+    </script >
+    <script type="text/ng-template" id='pages/findpwd.html' >
+        <div ng-controller="moduleHeaderBackController" ng-init="title='重设密码'" class="fixed_header" >
+            <module-header-back ></module-header-back >
+        </div >
+        <div ng-controller="moduleFindpwdController" class="top_padding_for_fixed" >
+            <module-findpwd ></module-findpwd >
+        </div >
+    </script >
+    <script type="text/ng-template" id='pages/appDetail.html' >
+        <div ng-controller="moduleHeaderBackController" ng-init="title='游戏专区'" class="fixed_header" >
+            <module-header-back ></module-header-back >
+        </div >
+        <div ng-controller="moduleAppDetailController" class="top_padding_for_fixed" >
+            <module-app-detail ></module-app-detail >
+        </div >
+    </script >
+    <script type="text/ng-template" id='pages/server.html' >
+        <div ng-controller="moduleHeaderBackController" ng-init="title='开服表'" class="fixed_header" >
+            <module-header-back ></module-header-back >
+        </div >
+        <div ng-controller="moduleServerListController" class="top_padding_for_fixed" >
+            <module-server-list ></module-server-list >
+        </div >
+    </script >
+
+    <div ng-view style="height:100%;" ></div >
+</div >
+<script src="./static/yx/share.js" ></script >
+<script src="./static/yx/app.js" ></script >
+</body >
+
+</html >

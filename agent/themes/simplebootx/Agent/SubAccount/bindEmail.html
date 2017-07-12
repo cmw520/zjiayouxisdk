@@ -1,0 +1,37 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+                <div class="top_hint" >
+                    绑定邮箱
+                </div >
+                <div class="main_content" >
+                    现在邮箱：{$email_now} <br />
+                    更换邮箱：<input type="text" name="email" /> <br />
+                    <button class="btn btn-success" id="submit" >修改</button >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<style >
+
+</style >
+<script >
+    $("#submit").click(function () {
+        var email = $("input[name='email']").val();
+        $.post("{:U('Agent/SubAccount/bindEmail_post')}", {"email": email}, function (data) {
+            if (data.error === '0') {
+                location.reload();
+            } else if (data.error === '1') {
+                yxalert(data.msg);
+            }
+        });
+    });
+</script >
+<agenttpl file="user_center_footer" />

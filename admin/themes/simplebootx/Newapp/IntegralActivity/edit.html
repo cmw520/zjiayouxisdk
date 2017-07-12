@@ -1,0 +1,214 @@
+<admintpl file="header" />
+</head>
+<body >
+    <div class="wrap js-check-wrap" >
+        <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Newapp/IntegralActivity/index')}" >{$admin_module_name}</a ></li >
+            <!--<li ><a href="{:U('Newapp/IntegralActivity/add')}" >添加</a ></li >-->
+            <li class="active" ><a href="__SELF__" >{$data.act_name}编辑</a ></li >
+        </ul >
+
+        <form action="{:U('Newapp/IntegralActivity/editPost')}" method="post" class="form-horizontal js-ajax-forms"
+              enctype="multipart/form-data" >
+            <input type='hidden' name='id' value="{$data.id}" />
+
+            <div class="row-fluid" >
+                <div class="span9" >
+                    <table class="table table-bordered" >
+                        <tr >
+                            <th >活动名称</th >
+                            <td >
+                                {$data.act_name}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th >活动代号</th >
+                            <td >
+                                {$data.act_code}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th >获得积分</th >
+                            <td >
+                                <input type="text" name="give_integral" value="{$data.give_integral}" placeholder="" />
+                            </td >
+                        </tr >
+                        <tr >
+                            <th >起止时间</th >
+                            <td >
+                                <input type="text" name="start_time" style="width:120px;" value="{$data.start_time}"
+                                       placeholder="开始时间" class="js-datetime" />
+                                -
+                                <input type="text" name="end_time" style="width:120px;" value="{$data.end_time}"
+                                       placeholder="结束时间" class="js-datetime" />
+                            </td >
+                        </tr >
+                        <tr >
+                            <th >是否限制渠道</th >
+                            <td >
+                                <input type="radio" name="limit_agent" value="1" />限制
+                                <input type="radio" name="limit_agent" value="2" checked="checked" />不限制
+                            </td >
+                        </tr >
+                        <neq name='data[max_user]' >
+                            <th >每日邀请积分最大次数</th >
+                            <td >
+                               <input type="text" name="max_user" value="{$data.max_user}" placeholder="" />
+                            </td >
+                        </neq >
+                        <if condition="'tguser'==$data[act_code]" >
+                        <tr >
+                            <th >描述</th >
+                            <td ><textarea name="act_desc"
+                                           style="width: 98%; height: 200px;" >{$data.act_desc}</textarea ></td >
+                        </tr >
+                            </if >
+                    </table >
+                </div >
+
+            </div >
+            <div class="form-actions" >
+                <button class="btn btn-primary js-ajax-submit" type="submit" >提交</button >
+                <a class="btn" href="{:U('Newapp/IntegralActivity/index')}" >返回</a >
+            </div >
+        </form >
+    </div >
+    <script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+    <script type="text/javascript" >
+
+        var limit_agent = "{$data.limit_agent}";
+
+        $("input[name='limit_agent']").removeAttr("checked");
+        $("input[name='limit_agent'][value='" + limit_agent + "']").attr("checked", "checked");
+
+        $(function () {
+            $(".js-ajax-close-btn").on('click', function (e) {
+                e.preventDefault();
+                Wind.use("artDialog", function () {
+                    art.dialog({
+                        id        : "question",
+                        icon      : "question",
+                        fixed     : true,
+                        lock      : true,
+                        background: "#CCCCCC",
+                        opacity   : 0,
+                        content   : "您确定需要关闭当前页面嘛？",
+                        ok        : function () {
+                            setCookie("refersh_time", 1);
+                            window.close();
+                            return true;
+                        }
+                    });
+                });
+            });
+            /////---------------------
+            Wind.use('validate', 'ajaxForm', 'artDialog', function () {
+                //javascript
+
+                var form = $('form.js-ajax-forms');
+                //ie处理placeholder提交问题
+                if ($.browser.msie) {
+                    form.find('[placeholder]').each(function () {
+                        var input = $(this);
+                        if (input.val() == input.attr('placeholder')) {
+                            input.val('');
+                        }
+                    });
+                }
+                //表单验证开始
+                form.validate({
+                    //是否在获取焦点时验证
+                    onfocusout   : false,
+                    //是否在敲击键盘时验证
+                    onkeyup      : false,
+                    //当鼠标掉级时验证
+                    onclick      : false,
+                    //验证错误
+                    showErrors   : function (errorMap, errorArr) {
+                        //errorMap {'name':'错误信息'}
+                        //errorArr [{'message':'错误信息',element:({})}]
+                        try {
+                            $(errorArr[0].element).focus();
+                            art.dialog({
+                                id        : 'error',
+                                icon      : 'error',
+                                lock      : true,
+                                fixed     : true,
+                                background: "#CCCCCC",
+                                opacity   : 0,
+                                content   : errorArr[0].message,
+                                cancelVal : '确定',
+                                cancel    : function () {
+                                    $(errorArr[0].element).focus();
+                                }
+                            });
+                        } catch (err) {
+                        }
+                    },
+                    //验证规则
+                    rules        : {
+                        'slide_name': {
+                            required: 1
+                        }
+                    },
+                    //验证未通过提示消息
+                    messages     : {
+                        'slide_name': {
+                            required: '请输入名称'
+                        }
+                    },
+                    //给未通过验证的元素加效果,闪烁等
+                    highlight    : false,
+                    //是否在获取焦点时验证
+                    onfocusout   : false,
+                    //验证通过，提交表单
+                    submitHandler: function (forms) {
+                        $(forms).ajaxSubmit({
+                            url         : form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                            dataType    : 'json',
+                            beforeSubmit: function (arr, $form, options) {
+
+                            },
+                            success     : function (data, statusText, xhr, $form) {
+                                if (data.status) {
+                                    setCookie("refersh_time", 1);
+                                    //添加成功
+                                    Wind.use("artDialog", function () {
+                                        art.dialog({
+                                            id        : "succeed",
+                                            icon      : "succeed",
+                                            fixed     : true,
+                                            lock      : true,
+                                            background: "#CCCCCC",
+                                            opacity   : 0,
+                                            content   : data.info,
+                                            button    : [{
+                                                name    : '继续编辑？',
+                                                callback: function () {
+                                                    reloadPage(window);
+                                                    return true;
+                                                },
+                                                focus   : true
+                                            }, {
+                                                name    : '返回列表',
+                                                callback: function () {
+                                                    location.href = "{:U('Newapp/IntegralActivity/index')}";
+                                                    return true;
+                                                }
+                                            }]
+                                        });
+                                    });
+                                } else {
+                                    isalert(data.info);
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+            ////-------------------------
+        });
+    </script >
+</body >
+</html>

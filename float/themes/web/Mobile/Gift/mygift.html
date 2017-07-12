@@ -1,0 +1,56 @@
+<mobiletpl file="header" />
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/libao.css" />
+<nav >
+    <ul >
+        <li ><a href="{:U('Mobile/Gift/index', array('show'=>'list'))}" >礼包列表</a ></li >
+        <li class="active" ><a href="{:U('Mobile/Gift/index', array('show'=>'mygift'))}" >我的礼包</a ></li >
+    </ul >
+</nav >
+<div class="libao_box" >
+    <ul class="box copy" >
+        <volist name="gifts" id="vo" >
+            <li class="item" >
+                <div class="left" >
+                    <a href="{:U('Mobile/Gift/detail',array('giftid'=>$vo['giftid']))}" >
+                        <div class="img" >
+                            <img src="{$vo.icon}" onerror="javascript:this.src='__PUBLIC__/mobile/images/lb.png'"
+                                 alt="{$vo.name}" />
+                        </div >
+                        <div class="text" >
+                            <h3 >{$vo.giftname}</h3 >
+                            <p >{$vo.code}</p >
+                            <!-- <span class="geted">已领取</span> -->
+                        </div >
+                    </a >
+                </div >
+                <div class="right" >
+                    <a href="#" class="btn copyGift" data-clipboard-text="{$vo.code}" >复制</a >
+                </div >
+            </li >
+        </volist >
+    </ul >
+</div >
+<div class="getBox" >
+    <div class="copy_box" >
+        <h3 >复制成功</h3 >
+    </div >
+</div >
+<div class="loading_more" >
+    <ul class="loadBtn loadBtn2" >
+        <li class="line" ><b ></b ></li >
+        <li class="text" >加载更多</li >
+        <li class="line" ><b ></b ></li >
+    </ul >
+    <div class="btn_top" >
+        <img src="__PUBLIC__/mobile/images/btn_top.png" alt="" />
+    </div >
+</div >
+<!-- 加载底部 -->
+<mobiletpl file="bottom" />
+<div class="main_model_box" ></div >
+</body>
+<script src="__PUBLIC__/mobile/js/jquery.js" ></script >
+<script src="__PUBLIC__/mobile/js/public.js" ></script >
+<script src="__PUBLIC__/mobile/js/huosdk_base.js" ></script >
+<script src="__PUBLIC__/mobile/js/libao.js" ></script >
+</html>

@@ -1,0 +1,47 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right my-game" >
+                <div class="top_hint" >
+                    设置支付密码
+                </div >
+                <div class="main_content" >
+                    原来密码：<input type="password" name="prepass" /> <span style="color:grey;" >您的初始支付密码为登录密码</span >
+                    <br />
+                    支付密码：<input type="password" name="paypwd1" /> <br />
+                    确认密码：<input type="password" name="paypwd2" /> <br />
+                    <button class="btn btn-success" id="submit" >修改</button >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<style >
+
+</style >
+<script >
+    $("#submit").click(function () {
+        var prepass = $("input[name='prepass']").val();
+        var paypwd1 = $("input[name='paypwd1']").val();
+        var paypwd2 = $("input[name='paypwd2']").val();
+        $.post("{:U('Agent/SubAccount/setPayPwd_post')}", {
+            "prepass": prepass,
+            "paypwd1": paypwd1,
+            "paypwd2": paypwd2
+        }, function (data) {
+            if (data.error === '0') {
+                yxalert(data.msg);
+            } else if (data.error === '1') {
+                yxalert(data.msg);
+            }
+        });
+    });
+
+</script >
+
+<agenttpl file="user_center_footer" />

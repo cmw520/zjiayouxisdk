@@ -1,0 +1,69 @@
+<!DOCTYPE html >
+<html >
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title >{:C('BRAND_NAME')}</title >
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+
+    <script src="__PUBLIC__/agent/js/jquery-1.7.2.min.js" ></script >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/css_reset.css" />
+    <link rel="stylesheet" href="__PUBLIC__/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/3rd/bootstrap/css/bootstrap.min.css" />
+    <script src="__PUBLIC__/3rd/bootstrap/js/bootstrap.min.js" ></script >
+
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/common.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/css/user-new.css" >
+    <link rel="stylesheet" href="__PUBLIC__/agent/less/index.css" />
+
+    <script src="__PUBLIC__/agent/js/demo1.js" ></script >
+    <script src="__PUBLIC__/agent/js/xhr.js" ></script >
+
+    <style >
+        /*html{font-size: 62.5%;font-family: "微软雅黑";}*/
+    </style >
+
+    <script src="__PUBLIC__/3rd/layer/layer.js" ></script >
+    <script src="__PUBLIC__/huoshu/share.js" ></script >
+</head >
+<body >
+<header >
+    <div class="header" >
+        <div class="welcome" >
+            <span >欢迎加盟全国最大手游联合推广平台！推广方便，赚钱轻松！</span >
+        </div >
+        <div class="welcome_right" >
+            <div class="main" >
+                <ul >
+                    <li ><span >{$user.user_login}</span >(ID：<b >{$user.id}</b >)</li >
+                    <!--<li class="center"><b></b><em></em><a href="#">消息</a><span> 25</span><b></b></li>-->
+                    <li ><a href="{:U('Front/Api/logout')}" >退出登录</a ></li >
+                </ul >
+            </div >
+            <span >欢迎您，</span >
+        </div >
+    </div >
+</header >
+<nav style="background-color:#FFFFFF;" >
+    <div class="nav" >
+        <div class="nav_logo" >
+            <a href="{:U('front/index/index')}" >
+                <img src="__PUBLIC__/agent/img/{:C('COMPANY_LOGO')}" alt="" />
+                <span >做最具价值的手游平台！</span >
+            </a >
+
+        </div >
+        <ul class="main_nav" >
+            <if condition="$user_type eq 'agent'" >
+                <li onclick="location.href = '{:U('front/index/index')}'" ><a href="{:U('front/index/index')}" >首页</a >
+                </li >
+                <li class="active" onclick="location.href = '{:U('Agent/ucenter/index')}'" ><a >个人中心</a ></li >
+            </if >
+            <if condition="$user_type eq 'subagent'" >
+                <li class="active" onclick="location.href = '{:U('Agent/ucenter/index')}'" style='float:right;' >
+                    <a >个人中心</a ></li >
+            </if >
+
+            <!--<li onclick="location.href = '{:U('user/ucenter/MyGameCenter')}'"><a >手游APP</a></li>-->
+        </ul >
+    </div >
+</nav >

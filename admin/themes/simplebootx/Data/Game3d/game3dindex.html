@@ -1,0 +1,148 @@
+<admintpl file="header" />
+
+</head>
+
+<body class="J_scroll_fixed" >
+
+<div class="wrap js-check-wrap" >
+
+    <!-- <ul class="nav nav-tabs">
+
+        <li class="active"><a href="javascript:;">所有文章</a></li>
+
+        <li><a href="{:U('AdminPost/add',array('term'=>empty($term['term_id'])?'':$term['term_id']))}" target="_self">添加文章</a></li>
+
+    </ul> -->
+
+    <div ></div >
+
+    <form class="well form-search" method="get" action="{:U('Data/Game3d/game3dindex')}" >
+
+        <div class="search_type cc mb10" >
+
+            <div class="mb10" >
+
+                设备：
+
+                <select class="select_2" name="device_id" >
+                 <option value ="0">请选择设备</option>
+
+                   <volist name="devcie" id="val">
+
+                       
+                        <option value="{$val.device_id}"  <if condition="$val.device_id eq $device_id"> selected </if> >{$val.device_id}</option >
+
+                    </volist >
+
+                </select >
+
+
+
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+
+					<span class="mr20" >
+
+						  游戏：
+                <input type="text" name="game_name" value="{$game_name}">
+
+
+                       <input type="submit" class="btn btn-warning" value="搜索" />
+
+					</span >
+
+            </div >
+
+        </div >
+
+    </form >
+
+    <form class="js-ajax-form" action="" method="get" >
+
+        <table class="table table-hover table-bordered table-list" >
+
+            <tr >
+
+                
+
+            </tr >
+
+        </table >
+
+        &nbsp;&nbsp;
+
+
+
+        <table class="table table-hover table-bordered table-list" >
+
+            <thead >
+
+            <tr >
+
+                <th >游戏</th >
+
+                <th >0.0-0.2</th >
+
+                <th >0.2-0.4</th >
+
+                <th >0.4-0.6</th >
+
+                <th >0.6-0.8</th >
+
+                <th >0.8-1</th >
+
+                <th >曲线图</th >
+
+               
+
+                
+            </tr >
+
+            </tr>
+
+            </thead >
+
+          
+
+           
+
+            <volist name="newdata" id="vo" key="k" >
+
+                <tr >
+
+                    
+                    <td >{$vo['name']}</td >
+
+                    <td >{$vo['a1']}</td >
+
+                    <td >{$vo['b1']}</td >
+
+                    <td >{$vo['c1']}</td >
+
+                    <td >{$vo['d1']}</td >
+
+                    <td >{$vo['e1']}</td >
+
+                    <td ><a href="{:U('Data/Game3d/graph',$newdata[$key])}" >查看曲线图</a ></td >
+					
+
+                </tr >
+
+            </volist>
+
+
+
+        </table >
+
+        <div class="pagination" >{$Page}</div >
+
+    </form >
+
+</div >
+
+<script src="__PUBLIC__/js/common.js" ></script >
+
+
+
+</body >
+
+</html>

@@ -1,0 +1,90 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main mygameCenter" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right" style="height: 955px" >
+                <div class="page-right-header" >
+                    <div >我的游戏中心</div >
+                </div >
+
+                <div class="mygameHP mygameHP_2" >
+                    <img alt="" src="__PUBLIC__/agent/img/xslc.png"
+                         style="width:900px;margin:20px auto 0 auto;display:block;" >
+                    <div class="hpleft" >
+                        <div class="editname" >
+                            <div class="editnamecontentheader" >
+                                <img src="__PUBLIC__/agent/img/editname.png" alt="" >
+                            </div >
+
+                            <div class="editnamecontent" >
+                                <div class="editContent" >
+                                    <div class="editContentHeader" >游戏中心名称</div >
+                                    <div class="editcontentC" >
+                                        <input type="text" id="centerName" value="唐人街" class="disable"
+                                               maxlength="7" ><!--class="disable"-->
+                                        <div class="xiugaiBtn" >修改</div >
+
+                                        <div id="update" onclick="update();" class="querenBtn" >确认</div >
+                                        <input type="hidden" id="ctx" value="" >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+
+                        <!--游戏中心app-->
+                        <div class="gcAPP" >
+                            <div class="gcappcontentheader" >
+                                <img src="__PUBLIC__/agent/img/gcAPP.png" alt="" >
+                            </div >
+                            <div class="gcappcontent" style="height: 485px" >
+                                <div class="editContent" >
+                                    <div class="editContentHeader" >游戏中心APP</div >
+                                    <div class="editcontentC" >
+                                        <div class="div bbNum" >版本号:11</div >
+                                        <div class="div" >大小:4.28M</div >
+                                        <div class="div" ><span >网页版游戏中心：</span ><a href="#" target="view_window"
+                                                                                    id="copy-1" >http://mgwyx.com</a >
+                                            <div class="fuzhi fuzhi_1" data-clipboard-target="copy-1" >复制</div >
+                                        </div >
+                                        <div class="div daddress" ><span >下载地址：</span ><a href="#" target="view_window"
+                                                                                          id="copy-2" >http://mgwyx.apk</a >
+                                            <div class="fuzhi fuzhi_2" data-clipboard-target="copy-2" >复制</div >
+                                        </div >
+                                        <div class="div dl" >
+                                            <div ><a href="#" target="view_window" >下载</a ></div >
+                                        </div >
+                                        <div class="div ewm-box" style="" >
+                                            <span >二维码：</span >
+                                            <div class="ewm" >
+                                                <img src="__PUBLIC__/initMyGameCenter_files/9041918686169775.png"
+                                                     width="118" height="117" alt="" >
+                                                <p >立即下载<em >“手游福利社”</em >APP</p >
+                                                <p >体验属于您自已的推广平台</p >
+
+                                            </div >
+                                        </div >
+
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                    <div class="phoneimg" >
+                        <img src="__PUBLIC__/agent/img/phoneimg.png" alt="" >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+
+<script >
+    $("nav .main_nav li").eq(2).addClass("active").siblings().removeClass("active");
+</script >
+
+<agenttpl file="user_center_footer" />
+

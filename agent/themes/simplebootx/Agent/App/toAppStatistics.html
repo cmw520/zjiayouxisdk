@@ -1,0 +1,490 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <div class="page-right" >
+                <!--APP数据统计 Start -->
+                <h2 class="com-tit" ><span class="tips" >APP数据统计<em class="com-tips tips-01" ></em ></span ></h2 >
+                <div class="app-tab" >
+                    <div class="app-tab-top" >
+                        <div class="app-tab-top-l" >今<br >日</div >
+                        <ul >
+                            <li class="on" ><h2 >1</h2 >
+                                <p >游戏下载量</p ><em ></em ></li >
+                            <li ><h2 >1</h2 >
+                                <p >APP新增设备</p ><em ></em ></li >
+                            <li ><h2 >1</h2 >
+                                <p >APP活跃设备数</p ><em ></em ></li >
+                            <li ><h2 >1</h2 >
+                                <p >APP启动次数</p ><em ></em ></li >
+                        </ul >
+                    </div >
+
+                    <div class="app-tab-bot" >
+                        <!--第一个图表-->
+                        <div class="app-tab-item" >
+                            <div class="app-area-01" >
+                                <div class="app-area-01-top" >
+                                    <span class="nochogame" ><img src="__PUBLIC__/agent/img/game-icon-01.png" width="46"
+                                                                  height="46" ><em >点击选择游戏</em ></span >
+                                    <div class="yichogame" >
+                                        <img src="__PUBLIC__/agent/img/game-icon-01.png" width="46" height="46" >
+                                        <a href="javascript:void(0)" >重新选择</a >
+                                        <span >已选择：<em >苍穹之翼</em ></span >
+                                    </div >
+                                </div >
+                                <div class="app-area-01-bot" >
+                                    <!--gameid隐藏域-->
+                                    <input id="gameId" type="hidden" value="" >
+                                    <span class="lj-downs" >累计下载：<em id="alldata01" >1</em ></span >
+                                    <div class="time-sec" >
+                                        <span >时间：</span >
+                                        <input id="stime" name="stime" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 00:00:00 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , maxDate: & #39; #F{$dp.$D(\ & #39; etime\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <span class="to" >至</span >
+                                        <input id="etime" name="etime" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 23:59:59 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , minDate: & #39; #F{$dp.$D(\ & #39; stime\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <a href="javascript:void(0)" onclick="searchDown()" >查 询</a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="app-area-02" >
+                                <span class="qs-downs" >下载量趋势</span >
+                                <div class="tb-box" >
+                                    <div id="container-1" style="min-width: 310px; height: 400px; margin: 0 auto"
+                                         data-highcharts-chart="0" >
+                                        <div class="highcharts-container" id="highcharts-0"
+                                             style="position: relative; overflow: hidden; width: 960px; height: 400px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" >
+                                            <svg version="1.1"
+                                                 style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
+                                                 xmlns="http://www.w3.org/2000/svg" width="960" height="400" >
+                                                <desc >Created with Highcharts 4.2.5</desc >
+                                                <defs >
+                                                    <clippath id="highcharts-1" >
+                                                        <rect x="0" y="0" width="906" height="349" ></rect >
+                                                    </clippath >
+                                                </defs >
+                                                <rect x="0" y="0" width="960" height="400" fill="#FFFFFF"
+                                                      class=" highcharts-background" ></rect >
+                                                <path fill="none" d="M 44 359.5 L 950 359.5" stroke="#808080"
+                                                      stroke-width="1" ></path >
+                                                <g class="highcharts-grid" ></g >
+                                                <g class="highcharts-grid" >
+                                                    <path fill="none" d="M 44 359.5 L 950 359.5" stroke="#D8D8D8"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 44 301.5 L 950 301.5" stroke="#D8D8D8"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 44 243.5 L 950 243.5" stroke="#D8D8D8"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 44 184.5 L 950 184.5" stroke="#D8D8D8"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 44 126.5 L 950 126.5" stroke="#D8D8D8"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 44 68.5 L 950 68.5" stroke="#D8D8D8"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 44 10.5 L 950 10.5" stroke="#D8D8D8"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                </g >
+                                                <g class="highcharts-axis" >
+                                                    <path fill="none" d="M 172.5 359 L 172.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 302.5 359 L 302.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 431.5 359 L 431.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 561.5 359 L 561.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 690.5 359 L 690.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 820.5 359 L 820.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 949.5 359 L 949.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 43.5 359 L 43.5 369" stroke="#C0D0E0"
+                                                          stroke-width="1" opacity="1" ></path >
+                                                    <path fill="none" d="M 44 359.5 L 950 359.5" stroke="#C0D0E0"
+                                                          stroke-width="1" ></path >
+                                                </g >
+                                                <g class="highcharts-axis" ></g >
+                                                <g class="highcharts-series-group" >
+                                                    <path fill="#6ec200" fill-opacity="0.25"
+                                                          d="M 755 349 C 768.32 349 768.32 369 755 369 C 741.68 369 741.68 349 755 349 Z" ></path >
+                                                    <g class="highcharts-series highcharts-series-0"
+                                                       transform="translate(44,10) scale(1 1)"
+                                                       clip-path="url(#highcharts-1)" >
+                                                        <path fill="none"
+                                                              d="M 64.714285714286 349 L 194.14285714286 349 L 323.57142857143 349 L 453 349 L 582.42857142857 349 L 711.85714285714 349 L 841.28571428571 58.16666666666663"
+                                                              stroke="#6ec200" stroke-width="3" stroke-linejoin="round"
+                                                              stroke-linecap="round" ></path >
+                                                        <path fill="none"
+                                                              d="M 54.71428571428601 349 L 64.714285714286 349 L 194.14285714286 349 L 323.57142857143 349 L 453 349 L 582.42857142857 349 L 711.85714285714 349 L 841.28571428571 58.16666666666663 L 851.28571428571 58.16666666666663"
+                                                              stroke-linejoin="round" visibility="visible"
+                                                              stroke="rgba(192,192,192,0.0001)" stroke-width="22"
+                                                              class=" highcharts-tracker" style="" ></path >
+                                                    </g >
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-tracker"
+                                                       transform="translate(44,10) scale(1 1)"
+                                                       clip-path="url(#highcharts-2)" style="" >
+                                                        <path fill="#6ec200"
+                                                              d="M 841 54.16666666666663 C 846.328 54.16666666666663 846.328 62.16666666666663 841 62.16666666666663 C 835.672 62.16666666666663 835.672 54.16666666666663 841 54.16666666666663 Z" ></path >
+                                                        <path fill="#6ec200"
+                                                              d="M 711 343 C 718.992 343 718.992 355 711 355 C 703.008 355 703.008 343 711 343 Z"
+                                                              stroke="#FFFFFF" stroke-width="1" ></path >
+                                                        <path fill="#6ec200"
+                                                              d="M 582 345 C 587.328 345 587.328 353 582 353 C 576.672 353 576.672 345 582 345 Z" ></path >
+                                                        <path fill="#6ec200"
+                                                              d="M 453 345 C 458.328 345 458.328 353 453 353 C 447.672 353 447.672 345 453 345 Z" ></path >
+                                                        <path fill="#6ec200"
+                                                              d="M 323 345 C 328.328 345 328.328 353 323 353 C 317.672 353 317.672 345 323 345 Z"
+                                                              stroke-width="1" ></path >
+                                                        <path fill="#6ec200"
+                                                              d="M 194 345 C 199.328 345 199.328 353 194 353 C 188.672 353 188.672 345 194 345 Z"
+                                                              stroke-width="1" ></path >
+                                                        <path fill="#6ec200"
+                                                              d="M 64 345 C 69.328 345 69.328 353 64 353 C 58.672 353 58.672 345 64 345 Z" ></path >
+                                                    </g >
+                                                </g >
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels" >
+                                                    <text x="108.71428571428571"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:124px;text-overflow:clip;"
+                                                          text-anchor="middle" transform="translate(0,0)" y="378"
+                                                          opacity="1" >07-18
+                                                    </text >
+                                                    <text x="238.1428571428571"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:124px;text-overflow:clip;"
+                                                          text-anchor="middle" transform="translate(0,0)" y="378"
+                                                          opacity="1" >07-19
+                                                    </text >
+                                                    <text x="367.57142857142856"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:124px;text-overflow:clip;"
+                                                          text-anchor="middle" transform="translate(0,0)" y="378"
+                                                          opacity="1" >07-20
+                                                    </text >
+                                                    <text x="496.99999999999994"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:124px;text-overflow:clip;"
+                                                          text-anchor="middle" transform="translate(0,0)" y="378"
+                                                          opacity="1" >07-21
+                                                    </text >
+                                                    <text x="626.4285714285713"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:124px;text-overflow:clip;"
+                                                          text-anchor="middle" transform="translate(0,0)" y="378"
+                                                          opacity="1" >07-22
+                                                    </text >
+                                                    <text x="755.8571428571428"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:124px;text-overflow:clip;"
+                                                          text-anchor="middle" transform="translate(0,0)" y="378"
+                                                          opacity="1" >07-23
+                                                    </text >
+                                                    <text x="885.2857142857142"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:124px;text-overflow:clip;"
+                                                          text-anchor="middle" transform="translate(0,0)" y="378"
+                                                          opacity="1" >07-24
+                                                    </text >
+                                                </g >
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels" >
+                                                    <text x="29"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:307px;text-overflow:clip;"
+                                                          text-anchor="end" transform="translate(0,0)" y="361"
+                                                          opacity="1" >0
+                                                    </text >
+                                                    <text x="29"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:307px;text-overflow:clip;"
+                                                          text-anchor="end" transform="translate(0,0)" y="303"
+                                                          opacity="1" >0.2
+                                                    </text >
+                                                    <text x="29"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:307px;text-overflow:clip;"
+                                                          text-anchor="end" transform="translate(0,0)" y="245"
+                                                          opacity="1" >0.4
+                                                    </text >
+                                                    <text x="29"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:307px;text-overflow:clip;"
+                                                          text-anchor="end" transform="translate(0,0)" y="186"
+                                                          opacity="1" >0.6
+                                                    </text >
+                                                    <text x="29"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:307px;text-overflow:clip;"
+                                                          text-anchor="end" transform="translate(0,0)" y="128"
+                                                          opacity="1" >0.8
+                                                    </text >
+                                                    <text x="29"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:307px;text-overflow:clip;"
+                                                          text-anchor="end" transform="translate(0,0)" y="70"
+                                                          opacity="1" >1
+                                                    </text >
+                                                    <text x="29"
+                                                          style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:307px;text-overflow:clip;"
+                                                          text-anchor="end" transform="translate(0,0)" y="12"
+                                                          opacity="1" >1.2
+                                                    </text >
+                                                </g >
+                                                <g class="highcharts-tooltip"
+                                                   style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;"
+                                                   transform="translate(648,294)" opacity="1" visibility="visible" >
+                                                    <path fill="none"
+                                                          d="M 3.5 0.5 L 78.5 0.5 C 81.5 0.5 81.5 0.5 81.5 3.5 L 81.5 46.5 C 81.5 49.5 81.5 49.5 78.5 49.5 L 45.5 49.5 39.5 55.5 33.5 49.5 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                                          isShadow="true" stroke="black"
+                                                          stroke-opacity="0.049999999999999996" stroke-width="5"
+                                                          transform="translate(1, 1)" ></path >
+                                                    <path fill="none"
+                                                          d="M 3.5 0.5 L 78.5 0.5 C 81.5 0.5 81.5 0.5 81.5 3.5 L 81.5 46.5 C 81.5 49.5 81.5 49.5 78.5 49.5 L 45.5 49.5 39.5 55.5 33.5 49.5 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                                          isShadow="true" stroke="black"
+                                                          stroke-opacity="0.09999999999999999" stroke-width="3"
+                                                          transform="translate(1, 1)" ></path >
+                                                    <path fill="none"
+                                                          d="M 3.5 0.5 L 78.5 0.5 C 81.5 0.5 81.5 0.5 81.5 3.5 L 81.5 46.5 C 81.5 49.5 81.5 49.5 78.5 49.5 L 45.5 49.5 39.5 55.5 33.5 49.5 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                                          isShadow="true" stroke="black" stroke-opacity="0.15"
+                                                          stroke-width="1" transform="translate(1, 1)" ></path >
+                                                    <path fill="rgba(249, 249, 249, .85)"
+                                                          d="M 3.5 0.5 L 78.5 0.5 C 81.5 0.5 81.5 0.5 81.5 3.5 L 81.5 46.5 C 81.5 49.5 81.5 49.5 78.5 49.5 L 45.5 49.5 39.5 55.5 33.5 49.5 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                                          stroke="#6ec200" stroke-width="1" ></path >
+                                                    <text x="8" style="font-size:12px;color:#333333;fill:#333333;"
+                                                          y="20" >
+                                                        <tspan style="font-size: 10px" >07-23</tspan >
+                                                        <tspan style="fill:#6EC200" x="8" dy="15" >●</tspan >
+                                                        <tspan dx="0" > 下载量:</tspan >
+                                                        <tspan style="font-weight:bold" dx="0" >0</tspan >
+                                                    </text >
+                                                </g >
+                                            </svg >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="down-zj" >选择时间内总计：<em id="timedata01" >1</em ></div >
+                            </div >
+                        </div >
+
+                        <!--第二个图表-->
+                        <div class="app-tab-item" style="display: none;" >
+                            <div class="app-area-01" >
+                                <div class="app-area-01-bot" >
+                                    <span class="lj-downs" >累计设备数：<em id="alldata02" >2111</em ></span >
+                                    <div class="time-sec" >
+                                        <span >时间：</span >
+                                        <input id="stime02" name="stime02" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 00:00:00 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , maxDate: & #39; #F{$dp.$D(\ & #39; etime02\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <span class="to" >至</span >
+                                        <input id="etime02" name="etime02" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 23:59:59 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , minDate: & #39; #F{$dp.$D(\ & #39; stime02\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <a href="javascript:void(0);"
+                                           onclick="ajaxhighchart( & #39; #container - 2 & #39; );" >查 询</a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="app-area-02" >
+                                <span class="qs-downs" >新增设备趋势</span >
+                                <div class="tb-box" >
+                                    <div id="container-2"
+                                         style="min-width: 310px; height: 400px; margin: 0 auto" ></div >
+                                </div >
+                                <div class="down-zj" >选择时间内总计：<em id="timedata02" ></em ></div >
+                            </div >
+                        </div >
+                        <!--第三个图表-->
+                        <div class="app-tab-item" style="display: none;" >
+                            <div class="app-area-01" >
+                                <div class="app-area-01-bot" >
+                                    <span class="lj-downs" >累计活跃设备数：<em id="alldata03" >2048</em ></span >
+                                    <div class="time-sec" >
+                                        <span >时间：</span >
+                                        <input id="stime03" name="stime03" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 00:00:00 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , maxDate: & #39; #F{$dp.$D(\ & #39; etime03\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <span class="to" >至</span >
+                                        <input id="etime03" name="etime03" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 23:59:59 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , minDate: & #39; #F{$dp.$D(\ & #39; stime03\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <a href="javascript:void(0);"
+                                           onclick="ajaxhighchart( & #39; #container - 3 & #39; );" >查 询</a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="app-area-02" >
+                                <span class="qs-downs" >活跃设备趋势</span >
+                                <div class="tb-box" >
+                                    <div id="container-3"
+                                         style="min-width: 310px; height: 400px; margin: 0 auto" ></div >
+                                </div >
+                                <div class="down-zj" >选择时间内总计：<em id="timedata03" ></em ></div >
+                            </div >
+                        </div >
+                        <!--第四个图表-->
+                        <div class="app-tab-item" style="display: none;" >
+                            <div class="app-area-01" >
+                                <div class="app-area-01-bot" >
+                                    <span class="lj-downs" >累计启动次数：<em id="alldata04" >2900</em ></span >
+                                    <div class="time-sec" >
+                                        <span >时间：</span >
+                                        <input id="stime04" name="stime04" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 00:00:00 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , maxDate: & #39; #F{$dp.$D(\ & #39; etime04\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <span class="to" >至</span >
+                                        <input id="etime04" name="etime04" type="text"
+                                               onclick="WdatePicker({startDate: & #39; % y - % M - % d 23:59:59 & #39; , dateFmt: & #39; yyyy - MM - dd & #39; , minDate: & #39; #F{$dp.$D(\ & #39; stime04\ & #39; , {d:0}); } & #39; , readOnly:true})" >
+                                        <a href="javascript:void(0);"
+                                           onclick="ajaxhighchart( & #39; #container - 4 & #39; );" >查 询</a >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="app-area-02" >
+                                <span class="qs-downs" >设备启动趋势</span >
+                                <div class="tb-box" >
+                                    <div id="container-4"
+                                         style="min-width: 310px; height: 400px; margin: 0 auto" ></div >
+                                </div >
+                                <div class="down-zj" >选择时间内总计：<em id="timedata04" ></em ></div >
+                            </div >
+                        </div >
+
+                    </div >
+                </div >
+                <!--APP数据统计 End -->
+            </div >
+        </div >
+
+        <!--选择游戏弹框-->
+        <div class="pop" id="select-game-pop" style="position: absolute; display: none; z-index: 9999;" >
+            <form id="queryForm" action="#" method="post" >
+                <input id="currentNo_queryForm" name="currentNo" type="hidden" value="1" >
+                <input id="pageSize_queryForm" name="pageSize" type="hidden" value="10" >
+                <div id="pop-header" ><span >请选择游戏</span ><img src="__PUBLIC__/agent/img/pop-closed.png"
+                                                               onclick="closebox( & #39; #select - game - pop & #39; )" >
+                </div >
+                <div id="pop-content" >
+                    <div id="content-header" >
+                        <div >
+                            <span >搜索：</span ><input type="text" name="gamename" >
+                            <div class="search-btn"
+                                 onclick="$( & #39; #currentNo_queryForm & #39; ).val(1); $( & #39; #queryForm & #39; ).submit();" >搜索
+                            </div >
+                            <div class="select-all-game" >选择所有游戏</div >
+                        </div >
+                    </div >
+                    <table width="940px" >
+                        <tbody >
+                        <tr >
+                            <th width="144" >游戏ID</th >
+                            <th width="320" class="game-name" ><span >游戏名称</span ></th >
+                            <th width="110" class="game-size" >游戏大小</th >
+                            <th width="194" >游戏类型</th >
+                            <th width="176" >游戏来源</th >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >99650</span ></td >
+                            <td class="game-name" ><span class="name" >少年四大名捕挂机版</span ></td >
+                            <td class="game-size" >51.5M</td >
+                            <td >网络游戏</td >
+                            <td >129</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >111160</span ></td >
+                            <td class="game-name" ><span class="name" >少年西游记</span ></td >
+                            <td class="game-size" >71M</td >
+                            <td >1</td >
+                            <td >11</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110520</span ></td >
+                            <td class="game-name" ><span class="name" >沙巴克传奇</span ></td >
+                            <td class="game-size" >353M</td >
+                            <td >1</td >
+                            <td >12</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110500</span ></td >
+                            <td class="game-name" ><span class="name" >倩女幽魂（网易国民手游）</span ></td >
+                            <td class="game-size" >313M</td >
+                            <td >1</td >
+                            <td >12</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110680</span ></td >
+                            <td class="game-name" ><span class="name" >萌漫大乱斗</span ></td >
+                            <td class="game-size" >181M</td >
+                            <td >1</td >
+                            <td >58</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110700</span ></td >
+                            <td class="game-name" ><span class="name" >西游伏妖篇</span ></td >
+                            <td class="game-size" >76M</td >
+                            <td >1</td >
+                            <td >163</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110720</span ></td >
+                            <td class="game-name" ><span class="name" >天天裁决</span ></td >
+                            <td class="game-size" >193M</td >
+                            <td >1</td >
+                            <td >63</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110701</span ></td >
+                            <td class="game-name" ><span class="name" >再战沙城</span ></td >
+                            <td class="game-size" >273M</td >
+                            <td >1</td >
+                            <td >59</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110740</span ></td >
+                            <td class="game-name" ><span class="name" >傲视天下</span ></td >
+                            <td class="game-size" >52M</td >
+                            <td >1</td >
+                            <td >16</td >
+                        </tr >
+
+                        <tr class="tr" >
+                            <td class="game-id" ><span class="id" >110760</span ></td >
+                            <td class="game-name" ><span class="name" >梦幻西游无双版</span ></td >
+                            <td class="game-size" >405M</td >
+                            <td >1</td >
+                            <td >59</td >
+                        </tr >
+
+                        </tbody >
+                    </table >
+                    <div class="page" >
+
+                        <div class="page" style="" >
+                            <span class="game-num" >
+                                共为您找到16个游戏，第<span >1</span >/<span id="maxcountqueryForm" >2</span >页
+                            </span >
+                            <div class="paging" >
+                                <ul >
+                                    <li class="home-page" onclick="locatePage_queryForm(1)" >首页</li >
+                                    <li class="previous-page" onclick="locatePage_queryForm(0)" ></li >
+
+                                    <li onclick="locatePage_queryForm(1)" class="now-num" >1</li >
+
+                                    <li onclick="locatePage_queryForm(2)" class="" >2</li >
+
+                                    <!-- 总条数大于6，页面显示6个页标 -->
+
+                                    <li class="next-page" onclick="locatePage_queryForm(2)" ></li >
+                                    <li class="end-page" onclick="locatePage_queryForm(2)" >末页</li >
+                                    <li class="input-page" >第<input id="gopage_queryForm" type="text" >页</li >
+                                    <li class="confirm" onclick="jumpPage_queryForm()" >确定</li >
+                                </ul >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </form >
+        </div >
+    </div >
+</section >
+<agenttpl file="user_center_footer" />
+
+<script src="__PUBLIC__/agent/js/toAppStatistics.js" ></script >
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+

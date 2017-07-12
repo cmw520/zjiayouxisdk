@@ -1,0 +1,134 @@
+<agenttpl file="user_center_header" />
+<section >
+    <div class="user_center main" >
+        <div class="banner_1" >
+
+        </div >
+        <div class="user_center_main page-content" >
+            <agenttpl file="share/side" />
+            <style >
+                #queryForm .row {
+                    margin: 10px 0;
+                    width: 960px;
+                }
+
+                #queryForm .row input {
+                    /*width:150px;*/
+                }
+            </style >
+
+            <div class="page-right my-game query-records" >
+                <form class="form-inline" role="form" id="queryForm" action="__SELF__" method="get" >
+                    <div class="input-content" style="height:60px;" >
+                        <div class="container " style="width:960px;" >
+                            <div class="row" >
+                                <!--                                <div class="col-xs-6">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">发放渠道</span>
+                                                                        <input type="text" class="form-control" name="give_agent_name" value="{$formget.give_agent_name}" />
+                                                                    </div>
+                                                                </div>-->
+                                <div class="col-xs-4" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >子渠道名称</span >
+                                        <input type="text" class="form-control" name="sub_agent_name"
+                                               value="{$formget.sub_agent_name}" />
+                                    </div >
+                                </div >
+                                <!--                            </div>
+                                                            <div class="row">-->
+                                <div class="col-xs-6" >
+                                    <div class="input-group" >
+                                        <span class="input-group-addon" >发放时间</span >
+                                        <input class="form-control" id="stime" name="start_time" type="text"
+                                               value="{$formget.start_time}" style="width:120px;"
+                                               placeholder="开始时间"
+                                               onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd', maxDate: '#F{$dp.$D(\'etime\',{d:0});}'})" >
+                                        <input class="form-control" id="etime" name="end_time" type="text"
+                                               value="{$formget.end_time}" style="width:120px;"
+                                               placeholder="结束时间"
+                                               onclick="WdatePicker({startDate: '%y-%M-%d 00:00:00', dateFmt: 'yyyy-MM-dd', maxDate: '#F{$dp.$D(\'etime\',{d:0});}'})" >
+                                    </div >
+                                </div >
+                                <div class='col-xs-2' >
+                                    <button class="btn btn-success" id="search-btn" >搜&nbsp;索</button >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+                <div class="search-results" >
+
+                    <div class="results-header" >
+                        <span class="game-num" >共找到<i >{$total_rows}</i >个记录</span >
+                    </div >
+                    <div class="table-content registration-details" >
+                        <table class="table table-hover" >
+                            <tbody >
+                            <tr >
+                                <th >操作时间</th >
+                                <th >发放渠道</th >
+                                <th >子渠道名称</th >
+                                <th >发放数量</th >
+                            </tr >
+                            <volist name="items" id="vo" >
+                                <tr class="even" >
+                                    <td ><?php echo date("Y-m-d H:i:s",$vo['create_time']); ?></td >
+                                    <td >{$vo.give_agent_name}</td >
+                                    <td >{$vo.sub_agent_name}</td >
+                                    <td >{$vo.ptb_cnt}</td >
+                                </tr >
+                            </volist >
+                            </tbody >
+                        </table >
+
+                        <div class="page" style="" >
+                            <span class="game-num" >
+                                共为您找到 {$total_rows} 个记录
+                            </span >
+                            <div class="paging" >
+                                {$page}
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+
+<!--页脚-->
+<agenttpl file="footer" />
+
+<!--<script src="__PUBLIC__/agent/js/gameuser.js"></script>-->
+<script src="__PUBLIC__/agent/My97DatePicker/WdatePicker.js" ></script >
+<script >
+
+    $(".charge_record_btn").click(function () {
+        var mem_id = $(this).attr("data-memid");
+        layer.open({
+            shift     : 7,
+            type      : 2,
+            title     : '代充记录',
+            shadeClose: true,
+            shade     : 0.2,
+            area      : ['850px', '60%'],
+            content   : '{:U("Agent/DataAgentForMem/index")}?mem_id=' + mem_id //iframe的url
+        });
+    });
+
+    $(".consume_record_btn").click(function () {
+        var mem_id = $(this).attr("data-memid");
+        layer.open({
+            shift     : 7,
+            type      : 2,
+            title     : '消费记录',
+            shadeClose: true,
+            shade     : 0.2,
+            area      : ['850px', '60%'],
+            content   : '{:U("Agent/DataMemConsume/index")}?mem_id=' + mem_id //iframe的url
+        });
+    });
+</script >
+
+

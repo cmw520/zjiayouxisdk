@@ -1,0 +1,172 @@
+<admintpl file="header" />
+</head>
+<body >
+<!--
+ @time 2017-01-21 16:44:09
+ @author 严旭
+-->
+
+
+<style >
+    .custome_header_item {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+</style >
+    <div class="wrap" >
+        <ul class="nav nav-tabs" >
+            <li ><a href="{:U('Newapp/Delivery/index')}" >订单列表</a ></li >
+            <li class="active" ><a href="{:U('Newapp/Delivery/send')}" >发货</a ></li >
+        </ul >
+        <form action="{:U('Newapp/Delivery/sendPost')}" method="post" class="form-horizontal js-ajax-form" >
+            <input type="hidden" name="order_id" value="{$order_id}" />
+            <div class="row-fluid" >
+                <div class="span9" >
+                    <div class="custome_header_item" >收货人信息</div >
+                    <table class="table table-bordered add_message_div" >
+                        
+                        <tr >
+                            <th width="80" >收件人</th >
+                            <td >
+                                <!--<input type="text" name="consignee" />-->
+                                {$data.consignee}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >手机号码</th >
+                            <td >
+                                <!--<input type="text" name="mobile" />-->
+                                {$data.mobile}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >地址</th >
+                            <td >
+                                {$data.province} {$data.city}  {$data.district} {$data.town}
+                                <br />
+                                <br />
+                                {$data.address}
+                                <!--                                <input type="text" name="province" placeholder="省" disabled="disabled" style="width:100px;margin-right:10px;" />
+                                                                <input type="text" name="city" placeholder="市" disabled="disabled" style="width:100px;margin-right:10px;" />
+                                                                <input type="text" name="district" placeholder="县/区" disabled="disabled" style="width:100px;margin-right:10px;" />
+                                                                <br />
+                                                                <br />
+                                                                <input type="text" name="address" placeholder="详细地址" disabled="disabled" style="width:360px;" />-->
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >邮编</th >
+                            <td >
+                                <!--<input type="text" name="zipcode" />-->
+                                {$data.zipcode}
+                            </td >
+                        </tr >
+                    </table >
+                    <div class="custome_header_item" >发货信息</div >
+                    <table class="table table-bordered" >
+                        <tr >
+                            <th width="80" >发货状态</th >
+                            <td >
+                                <input type="radio" name="shipping_status" value="1" />未发货
+                                <input type="radio" name="shipping_status" value="2" checked="checked" />已发货
+                                <input type="radio" name="shipping_status" value="3" />发货失败
+                            </td >
+                        </tr >
+                        <tr class="shipping_info" >
+                            <th width="80" >物流公司</th >
+                            <td >
+                                <input type="text" name="shipping_name" />
+                            </td >
+                        </tr >
+                        <tr class="shipping_info" >
+                            <th width="80" >物流单号</th >
+                            <td >
+                                <input type="text" name="invoice_no" />
+                            </td >
+                        </tr >
+                        <tr >
+                            <th width="80" >留言(虚拟商品为卡密)</th >
+                            <td >
+                                <textarea name="admin_note" style="width:500px;height:200px;" ></textarea >
+                            </td >
+                        </tr >
+                        <!--                        <tr>
+                                                    <th width="80">物流状态</th>
+                                                    <td>
+                                                        <input type="radio" name="shipping_status" value="1" checked="checked" />已发货
+                                                        <input type="radio" name="shipping_status" value="2" />未发货
+                                                        <input type="radio" name="shipping_status" value="3" />发货失败
+                                                    </td>
+                                                </tr> -->
+                    </table >
+                </div >
+                <div class="span3" >
+                    <div class="custome_header_item" >订单信息</div >
+                    <table class="table table-bordered" >
+                        <tr >
+                            <th >商品名称</th >
+                        </tr >
+                        <tr >
+                            <td >
+                                {$data.goods_name}
+                            </td >
+                        </tr >
+                        <tr >
+                            <th >商品展示图</th >
+                        </tr >
+                        <tr >
+                            <td >
+                                <div style="text-align: center;" >
+                                    <img src="{$data.original_img}" id="thumb_preview" width="135"
+                                         style="cursor: hand" />
+                                </div >
+                            </td >
+                        </tr >
+                        <!--                        <tr><th>购买数量</th></tr>
+                                                <tr><td>{$data.goods_num}</td></tr>-->
+                        <tr ><th >消耗积分</th ></tr >
+                        <tr ><td >{$data.integral}</td ></tr >
+                    </table >
+                </div >
+            </div >
+            <div class="form-actions" >
+                <button class="btn btn-primary js-ajax-submit" type="submit" >发货</button >
+                <a class="btn" href="{:U('Newapp/Delivery/index')}" >{:L('BACK')}</a >
+            </div >
+        </form >
+    </div >
+    <script type="text/javascript" src="__PUBLIC__/js/common.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js" ></script >
+    <script type="text/javascript" >
+    //编辑器路径定义
+    var editorURL = GV.DIMAUB;
+    </script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js" ></script >
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js" ></script >
+    <script >
+        var editorcontent = new baidu.editor.ui.Editor();
+        editorcontent.render('content');
+    </script >
+    <script >
+//        $("input[name='consignee']").val("{$data.consignee}");
+//        $("input[name='mobile']").val("{$data.mobile}");
+//        $("input[name='province']").val("{$data.province}");
+//        $("input[name='city']").val("{$data.city}");
+//        $("input[name='district']").val("{$data.district}");
+//        $("input[name='address']").val("{$data.address}");
+//        $("input[name='zipcode']").val("{$data.zipcode}");
+$("input[name='shipping_name']").val("{$data.shipping_name}");
+$("input[name='invoice_no']").val("{$data.invoice_no}");
+$("textarea[name='admin_note']").val("{$data.admin_note}");
+var is_real = "{$data.is_real}";
+if (is_real === "1") {
+    $(".shipping_info").hide();
+}
+var shipping_status = "{$data.shipping_status}";
+$("input[name='shipping_status']").removeAttr("checked");
+$("input[name='shipping_status'][value='" + shipping_status + "']").attr("checked", "checked");
+    </script >
+
+</body >
+</html>
+

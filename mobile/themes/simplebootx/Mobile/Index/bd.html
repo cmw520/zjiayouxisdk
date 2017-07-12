@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<head lang="en" >
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" >
+    <meta charset="UTF-8" >
+    <title >网游榜单</title >
+    <link rel="Shortcut Icon" href="__PUBLIC__/wap/img/ooopic_1467870829.ico" >
+    <link rel="stylesheet" href="__PUBLIC__/wap/less/style.css" />
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/bd.css" />
+    <link rel="stylesheet" href="__PUBLIC__/wap/css/search_box.css" />
+</head >
+<body >
+<header id="header" >
+    <div class="row1" >
+        <div class="back_btn" >
+            <span ></span >
+        </div >
+        <div class=" text-center" >
+            <h4 >网游榜单</h4 >
+        </div >
+        <div class="icon_search" >
+            <span ></span >
+        </div >
+    </div >
+</header >
+<div class="search_box" >
+    <div class="search_container" >
+        <input type="text" />
+        <button >搜索</button >
+    </div >
+</div >
+<section >
+    <div id="wy_list_down" >
+        <volist name="items" id="vo" key="k" >
+            <div class="wy_list_down" >
+                <div class="serialNumber" >
+                    <span >{$k}</span >
+                </div >
+                <div class="game_list" onclick="window.location.href='{:U('Mobile/Index/game')}/{$vo.id}'" >
+                    <div class="list_left" >
+                        <a href="#" ><img src="/upload/{$vo.icon}" alt="" /></a >
+                    </div >
+                    <div class="list_main" >
+                        <h4 >{$vo.name}</h4 >
+                        <ul >
+                            <li >角色 |</li >
+                            <li >运营</li >
+                        </ul >
+                    </div >
+                </div >
+                <div class="delete" >
+                    <span >{$vo.download_count}</span >
+                    <b ></b >
+                    <button onclick="download('{:U('Mobile/Front/DownloadApp')}/app_id/{$vo.id}');" >下载</button >
+                </div >
+            </div >
+        </volist >
+
+    </div >
+</section >
+</body >
+<script src="__PUBLIC__/wap/js/jquery-1.7.2.min.js" ></script >
+<script src="__PUBLIC__/wap/js/main.js" ></script >
+<script src="__PUBLIC__/wap/js/demo1.js" ></script >
+<script src="__PUBLIC__/wap/js/search_box.js" ></script >
+
+<script >
+    function download(url) {
+        window.open(url);
+    }
+</script >
+</html >
